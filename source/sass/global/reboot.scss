@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 *,
 *::before,
 *::after {
@@ -14,10 +16,10 @@ body {
 html {
   font-style: normal;
   font-weight: 400;
-  font-size: $fz-default;
+  font-size: $size-text-m;
   line-height: 24px;
   font-family: $ff-placeholder;
-  color: $color-default-black;
+  color: $color-typo-primary;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -126,4 +128,26 @@ button,
 [type="reset"],
 [type="submit"] {
   appearance: none;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: $color-scroll-bg;
+}
+
+*::-webkit-scrollbar-corner {
+  background-color: $color-scroll-bg;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $color-scroll-thumb;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: $color-scroll-thumb-hover;
 }
