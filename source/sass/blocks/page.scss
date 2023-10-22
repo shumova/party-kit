@@ -1,0 +1,48 @@
+@use "sass:math";
+
+.page {
+  height: 100%;
+  overflow: hidden;
+  padding-top: $offset-block-desktop;
+  padding-bottom: $offset-block-desktop;
+
+  &__container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: max(250px, 20%) minmax(0, 1fr);
+    column-gap: $space-xl;
+  }
+
+  &__nav,
+  &__content {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  @include vp-1023 {
+    padding-top: $offset-block-tablet;
+    padding-bottom: $offset-block-tablet;
+
+    &__container {
+      grid-template-columns: calc(math.abs($offset-container-tablet - $offset-nav-tablet)) minmax(0, 1fr);
+    }
+
+    &__content {
+      grid-column: 2;
+    }
+  }
+
+  @include vp-767 {
+    padding-top: $offset-block-mobile;
+    padding-bottom: $offset-block-mobile;
+
+    &__container {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr) $offset-nav-mobile;
+    }
+
+    &__content {
+      grid-column: auto;
+    }
+  }
+}
