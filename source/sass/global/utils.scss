@@ -3,9 +3,10 @@
 
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   /* stylelint-disable-next-line */
-  min-height: calc(100 * var(--vh, 1vh));
+  height: calc(100 * var(--vh, 1vh));
+  overflow: hidden;
 
   .header,
   .footer {
@@ -14,6 +15,7 @@
 
   main {
     flex-grow: 1;
+    max-height: 100%;
   }
 }
 
