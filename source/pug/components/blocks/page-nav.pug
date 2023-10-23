@@ -6,6 +6,6 @@ mixin page-nav(props = {})
 
   #{tag}.page-nav&attributes(attributes)
 
-    button.page-nav__toggle
+    +burger().page-nav__toggle(aria-pressed="false", data-page-nav="toggle")
 
     ul.page-nav__list.no-scrollbar

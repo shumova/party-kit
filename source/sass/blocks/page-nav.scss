@@ -1,15 +1,17 @@
 .page-nav {
-  position: relative;
+  $toggle-border-width: 2px;
+
   padding-right: $offset-nav-desktop;
   padding-left: $offset-nav-desktop;
   border-radius: $space-xl;
 
   &__toggle {
+    grid-area: toggle;
     display: none;
-    cursor: pointer;
   }
 
   &__list {
+    grid-area: list;
     height: 100%;
     margin: 0;
     padding: $offset-block-desktop 0;
@@ -21,17 +23,60 @@
     position: fixed;
     top: 0;
     bottom: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) $offset-nav-tablet;
+    grid-template-areas: "list toggle";
     width: 350px;
+    padding-right: 0;
+    padding-left: $offset-nav-tablet;
     border-radius: 0 $space-xl $space-xl 0;
     transform: translateX(calc((100% + $offset-container-tablet) * -1 + $offset-nav-tablet));
     transition: transform $trans-default;
+
+    &__toggle {
+      justify-self: center;
+      display: initial;
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: calc($offset-nav-tablet * 1.5);
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: $space-l;
+        left: calc(100% - $toggle-border-width - $offset-nav-tablet);
+        bottom: $space-l;
+        width: $toggle-border-width;
+        background-color: $color-control-bg-border-default;
+      }
+    }
 
     &__list {
       padding: $offset-block-tablet 0;
     }
 
     @include hover {
+      transform: translateX(calc((100% + $offset-container-tablet) * -1 + $offset-nav-tablet * 1.5));
+    }
+
+    &.is-active {
       transform: translateX(calc(($offset-container-tablet * -1)));
+
+      .page-nav__toggle {
+        &::before {
+          width: calc($offset-nav-tablet);
+        }
+      }
+
+      @include hover {
+        transform: translateX(calc(($offset-container-tablet * -1)));
+      }
     }
   }
 
@@ -39,13 +84,30 @@
     top: auto;
     right: 0;
     left: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: calc($offset-nav-mobile) minmax(0, 1fr);
+    grid-template-areas: "toggle" "list";
     width: auto;
     height: calc(100% + $offset-nav-mobile);
+    padding-right: $offset-nav-mobile;
+    padding-left: $offset-nav-mobile;
     border-radius: $space-xl $space-xl 0 0;
     transform: translateY(calc((100% - $offset-nav-mobile)));
 
-    &.is-active {
-      transform: translateY(0);
+    &__toggle {
+      &::before {
+        left: 0;
+        width: auto;
+      }
+
+      &::after {
+        top: $offset-nav-mobile;
+        right: $space-l;
+        bottom: auto;
+        left: $space-l;
+        width: auto;
+        height: $toggle-border-width;
+      }
     }
 
     &__list {
@@ -53,8 +115,23 @@
       padding-top: calc($offset-nav-mobile + $offset-block-mobile);
     }
 
+    &.is-active {
+      transform: translateY(20%);
+
+      .page-nav__toggle {
+        &::before {
+          width: 100%;
+          height: calc($offset-nav-mobile);
+        }
+      }
+
+      @include hover {
+        transform: translateY(20%);
+      }
+    }
+
     @include hover {
-      transform: translateY(0);
+      transform: translateY(calc((100% - $offset-nav-mobile * 1.5)));
     }
   }
 }
