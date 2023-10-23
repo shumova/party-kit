@@ -1,0 +1,60 @@
+@use "sass:math";
+
+.burger {
+  padding: 0;
+  border: none;
+  background-color: $color-transparent;
+  cursor: pointer;
+  user-select: none;
+
+  &__wrapper {
+    position: relative;
+    display: grid;
+    place-content: center;
+    transition: transform $trans-default;
+
+    &::after,
+    span {
+      margin-top: $space-2xs;
+    }
+
+    &::before,
+    &::after,
+    span {
+      width: 25px;
+      height: 3px;
+      content: "";
+
+      background-color: $color-control-typo-default;
+      border-radius: $space-3xs;
+
+      transform: translateZ(0);
+    }
+  }
+
+  &.is-disabled,
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.is-active {
+    .burger__wrapper span {
+      opacity: 0;
+    }
+
+    .burger__wrapper::before {
+      transform: rotate(-45deg) translate(-5px, 5px);
+    }
+
+    .burger__wrapper::after {
+      transform: rotate(45deg) translate(-5px, -5px);
+    }
+  }
+
+  @include interactive-style {
+    .burger__wrapper {
+      transform: scale(1.1);
+    }
+  }
+}
