@@ -1,0 +1,9 @@
+mixin burger(props = {})
+  -
+    const
+          target = props.target || "menu",
+          ariaLabel = `Open ${target}`;
+
+  button.burger(type="button", aria-pressed="false", aria-label=ariaLabel, data-label-name=target)&attributes(attributes)
+    span.burger__wrapper
+      span

@@ -15,6 +15,7 @@ $color-base-phantom: #004269; /* Тонирующий цвет, от котор�
 // $color-base-caution: #f2c94c; /* Цвет осторожности */
 // $color-base-normal: #56b9f2; /* Цвет нейтральный */
 // $color-base-critical: #33000f;
+$color-transparent: transparent;
 
 
 /* Цвета текста */
@@ -63,10 +64,10 @@ $color-scroll-thumb-hover: color.change($color-base-phantom, $alpha: 0.32);
 
 // // Default
 // $color-control-bg-default: $color-base-essential; /* Цвет фона контрола */
-// $color-control-typo-default: $color-base-base; /* Цвет основного текста контрола */
+$color-control-typo-default: $color-base-base; /* Цвет основного текста контрола */
 // $color-control-typo-placeholder: color.change($color-base-base, $alpha: 0.35); /* Цвет плейсхолдера контрола */
-// $color-control-bg-border-default: color.change($color-base-phantom, $alpha: 0.28); /* Цвет фона бордеров котрола */
-// $color-control-bg-border-default-hover: color.change($color-base-phantom, $alpha: 0.52); /* Цвет фона бордеров контрола по ховеру */
+$color-control-bg-border-default: color.change($color-base-phantom, $alpha: 0.28); /* Цвет фона бордеров котрола */
+$color-control-bg-border-default-hover: color.change($color-base-phantom, $alpha: 0.52); /* Цвет фона бордеров контрола по ховеру */
 // $color-control-bg-border-focus: color.adjust($color-base-path, $lightness: +9%); /* Цвет аутлайна контролов при фокусе */
 // $color-control-bg-focus: color.change($color-base-path, $alpha: 0.3); /* Цвет тени в состонии фокуса */
 // $color-control-bg-active: color.change($color-base-path, $alpha: 0.5); /* Цвет тени в состонии нажатия  */
