@@ -11,7 +11,6 @@
     position: relative;
     display: grid;
     place-content: center;
-    transition: transform $trans-default;
 
     &::after,
     span {
@@ -24,11 +23,12 @@
       width: 25px;
       height: 3px;
       content: "";
-
       background-color: $color-control-typo-default;
       border-radius: $space-3xs;
-
       transform: translateZ(0);
+      transition:
+        transform $trans-default,
+        opacity $trans-default;
     }
   }
 
