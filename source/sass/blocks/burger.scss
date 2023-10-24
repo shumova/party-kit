@@ -11,6 +11,7 @@
     position: relative;
     display: grid;
     place-content: center;
+    transition: transform $trans-default;
 
     &::after,
     span {
@@ -52,7 +53,7 @@
     }
   }
 
-  @include interactive-style {
+  @include hover {
     .burger__wrapper {
       transform: scale(1.1);
     }

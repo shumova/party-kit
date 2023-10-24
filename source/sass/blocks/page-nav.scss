@@ -4,6 +4,7 @@
   padding-right: $offset-nav-desktop;
   padding-left: $offset-nav-desktop;
   border-radius: $space-xl;
+  transition: transform $trans-default;
 
   &__toggle {
     grid-area: toggle;
@@ -31,7 +32,6 @@
     padding-left: $offset-nav-tablet;
     border-radius: 0 $space-xl $space-xl 0;
     transform: translateX(calc((100% + $offset-container-tablet) * -1 + $offset-nav-tablet));
-    transition: transform $trans-default;
 
     &__toggle {
       justify-self: center;
@@ -61,21 +61,17 @@
       padding: $offset-block-tablet 0;
     }
 
-    @include hover {
+    &.is-ready-to-open {
       transform: translateX(calc((100% + $offset-container-tablet) * -1 + $offset-nav-tablet * 1.5));
     }
 
-    &.is-active {
+    &.is-open {
       transform: translateX(calc(($offset-container-tablet * -1)));
 
       .page-nav__toggle {
         &::before {
           width: calc($offset-nav-tablet);
         }
-      }
-
-      @include hover {
-        transform: translateX(calc(($offset-container-tablet * -1)));
       }
     }
   }
@@ -115,7 +111,11 @@
       padding-top: calc($offset-nav-mobile + $offset-block-mobile);
     }
 
-    &.is-active {
+    &.is-ready-to-open {
+      transform: translateY(calc((100% - $offset-nav-mobile * 1.5)));
+    }
+
+    &.is-open {
       transform: translateY(20%);
 
       .page-nav__toggle {
@@ -124,14 +124,6 @@
           height: calc($offset-nav-mobile);
         }
       }
-
-      @include hover {
-        transform: translateY(20%);
-      }
-    }
-
-    @include hover {
-      transform: translateY(calc((100% - $offset-nav-mobile * 1.5)));
     }
   }
 }

@@ -38,4 +38,4 @@ const initToggles = () => {
 
 window.initToggleBtns = initToggles;
 
-export {initToggles};
+export {initToggles, toggleOff};

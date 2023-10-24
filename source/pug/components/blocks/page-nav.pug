@@ -3,9 +3,8 @@ mixin page-nav(props = {})
     const
           tag = props.tag || "div"
 
+  #{tag}.page-nav(data-page-nav="container")&attributes(attributes)
 
-  #{tag}.page-nav&attributes(attributes)
+    +burger().page-nav__toggle(data-page-nav="toggle")
 
-    +burger().page-nav__toggle
-
-    ul.page-nav__list.no-scrollbar
+    ul.page-nav__list.no-scrollbar(data-page-nav="list")
