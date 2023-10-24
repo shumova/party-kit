@@ -3,7 +3,8 @@ import {initModals} from './modules/modals/init-modals';
 import {Form} from './modules/form-validate/form';
 import {CustomSelect} from './modules/select/custom-select';
 import {uploadFile, uploadImageDrop} from './modules/input-file/init-upload';
-
+import {initToggles} from './modules/toggle/init-toggle';
+import {initPageNav} from './modules/page-nav/page-nav';
 // ---------------------------------
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +13,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------
 
   mobileVhFix();
+  initToggles();
+  initPageNav();
 
   // Modules
   // ---------------------------------

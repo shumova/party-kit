@@ -24,11 +24,12 @@
       width: 25px;
       height: 3px;
       content: "";
-
       background-color: $color-control-typo-default;
       border-radius: $space-3xs;
-
       transform: translateZ(0);
+      transition:
+        transform $trans-default,
+        opacity $trans-default;
     }
   }
 
@@ -52,7 +53,7 @@
     }
   }
 
-  @include interactive-style {
+  @include hover {
     .burger__wrapper {
       transform: scale(1.1);
     }
