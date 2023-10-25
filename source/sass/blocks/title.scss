@@ -1,0 +1,12 @@
+.title {
+  margin: 0;
+  padding: 0;
+
+  &--size-2xl {
+    font-size: $size-text-2xl;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+}

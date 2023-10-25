@@ -1,0 +1,10 @@
+mixin text(props = {})
+  -
+    const
+          tag = props.tag || "span",
+          content = props.content || [],
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "text--" + mod) : [];
+
+  div(class=["text", ...modifiers])&attributes(attributes)
+    each item in content
+      #{tag}!= item
