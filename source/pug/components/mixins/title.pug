@@ -1,0 +1,8 @@
+mixin title(props = {})
+  -
+    const
+          tag = props.tag || "span",
+          text = props.text || "",
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "title--" + mod) : [];
+
+  #{tag}(class=["title", ...modifiers])&attributes(attributes)!= text
