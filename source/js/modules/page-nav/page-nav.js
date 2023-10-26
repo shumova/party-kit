@@ -85,11 +85,11 @@ class PageNav {
   }
 
   _toggleMouseoverHandler() {
-    this.container.classList.add('is-ready-to-open');
+    this.container.classList.add('is-ajar');
   }
 
   _toggleMouseoutHandler() {
-    this.container.classList.remove('is-ready-to-open');
+    this.container.classList.remove('is-ajar');
   }
 
   _windowResizeHandler() {
