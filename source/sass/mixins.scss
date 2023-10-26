@@ -52,6 +52,30 @@
   }
 }
 
+@mixin aspect-ratio {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(var(--img-height, 1) / var(--img-width, 1) * 100%);
+  }
+
+  svg,
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    object-fit: var(--img-object-fit, cover);
+  }
+}
+
 // Desktop first
 
 @mixin vp-1919 {
