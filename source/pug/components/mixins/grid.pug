@@ -13,14 +13,15 @@ mixin grid (props = {})
           - const itemModifiers = item.modifiers ? item.modifiers.map((mod) => "grid__item--" + mod) : [];
 
           li(class=["grid__item", ...itemModifiers])
-            +#{item.component}(item.props)
+            +#{item.component}(item.params)
 
     default
       #{tag}(class=["grid", ...modifiers])&attributes(attributes)
         if content.length
           each item in content
             - const itemModifiers = item.modifiers ? item.modifiers.map((mod) => "grid__item--" + mod) : [];
+            - const itemParentClass = item.parentClass || [];
 
-            +#{item.component}(item.props)(class=["grid__item", ...itemModifiers])
+            +#{item.component}(item.params)(class=["grid__item", ...itemModifiers, ...itemParentClass])
         else
           block

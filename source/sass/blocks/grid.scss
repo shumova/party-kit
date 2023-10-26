@@ -12,6 +12,10 @@
   &--cols {
     &-2 {
       --cols: 2;
+
+      @include vp-767 {
+        --cols: 1;
+      }
     }
 
     &-4 {
@@ -82,8 +86,8 @@
     grid-row: var(--row-start, span) var(--row-end, 1);
 
     &--col {
-      &-2 {
-        --col-end: 2;
+      &-3 {
+        --col-end: 3;
       }
 
       &-4 {
