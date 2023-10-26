@@ -36,6 +36,22 @@
   }
 }
 
+@mixin interactive-style {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover:not(.focus-visible) {
+      @content;
+    }
+  }
+
+  &.focus-visible:focus {
+    @content;
+  }
+
+  &:active {
+    @content;
+  }
+}
+
 // Desktop first
 
 @mixin vp-1919 {
