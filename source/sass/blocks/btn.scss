@@ -1,26 +1,74 @@
 .btn {
+  --icon-margin: 10px;
+
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px 20px;
-
-  color: $color-default-white;
-
-  background-color: $color-neon-blue;
+  line-height: inherit;
+  color: $color-control-typo-default;
+  background-color: $color-control-bg-default;
   border: none;
+  border-radius: $space-s;
   cursor: pointer;
+  user-select: none;
 
-  transition: opacity $trans-default;
+  transition: color $trans-default, opacity $trans-default;
+
+  &.disabled,
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  svg {
+    flex-shrink: 0;
+    height: 16px;
+    width: auto;
+    transform: translateZ(0);
+  }
+
+  svg:first-child {
+    transform: rotate(180deg);
+  }
+
+  svg + &__text,
+  &__text + svg {
+    margin-left: var(--icon-margin);
+  }
+
+  &__text {
+    text-align: center;
+  }
+
+  @include hover-focus {
+    opacity: 0.8;
+  }
+
+  &--primary {
+    color: $color-control-typo-primary;
+    background-color: $color-control-bg-primary;
+  }
+
+  &--size-l {
+    padding: 15px 25px;
+    font-weight: 700;
+    font-size: 20px;
+  }
 
   &--red {
     background-color: $color-torch-red;
   }
 
-  &:disabled {
-    opacity: 0.5;
+  &--active-red {
+    &.active {
+      color: $color-torch-red;
+      opacity: 1;
+    }
 
-    pointer-events: none;
-  }
-
-  @include hover-focus {
-    opacity: 0.8;
+    @include hover-focus {
+      color: $color-torch-red;
+      opacity: 1;
+    }
   }
 }
