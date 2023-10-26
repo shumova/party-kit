@@ -17,9 +17,10 @@ html {
   font-style: normal;
   font-weight: 400;
   font-size: $size-text-m;
-  line-height: 24px;
+  line-height: $line-height-text-xs;
   font-family: $font-family-primary;
   color: $color-typo-primary;
+  background-color: $color-bg-default;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
