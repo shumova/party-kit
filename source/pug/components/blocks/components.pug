@@ -1,3 +1,6 @@
-mixin components()
+mixin components({content})
   .components&attributes(attributes)
     .components__content.no-scrollbar
+      +grid({modifiers: ["cols-2", "gap-3xl"]})
+        each item in content
+          +base-card(item)

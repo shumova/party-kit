@@ -11,10 +11,157 @@ block variables
           footerMods = "",
           currentUrl = "index.html"
 
+  -
+    const page = {
+      nav: {
+        tag: "nav",
+        links: [
+          {
+            text: "Components overview",
+            href: "index.html",
+            isTitle: true
+          },
+          {
+            text: "Title",
+            href: "#"
+          },
+          {
+            text: "Text",
+            href: "#"
+          },
+        ]
+      },
+      components: {
+        content: [
+          {
+            img: {
+              path: "content",
+              name: "placeholder",
+              format: "png",
+              altText: "test"
+            },
+            title: {
+              text: "Title"
+            },
+            subtitle: {
+              text: "Subtitle"
+            },
+            text: {
+              content: ["Text"]
+            },
+            btn: {
+              href: "#"
+            }
+          },
+          {
+            img: {
+              path: "content",
+              name: "placeholder",
+              format: "png",
+              altText: "test"
+            },
+            title: {
+              text: "Title"
+            },
+            subtitle: {
+              text: "Subtitle"
+            },
+            text: {
+              content: ["Text"]
+            },
+            btn: {
+              href: "#"
+            }
+          },
+          {
+            img: {
+              path: "content",
+              name: "placeholder",
+              format: "png",
+              altText: "test"
+            },
+            title: {
+              text: "Title"
+            },
+            subtitle: {
+              text: "Subtitle"
+            },
+            text: {
+              content: ["Text"]
+            },
+            btn: {
+              href: "#"
+            }
+          },
+          {
+            img: {
+              path: "content",
+              name: "placeholder",
+              format: "png",
+              altText: "test"
+            },
+            title: {
+              text: "Title"
+            },
+            subtitle: {
+              text: "Subtitle"
+            },
+            text: {
+              content: ["Text"]
+            },
+            btn: {
+              href: "#"
+            }
+          },
+          {
+            img: {
+              path: "content",
+              name: "placeholder",
+              format: "png",
+              altText: "test"
+            },
+            title: {
+              text: "Title"
+            },
+            subtitle: {
+              text: "Subtitle"
+            },
+            text: {
+              content: ["Text"]
+            },
+            btn: {
+              href: "#"
+            }
+          },
+          {
+            img: {
+              path: "content",
+              name: "placeholder",
+              format: "png",
+              altText: "test"
+            },
+            title: {
+              text: "Title"
+            },
+            subtitle: {
+              text: "Subtitle"
+            },
+            text: {
+              content: ["Text"]
+            },
+            btn: {
+              href: "#"
+            }
+          }
+        ]
+      }
+    }
+
+
 block main
   main
     +page()
-      +page-nav().page__nav
-      +components().page__content
+      +page-nav(page.nav).page__nav
+      +components(page.components).page__content
 
 block modals

@@ -1,0 +1,32 @@
+.base-card {
+  &__img {
+    --img-width: 2;
+    --img-height: 1;
+
+    @include aspect-ratio;
+
+    border-radius: $space-xl;
+    overflow: hidden;
+  }
+
+  &__content {
+    display: grid;
+    padding: $space-l;
+  }
+
+  .title {
+    margin-bottom: $space-xs;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .text {
+    margin-bottom: $space-m;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

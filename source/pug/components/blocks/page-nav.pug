@@ -1,10 +1,17 @@
 mixin page-nav(props = {})
   -
     const
-          tag = props.tag || "div"
+          links = props.links || [],
+          tag = props.tag || "div";
 
   #{tag}.page-nav(data-page-nav="container")&attributes(attributes)
 
     +burger().page-nav__toggle(data-page-nav="toggle")
 
     ul.page-nav__list.no-scrollbar(data-page-nav="list")
+      each link in links
+        - const activeState = currentUrl === link.href
+        - const titleLink = link.isTitle
+        - const tag = activeState ? "span" : "a"
+        li.page-nav__item
+          #{tag}.page-nav__link(class=[activeState && "is-active", titleLink && "page-nav__link--title"], href=link.href)= link.text

@@ -1,0 +1,55 @@
+mixin base-card(props = {})
+  -
+    const
+          {card, img, title, subtitle, text, btn} = props,
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "component-card--" + mod) : [];
+
+  -
+    const
+          _params = {
+            _card: {
+              modifiers: ["elevated", "filled", "border-radius-xl", ...(card?.modifiers ?? [])]
+            },
+            _img: img && {
+              path: img.path || "",
+              name: img.name || "",
+              format: img.format || "jpg",
+              width: img.width || "50",
+              height: img.height || "50",
+              altText: img.altText || ""
+            },
+            _title: title && {
+              text: title.text,
+              modifiers: ["size-2xl", ...(title.modifiers ?? [])]
+            },
+            _subtitle: subtitle && {
+              text: subtitle.text,
+              modifiers: ["size-l", ...(subtitle.modifiers ?? [])]
+            },
+            _text: text && {
+              tag: text.tag || "p",
+              content: text.content,
+              modifiers: [...(text.modifiers ?? [])]
+            },
+            _btn: btn && {
+              href: btn.href,
+              text: btn.text || "Open",
+              modifiers: ["primary"]
+            }
+          };
+
+
+  +card(_params._card)(class=["base-card", ...modifiers])&attributes(attributes)
+    if img
+      .base-card__img
+        +picture(_params._img)
+    if (title || subtitle || text || btn)
+      .base-card__content
+        if title
+          +title(_params._title)
+        if subtitle
+          +title(_params._subtitle)
+        if text
+          +text(_params._text)
+        if btn
+          +btn(_params._btn)
