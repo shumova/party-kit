@@ -3,6 +3,7 @@ import {toggleOff} from '../toggle/init-toggle';
 class PageNav {
   constructor() {
     this.container = document.querySelector('[data-page-nav="container"]');
+    this.content = document.querySelector('[data-page-nav="content"]');
     this.nav = this.container.querySelector('[data-page-nav="list"]');
     this.toggle = this.container.querySelector('[data-page-nav="toggle"]');
 
@@ -59,7 +60,7 @@ class PageNav {
     const target = evt.target;
 
     const isOnToggleClick = target.closest('[data-page-nav="toggle"]');
-    const isOnPageNavClick = target.closest('[data-page-nav="container"]');
+    const isOnPageNavClick = target.closest('[data-page-nav="content"]');
 
     if (isOnToggleClick) {
       if (this.isOpen) {
@@ -93,9 +94,19 @@ class PageNav {
   }
 
   _windowResizeHandler() {
-    this.container.classList.add('no-transition');
+    this.content.classList.add('no-transition');
 
-    setTimeout(() => this.container.classList.remove('no-transition'), 400);
+    setTimeout(() => this.content.classList.remove('no-transition'), 400);
+
+    if (!this.breakpoint.tablet.matches) {
+      if (this.container.classList.contains('is-open')) {
+        this.container.classList.remove('is-open');
+      }
+
+      if (this.toggle.classList.contains('is-active')) {
+        this.toggle.classList.remove('is-active');
+      }
+    }
   }
 
   open() {

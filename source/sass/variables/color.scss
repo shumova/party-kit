@@ -43,7 +43,7 @@ $color-bg-brand: $color-base-project; /* Цвет фона брендирова�
 $color-bg-border: color.adjust($color-base-phantom, $lightness: -1%, $alpha: -0.8); /* Цвет границ */
 $color-bg-stripe: color.adjust($color-base-phantom, $lightness: -11%, $alpha: -0.95); /* Цвет зебры (например, при окрашивании фона строк таблицы через одну) */
 $color-bg-ghost: color.adjust($color-base-phantom, $lightness: -11%, $alpha: -0.92); /* Цвет затенения */
-$color-bg-tone: color.adjust($color-base-phantom, $lightness: -11%, $alpha: -0.15); /* Цвет паранджи */
+$color-bg-tone: color.adjust($color-base-phantom, $lightness: -11%, $alpha: -0.3); /* Цвет паранджи */
 $color-bg-soft: color.change($color-base-essential, $alpha: 0.9); /* Цвет молока */
 $color-bg-system: color.change($color-base-system, $hue: 204deg, $saturation: 18%, $lightness: 89%); /* Цвет фона системнный */
 $color-bg-normal: $color-base-normal; /* Цвет фона нейтральный */
