@@ -35,6 +35,7 @@
     left: 0;
     border-radius: initial;
     box-shadow: none;
+    pointer-events: none;
     transition: background-color $trans-default;
 
     &__content {
@@ -45,6 +46,7 @@
       padding-right: 0;
       padding-left: $offset-nav-tablet;
       border-radius: 0 $space-xl $space-xl 0;
+      pointer-events: all;
       transform: translateX(calc(100% * -1 + $offset-nav-tablet));
     }
 
@@ -73,7 +75,9 @@
     }
 
     &__list {
-      padding: $offset-block-tablet 0;
+      padding: $offset-block-tablet;
+      padding-left: 0;
+      visibility: hidden;
     }
 
     &.is-ajar {
@@ -84,6 +88,7 @@
 
     &.is-open {
       background-color: $color-bg-tone;
+      pointer-events: all;
 
       .page-nav__content {
         transform: translateX(0);
@@ -94,15 +99,14 @@
           width: calc($offset-nav-tablet);
         }
       }
+
+      .page-nav__list {
+        visibility: visible;
+      }
     }
   }
 
   @include vp-767 {
-    // top: auto;
-    // right: 0;
-    // left: 0;
-
-
     &__content {
       grid-template-columns: minmax(0, 1fr);
       grid-template-rows: calc($offset-nav-mobile) minmax(0, 1fr);
@@ -133,7 +137,7 @@
 
     &__list {
       padding: $offset-block-mobile 0;
-      padding-top: calc($offset-nav-mobile + $offset-block-mobile);
+      padding-top: $offset-block-mobile;
     }
 
     &.is-ajar {
