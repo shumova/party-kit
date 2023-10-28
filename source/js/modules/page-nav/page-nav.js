@@ -3,9 +3,9 @@ import {toggleOff} from '../toggle/init-toggle';
 class PageNav {
   constructor() {
     this.container = document.querySelector('[data-page-nav="container"]');
-    this.content = document.querySelector('[data-page-nav="content"]');
-    this.nav = this.container.querySelector('[data-page-nav="list"]');
-    this.toggle = this.container.querySelector('[data-page-nav="toggle"]');
+    this.content = this.container && document.querySelector('[data-page-nav="content"]');
+    this.nav = this.container && this.container.querySelector('[data-page-nav="list"]');
+    this.toggle = this.container && this.container.querySelector('[data-page-nav="toggle"]');
 
     this.breakpoint = {
       tablet: window.matchMedia('(max-width: 1023px)'),
