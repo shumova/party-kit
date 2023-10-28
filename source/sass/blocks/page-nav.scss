@@ -80,6 +80,11 @@
       visibility: hidden;
     }
 
+    &__link {
+      --button-font-size: #{$control-text-size-l};
+      --button-space: #{$control-space-s};
+    }
+
     &.is-ajar {
       .page-nav__content {
         transform: translateX(calc(100% * -1 + $offset-nav-tablet * 1.5));

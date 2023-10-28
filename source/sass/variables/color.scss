@@ -20,26 +20,26 @@ $color-transparent: transparent;
 
 /* Цвета текста */
 $color-typo-primary: $color-base-base; /* Цвет основного текста */
-// $color-typo-secondary: color.change($color-base-base, $alpha: 0.6); /* Цвет второстепенного текста */
-// $color-typo-ghost: color.change($color-base-base, $alpha: 0.3); /* Цвет дополнительного текста */
-// $color-typo-brand: $color-base-project; /* Цвет брендового текста */
-// $color-typo-system: color.change($color-base-system, $hue: 204deg, $saturation: 28%, $lightness: 68%); /* Цвет фона системнный */
-// $color-typo-normal: color.adjust($color-base-normal, $saturation: +14%, $lightness: -4%); /* Цвет фона нейтральный */
-// $color-typo-success: color.adjust($color-base-success, $saturation: +20%, $lightness: -8%); /* Цвет текста успеха */
-// $color-typo-caution: color.adjust($color-base-caution, $saturation: +15%, $hue: -8deg, $lightness: -10%); /* Цвет текста осторожности */
-// $color-typo-warning: color.adjust($color-base-warning, $hue: -4deg, $saturation: -2%, $lightness: -2%); /* Цвет текста предупреждения */
-// $color-typo-alert: color.adjust($color-base-alert, $saturation: +3%, $lightness: -7%); /* Цвет текста ошибки */
-// $color-typo-critical: $color-base-critical; /* Цвет фона системнный */
-// $color-typo-link: $color-base-path; /* Цвет основной ссылки */
-// $color-typo-link-minor: color.adjust($color-base-path, $saturation: -35%, $lightness: -10%); /* Цвет второстепенной ссылки */
-// $color-typo-link-hover: color.adjust($color-base-path, $lightness: +8%); /* Цвет ховера ссылки */
+$color-typo-secondary: color.change($color-base-base, $alpha: 0.6); /* Цвет второстепенного текста */
+$color-typo-ghost: color.change($color-base-base, $alpha: 0.3); /* Цвет дополнительного текста */
+$color-typo-brand: $color-base-project; /* Цвет брендового текста */
+$color-typo-system: color.change($color-base-system, $hue: 204deg, $saturation: 28%, $lightness: 68%); /* Цвет фона системнный */
+$color-typo-normal: color.adjust($color-base-normal, $saturation: +14%, $lightness: -4%); /* Цвет фона нейтральный */
+$color-typo-success: color.adjust($color-base-success, $saturation: +20%, $lightness: -8%); /* Цвет текста успеха */
+$color-typo-caution: color.adjust($color-base-caution, $saturation: +15%, $hue: -8deg, $lightness: -10%); /* Цвет текста осторожности */
+$color-typo-warning: color.adjust($color-base-warning, $hue: -4deg, $saturation: -2%, $lightness: -2%); /* Цвет текста предупреждения */
+$color-typo-alert: color.adjust($color-base-alert, $saturation: +3%, $lightness: -7%); /* Цвет текста ошибки */
+$color-typo-critical: $color-base-critical; /* Цвет фона системнный */
+$color-typo-link: $color-base-path; /* Цвет основной ссылки */
+$color-typo-link-minor: color.adjust($color-base-path, $saturation: -35%, $lightness: -10%); /* Цвет второстепенной ссылки */
+$color-typo-link-hover: color.adjust($color-base-path, $lightness: +8%); /* Цвет ховера ссылки */
 
 
 // /* Цвета фонов */
 $color-bg-default: $color-base-essential; /* Цвет дефолта */
 $color-bg-secondary: color.adjust($color-base-project, $saturation: -75%, $lightness: +59%); /* Цвет дефолта */
 $color-bg-brand: $color-base-project; /* Цвет фона брендированый */
-// $color-bg-link: $color-base-path; /* Цвет фона ссылки */
+$color-bg-link: $color-base-path; /* Цвет фона ссылки */
 $color-bg-border: color.adjust($color-base-phantom, $lightness: -1%, $alpha: -0.8); /* Цвет границ */
 $color-bg-stripe: color.adjust($color-base-phantom, $lightness: -11%, $alpha: -0.95); /* Цвет зебры (например, при окрашивании фона строк таблицы через одну) */
 $color-bg-ghost: color.adjust($color-base-phantom, $lightness: -11%, $alpha: -0.92); /* Цвет затенения */
@@ -62,15 +62,15 @@ $color-scroll-thumb-hover: color.change($color-base-phantom, $alpha: 0.32);
 
 // /* Цвета контролов */
 
-// // Default
+// Default
 $color-control-bg-default: $color-base-essential; /* Цвет фона контрола */
 $color-control-typo-default: $color-base-base; /* Цвет основного текста контрола */
-// $color-control-typo-placeholder: color.change($color-base-base, $alpha: 0.35); /* Цвет плейсхолдера контрола */
+$color-control-typo-placeholder: color.change($color-base-base, $alpha: 0.35); /* Цвет плейсхолдера контрола */
 $color-control-bg-border-default: color.change($color-base-phantom, $alpha: 0.28); /* Цвет фона бордеров котрола */
 $color-control-bg-border-default-hover: color.change($color-base-phantom, $alpha: 0.52); /* Цвет фона бордеров контрола по ховеру */
-// $color-control-bg-border-focus: color.adjust($color-base-path, $lightness: +9%); /* Цвет аутлайна контролов при фокусе */
-// $color-control-bg-focus: color.change($color-base-path, $alpha: 0.3); /* Цвет тени в состонии фокуса */
-// $color-control-bg-active: color.change($color-base-path, $alpha: 0.5); /* Цвет тени в состонии нажатия  */
+$color-control-bg-border-focus: color.adjust($color-base-path, $lightness: +9%); /* Цвет аутлайна контролов при фокусе */
+$color-control-bg-focus: color.change($color-base-path, $alpha: 0.3); /* Цвет тени в состонии фокуса */
+$color-control-bg-active: color.change($color-base-path, $alpha: 0.5); /* Цвет тени в состонии нажатия  */
 
 // Primary
 $color-control-bg-primary: $color-base-path; /* Цвет фона активного контрола */
@@ -78,31 +78,31 @@ $color-control-bg-primary-hover: color.adjust($color-base-path, $lightness: +9%)
 $color-control-typo-primary: color.adjust($color-base-base, $lightness: +100%); /* Цвет акцентного текста */
 $color-control-typo-primary-hover: color.adjust($color-base-base, $lightness: +100%); /* Цвет акцентного текста */
 
-// // Secondary
+// Secondary
 $color-control-bg-secondary: color.change($color-base-essential, $alpha: 0); /* Цвет фона бордеров котрола */
 $color-control-bg-border-secondary: $color-base-path; /* Цвет фона бордеров котрола */
 $color-control-bg-border-secondary-hover: color.adjust($color-base-path, $lightness: +9%); /* Цвет фона бордеров контрола по ховеру */
 $color-control-typo-secondary: $color-base-path; /* Цвет второстепеного текста контрола */
 $color-control-typo-secondary-hover: color.adjust($color-base-path, $lightness: +9%); /* Цвет акцентного текста */
 
-// // Ghost
-// $color-control-bg-ghost: color.change($color-base-phantom, $alpha: 0.07); /* Цвет фона дополнительного контрола */
-// $color-control-bg-ghost-hover: color.change($color-base-phantom, $alpha: 0.05); /* Цвет фона дополнительного контрола по ховеру */
-// $color-control-typo-ghost: color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.20); /* Цвет дополнительного текста контрола */
-// $color-control-typo-ghost-hover: color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.25); /* Цвет акцентного текста */
+// Ghost
+$color-control-bg-ghost: color.change($color-base-phantom, $alpha: 0.07); /* Цвет фона дополнительного контрола */
+$color-control-bg-ghost-hover: color.change($color-base-phantom, $alpha: 0.05); /* Цвет фона дополнительного контрола по ховеру */
+$color-control-typo-ghost: color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.2); /* Цвет дополнительного текста контрола */
+$color-control-typo-ghost-hover: color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.25); /* Цвет акцентного текста */
 
 
-// // Clear
-// $color-control-bg-clear: $color-base-phantom; /* Цвет фона чистого контрола */
-// $color-control-bg-clear-hover: color.change($color-base-phantom, $alpha: 0.05); /* Цвет фона чистого контрола по ховеру */
-// $color-control-typo-clear: color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.20); /* Цвет акцентного текста */
-// $color-control-typo-clear-hover: color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.25); /* Цвет акцентного текста */
+// Clear
+$color-control-bg-clear: $color-transparent;
+$color-control-bg-clear-hover: color.change($color-base-phantom, $alpha: 0.05); /* Цвет фона чистого контрола по ховеру */
+$color-control-typo-clear: $color-base-base;
+$color-control-typo-clear-hover: color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.25); /* Цвет акцентного текста */
 
 
-// // Disable
-// $color-control-bg-disable: color.change($color-base-phantom, $alpha: 0.07); /* Цвет фона неактивного контрола */
-// $color-control-bg-border-disable: color.change($color-base-phantom, $alpha: 0); /* Цвет фона бордеров неактивного контрола */
-// $color-control-typo-disable: color.change($color-base-base, $alpha: 0.26); /* Цвет основного текста неактивного контрола */
+// Disable
+$color-control-bg-disable: color.change($color-base-phantom, $alpha: 0.07); /* Цвет фона неактивного контрола */
+$color-control-bg-border-disable: color.change($color-base-phantom, $alpha: 0); /* Цвет фона бордеров неактивного контрола */
+$color-control-typo-disable: color.change($color-base-base, $alpha: 0.26); /* Цвет основного текста неактивного контрола */
 
 
 /* Цвета тени */
