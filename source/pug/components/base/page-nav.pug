@@ -1,10 +1,22 @@
-mixin page-nav(props = {})
+mixin page-nav(pageNavMods, currentUrl)
   -
-    const
-          links = props.links || [],
-          tag = props.tag || "div";
+    const links = [
+      {
+        text: "Components overview",
+        href: "index.html",
+        isTitle: true
+      },
+      {
+        text: "Title",
+        href: "title.html"
+      },
+      {
+        text: "Text",
+        href: "#"
+      },
+    ]
 
-  #{tag}.page-nav(data-page-nav="container")&attributes(attributes)
+  nav.page-nav(data-page-nav="container")&attributes(attributes)
     .page-nav__content(data-page-nav="content")
       +burger().page-nav__toggle(data-page-nav="toggle")
       ul.page-nav__list.no-scrollbar(data-page-nav="list")

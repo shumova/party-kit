@@ -7,161 +7,140 @@ block variables
           wrapperMods = "",
           hasHeader = false,
           headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
           hasFooter = false,
           footerMods = "",
           currentUrl = "index.html"
 
   -
-    const page = {
-      nav: {
-        tag: "nav",
-        links: [
-          {
-            text: "Components overview",
-            href: "index.html",
-            isTitle: true
+    const components = {
+      content: [
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
           },
-          {
-            text: "Title",
-            href: "title.html"
+          title: {
+            text: "Title"
           },
-          {
-            text: "Text",
+          subtitle: {
+            text: "Subtitle"
+          },
+          text: {
+            content: ["Text"]
+          },
+          btn: {
             href: "#"
-          },
-        ]
-      },
-      components: {
-        content: [
-          {
-            img: {
-              path: "content",
-              name: "placeholder",
-              format: "png",
-              altText: "test"
-            },
-            title: {
-              text: "Title"
-            },
-            subtitle: {
-              text: "Subtitle"
-            },
-            text: {
-              content: ["Text"]
-            },
-            btn: {
-              href: "#"
-            }
-          },
-          {
-            img: {
-              path: "content",
-              name: "placeholder",
-              format: "png",
-              altText: "test"
-            },
-            title: {
-              text: "Title"
-            },
-            subtitle: {
-              text: "Subtitle"
-            },
-            text: {
-              content: ["Text"]
-            },
-            btn: {
-              href: "#"
-            }
-          },
-          {
-            img: {
-              path: "content",
-              name: "placeholder",
-              format: "png",
-              altText: "test"
-            },
-            title: {
-              text: "Title"
-            },
-            subtitle: {
-              text: "Subtitle"
-            },
-            text: {
-              content: ["Text"]
-            },
-            btn: {
-              href: "#"
-            }
-          },
-          {
-            img: {
-              path: "content",
-              name: "placeholder",
-              format: "png",
-              altText: "test"
-            },
-            title: {
-              text: "Title"
-            },
-            subtitle: {
-              text: "Subtitle"
-            },
-            text: {
-              content: ["Text"]
-            },
-            btn: {
-              href: "#"
-            }
-          },
-          {
-            img: {
-              path: "content",
-              name: "placeholder",
-              format: "png",
-              altText: "test"
-            },
-            title: {
-              text: "Title"
-            },
-            subtitle: {
-              text: "Subtitle"
-            },
-            text: {
-              content: ["Text"]
-            },
-            btn: {
-              href: "#"
-            }
-          },
-          {
-            img: {
-              path: "content",
-              name: "placeholder",
-              format: "png",
-              altText: "test"
-            },
-            title: {
-              text: "Title"
-            },
-            subtitle: {
-              text: "Subtitle"
-            },
-            text: {
-              content: ["Text"]
-            },
-            btn: {
-              href: "#"
-            }
           }
-        ]
-      }
+        },
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Title"
+          },
+          subtitle: {
+            text: "Subtitle"
+          },
+          text: {
+            content: ["Text"]
+          },
+          btn: {
+            href: "#"
+          }
+        },
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Title"
+          },
+          subtitle: {
+            text: "Subtitle"
+          },
+          text: {
+            content: ["Text"]
+          },
+          btn: {
+            href: "#"
+          }
+        },
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Title"
+          },
+          subtitle: {
+            text: "Subtitle"
+          },
+          text: {
+            content: ["Text"]
+          },
+          btn: {
+            href: "#"
+          }
+        },
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Title"
+          },
+          subtitle: {
+            text: "Subtitle"
+          },
+          text: {
+            content: ["Text"]
+          },
+          btn: {
+            href: "#"
+          }
+        },
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Title"
+          },
+          subtitle: {
+            text: "Subtitle"
+          },
+          text: {
+            content: ["Text"]
+          },
+          btn: {
+            href: "#"
+          }
+        }
+      ]
     }
 
 
-block main
-  main
-    +page()
-      +page-nav(page.nav).page__nav
-      +components(page.components).page__content
+block page
+  +components(components).page__content
 
 block modals

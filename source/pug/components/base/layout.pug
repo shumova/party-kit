@@ -35,7 +35,14 @@ html(lang="ru")
       if (hasHeader)
         +header(headerMods, currentUrl)
 
-      block main
+      if (hasPageNav)
+        main
+          +page()
+            +page-nav(pageNavMods, currentUrl).page__nav
+            block page
+
+      if (!hasPageNav)
+        block main
 
       if (hasFooter)
         +footer(footerMods)
