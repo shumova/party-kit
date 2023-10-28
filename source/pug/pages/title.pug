@@ -1,0 +1,44 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "title",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "title.html"
+
+  -
+    const page = {
+      nav: {
+        tag: "nav",
+        links: [
+          {
+            text: "Components overview",
+            href: "index.html",
+            isTitle: true
+          },
+          {
+            text: "Title",
+            href: "title.html"
+          },
+          {
+            text: "Text",
+            href: "#"
+          },
+        ]
+      },
+    }
+
+
+block main
+  main
+    +page()
+      +page-nav(page.nav).page__nav
+      +component().page__content
+        .title
+
+block modals

@@ -1,4 +1,4 @@
-mixin components({content})
+mixin components({content} = {})
   +card({modifiers: ["filled-secondary", "border-radius-xl", "elevated"]}).components&attributes(attributes)
     .components__content.no-scrollbar
       +grid({modifiers: ["cols-2", "gap-3xl"]})
