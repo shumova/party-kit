@@ -21,7 +21,7 @@
     background-color $trans-default,
     opacity $trans-default;
 
-  &.disabled,
+  &.is-disabled,
   &:disabled {
     --button-cursor: not-allowed;
     --button-color-hover: var(--button-color-disable);
@@ -32,6 +32,12 @@
     background-color: var(--button-bg-color-disable);
     border-color: var(--button-border-disable);
     opacity: var(--button-opacity-disable);
+    pointer-events: none;
+  }
+
+  &.is-active {
+    --button-cursor: not-allowed;
+
     pointer-events: none;
   }
 
@@ -89,6 +95,11 @@
       --button-border: #{$color-transparent};
       --button-bg-color-disable: #{$color-control-bg-border-disable};
       --button-color-disable: #{$color-control-typo-disable};
+
+      &.is-active {
+        --button-bg-color: #{$color-control-bg-clear-hover};
+        --button-color: #{$color-control-typo-clear-hover};
+      }
     }
 
     &-ghost {
