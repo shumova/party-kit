@@ -1,23 +1,43 @@
 .btn {
-  --icon-margin: 10px;
+  --button-icon-indent: 10px;
+  --button-cursor: pointer;
 
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px;
+  padding: var(--button-space);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
   line-height: inherit;
-  color: $color-control-typo-default;
-  background-color: $color-control-bg-default;
+  color: var(--button-color);
+  background-color: var(--button-bg-color);
   border: none;
-  border-radius: $space-s;
-  cursor: pointer;
+  border-radius: var(--button-radius);
+  cursor: var(--button-cursor);
   user-select: none;
 
-  transition: color $trans-default, opacity $trans-default;
+  transition:
+    color $trans-default,
+    background-color $trans-default,
+    opacity $trans-default;
 
-  &.disabled,
+  &.is-disabled,
   &:disabled {
-    opacity: 0.5;
+    --button-cursor: not-allowed;
+    --button-color-hover: var(--button-color-disable);
+    --button-border-hover: var(--button-color-disable);
+    --button-bg-color-hover: var(--button-bg-color-disable);
+
+    color: var(--button-color-disable);
+    background-color: var(--button-bg-color-disable);
+    border-color: var(--button-border-disable);
+    opacity: var(--button-opacity-disable);
+    pointer-events: none;
+  }
+
+  &.is-active {
+    --button-cursor: not-allowed;
+
     pointer-events: none;
   }
 
@@ -34,7 +54,7 @@
 
   svg + &__text,
   &__text + svg {
-    margin-left: var(--icon-margin);
+    margin-left: var(--button-icon-indent);
   }
 
   &__text {
@@ -42,33 +62,153 @@
   }
 
   @include hover-focus {
-    opacity: 0.8;
+    color: var(--button-color-hover);
+    background: var(--button-bg-color-hover);
+    opacity: var(--button-opacity-hover);
   }
 
-  &--primary {
-    color: $color-control-typo-primary;
-    background-color: $color-control-bg-primary;
-  }
+  &--text {
+    &-align-left {
+      justify-content: start;
 
-  &--size-l {
-    padding: 15px 25px;
-    font-weight: 700;
-    font-size: 20px;
-  }
-
-  &--red {
-    background-color: $color-torch-red;
-  }
-
-  &--active-red {
-    &.active {
-      color: $color-torch-red;
-      opacity: 1;
+      .btn__text {
+        text-align: left;
+      }
     }
 
-    @include hover-focus {
-      color: $color-torch-red;
-      opacity: 1;
+    &-one-line {
+      .btn__text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
     }
   }
+
+  &--view {
+    &-clear {
+      --button-bg-color: #{$color-control-bg-clear};
+      --button-bg-color-hover: #{$color-control-bg-clear-hover};
+      --button-color: #{$color-control-typo-clear};
+      --button-color-hover: #{$color-control-typo-clear-hover};
+      --button-border: #{$color-transparent};
+      --button-bg-color-disable: #{$color-control-bg-border-disable};
+      --button-color-disable: #{$color-control-typo-disable};
+
+      &.is-active {
+        --button-bg-color: #{$color-control-bg-clear-hover};
+        --button-color: #{$color-control-typo-clear-hover};
+      }
+    }
+
+    &-ghost {
+      --button-bg-color: #{$color-control-bg-ghost};
+      --button-bg-color-hover: #{$color-control-bg-ghost-hover};
+      --button-color: #{$color-control-typo-ghost};
+      --button-color-hover: #{$color-control-typo-ghost-hover};
+      --button-border: #{$color-transparent};
+      --button-bg-color-disable: #{$color-control-bg-disable};
+      --button-color-disable: #{$color-control-typo-disable};
+    }
+
+    &-primary {
+      --button-bg-color: #{$color-control-bg-primary};
+      --button-bg-color-hover: #{$color-control-bg-primary-hover};
+      --button-color: #{$color-control-typo-primary};
+      --button-color-hover: #{$color-control-typo-primary-hover};
+      --button-border: #{$color-transparent};
+      --button-bg-color-disable: #{$color-control-bg-disable};
+      --button-color-disable: #{$color-control-typo-disable};
+    }
+
+    &-secondary {
+      --button-bg-color: #{$color-control-bg-secondary};
+      --button-bg-color-hover: #{$color-control-bg-clear};
+      --button-color: #{$color-control-typo-secondary};
+      --button-color-hover: #{$color-control-typo-secondary-hover};
+      --button-border: #{$color-control-bg-border-secondary};
+      --button-border-hover: #{$color-control-bg-border-secondary-hover};
+      --button-bg-color-disable: #{$color-control-bg-secondary};
+      --button-color-disable: #{$color-control-typo-disable};
+      --button-border-disable: #{$color-control-typo-disable};
+      border: $control-border-width solid var(--button-border);
+
+      &:not(:disabled):hover {
+        border-color: var(--button-border-hover);
+      }
+    }
+  }
+
+  &--form {
+    &-brick {
+      --button-radius: 0;
+    }
+
+    &-round {
+      --button-radius: 99rem;
+
+      &-s {
+        --button-radius: #{$space-s};
+      }
+
+      &-l {
+        --button-radius: #{$space-l};
+      }
+    }
+  }
+
+  &--size {
+    &-s {
+      --button-font-size: #{$control-text-size-s};
+      --button-space: calc(#{$control-space-xs} - #{$space-3xs});
+      --button-icon-indent: #{$space-xs};
+    }
+
+    &-m {
+      --button-font-size: #{$control-text-size-m};
+      --button-space: #{$control-space-xs};
+      --button-icon-indent: calc(#{$space-s} - #{$space-3xs});
+    }
+
+    &-l {
+      --button-font-size: #{$control-text-size-l};
+      --button-space: #{$control-space-s};
+      --button-icon-indent: calc(#{$space-m} - #{$space-3xs});
+    }
+  }
+
+  &--width {
+    &-full {
+      width: 100%;
+    }
+  }
+
+
+  // &--primary {
+  //   color: $color-control-typo-primary;
+  //   background-color: $color-control-bg-primary;
+  // }
+
+  // &--size-l {
+  //   padding: 15px 25px;
+  //   font-weight: 700;
+  //   font-size: 20px;
+  // }
+
+  // &--red {
+  //   background-color: $color-torch-red;
+  // }
+
+  // &--active-red {
+  //   &.active {
+  //     color: $color-torch-red;
+  //     opacity: 1;
+  //   }
+
+  //   @include hover-focus {
+  //     color: $color-torch-red;
+  //     opacity: 1;
+  //   }
+  // }
 }

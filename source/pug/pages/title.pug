@@ -1,0 +1,20 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "title",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "title.html"
+
+block page
+  +component().page__content
+    .title
+
+block modals
