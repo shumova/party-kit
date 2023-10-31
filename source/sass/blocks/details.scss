@@ -1,0 +1,38 @@
+.details {
+  --details-border-width: 0.4em;
+
+  summary {
+    position: relative;
+    display: block;
+    padding: $space-s;
+    padding-left: $space-2xl;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: var(--details-border-width);
+      border-width: var(--details-border-width);
+      border-style: solid;
+      border-color: $color-transparent $color-transparent $color-transparent currentColor;
+      transform: translateY(-50%);
+      transform-origin: calc(var(--details-border-width) / 2) 50%;
+      transition: transform $trans-default;
+    }
+
+    &::-webkit-details-marker {
+      display:  none;
+    }
+  }
+
+  &[open] > summary::before {
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  &__content {
+    display: grid; // От выпадения внешних отступов дочерних элементов и корректного вычисления высоты элемента
+    padding: $space-2xl;
+    padding-top: $space-s;
+  }
+}

@@ -14,8 +14,6 @@ class PageNav {
 
     this.isOpen = false;
 
-    this._disableToggleEvents = this._disableToggleEvents.bind(this);
-
     this._documentClickHandler = this._documentClickHandler.bind(this);
     this._documentKeydownHandler = this._documentKeydownHandler.bind(this);
 
@@ -23,9 +21,6 @@ class PageNav {
     this._toggleMouseoutHandler = this._toggleMouseoutHandler.bind(this);
 
     this._windowResizeHandler = this._windowResizeHandler.bind(this);
-
-    this.open = this.open.bind(this);
-    this.close = this.close.bind(this);
 
     this._init();
   }
