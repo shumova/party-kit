@@ -1,0 +1,10 @@
+mixin details(props = {})
+  -
+    const
+          summary = props.summary || "",
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "details--" + mod) : [];
+
+  details(class=["details", ...modifiers], data-details="details")&attributes(attributes)
+    summary(data-details="summary")!= summary
+    .details__content(data-details="content")
+      block
