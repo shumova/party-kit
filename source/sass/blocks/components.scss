@@ -1,19 +1,13 @@
 .components {
-  &__content {
-    height: 100%;
-    padding: $offset-block-desktop;
-    overflow: auto;
-  }
+  height: 100%;
+  padding: $offset-block-desktop;
+  overflow: auto;
 
   @include vp-1023 {
-    &__content {
-      padding: $offset-block-tablet;
-    }
+    padding: $offset-block-tablet;
   }
 
   @include vp-767 {
-    &__content {
-      padding: $offset-block-mobile;
-    }
+    padding: $offset-block-mobile;
   }
 }
