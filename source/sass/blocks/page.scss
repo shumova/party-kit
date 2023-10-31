@@ -16,7 +16,7 @@
   &__nav,
   &__content {
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
   }
 
   @include vp-1023 {

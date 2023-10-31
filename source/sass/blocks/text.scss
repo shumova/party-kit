@@ -4,6 +4,10 @@
     padding: 0;
   }
 
+  p + p {
+    margin-top: $space-xs;
+  }
+
   &--size-m {
     font-size: $size-text-m;
 

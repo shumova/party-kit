@@ -13,8 +13,231 @@ block variables
           footerMods = "",
           currentUrl = "title.html"
 
+  -
+    const params = {
+      component: {
+        mixin: "title",
+        name: "Title",
+        localName: "Заголовок"
+      },
+      description: [
+        "Везде, где подходит по стилям (тег не обязательно должен быть h-, дефолтный тег span)",
+        "Цвет наследуется кроме случаев, когда требуется его явное задание"
+      ],
+      code: {
+        base: {
+          html: `
+              mixin title(props = {})
+              -
+                const
+                      tag = props.tag || "span",
+                      text = props.text || "",
+                      modifiers = props.modifiers ? props.modifiers.map((mod) => "title--" + mod) : [];
+
+              #{tag}(class=["title", ...modifiers])&attributes(attributes)!= text
+          `,
+          css: `
+              .title {
+                margin: 0;
+                padding: 0;
+                font-weight: inherit;
+                font-size: inherit;
+              }`
+        },
+        modifiers: [
+          {
+            summary: "Размер",
+            code: `
+                &--size {
+                  &-m {
+                    font-size: 16px;
+                  }
+
+                  &-l {
+                    font-size: 18px;
+                  }
+
+                  &-2xl {
+                    font-size: 24px;
+                  }
+                }
+            `
+          },
+          {
+            summary: "Межстрочный интервал",
+            note: "Лучше не задавать в %, т.к. бывают баги",
+            code: `
+                &--line-heigth {
+                  &-s {
+                    line-heigth: 1.4; // В относительных единицах (удобней для адаптива когда пропорции размера шрифта и межстрочного интервала сохраняются между брейками)
+                  }
+
+                  &-m {
+                    line-heigth: 18px; // В пикселях
+                  }
+
+                  &-l {
+                    line-heigth: $line-height-text-l; // По токену дизайн-системы
+                  }
+                }
+            `
+          },
+          {
+            summary: "Насыщенность",
+            code: `
+                &--weight {
+                  &-medium {
+                    font-weight: 500; // Числовым значением
+                  }
+
+                  &-bold {
+                    font-weight: $font-weight-text-bold; // По токену дизайн-системы
+                  }
+                }
+            `
+          },
+          {
+            summary: "Цвет",
+            code: `
+                &--color {
+                  &-resolution-blue {
+                    color: $resolution-blue; // По названию цвета (принято в Лиге)
+                  }
+
+                  &-brand {
+                    color: $color-typo-brand; // По токену дизайн-системы
+                  }
+                }
+            `
+          },
+          {
+            summary: "Трансформация текста",
+            code: `
+                &--transform {
+                  &-uppercase {
+                    text-transform: uppercase;
+                  }
+
+                  &-capitalize {
+                    text-transform: capitalize;
+                  }
+
+                  &-lowercase {
+                    text-transform: lowercase;
+                  }
+                }
+            `
+          },
+          {
+            summary: "Подчёркивание",
+            code: `
+                &--underlined {
+
+                  // Сплошное
+
+                  text-decoration: underline;
+
+
+                  // Непрерывное
+
+                  &-no-skip {
+                    text-decoration: underline;
+                    text-decoration-skip-ink: none;
+                    text-decoration-skip: none; // Для safari до 15.3 версии
+                  }
+
+
+                  // Отступ линии от текста
+
+                  &-offset {
+                    &-s {
+                      text-underline-offset: 0.2em; // В относительных...
+                    }
+
+                    &-m {
+                      text-underline-offset: 4px; // ...или абсолютных единицах
+                    }
+                  }
+
+
+                  // Толщина линии
+
+                  &-thickness {
+                    &-s {
+                      text-decoration-thickness: 0.1em; // В относительных...
+                    }
+
+                    &-m {
+                      text-decoration-thickness: 2px; // ...или абсолютных единицах
+                    }
+                  }
+                }
+            `
+          },
+          {
+            summary: "Комбинация свойств при небольшой вариативности оформления заголовков",
+            code: `
+                // Размерность
+
+                &--size {
+                  &-m {
+                    font-size: 16px;
+                    line-heigth: 1.4;
+                    font-weight: 500;
+                  }
+
+                  &-l {
+                    font-size: 18px;
+                    line-heigth: 1.6;
+                    font-weight: 700;
+                  }
+                }
+
+
+                // Подчёркивание
+
+                &--underlined {
+                  text-decoration: underline;
+                  text-decoration-skip-ink: none;
+                  text-decoration-skip: none;
+                  text-underline-offset: 0.2em;
+                  text-underline-offset: 4px;
+                }
+            `
+          },
+        ]
+      },
+      examples: [
+        {
+          params: {
+            tag: "h3",
+            text: "Title example",
+            modifiers: ["size-2xl", "color-brand", "underlined-no-skip", "weight-bold"]
+          },
+          stringParams: `
+            +title({
+              tag: "h3",
+              text: "Title example",
+              modifiers: ["size-2xl", "color-brand", "underlined-no-skip", "weight-bold"]
+            })
+          `
+        },
+        {
+          params: {
+            text: "Title example",
+            modifiers: ["size-l", "underlined"]
+          },
+          stringParams: `
+            +title({
+              text: "Title example",
+              modifiers: ["size-l", "underlined"]
+            })
+          `
+        }
+      ]
+    }
+
 block page
-  +component().page__content
-    .title
+  +component(params).page__content
 
 block modals
