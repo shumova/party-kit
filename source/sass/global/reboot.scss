@@ -53,6 +53,10 @@ textarea {
   resize: none;
 }
 
+code {
+  font-size: calc($size-text-m - 2px);
+}
+
 // chrome autofill background removal
 // если на проекте у инпутов используются разные цвета фонов\текста -
 // удалите это из глобала и используйте локально с нужными цветами

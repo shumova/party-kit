@@ -1,4 +1,10 @@
 .card {
+  &--size {
+    &-xl {
+      padding: $space-xl;
+    }
+  }
+
   &--border-radius {
     &-xl {
       border-radius: $space-xl;

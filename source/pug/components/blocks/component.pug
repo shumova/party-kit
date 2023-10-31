@@ -1,4 +1,80 @@
-mixin component()
-  +card({modifiers: ["filled-secondary", "border-radius-xl", "elevated"]}).component&attributes(attributes)
-    .component__content.no-scrollbar
-      block
+mixin component(props = {})
+  - const {component, description, code, examples} = props;
+
+  +card({modifiers: ["filled-secondary", "border-radius-xl", "elevated"]}).component.no-scrollbar&attributes(attributes)
+
+    .component__header
+      +title({
+        tag: "h1",
+        text: component.name,
+        modifiers: ["size-3xl"]
+      })
+      +title({
+        text: component.localName,
+        modifiers: ["size-2xl"]
+      }).component__localName
+
+    .component__description
+      +title({
+        tag: "h2",
+        text: "Использование",
+        modifiers: ["size-2xl"]
+      })
+      +text({
+        tag: "p",
+        content: description
+      })
+
+    .component__code
+      +title({
+        tag: "h2",
+        text: "Базовый компонент",
+        modifiers: ["size-2xl"]
+      })
+      +card({modifiers: ["filled", "border-radius-xl", "size-xl"]})
+        pre
+          |
+          code.
+            #{code.base.html}
+
+      +card({modifiers: ["filled", "border-radius-xl", "size-xl"]})
+        pre
+          |
+          code.
+            #{code.base.css}
+
+      +title({
+        tag: "h2",
+        text: "Модификаторы",
+        modifiers: ["size-2xl"]
+      })
+      +card({modifiers: ["filled", "border-radius-xl", "size-xl"]})
+        pre
+          code.
+            .title {
+              ...
+
+        .component__inner-code
+          each snippet in code.modifiers
+            +details({summary: snippet.summary})
+              span!= snippet.note
+              pre
+                code.
+                  #{snippet.code}
+
+        pre
+          code }
+
+    .component__examples
+      +title({
+        tag: "h2",
+        text: "Примеры вызова",
+        modifiers: ["size-2xl"]
+      })
+      +card({modifiers: ["filled", "border-radius-xl", "size-xl"]})
+        each example in examples
+          .component__example
+            +#{component.mixin}(example.params)
+            pre
+              code.
+                #{example.stringParams}
