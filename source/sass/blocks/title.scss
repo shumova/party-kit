@@ -76,55 +76,25 @@
     }
   }
 
-  &--transform {
-    &-uppercase {
-      text-transform: uppercase;
+  &--line-heigth {
+    &-2xs {
+      line-height: $line-height-text-2xs;
     }
 
-    &-capitalize {
-      text-transform: capitalize;
+    &-xs {
+      line-height: $line-height-text-xs;
     }
 
-    &-lowercase {
-      text-transform: lowercase;
-    }
-  }
-
-  &--underlined {
-    text-decoration: underline;
-
-    &-no-skip {
-      text-decoration: underline;
-      text-decoration-skip-ink: none;
-      text-decoration-skip: none;
+    &-s {
+      line-height: $line-height-text-s;
     }
 
-    &-offset {
-      &-s {
-        text-underline-offset: 0.1em;
-      }
-
-      &-m {
-        text-underline-offset: 0.2em;
-      }
-
-      &-l {
-        text-underline-offset: 0.3em;
-      }
+    &-m {
+      line-height: $line-height-text-m;
     }
 
-    &-thickness {
-      &-s {
-        text-decoration-thickness: 0.1em;
-      }
-
-      &-m {
-        text-decoration-thickness: 0.2em;
-      }
-
-      &-l {
-        text-decoration-thickness: 0.3em;
-      }
+    &-l {
+      line-height: $line-height-text-l;
     }
   }
 
@@ -171,6 +141,69 @@
 
     &-critical {
       color: $color-typo-critical;
+    }
+  }
+
+  &--transform {
+    &-uppercase {
+      text-transform: uppercase;
+    }
+
+    &-capitalize {
+      text-transform: capitalize;
+    }
+
+    &-lowercase {
+      text-transform: lowercase;
+    }
+  }
+
+  &--underlined {
+
+    // Сплошное
+
+    text-decoration: underline;
+
+
+    // Непрерывное
+
+    &-no-skip {
+      text-decoration-skip-ink: none;
+      text-decoration-skip: none;
+    }
+
+
+    // Отступ линии от текста
+
+    &-offset {
+      &-s {
+        text-underline-offset: 0.1em;
+      }
+
+      &-m {
+        text-underline-offset: 0.2em;
+      }
+
+      &-l {
+        text-underline-offset: 0.3em;
+      }
+    }
+
+
+    // Толщина линии
+
+    &-thickness {
+      &-s {
+        text-decoration-thickness: 0.1em;
+      }
+
+      &-m {
+        text-decoration-thickness: 0.2em;
+      }
+
+      &-l {
+        text-decoration-thickness: 0.3em;
+      }
     }
   }
 }

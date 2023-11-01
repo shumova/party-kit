@@ -1,63 +1,93 @@
 mixin component(props = {})
-  - const {component, description, code, examples} = props;
+  - const {component, description, base, modifiers, examples} = props;
+  -
+    const _params = {
+      card: {
+        main: {
+          modifiers: ["filled-secondary", "border-radius-xl", "elevated"]
+        },
+        code: {
+          modifiers: ["filled", "border-radius-xl", "size-xl"]
+        }
+      },
+      header: {
+        title: {
+          tag: "h1",
+          text: component.name,
+          modifiers: ["size-3xl"]
+        },
+        subtitle: {
+          text: component.localName,
+          modifiers: ["size-2xl"]
+        }
+      },
+      description: {
+        title: {
+          tag: "h2",
+          text: "Использование",
+          modifiers: ["size-2xl"]
+        },
+        text: {
+          tag: "p",
+          content: description
+        }
+      },
+      base: {
+        title: {
+          tag: "h2",
+          text: "Базовый компонент",
+          modifiers: ["size-2xl"]
+        }
+      },
+      modifiers: {
+        title: {
+          tag: "h2",
+          text: "Модификаторы",
+          modifiers: ["size-2xl"]
+        }
+      },
+      examples: {
+        title: {
+          tag: "h2",
+          text: "Примеры вызова",
+          modifiers: ["size-2xl"]
+        }
+      }
+    }
 
-  +card({modifiers: ["filled-secondary", "border-radius-xl", "elevated"]}).component.no-scrollbar&attributes(attributes)
+
+  +card(_params.card.main).component.no-scrollbar&attributes(attributes)
 
     .component__header
-      +title({
-        tag: "h1",
-        text: component.name,
-        modifiers: ["size-3xl"]
-      })
-      +title({
-        text: component.localName,
-        modifiers: ["size-2xl"]
-      }).component__localName
+      +title(_params.header.title)
+      +title(_params.header.subtitle).component__localName
 
     .component__description
-      +title({
-        tag: "h2",
-        text: "Использование",
-        modifiers: ["size-2xl"]
-      })
-      +text({
-        tag: "p",
-        content: description
-      })
+      +title(_params.description.title)
+      +text(_params.description.text)
 
-    .component__code
-      +title({
-        tag: "h2",
-        text: "Базовый компонент",
-        modifiers: ["size-2xl"]
-      })
-      +card({modifiers: ["filled", "border-radius-xl", "size-xl"]})
-        pre
-          |
-          code.
-            #{code.base.html}
+    .component__base
+      +title(_params.base.title)
 
-      +card({modifiers: ["filled", "border-radius-xl", "size-xl"]})
-        pre
-          |
-          code.
-            #{code.base.css}
+      each snippet in base
+        +card(_params.card.code)
+          pre
+            code.
+              #{snippet}
 
-      +title({
-        tag: "h2",
-        text: "Модификаторы",
-        modifiers: ["size-2xl"]
-      })
-      +card({modifiers: ["filled", "border-radius-xl", "size-xl"]})
+    .component__modifiers
+      +title(_params.modifiers.title)
+      +card(_params.card.code)
         pre
           code.
-            .title {
+            .#{component.mixin} {
               ...
 
         .component__inner-code
-          each snippet in code.modifiers
+          each snippet in modifiers
             +details({summary: snippet.summary})
-              span!= snippet.note
+              if snippet.note
+                span!= snippet.note
               pre
                 code.
                   #{snippet.code}
@@ -66,12 +96,8 @@ mixin component(props = {})
           code }
 
     .component__examples
-      +title({
-        tag: "h2",
-        text: "Примеры вызова",
-        modifiers: ["size-2xl"]
-      })
-      +card({modifiers: ["filled", "border-radius-xl", "size-xl"]})
+      +title(_params.examples.title)
+      +card(_params.card.code)
         each example in examples
           .component__example
             +#{component.mixin}(example.params)

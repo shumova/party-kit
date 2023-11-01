@@ -24,189 +24,247 @@ block variables
         "Везде, где подходит по стилям (тег не обязательно должен быть h-, дефолтный тег span)",
         "Цвет наследуется кроме случаев, когда требуется его явное задание"
       ],
-      code: {
-        base: {
-          html: `
-              mixin title(props = {})
-              -
-                const
-                      tag = props.tag || "span",
-                      text = props.text || "",
-                      modifiers = props.modifiers ? props.modifiers.map((mod) => "title--" + mod) : [];
+      base: [
+    `mixin title(props = {})
+    -
+      const
+            tag = props.tag || "span",
+            text = props.text || "",
+            modifiers = props.modifiers ? props.modifiers.map((mod) => "title--" + mod) : [];
 
-              #{tag}(class=["title", ...modifiers])&attributes(attributes)!= text
-          `,
-          css: `
-              .title {
-                margin: 0;
-                padding: 0;
-                font-weight: inherit;
-                font-size: inherit;
-              }`
+    #{tag}(class=["title", ...modifiers])&attributes(attributes)!= text`,
+    `.title {
+      margin: 0;
+      padding: 0;
+      font-weight: inherit;
+      font-size: inherit;
+    }`
+      ],
+      modifiers: [
+        {
+          summary: "Размер",
+          code:
+    `&--size {
+      &-s {
+        font-size: $size-text-s;
+      }
+
+      &-m {
+        font-size: $size-text-m;
+      }
+
+      &-l {
+        font-size: $size-text-l;
+      }
+
+      &-xl {
+        font-size: $size-text-xl;
+      }
+
+      &-2xl {
+        font-size: $size-text-2xl;
+      }
+
+      &-3xl {
+        font-size: $size-text-3xl;
+      }
+
+      &-4xl {
+        font-size: $size-text-4xl;
+      }
+
+      &-5xl {
+        font-size: $size-text-5xl;
+      }
+
+      &-6xl {
+        font-size: $size-text-6xl;
+      }
+    }`
         },
-        modifiers: [
-          {
-            summary: "Размер",
-            code: `
-                &--size {
-                  &-m {
-                    font-size: 16px;
-                  }
+        {
+          summary: "Насыщенность",
+          code:
+    `&--weight {
+      &-thin {
+        font-weight: $font-weight-text-thin;
+      }
 
-                  &-l {
-                    font-size: 18px;
-                  }
+      &-light {
+        font-weight: $font-weight-text-light;
+      }
 
-                  &-2xl {
-                    font-size: 24px;
-                  }
-                }
-            `
-          },
-          {
-            summary: "Межстрочный интервал",
-            note: "Лучше не задавать в %, т.к. бывают баги",
-            code: `
-                &--line-heigth {
-                  &-s {
-                    line-heigth: 1.4; // В относительных единицах (удобней для адаптива когда пропорции размера шрифта и межстрочного интервала сохраняются между брейками)
-                  }
+      &-regular {
+        font-weight: $font-weight-text-regular;
+      }
 
-                  &-m {
-                    line-heigth: 18px; // В пикселях
-                  }
+      &-medium {
+        font-weight: $font-weight-text-medium;
+      }
 
-                  &-l {
-                    line-heigth: $line-height-text-l; // По токену дизайн-системы
-                  }
-                }
-            `
-          },
-          {
-            summary: "Насыщенность",
-            code: `
-                &--weight {
-                  &-medium {
-                    font-weight: 500; // Числовым значением
-                  }
+      &-semibold {
+        font-weight: $font-weight-text-semibold;
+      }
 
-                  &-bold {
-                    font-weight: $font-weight-text-bold; // По токену дизайн-системы
-                  }
-                }
-            `
-          },
-          {
-            summary: "Цвет",
-            code: `
-                &--color {
-                  &-resolution-blue {
-                    color: $resolution-blue; // По названию цвета (принято в Лиге)
-                  }
+      &-bold {
+        font-weight: $font-weight-text-bold;
+      }
 
-                  &-brand {
-                    color: $color-typo-brand; // По токену дизайн-системы
-                  }
-                }
-            `
-          },
-          {
-            summary: "Трансформация текста",
-            code: `
-                &--transform {
-                  &-uppercase {
-                    text-transform: uppercase;
-                  }
+      &-extrabold {
+        font-weight: $font-weight-text-extrabold;
+      }
 
-                  &-capitalize {
-                    text-transform: capitalize;
-                  }
+      &-black {
+        font-weight: $font-weight-text-black;
+      }
+    }`
+        },
+        {
+          summary: "Межстрочный интервал",
+          note: "Лучше не задавать в %, т.к. бывают баги",
+          code:
+    `&--line-heigth {
+      &-2xs {
+        line-height: $line-height-text-2xs;
+      }
 
-                  &-lowercase {
-                    text-transform: lowercase;
-                  }
-                }
-            `
-          },
-          {
-            summary: "Подчёркивание",
-            code: `
-                &--underlined {
+      &-xs {
+        line-height: $line-height-text-xs;
+      }
 
-                  // Сплошное
+      &-s {
+        line-height: $line-height-text-s;
+      }
 
-                  text-decoration: underline;
+      &-m {
+        line-height: $line-height-text-m;
+      }
 
+      &-l {
+        line-height: $line-height-text-l;
+      }
+    }`
+        },
+        {
+          summary: "Цвет",
+          code:
+    `&--color {
+      &-primary {
+        color: $color-typo-primary;
+      }
 
-                  // Непрерывное
+      &-secondary {
+        color: $color-typo-secondary;
+      }
 
-                  &-no-skip {
-                    text-decoration: underline;
-                    text-decoration-skip-ink: none;
-                    text-decoration-skip: none; // Для safari до 15.3 версии
-                  }
+      &-ghost {
+        color: $color-typo-ghost;
+      }
 
+      &-brand {
+        color: $color-typo-brand;
+      }
 
-                  // Отступ линии от текста
+      &-system {
+        color: $color-typo-system;
+      }
 
-                  &-offset {
-                    &-s {
-                      text-underline-offset: 0.2em; // В относительных...
-                    }
+      &-normal {
+        color: $color-typo-normal;
+      }
 
-                    &-m {
-                      text-underline-offset: 4px; // ...или абсолютных единицах
-                    }
-                  }
+      &-success {
+        color: $color-typo-success;
+      }
 
+      &-caution {
+        color: $color-typo-caution;
+      }
 
-                  // Толщина линии
+      &-warning {
+        color: $color-typo-warning;
+      }
 
-                  &-thickness {
-                    &-s {
-                      text-decoration-thickness: 0.1em; // В относительных...
-                    }
+      &-alert {
+        color: $color-typo-alert;
+      }
 
-                    &-m {
-                      text-decoration-thickness: 2px; // ...или абсолютных единицах
-                    }
-                  }
-                }
-            `
-          },
-          {
-            summary: "Комбинация свойств при небольшой вариативности оформления заголовков",
-            code: `
-                // Размерность
+      &-critical {
+        color: $color-typo-critical;
+      }
+    }`
+        },
+        {
+          summary: "Трансформация текста",
+          code:
+    `&--transform {
+      &-uppercase {
+        text-transform: uppercase;
+      }
 
-                &--size {
-                  &-m {
-                    font-size: 16px;
-                    line-heigth: 1.4;
-                    font-weight: 500;
-                  }
+      &-capitalize {
+        text-transform: capitalize;
+      }
 
-                  &-l {
-                    font-size: 18px;
-                    line-heigth: 1.6;
-                    font-weight: 700;
-                  }
-                }
+      &-lowercase {
+        text-transform: lowercase;
+      }
+    }`
+        },
+        {
+          summary: "Подчёркивание",
+          code:
+    `&--underlined {
+
+      // Сплошное
+
+      text-decoration: underline;
 
 
-                // Подчёркивание
+      // Непрерывное
 
-                &--underlined {
-                  text-decoration: underline;
-                  text-decoration-skip-ink: none;
-                  text-decoration-skip: none;
-                  text-underline-offset: 0.2em;
-                  text-underline-offset: 4px;
-                }
-            `
-          },
-        ]
-      },
+      &-no-skip {
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        text-decoration-skip: none;
+      }
+
+
+      // Отступ линии от текста
+
+      &-offset {
+        &-s {
+          text-underline-offset: 0.1em;
+        }
+
+        &-m {
+          text-underline-offset: 0.2em;
+        }
+
+        &-l {
+          text-underline-offset: 0.3em;
+        }
+      }
+
+
+      // Толщина линии
+
+      &-thickness {
+        &-s {
+          text-decoration-thickness: 0.1em;
+        }
+
+        &-m {
+          text-decoration-thickness: 0.2em;
+        }
+
+        &-l {
+          text-decoration-thickness: 0.3em;
+        }
+      }
+    }`
+        }
+      ],
       examples: [
         {
           params: {
@@ -214,25 +272,23 @@ block variables
             text: "Title example",
             modifiers: ["size-2xl", "color-brand", "underlined-no-skip", "weight-bold"]
           },
-          stringParams: `
-            +title({
-              tag: "h3",
-              text: "Title example",
-              modifiers: ["size-2xl", "color-brand", "underlined-no-skip", "weight-bold"]
-            })
-          `
+          stringParams:
+    `+title({
+      tag: "h3",
+      text: "Title example",
+      modifiers: ["size-2xl", "color-brand", "underlined-no-skip", "weight-bold"]
+    })`
         },
         {
           params: {
             text: "Title example",
             modifiers: ["size-l", "underlined"]
           },
-          stringParams: `
-            +title({
-              text: "Title example",
-              modifiers: ["size-l", "underlined"]
-            })
-          `
+          stringParams:
+    `+title({
+      text: "Title example",
+      modifiers: ["size-l", "underlined"]
+    })`
         }
       ]
     }
