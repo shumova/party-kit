@@ -13,7 +13,11 @@
     column-gap: $offset-container-desktop;
   }
 
-  &__nav,
+  &__nav {
+    height: 100%;
+    overflow: hidden;
+  }
+
   &__content {
     height: 100%;
     overflow: auto;

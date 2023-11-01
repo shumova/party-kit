@@ -31,8 +31,14 @@
   }
 
   &__content {
+    --content-padding: #{$space-2xl};
+
     display: grid; // От выпадения внешних отступов дочерних элементов и корректного вычисления высоты элемента
-    padding: $space-2xl;
+    padding: var(--content-padding);
     padding-top: $space-s;
+
+    @include vp-767 {
+      --content-padding: 0;
+    }
   }
 }

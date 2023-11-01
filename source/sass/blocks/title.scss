@@ -1,130 +1,201 @@
 .title {
+  --font-weight: inherit;
+  --font-size: inherit;
+  --line-height: inherit;
+  --letter-spacing: inherit;
+
   margin: 0;
   padding: 0;
-  font-weight: inherit;
-  font-size: inherit;
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  letter-spacing: var(--letter-spacing);
+
+  &--font {
+    &-primary {
+      font-family: $font-family-primary;
+    }
+
+    &-mono {
+      font-family: $font-family-mono;
+    }
+  }
+
+  &--style {
+    &-italic {
+      font-style: italic;
+    }
+  }
+
+  &--small {
+    --font-weight: #{$font-weight-text-extrabold};
+    --font-size: #{$size-text-l};
+    --line-height: #{$line-height-text-m};
+
+    @include vp-1023 {
+      --font-weight: #{$font-weight-text-bold};
+      --font-size: #{$size-text-m};
+    }
+
+    @include vp-767 {
+      --font-size: #{$size-text-s};
+      --line-height: #{$line-height-text-s};
+    }
+  }
 
   &--size {
     &-s {
-      font-size: $size-text-s;
+      --font-size: #{$size-text-s};
     }
 
     &-m {
-      font-size: $size-text-m;
+      --font-size: #{$size-text-m};
     }
 
     &-l {
-      font-size: $size-text-l;
+      --font-size: #{$size-text-l};
+
+      @include vp-1023 {
+        --font-size: #{$size-text-m};
+      }
+
+      @include vp-767 {
+        --font-size: #{$size-text-s};
+      }
     }
 
     &-xl {
-      font-size: $size-text-xl;
+      --font-size: #{$size-text-xl};
+
+      @include vp-1023 {
+        --font-size: #{$size-text-l};
+      }
+
+      @include vp-767 {
+        --font-size: #{$size-text-m};
+      }
     }
 
     &-2xl {
-      font-size: $size-text-2xl;
+      --font-size: #{$size-text-2xl};
+
+      @include vp-1023 {
+        --font-size: #{$size-text-xl};
+      }
+
+      @include vp-767 {
+        --font-size: #{$size-text-l};
+      }
     }
 
     &-3xl {
-      font-size: $size-text-3xl;
+      --font-size: #{$size-text-3xl};
+
+      @include vp-1023 {
+        --font-size: #{$size-text-2xl};
+      }
+
+      @include vp-767 {
+        --font-size: #{$size-text-xl};
+      }
     }
 
     &-4xl {
-      font-size: $size-text-4xl;
+      --font-size: #{$size-text-4xl};
+
+      @include vp-1023 {
+        --font-size: #{$size-text-3xl};
+      }
+
+      @include vp-767 {
+        --font-size: #{$size-text-2xl};
+      }
     }
 
     &-5xl {
-      font-size: $size-text-5xl;
-    }
+      --font-size: #{$size-text-5xl};
 
-    &-6xl {
-      font-size: $size-text-6xl;
+      @include vp-1023 {
+        --font-size: #{$size-text-4xl};
+      }
+
+      @include vp-767 {
+        --font-size: #{$size-text-3xl};
+      }
     }
   }
 
   &--weight {
     &-thin {
-      font-weight: $font-weight-text-thin;
+      --font-weight: #{$font-weight-text-thin};
     }
 
     &-light {
-      font-weight: $font-weight-text-light;
+      --font-weight: #{$font-weight-text-light};
     }
 
     &-regular {
-      font-weight: $font-weight-text-regular;
+      --font-weight: #{$font-weight-text-regular};
     }
 
     &-medium {
-      font-weight: $font-weight-text-medium;
+      --font-weight: #{$font-weight-text-medium};
     }
 
     &-semibold {
-      font-weight: $font-weight-text-semibold;
+      --font-weight: #{$font-weight-text-semibold};
     }
 
     &-bold {
-      font-weight: $font-weight-text-bold;
+      --font-weight: #{$font-weight-text-bold};
     }
 
     &-extrabold {
-      font-weight: $font-weight-text-extrabold;
+      --font-weight: #{$font-weight-text-extrabold};
     }
 
     &-black {
-      font-weight: $font-weight-text-black;
+      --font-weight: #{$font-weight-text-black};
     }
   }
 
-  &--transform {
-    &-uppercase {
-      text-transform: uppercase;
+  &--line-heigth {
+    &-2xs {
+      --line-height: #{$line-height-text-2xs};
     }
 
-    &-capitalize {
-      text-transform: capitalize;
+    &-xs {
+      --line-height: #{$line-height-text-xs};
     }
 
-    &-lowercase {
-      text-transform: lowercase;
+    &-s {
+      --line-height: #{$line-height-text-s};
+    }
+
+    &-m {
+      --line-height: #{$line-height-text-m};
+    }
+
+    &-l {
+      --line-height: #{$line-height-text-l};
     }
   }
 
-  &--underlined {
-    text-decoration: underline;
-
-    &-no-skip {
-      text-decoration: underline;
-      text-decoration-skip-ink: none;
-      text-decoration-skip: none;
+  &--spacing {
+    &-xs {
+      --letter-spacing: 0.06em;
     }
 
-    &-offset {
-      &-s {
-        text-underline-offset: 0.1em;
-      }
-
-      &-m {
-        text-underline-offset: 0.2em;
-      }
-
-      &-l {
-        text-underline-offset: 0.3em;
-      }
+    &-s {
+      --letter-spacing: 0.1em;
     }
 
-    &-thickness {
-      &-s {
-        text-decoration-thickness: 0.1em;
-      }
+    &-m {
+      --letter-spacing: 0.14em;
+    }
 
-      &-m {
-        text-decoration-thickness: 0.2em;
-      }
-
-      &-l {
-        text-decoration-thickness: 0.3em;
-      }
+    &-l {
+      --letter-spacing: 0.2em;
     }
   }
 
@@ -171,6 +242,78 @@
 
     &-critical {
       color: $color-typo-critical;
+    }
+  }
+
+  &--transform {
+    &-uppercase {
+      text-transform: uppercase;
+    }
+
+    &-capitalize {
+      text-transform: capitalize;
+    }
+
+    &-lowercase {
+      text-transform: lowercase;
+    }
+  }
+
+  &--underlined {
+
+    // Сплошное
+
+    text-decoration: underline;
+
+
+    // Непрерывное
+
+    &-no-skip {
+      text-decoration-skip-ink: none;
+      text-decoration-skip: none;
+    }
+
+
+    // Отступ линии от текста
+
+    &-offset {
+      &-s {
+        text-underline-offset: 0.1em;
+      }
+
+      &-m {
+        text-underline-offset: 0.2em;
+      }
+
+      &-l {
+        text-underline-offset: 0.3em;
+      }
+    }
+
+
+    // Толщина линии
+
+    &-thickness {
+      &-s {
+        text-decoration-thickness: 0.01em;
+      }
+
+      &-m {
+        text-decoration-thickness: 0.1em;
+      }
+    }
+  }
+
+  &--truncate {
+    --line-clamp: 1;
+
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    &-2-lines {
+      --line-clamp: 2;
     }
   }
 }
