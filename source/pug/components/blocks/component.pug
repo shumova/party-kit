@@ -87,7 +87,19 @@ mixin component(props = {})
           each snippet in modifiers
             +details({summary: snippet.summary})
               if snippet.note
-                span!= snippet.note
+                +text({
+                  content: snippet.note
+                })
+
+              if snippet.examples
+                .component__examples
+                  each example in snippet.examples
+                    .component__example
+                      +#{component.mixin}(example.props)
+                      pre
+                        code.
+                          #{example.code}
+
               pre
                 code.
                   #{snippet.code}
@@ -95,12 +107,12 @@ mixin component(props = {})
         pre
           code }
 
-    .component__examples
-      +title(_params.examples.title)
-      +card(_params.card.code)
-        each example in examples
-          .component__example
-            +#{component.mixin}(example.params)
-            pre
-              code.
-                #{example.stringParams}
+    //- .component__examples
+    //-   +title(_params.examples.title)
+    //-   +card(_params.card.code)
+    //-     each example in examples
+    //-       .component__example
+    //-         +#{component.mixin}(example.params)
+    //-         pre
+    //-           code.
+    //-             #{example.stringParams}
