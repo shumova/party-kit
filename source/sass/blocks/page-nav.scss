@@ -1,11 +1,12 @@
 .page-nav {
   $toggle-border-width: 2px;
+  --page-nav-content-height: 100%;
 
   border-radius: $space-xl;
   box-shadow: $shadow-layer;
 
   &__content {
-    height: 100%;
+    height: var(--page-nav-content-height);
     padding-right: $offset-nav-desktop;
     padding-left: $offset-nav-desktop;
     background-color: $color-bg-secondary;
@@ -112,16 +113,17 @@
   }
 
   @include vp-767 {
+    --page-nav-content-height: 60%;
+
     &__content {
       grid-template-columns: minmax(0, 1fr);
       grid-template-rows: calc($offset-nav-mobile) minmax(0, 1fr);
       grid-template-areas: "toggle" "list";
       width: auto;
-      height: 100%;
       padding-right: $offset-nav-mobile;
       padding-left: $offset-nav-mobile;
       border-radius: $space-xl $space-xl 0 0;
-      transform: translateY(calc((100% - $offset-nav-mobile)));
+      transform: translateY(calc((100% + var(--page-nav-content-height))));
     }
 
     &__toggle {
@@ -147,19 +149,19 @@
 
     &.is-ajar {
       .page-nav__content {
-        transform: translateY(calc((100% - $offset-nav-mobile * 1.25)));
+        transform: translateY(calc((100% + var(--page-nav-content-height) - $offset-nav-mobile + $offset-block-mobile)));
       }
     }
 
     &.is-open {
       .page-nav__content {
-        transform: translateY(20%);
+        transform: translateY(calc(var(--page-nav-content-height) + $offset-nav-mobile));
       }
 
       .page-nav__toggle {
         &::before {
           width: 100%;
-          height: calc($offset-nav-mobile);
+          height: $offset-nav-mobile;
         }
       }
     }
