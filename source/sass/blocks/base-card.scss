@@ -11,6 +11,8 @@
 
   &__content {
     display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: $space-s;
     padding: $space-l;
   }
 
@@ -28,5 +30,20 @@
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  .icon-btn {
+    align-self: start;
+    grid-column: 2;
+    grid-row: 1 / 4;
+    margin-bottom: $space-m;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .btn {
+    grid-column: span 2;
   }
 }

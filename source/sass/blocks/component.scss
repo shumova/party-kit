@@ -5,12 +5,29 @@
 
   &__header {
     display: flex;
+    gap: $space-4xl;
+    align-items: center;
+  }
+
+  &__titles {
+    display: flex;
     gap: $space-xs;
     align-items: baseline;
+    overflow-wrap: anywhere;
+  }
+
+  .title {
+    min-width: 50px;
+    max-width: 400px;
   }
 
   &__localName {
     color: var(--color-typo-secondary);
+  }
+
+  .icon-btn {
+    align-self: start;
+    margin-left: auto;
   }
 
   &__inner-code {
