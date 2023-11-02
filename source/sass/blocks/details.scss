@@ -26,7 +26,7 @@
     }
   }
 
-  &[open] > summary::before {
+  &.is-active > summary::before {
     transform: translateY(-50%) rotate(90deg);
   }
 

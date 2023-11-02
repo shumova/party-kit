@@ -70,6 +70,7 @@ class Details {
 
   close() {
     this._isClosing = true;
+    this.el.classList.remove('is-active');
 
     const startHeight = `${this.el.offsetHeight}px`;
     const endHeight = `${this.summary.offsetHeight}px`;
@@ -92,6 +93,7 @@ class Details {
   }
 
   open() {
+    this.el.classList.add('is-active');
     this.el.style.height = `${this.el.offsetHeight}px`;
     this.el.open = true;
     window.requestAnimationFrame(() => this._expand());
