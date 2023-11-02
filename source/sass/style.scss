@@ -23,7 +23,6 @@
 @import "blocks/btn";
 @import "blocks/burger";
 @import "blocks/link";
-@import "blocks/title";
 @import "blocks/text";
 @import "blocks/grid";
 @import "blocks/details";
@@ -40,6 +39,12 @@
 @import "blocks/custom-toggle";
 @import "blocks/custom-select";
 @import "blocks/input-upload";
+
+
+// Components
+// ---------------------------------
+
+@import "../components/title/style/title";
 
 // ---------------------------------
 
