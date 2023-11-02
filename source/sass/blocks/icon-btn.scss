@@ -1,0 +1,76 @@
+.icon-btn {
+  --button-radius: 0;
+  --button-cursor: pointer;
+  --button-color: var(--color-control-typo-default);
+  --button-bg-color: var(--color-control-bg-default);
+  --button-bg-border-color: var(--color-control-bg-border-default);
+  --button-bg-border-color-hover: var(--color-control-bg-border-default-hover);
+  --button-color-hover: var(--color-control-bg-border-default-hover);
+
+  display: inline-flex;
+  padding: 0;
+  color: var(--button-color);
+  background-color: var(--button-bg-color);
+  border: $control-border-width solid var(--button-bg-border-color);
+  border-radius: var(--button-radius);
+  cursor: var(--button-cursor);
+  user-select: none;
+
+  transition:
+    color $trans-default,
+    background-color $trans-default,
+    border $trans-default,
+    transform $trans-default;
+
+  &.is-disabled,
+  &:disabled {
+    --button-cursor: not-allowed;
+    --button-color-hover: var(--button-color-disable);
+    --button-border-hover: var(--button-color-disable);
+    --button-bg-color-hover: var(--button-bg-color-disable);
+
+    color: var(--button-color-disable);
+    background-color: var(--button-bg-color-disable);
+    border-color: var(--button-border-disable);
+    opacity: var(--button-opacity-disable);
+    pointer-events: none;
+  }
+
+  &.is-active {
+    --button-cursor: not-allowed;
+
+    pointer-events: none;
+  }
+
+  @include interactive-style {
+    color: var(--button-color-hover);
+    background: var(--button-bg-color-hover);
+    opacity: var(--button-opacity-hover);
+  }
+
+  svg {
+    flex-shrink: 0;
+    height: 40px;
+    width: auto;
+
+    transform: translateZ(0);
+  }
+
+  &--form {
+    &-brick {
+      --button-radius: 0;
+    }
+
+    &-round {
+      --button-radius: 99rem;
+
+      &-s {
+        --button-radius: #{$space-s};
+      }
+
+      &-l {
+        --button-radius: #{$space-l};
+      }
+    }
+  }
+}
