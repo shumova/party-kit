@@ -18,7 +18,8 @@ block variables
       component: {
         mixin: "title",
         name: "Title",
-        localName: "Заголовок"
+        localName: "Заголовок",
+        git: "#"
       },
       description: [
         "Везде, где подходит по стилям (тег не обязательно должен быть h-, дефолтный тег span)",
@@ -969,6 +970,6 @@ block variables
     }
 
 block page
-  +component(params).page__content
+  +component(params)
 
 block modals

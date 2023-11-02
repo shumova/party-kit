@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "editorconfig": "editorconfig-cli",
-    "stylelint": "stylelint \"source/sass/**/*.scss\" --customSyntax postcss-scss",
+    "stylelint": "stylelint \"source/sass/**/*.scss\" \"source/components/**/style/*.scss\" --customSyntax postcss-scss",
     "test": "npm run editorconfig & npm run stylelint & eslint source/js/ & pug-lint source/pug/",
     "build": "cross-env NODE_ENV=production gulp build",
     "dev": "cross-env NODE_ENV=production gulp dev",

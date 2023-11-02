@@ -45,7 +45,7 @@
       grid-template-columns: minmax(0, 1fr);
       grid-template-rows: minmax(0, 1fr) calc(math.abs($offset-container-mobile - $offset-nav-mobile));
       column-gap: 0;
-      row-gap: $offset-container-mobile;
+      row-gap: calc(math.abs($offset-container-mobile - $offset-nav-mobile));
     }
 
     &__content {

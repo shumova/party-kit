@@ -3,9 +3,6 @@ mixin component(props = {})
   -
     const _params = {
       card: {
-        main: {
-          modifiers: ["filled-secondary", "border-radius-xl", "elevated"]
-        },
         code: {
           modifiers: ["filled", "border-radius-xl", "size-xl"]
         }
@@ -19,6 +16,16 @@ mixin component(props = {})
         subtitle: {
           text: component.localName,
           modifiers: ["size-2xl"]
+        },
+        iconBtn: {
+          href: component.git,
+          ariaLabel: `Open ${component.name} component in git`,
+          icon: {
+            name: "git",
+            width: 32,
+            height: 32,
+          },
+          modifiers: ["form-round"]
         }
       },
       description: {
@@ -56,11 +63,13 @@ mixin component(props = {})
     }
 
 
-  +card(_params.card.main).component.no-scrollbar&attributes(attributes)
+  .component&attributes(attributes)
 
     .component__header
-      +title(_params.header.title)
-      +title(_params.header.subtitle).component__localName
+      .component__titles
+        +title(_params.header.title)
+        +title(_params.header.subtitle).component__localName
+      +icon-btn(_params.header.iconBtn)
 
     .component__description
       +title(_params.description.title)

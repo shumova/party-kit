@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .page-nav {
   $toggle-border-width: 2px;
   --page-nav-content-height: 100%;
@@ -9,7 +11,7 @@
     height: var(--page-nav-content-height);
     padding-right: $offset-nav-desktop;
     padding-left: $offset-nav-desktop;
-    background-color: $color-bg-secondary;
+    background-color: var(--color-bg-secondary);
     transition: transform $trans-default;
   }
 
@@ -71,7 +73,7 @@
         left: calc(100% - $toggle-border-width - $offset-nav-tablet);
         bottom: $space-l;
         width: $toggle-border-width;
-        background-color: $color-control-bg-border-default;
+        background-color: var(--color-control-bg-border-default);
       }
     }
 
@@ -88,12 +90,12 @@
 
     &.is-ajar {
       .page-nav__content {
-        transform: translateX(calc(100% * -1 + $offset-nav-tablet * 1.5));
+        transform: translateX(calc(100% * -1 + $offset-nav-tablet + math.abs($offset-nav-tablet - $offset-container-tablet)));
       }
     }
 
     &.is-open {
-      background-color: $color-bg-tone;
+      background-color: var(--color-bg-tone);
       pointer-events: all;
 
       .page-nav__content {
@@ -149,7 +151,7 @@
 
     &.is-ajar {
       .page-nav__content {
-        transform: translateY(calc((100% + var(--page-nav-content-height) - $offset-nav-mobile + $offset-block-mobile)));
+        transform: translateY(calc((100% + var(--page-nav-content-height) - $offset-nav-mobile + math.abs($offset-nav-mobile - $offset-container-mobile))));
       }
     }
 
