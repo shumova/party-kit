@@ -3,9 +3,6 @@ mixin component(props = {})
   -
     const _params = {
       card: {
-        main: {
-          modifiers: ["filled-secondary", "border-radius-xl", "elevated"]
-        },
         code: {
           modifiers: ["filled", "border-radius-xl", "size-xl"]
         }
@@ -56,7 +53,7 @@ mixin component(props = {})
     }
 
 
-  +card(_params.card.main).component.no-scrollbar&attributes(attributes)
+  .component&attributes(attributes)
 
     .component__header
       +title(_params.header.title)

@@ -14,7 +14,7 @@ block variables
           currentUrl = "index.html"
 
   -
-    const components = {
+    const params = {
       content: [
         {
           img: {
@@ -141,6 +141,6 @@ block variables
 
 
 block page
-  +components(components).page__content
+  +components(params)
 
 block modals

@@ -1,7 +1,5 @@
 .components {
-  height: 100%;
   padding: $offset-block-desktop;
-  overflow: auto;
 
   @include vp-1023 {
     padding: $offset-block-tablet;
