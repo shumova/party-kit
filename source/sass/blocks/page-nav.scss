@@ -9,7 +9,7 @@
     height: var(--page-nav-content-height);
     padding-right: $offset-nav-desktop;
     padding-left: $offset-nav-desktop;
-    background-color: $color-bg-secondary;
+    background-color: var(--color-bg-secondary);
     transition: transform $trans-default;
   }
 
@@ -71,7 +71,7 @@
         left: calc(100% - $toggle-border-width - $offset-nav-tablet);
         bottom: $space-l;
         width: $toggle-border-width;
-        background-color: $color-control-bg-border-default;
+        background-color: var(--color-control-bg-border-default);
       }
     }
 
@@ -93,7 +93,7 @@
     }
 
     &.is-open {
-      background-color: $color-bg-tone;
+      background-color: var(--color-bg-tone);
       pointer-events: all;
 
       .page-nav__content {

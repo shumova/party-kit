@@ -3,5 +3,5 @@ $shadow-group:
   0 2px 8px var(--color-shadow-group-2);
 
 $shadow-layer:
-  0 4px 4px $color-shadow-layer-1,
-  0 8px 24px $color-shadow-layer-2;
+  0 4px 4px var(--color-shadow-layer-1),
+  0 8px 24px var(--color-shadow-layer-2);

@@ -24,7 +24,7 @@
       width: 25px;
       height: 3px;
       content: "";
-      background-color: $color-control-typo-default;
+      background-color: var(--color-control-typo-default);
       border-radius: $space-3xs;
       transform: translateZ(0);
       transition:

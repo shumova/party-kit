@@ -19,8 +19,8 @@ html {
   font-size: $size-text-m;
   line-height: $line-height-text-xs;
   font-family: $font-family-primary;
-  color: $color-typo-primary;
-  background-color: $color-bg-default;
+  color: var(--color-typo-primary);
+  background-color: var(--color-bg-default);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -141,18 +141,18 @@ button,
 }
 
 *::-webkit-scrollbar-track {
-  background-color: $color-scroll-bg;
+  background-color: var(--color-scroll-bg);
 }
 
 *::-webkit-scrollbar-corner {
-  background-color: $color-scroll-bg;
+  background-color: var(--color-scroll-bg);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: $color-scroll-thumb;
+  background-color: var(--color-scroll-thumb);
   border-radius: 4px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background-color: $color-scroll-thumb-hover;
+  background-color: var(--color-scroll-thumb-hover);
 }

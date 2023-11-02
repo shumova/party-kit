@@ -201,47 +201,47 @@
 
   &--color {
     &-primary {
-      color: $color-typo-primary;
+      color: var(--color-typo-primary);
     }
 
     &-secondary {
-      color: $color-typo-secondary;
+      color: var(--color-typo-secondary);
     }
 
     &-ghost {
-      color: $color-typo-ghost;
+      color: var(--color-typo-ghost);
     }
 
     &-brand {
-      color: $color-typo-brand;
+      color: var(--color-typo-brand);
     }
 
     &-system {
-      color: $color-typo-system;
+      color: var(--color-typo-system);
     }
 
     &-normal {
-      color: $color-typo-normal;
+      color: var(--color-typo-normal);
     }
 
     &-success {
-      color: $color-typo-success;
+      color: var(--color-typo-success);
     }
 
     &-caution {
-      color: $color-typo-caution;
+      color: var(--color-typo-caution);
     }
 
     &-warning {
-      color: $color-typo-warning;
+      color: var(--color-typo-warning);
     }
 
     &-alert {
-      color: $color-typo-alert;
+      color: var(--color-typo-alert);
     }
 
     &-critical {
-      color: $color-typo-critical;
+      color: var(--color-typo-critical);
     }
   }
 

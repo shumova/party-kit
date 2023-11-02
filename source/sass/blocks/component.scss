@@ -10,7 +10,7 @@
   }
 
   &__localName {
-    color: $color-typo-secondary;
+    color: var(--color-typo-secondary);
   }
 
   &__inner-code {
