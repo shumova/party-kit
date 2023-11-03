@@ -1,0 +1,1204 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "text",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "text.html"
+
+  -
+    const params = {
+      component: {
+        mixin: "text",
+        name: "Text",
+        localName: "Текст",
+        git: "https://github.com/shumova/party-kit/tree/master/source/components/text"
+      },
+      description: [
+        "Любые текстовые блоки, состоящие из одного и более параграфов"
+      ],
+      base: [
+    `mixin text(props = {})
+    -
+      const
+            content = props.content || [],
+            modifiers = props.modifiers ? props.modifiers.map((mod) => "text--" + mod) : [];
+
+    div(class=["text", ...modifiers])&attributes(attributes)
+      each paragraph in content
+        p!= paragraph`,
+    `.text {
+      --text-space: #{$space-s};
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      p + p {
+        margin-top: var(--text-space);
+      }
+    }`
+      ],
+      modifiers: [
+        {
+          summary: "Комбинирование модификаторов",
+          note: {
+            content: [
+              "Если так удобней для стилизации адаптива и/или при небольшой вариативности стилей модификаторы геометрии текста (размер, насыщенность, межстрочный и&nbsp;межбуквенный интервалы) комбинируются. Декоративные модификаторы (цвет, трансформация текста) лучше оставлять отдельно и&nbsp;не&nbsp;комбинировать с&nbsp;другими модификаторами кроме случаев, когда в&nbsp;макете явно задана семантика текста"
+            ]
+          },
+          examples: [
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["medium"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["medium"]
+    })`
+            },
+          ],
+          code:
+    `&--medium {
+      --text-space: #{$space-m};
+
+      font-size: $size-text-m;
+
+      @include vp-767 {
+        --text-space: #{$space-s};
+
+        font-size: $size-text-s;
+      }
+    }`
+        },
+
+        {
+          summary: "Отступ между параграфами",
+          examples: [
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["space-2xs"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["space-2xs"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["space-xs"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["space-xs"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["space-m"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["space-m"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["space-l"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["space-l"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["space-xl"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["space-xl"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["space-2xl"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["space-2xl"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["space-3xl"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["space-3xl"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["space-4xl"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["space-4xl"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["space-5xl"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["space-5xl"]
+    })`
+            }
+          ],
+          code:
+    `&--space {
+      &-2xs {
+        --text-space: #{$space-2xs};
+      }
+
+      &-xs {
+        --text-space: #{$space-xs};
+      }
+
+      &-m {
+        --text-space: #{$space-m};
+      }
+
+      &-l {
+        --text-space: #{$space-l};
+      }
+
+      &-xl {
+        --text-space: #{$space-xl};
+      }
+
+      &-2xl {
+        --text-space: #{$space-2xl};
+      }
+
+      &-3xl {
+        --text-space: #{$space-3xl};
+      }
+
+      &-4xl {
+        --text-space: #{$space-4xl};
+      }
+
+      &-5xl {
+        --text-space: #{$space-5xl};
+      }
+    }`
+        },
+
+        {
+          summary: "Размер",
+          examples: [
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["size-s"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["size-s"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["size-m"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["size-m"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["size-l"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["size-l"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["size-xl"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["size-xl"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["size-2xl"]
+              },
+              code:
+    `+title({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["size-2xl"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["size-3xl"]
+              },
+              code:
+    `+title({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["size-3xl"]
+    })`
+            },
+          ],
+          code:
+    `&--size {
+      &-s {
+        font-size: $size-text-s;
+      }
+
+      &-m {
+        font-size: $size-text-m;
+      }
+
+      &-l {
+        font-size: $size-text-l;
+
+        @include vp-1023 {
+          font-size: $size-text-m;
+        }
+
+        @include vp-767 {
+          font-size: $size-text-s;
+        }
+      }
+
+      &-xl {
+        font-size: $size-text-xl;
+
+        @include vp-1023 {
+          font-size: $size-text-l;
+        }
+
+        @include vp-767 {
+          font-size: $size-text-m;
+        }
+      }
+
+      &-2xl {
+        font-size: $size-text-2xl;
+
+        @include vp-1023 {
+          font-size: $size-text-xl;
+        }
+
+        @include vp-767 {
+          font-size: $size-text-l;
+        }
+      }
+
+      &-3xl {
+        font-size: $size-text-3xl;
+
+        @include vp-1023 {
+          font-size: $size-text-2xl;
+        }
+
+        @include vp-767 {
+          font-size: $size-text-xl;
+        }
+      }
+    }`
+        },
+        {
+          summary: "Насыщенность",
+          examples: [
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["weight-thin"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["weight-thin"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["weight-light"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["weight-light"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["weight-regular"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["weight-regular"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["weight-medium"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["weight-medium"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["weight-semibold"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["weight-semibold"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["weight-bold"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["weight-bold"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["weight-extrabold"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["weight-extrabold"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["weight-black"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["weight-black"]
+    })`
+            },
+          ],
+          code:
+    `&--weight {
+      &-thin {
+        --font-weight: #{$font-weight-text-thin};
+      }
+
+      &-light {
+        --font-weight: #{$font-weight-text-light};
+      }
+
+      &-regular {
+        --font-weight: #{$font-weight-text-regular};
+      }
+
+      &-medium {
+        --font-weight: #{$font-weight-text-medium};
+      }
+
+      &-semibold {
+        --font-weight: #{$font-weight-text-semibold};
+      }
+
+      &-bold {
+        --font-weight: #{$font-weight-text-bold};
+      }
+
+      &-extrabold {
+        --font-weight: #{$font-weight-text-extrabold};
+      }
+
+      &-black {
+        --font-weight: #{$font-weight-text-black};
+      }
+    }`
+        },
+        {
+          summary: "Межстрочный интервал",
+          examples: [
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["line-heigth-2xs"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["line-heigth-2xs"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["line-heigth-xs"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["line-heigth-xs"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["line-heigth-s"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["line-heigth-s"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["line-heigth-m"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["line-heigth-m"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["line-heigth-l"]
+              },
+              code:
+    `+text{
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["line-heigth-l"]
+    })`
+            },
+          ],
+          code:
+    `&--line-heigth {
+      &-2xs {
+        line-height: $line-height-text-2xs;
+      }
+
+      &-xs {
+        line-height: $line-height-text-xs;
+      }
+
+      &-s {
+        line-height: $line-height-text-s;
+      }
+
+      &-m {
+        line-height: $line-height-text-m;
+      }
+
+      &-l {
+        line-height: $line-height-text-l;
+      }
+    }`
+        },
+
+        {
+          summary: "Межбуквенный интервал",
+          examples: [
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["spacing-xs"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["spacing-xs"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["spacing-s"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["spacing-s"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["spacing-m"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["spacing-m"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["spacing-l"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["spacing-l"]
+    })`
+            }
+          ],
+          code:
+    `&--spacing {
+        &-xs {
+        letter-spacing: 0.06em;
+      }
+
+      &-s {
+        letter-spacing: 0.1em;
+      }
+
+      &-m {
+        letter-spacing: 0.14em;
+      }
+
+      &-l {
+        letter-spacing: 0.2em;
+      }
+    }`
+        },
+        {
+          summary: "Цвет",
+          note: {
+            tag: "p",
+            content: [
+              "Если в проекте не предусмотрена семантическая цветовая палитра, для нейминга цветов используйте https://www.htmlcsscolor.com/hex/334482",
+              "Если не предусмотрена смена цветового режима, используйте sass-переменные"
+            ]
+          },
+          examples: [
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["color-primary"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["color-primary"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["color-secondary"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["color-secondary"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["color-ghost"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["color-ghost"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["color-brand"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["color-brand"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["color-system"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["color-system"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["color-normal"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["color-normal"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["color-success"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["color-success"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["color-caution"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["color-caution"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["color-warning"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["color-warning"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["color-alert"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["color-critical"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["color-critical"]
+    })`
+            },
+          ],
+          code:
+    `&--color {
+      &-primary {
+        color: var(--color-typo-primary);
+      }
+
+      &-secondary {
+        color: var(--color-typo-secondary);
+      }
+
+      &-ghost {
+        color: var(--color-typo-ghost);
+      }
+
+      &-brand {
+        color: var(--color-typo-brand);
+      }
+
+      &-system {
+        color: var(--color-typo-system);
+      }
+
+      &-normal {
+        color: var(--color-typo-normal);
+      }
+
+      &-success {
+        color: var(--color-typo-success);
+      }
+
+      &-caution {
+        color: var(--color-typo-caution);
+      }
+
+      &-warning {
+        color: var(--color-typo-warning);
+      }
+
+      &-alert {
+        color: var(--color-typo-alert);
+      }
+
+      &-critical {
+        color: var(--color-typo-critical);
+      }
+    }`
+        },
+        {
+          summary: "Трансформация текста",
+          examples: [
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["transform-uppercase"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["transform-uppercase"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["transform-capitalize"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["transform-capitalize"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["transform-lowercase"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["transform-lowercase"]
+    })`
+            },
+          ],
+          code:
+    `&--transform {
+      &-uppercase {
+        text-transform: uppercase;
+      }
+
+      &-capitalize {
+        text-transform: capitalize;
+      }
+
+      &-lowercase {
+        text-transform: lowercase;
+      }
+    }`
+        },
+        {
+          summary: "Видимость текста в блоке",
+          examples: [
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["truncate"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["truncate"]
+    })`
+            },
+            {
+              props: {
+                content: [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+                ],
+                modifiers: ["truncate", "truncate-2-lines"]
+              },
+              code:
+    `+text({
+      content: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus."
+      ],
+      modifiers: ["truncate", "truncate-2-lines"]
+    })`
+            }
+          ],
+          code:
+    `&--truncate {
+      --line-clamp: 1;
+
+      display: -webkit-box;
+      -webkit-line-clamp: var(--line-clamp);
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+      &-2-lines {
+        --line-clamp: 2;
+      }
+    }`
+        }
+      ]
+    }
+
+block page
+  +component(params)
+
+block modals
