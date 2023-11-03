@@ -10,12 +10,19 @@ mixin base-card(props = {})
             card: {
               modifiers: ["elevated", "filled", "border-radius-xl", ...(card?.modifiers ?? [])]
             },
+            imgPlaceholder: {
+              path: "content",
+              name: "placeholder",
+              format: "png",
+              width: img.width || "480",
+              height: img.height || "480"
+            },
             img: img && {
               path: img.path || "",
               name: img.name || "",
               format: img.format || "jpg",
-              width: img.width || "50",
-              height: img.height || "50",
+              width: img.width || "700",
+              height: img.height || "400",
               altText: img.altText || ""
             },
             title: title && {
@@ -52,7 +59,7 @@ mixin base-card(props = {})
   +card(_params.card)(class=["base-card", ...modifiers])&attributes(attributes)
     if img
       .base-card__img
-        +picture(_params.img)
+        +picture(_params.img || _params.imgPlaceholder)
     if (title || subtitle || text || btn)
       .base-card__content
         if title
