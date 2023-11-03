@@ -51,6 +51,10 @@ mixin component(props = {})
           tag: "h2",
           text: "Модификаторы",
           modifiers: ["size-2xl"]
+        },
+        note: {
+          content: ["Если для&nbsp;проекта не&nbsp;предусмотрены токены, используйте жёстко закодированные значения"],
+          modifiers: ["size-l"]
         }
       },
       examples: {
@@ -87,6 +91,7 @@ mixin component(props = {})
     .component__modifiers
       +title(_params.modifiers.title)
       +card(_params.card.code)
+        +text(_params.modifiers.note)
         pre
           code.
             .#{component.mixin} {
@@ -97,7 +102,8 @@ mixin component(props = {})
             +details({summary: snippet.summary})
               if snippet.note
                 +text({
-                  content: snippet.note
+                  tag: snippet.note.tag || "span",
+                  content: snippet.note.content
                 })
 
               if snippet.examples
@@ -109,9 +115,10 @@ mixin component(props = {})
                         code.
                           #{example.code}
 
-              pre
-                code.
-                  #{snippet.code}
+              .component__code
+                pre
+                  code.
+                    #{snippet.code}
 
         pre
           code }
