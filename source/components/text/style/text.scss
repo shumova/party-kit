@@ -1,0 +1,283 @@
+.text {
+  --text-space: #{$space-s};
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  p + p {
+    margin-top: var(--text-space);
+  }
+
+  &--medium {
+    --text-space: #{$space-m};
+
+    font-size: $size-text-m;
+
+    @include vp-767 {
+      --text-space: #{$space-s};
+
+      font-size: $size-text-s;
+    }
+  }
+
+  &--space {
+    &-2xs {
+      --text-space: #{$space-2xs};
+    }
+
+    &-xs {
+      --text-space: #{$space-xs};
+    }
+
+    &-m {
+      --text-space: #{$space-m};
+    }
+
+    &-l {
+      --text-space: #{$space-l};
+    }
+
+    &-xl {
+      --text-space: #{$space-xl};
+    }
+
+    &-2xl {
+      --text-space: #{$space-2xl};
+    }
+
+    &-3xl {
+      --text-space: #{$space-3xl};
+    }
+
+    &-4xl {
+      --text-space: #{$space-4xl};
+    }
+
+    &-5xl {
+      --text-space: #{$space-5xl};
+    }
+  }
+
+  &--font {
+    &-primary {
+      font-family: $font-family-primary;
+    }
+
+    &-mono {
+      font-family: $font-family-mono;
+    }
+  }
+
+  &--style {
+    &-italic {
+      font-style: italic;
+    }
+  }
+
+  &--size {
+    &-s {
+      font-size: $size-text-s;
+    }
+
+    &-m {
+      font-size: $size-text-m;
+    }
+
+    &-l {
+      font-size: $size-text-l;
+
+      @include vp-1023 {
+        font-size: $size-text-m;
+      }
+
+      @include vp-767 {
+        font-size: $size-text-s;
+      }
+    }
+
+    &-xl {
+      font-size: $size-text-xl;
+
+      @include vp-1023 {
+        font-size: $size-text-l;
+      }
+
+      @include vp-767 {
+        font-size: $size-text-m;
+      }
+    }
+
+    &-2xl {
+      font-size: $size-text-2xl;
+
+      @include vp-1023 {
+        font-size: $size-text-xl;
+      }
+
+      @include vp-767 {
+        font-size: $size-text-l;
+      }
+    }
+
+    &-3xl {
+      font-size: $size-text-3xl;
+
+      @include vp-1023 {
+        font-size: $size-text-2xl;
+      }
+
+      @include vp-767 {
+        font-size: $size-text-xl;
+      }
+    }
+  }
+
+  &--weight {
+    &-thin {
+      font-weight: $font-weight-text-thin;
+    }
+
+    &-light {
+      font-weight: $font-weight-text-light;
+    }
+
+    &-regular {
+      font-weight: $font-weight-text-regular;
+    }
+
+    &-medium {
+      font-weight: $font-weight-text-medium;
+    }
+
+    &-semibold {
+      font-weight: $font-weight-text-semibold;
+    }
+
+    &-bold {
+      font-weight: $font-weight-text-bold;
+    }
+
+    &-extrabold {
+      font-weight: $font-weight-text-extrabold;
+    }
+
+    &-black {
+      font-weight: $font-weight-text-black;
+    }
+  }
+
+  &--line-heigth {
+    &-2xs {
+      line-height: $line-height-text-2xs;
+    }
+
+    &-xs {
+      line-height: $line-height-text-xs;
+    }
+
+    &-s {
+      line-height: $line-height-text-s;
+    }
+
+    &-m {
+      line-height: $line-height-text-m;
+    }
+
+    &-l {
+      line-height: $line-height-text-l;
+    }
+  }
+
+  &--spacing {
+    &-xs {
+      letter-spacing: 0.06em;
+    }
+
+    &-s {
+      letter-spacing: 0.1em;
+    }
+
+    &-m {
+      letter-spacing: 0.14em;
+    }
+
+    &-l {
+      letter-spacing: 0.2em;
+    }
+  }
+
+  &--color {
+    &-primary {
+      color: var(--color-typo-primary);
+    }
+
+    &-secondary {
+      color: var(--color-typo-secondary);
+    }
+
+    &-ghost {
+      color: var(--color-typo-ghost);
+    }
+
+    &-brand {
+      color: var(--color-typo-brand);
+    }
+
+    &-system {
+      color: var(--color-typo-system);
+    }
+
+    &-normal {
+      color: var(--color-typo-normal);
+    }
+
+    &-success {
+      color: var(--color-typo-success);
+    }
+
+    &-caution {
+      color: var(--color-typo-caution);
+    }
+
+    &-warning {
+      color: var(--color-typo-warning);
+    }
+
+    &-alert {
+      color: var(--color-typo-alert);
+    }
+
+    &-critical {
+      color: var(--color-typo-critical);
+    }
+  }
+
+  &--transform {
+    &-uppercase {
+      text-transform: uppercase;
+    }
+
+    &-capitalize {
+      text-transform: capitalize;
+    }
+
+    &-lowercase {
+      text-transform: lowercase;
+    }
+  }
+
+  &--truncate {
+    --line-clamp: 1;
+
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    &-2-lines {
+      --line-clamp: 2;
+    }
+  }
+}

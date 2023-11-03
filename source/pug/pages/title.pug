@@ -19,7 +19,7 @@ block variables
         mixin: "title",
         name: "Title",
         localName: "Заголовок",
-        git: "#"
+        git: "https://github.com/shumova/party-kit/tree/master/source/components/title"
       },
       description: [
         "Везде, где подходит по стилям (тег не обязательно должен быть h-, дефолтный тег span)",
@@ -51,9 +51,11 @@ block variables
       modifiers: [
         {
           summary: "Комбинирование модификаторов",
-          note: [
-            "Если так удобней для стилизации адаптива и/или при небольшой вариативности заголовков модификаторы геометрии текста (размер, насыщенность, межстрочный и межбуквенный интервалы) комбинируются. Декоративные модификаторы (цвет, подчёркивание) лучше оставлять отдельно и не комбинировать с другими модификаторами кроме случаев, когда в макете явно задана семантика заголовков"
-          ],
+          note: {
+            content: [
+              "Если так удобней для стилизации адаптива и/или при небольшой вариативности заголовков модификаторы геометрии текста (размер, насыщенность, межстрочный и&nbsp;межбуквенный интервалы) комбинируются. Декоративные модификаторы (цвет, подчёркивание) лучше оставлять отдельно и&nbsp;не&nbsp;комбинировать с&nbsp;другими модификаторами кроме случаев, когда в&nbsp;макете явно задана семантика заголовков"
+            ]
+          },
           examples: [
             {
               props: {
@@ -388,7 +390,6 @@ block variables
         },
         {
           summary: "Межстрочный интервал",
-          note: ["Лучше не задавать в %, т.к. бывают баги"],
           examples: [
             {
               props: {
@@ -539,6 +540,13 @@ block variables
         },
         {
           summary: "Цвет",
+          note: {
+            tag: "p",
+            content: [
+              "Если в проекте не предусмотрена семантическая цветовая палитра, для нейминга цветов используйте https://www.htmlcsscolor.com/hex/334482",
+              "Если не предусмотрена смена цветового режима, используйте sass переменные (стандарт для задания цветов в Лиге)"
+            ]
+          },
           examples: [
             {
               props: {
@@ -665,47 +673,47 @@ block variables
           code:
     `&--color {
       &-primary {
-        color: $color-typo-primary;
+        color: var(--color-typo-primary);
       }
 
       &-secondary {
-        color: $color-typo-secondary;
+        color: var(--color-typo-secondary);
       }
 
       &-ghost {
-        color: $color-typo-ghost;
+        color: var(--color-typo-ghost);
       }
 
       &-brand {
-        color: $color-typo-brand;
+        color: var(--color-typo-brand);
       }
 
       &-system {
-        color: $color-typo-system;
+        color: var(--color-typo-system);
       }
 
       &-normal {
-        color: $color-typo-normal;
+        color: var(--color-typo-normal);
       }
 
       &-success {
-        color: $color-typo-success;
+        color: var(--color-typo-success);
       }
 
       &-caution {
-        color: $color-typo-caution;
+        color: var(--color-typo-caution);
       }
 
       &-warning {
-        color: $color-typo-warning;
+        color: var(--color-typo-warning);
       }
 
       &-alert {
-        color: $color-typo-alert;
+        color: var(--color-typo-alert);
       }
 
       &-critical {
-        color: $color-typo-critical;
+        color: var(--color-typo-critical);
       }
     }`
         },

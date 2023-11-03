@@ -57,6 +57,10 @@
     width: min(200px, 100%);
   }
 
+  &__code {
+    margin-top: $space-2xl;
+  }
+
   h2 {
     margin: $space-2xl 0 $space-l;
   }
