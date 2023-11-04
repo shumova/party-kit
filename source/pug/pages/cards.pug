@@ -1,0 +1,71 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "cards",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "cards.html"
+
+  -
+    const params = {
+      content: [
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Card"
+          },
+          subtitle: {
+            text: "Карточка. Контейнер для&nbsp;любого контента"
+          },
+          text: {
+            content: ["Можно использовать для любых целей: как фоновую подложку, основу для карточки товара/услуг, для размещения таблиц/изображений и&nbsp;т.д."]
+          },
+          iconBtn: {
+            href: "https://github.com/shumova/party-kit/tree/master/source/components/card"
+          },
+          btn: {
+            href: "card.html"
+          }
+        },
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Card-var1"
+          },
+          subtitle: {
+            text: "Карточка"
+          },
+          text: {
+            content: ["Description"]
+          },
+          iconBtn: {
+            href: "https://github.com/shumova/party-kit/tree/master/source/components/card-var1"
+          },
+          btn: {
+            href: "card-var1.html"
+          }
+        },
+      ]
+    }
+
+block page
+  +components(params)
+
+block modals
