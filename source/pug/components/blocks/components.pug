@@ -2,4 +2,4 @@ mixin components({content} = {})
   .components&attributes(attributes)
     +grid({modifiers: ["cols-2", "gap-3xl"]})
       each item in content
-        +base-card(item)
+        +component-card(item)
