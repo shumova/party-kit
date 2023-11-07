@@ -8,7 +8,7 @@ mixin base-card(props = {})
     const
           _params = {
             card: {
-              modifiers: ["elevated", "filled", "border-radius-xl", ...(card?.modifiers ?? [])]
+              modifiers: ["elevated-shadow-1", "filled", "form-round-xl", ...(card?.modifiers ?? [])]
             },
             imgPlaceholder: {
               path: "content",
@@ -46,12 +46,12 @@ mixin base-card(props = {})
                 width: 32,
                 height: 32,
               },
-              modifiers: ["form-round"]
+              modifiers: ["form-round", "elevated-shadow-1"]
             },
             btn: btn && {
               href: btn.href,
               text: btn.text || "Open",
-              modifiers: ["view-primary", "form-round-s", "size-m"]
+              modifiers: ["view-primary", "form-round-s", "size-m", "elevated-shadow-1"]
             }
           };
 

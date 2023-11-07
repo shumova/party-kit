@@ -16,13 +16,13 @@
     overflow-wrap: anywhere;
   }
 
-  .title {
+  &__name {
     min-width: 50px;
     max-width: 400px;
-  }
 
-  &__localName {
-    color: var(--color-typo-secondary);
+    &--local {
+      color: var(--color-typo-secondary);
+    }
   }
 
   .icon-btn {
@@ -65,7 +65,7 @@
     margin: $space-2xl 0 $space-l;
   }
 
-  .card {
+  &__card {
     margin: $space-l 0;
 
     &:first-child {
@@ -81,7 +81,7 @@
     margin: 0;
     margin-top: $space-m;
 
-    white-space: pre-wrap;       /* css-3 */
+    white-space: pre-wrap;
     word-wrap: break-word;
 
     &:first-child {
