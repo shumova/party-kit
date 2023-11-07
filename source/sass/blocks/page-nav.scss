@@ -5,7 +5,7 @@
   --page-nav-content-height: 100%;
 
   border-radius: $space-xl;
-  box-shadow: $shadow-layer;
+  box-shadow: $shadow-layer-4;
 
   &__content {
     height: var(--page-nav-content-height);
@@ -49,6 +49,7 @@
       padding-right: 0;
       padding-left: $offset-nav-tablet;
       border-radius: 0 $space-xl $space-xl 0;
+      box-shadow: $shadow-layer-5;
       pointer-events: all;
       transform: translateX(calc(100% * -1 + $offset-nav-tablet));
     }

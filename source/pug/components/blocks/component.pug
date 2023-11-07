@@ -4,7 +4,7 @@ mixin component(props = {})
     const _params = {
       card: {
         code: {
-          modifiers: ["filled", "border-radius-xl", "size-xl"]
+          modifiers: ["filled", "form-round-xl", "space-xl"]
         }
       },
       header: {
@@ -71,8 +71,8 @@ mixin component(props = {})
 
     .component__header
       .component__titles
-        +title(_params.header.title)
-        +title(_params.header.subtitle).component__localName
+        +title(_params.header.title).component__name
+        +title(_params.header.subtitle).component__name--local
       +icon-btn(_params.header.iconBtn)
 
     .component__description
@@ -83,14 +83,14 @@ mixin component(props = {})
       +title(_params.base.title)
 
       each snippet in base
-        +card(_params.card.code)
+        +card(_params.card.code).component__card
           pre
             code.
               #{snippet}
 
     .component__modifiers
       +title(_params.modifiers.title)
-      +card(_params.card.code)
+      +card(_params.card.code).component__card
         +text(_params.modifiers.note)
         pre
           code.
@@ -99,7 +99,10 @@ mixin component(props = {})
 
         .component__inner-code
           each snippet in modifiers
-            +details({summary: snippet.summary})
+            +details({
+              summary: snippet.summary,
+              modifiers: snippet.modifiers
+            })
               if snippet.note
                 +text({
                   tag: snippet.note.tag || "span",
@@ -111,6 +114,8 @@ mixin component(props = {})
                   each example in snippet.examples
                     .component__example
                       +#{component.mixin}(example.props)
+                        if example.block
+                          +#{example.block.mixin}(example.block.props)
                       pre
                         code.
                           #{example.code}
@@ -122,13 +127,3 @@ mixin component(props = {})
 
         pre
           code }
-
-    //- .component__examples
-    //-   +title(_params.examples.title)
-    //-   +card(_params.card.code)
-    //-     each example in examples
-    //-       .component__example
-    //-         +#{component.mixin}(example.params)
-    //-         pre
-    //-           code.
-    //-             #{example.stringParams}
