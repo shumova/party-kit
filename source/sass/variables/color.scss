@@ -103,6 +103,7 @@ $color-transparent: transparent;
   /* Цвета тени */
   --color-shadow-group-1: #{color.change($color-base-shadow, $alpha: 0.02)};
   --color-shadow-group-2: #{color.change($color-base-shadow, $alpha: 0.16)};
-  --color-shadow-layer-1: #{color.change($color-base-shadow, $alpha: 0.04)};
-  --color-shadow-layer-2: #{color.change($color-base-shadow, $alpha: 0.12)};
+
+  --color-shadow-layer-1: #{color.change($color-base-shadow, $alpha: 0.3)};
+  --color-shadow-layer-2: #{color.change($color-base-shadow, $alpha: 0.15)};
 }

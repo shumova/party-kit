@@ -5,3 +5,27 @@ $shadow-group:
 $shadow-layer:
   0 4px 4px var(--color-shadow-layer-1),
   0 8px 24px var(--color-shadow-layer-2);
+
+$shadow-layer-0:
+  0 1px 1px var(--color-shadow-layer-1),
+  0 1px 1px 1px var(--color-shadow-layer-2);
+
+$shadow-layer-1:
+  0 2px 1px var(--color-shadow-layer-1),
+  0 3px 1px 1px var(--color-shadow-layer-2);
+
+$shadow-layer-2:
+  0 2px 1px var(--color-shadow-layer-1),
+  0 6px 2px 2px var(--color-shadow-layer-2);
+
+$shadow-layer-3:
+  0 8px 4px 3px var(--color-shadow-layer-2),
+  0 3px 1px var(--color-shadow-layer-1);
+
+$shadow-layer-4:
+  0 10px 6px 4px var(--color-shadow-layer-2),
+  0 3px 2px var(--color-shadow-layer-1);
+
+$shadow-layer-5:
+  0 12px 8px 6px var(--color-shadow-layer-2),
+  0 4px 4px var(--color-shadow-layer-1);
