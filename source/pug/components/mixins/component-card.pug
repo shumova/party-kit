@@ -1,4 +1,4 @@
-mixin base-card(props = {})
+mixin component-card(props = {})
   -
     const
           {card, img, title, subtitle, text, iconBtn, btn} = props,
@@ -56,12 +56,12 @@ mixin base-card(props = {})
           };
 
 
-  +card(_params.card)(class=["base-card", ...modifiers])&attributes(attributes)
+  +card(_params.card)(class=["component-card", ...modifiers])&attributes(attributes)
     if img
-      .base-card__img
+      .component-card__img
         +picture(_params.img || _params.imgPlaceholder)
     if (title || subtitle || text || btn)
-      .base-card__content
+      .component-card__content
         if title
           +title(_params.title)
         if subtitle

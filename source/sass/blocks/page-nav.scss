@@ -4,8 +4,8 @@
   $toggle-border-width: 2px;
   --page-nav-content-height: 100%;
 
-  border-radius: $space-xl;
-  box-shadow: $shadow-layer-4;
+  border-radius: $space-m;
+  box-shadow: $shadow-layer-1;
 
   &__content {
     height: var(--page-nav-content-height);
@@ -91,7 +91,7 @@
 
     &.is-ajar {
       .page-nav__content {
-        transform: translateX(calc(100% * -1 + $offset-nav-tablet + math.abs($offset-nav-tablet - $offset-container-tablet)));
+        transform: translateX(calc(100% * -1 + $offset-nav-tablet + math.abs($offset-nav-tablet - $offset-container-tablet) * 0.75));
       }
     }
 
