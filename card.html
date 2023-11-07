@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html class="theme-default" lang="ru">
+  <head>
+    <title>card</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ProjectName — описание">
+    <link rel="preload" href="fonts/ysabeau-infant-VF.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <main>
+        <div class="page">
+          <div class="container page__container">
+            <nav class="page-nav page__nav" data-page-nav="container">
+              <div class="page-nav__content" data-page-nav="content">
+                <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
+                <ul class="page-nav__list no-scrollbar" data-page-nav="list">
+                  <li class="page-nav__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
+                    </a>
+                  </li>
+                  <li class="page-nav__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="title.html"><span class="btn__text">Title</span>
+                    </a>
+                  </li>
+                  <li class="page-nav__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="text.html"><span class="btn__text">Text</span>
+                    </a>
+                  </li>
+                  <li class="page-nav__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="cards.html"><span class="btn__text">Cards</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div class="card card--filled-secondary card--form-round-m card--elevated-shadow-1 page__content no-scrollbar">
+              <div class="component">
+                <div class="component__header">
+                  <div class="component__titles">
+                    <h1 class="title title--size-3xl component__name">Card</h1>
+                    <span class="title title--size-2xl component__name--local">Карточка</span>
+                  </div>
+                  <a class="icon-btn icon-btn--form-round icon-btn--elevated-shadow-1" href="https://github.com/shumova/party-kit/tree/master/source/components/cards/card" aria-label="Open Card component in git">
+                    <svg width="32" height="32" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#git"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="component__description">
+                  <h2 class="title title--size-2xl">Использование</h2>
+                  <div class="text">
+                    <p>Можно использовать для любых целей: как фоновую подложку, основу для карточки товара/услуг, для размещения таблиц/изображений и&nbsp;т.д.</p>
+                  </div>
+                </div>
+                <div class="component__base">
+                  <h2 class="title title--size-2xl">Базовый компонент</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <pre><code>mixin card(props = {})
+-
+  const
+        tag = props.tag || &quot;div&quot;,
+        modifiers = props.modifiers ? props.modifiers.map((mod) =&gt; &quot;card--&quot; + mod) : [];
+
+#{tag}(class=[&quot;card&quot;, ...modifiers])&amp;attributes(attributes)
+  block
+</code></pre>
+                  </div>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <pre><code>.card {
+  --vertical-space: 0;
+  --horizontal-space: 0;
+  --card-border-width: initial;
+  --card-border-style: initial;
+  --card-border-color: initial;
+
+  padding: var(--vertical-space) var(--horizontal-space);
+  border: var(--card-border-width) var(--card-border-style) var(--card-border-color);
+}
+</code></pre>
+                  </div>
+                </div>
+                <div class="component__modifiers">
+                  <h2 class="title title--size-2xl">Модификаторы</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <div class="text text--size-l">
+                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используйте жёстко закодированные значения</p>
+                    </div>
+                    <pre><code>.card {
+  ...
+</code></pre>
+                    <div class="component__inner-code">
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Внутренние отступы (общее значение для горизонтальных и вертикальных)</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="card card--space-xs card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;space-xs&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--space-s card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;space-s&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--space-m card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;space-m&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--space-l card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;space-l&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--space-xl card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;space-xl&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--space-2xl card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;space-2xl&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--space-3xl card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;space-3xl&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--space {
+  &amp;-xs {
+    --vertical-space: #{$space-xs};
+    --horizontal-space: #{$space-xs};
+  }
+
+  &amp;-s {
+    --vertical-space: #{$space-s};
+    --horizontal-space: #{$space-s};
+  }
+
+  &amp;-m {
+    --vertical-space: #{$space-m};
+    --horizontal-space: #{$space-m};
+  }
+
+  &amp;-l {
+    --vertical-space: #{$space-l};
+    --horizontal-space: #{$space-l};
+  }
+
+  &amp;-xl {
+    --vertical-space: #{$space-xl};
+    --horizontal-space: #{$space-xl};
+  }
+
+  &amp;-2xl {
+    --vertical-space: #{$space-2xl};
+    --horizontal-space: #{$space-2xl};
+  }
+
+  &amp;-3xl {
+    --vertical-space: #{$space-3xl};
+    --horizontal-space: #{$space-3xl};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Внутренние вертикальные отступы</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="card card--vertical-space-xs card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;vertical-space-xs&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--vertical-space-s card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;vertical-space-s&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--vertical-space-m card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;vertical-space-m&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--vertical-space-l card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;vertical-space-l&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--vertical-space-xl card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;vertical-space-xl&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--vertical-space-2xl card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;vertical-space-2xl&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--vertical-space-3xl card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;vertical-space-3xl&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--vertical-space {
+  &amp;-2xs {
+    --vertical-space: #{$space-xs};
+  }
+
+  &amp;-xs {
+    --vertical-space: #{$space-s};
+  }
+
+  &amp;-m {
+    --vertical-space: #{$space-m};
+  }
+
+  &amp;-l {
+    --vertical-space: #{$space-l};
+  }
+
+  &amp;-xl {
+    --vertical-space: #{$space-xl};
+  }
+
+  &amp;-2xl {
+    --vertical-space: #{$space-2xl};
+  }
+
+  &amp;-3xl {
+    --vertical-space: #{$space-3xl};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Внутренние горизонтальные отступы</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="card card--horizontal-space-xs card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;horizontal-space-xs&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--horizontal-space-s card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;horizontal-space-s&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--horizontal-space-m card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;horizontal-space-m&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--horizontal-space-l card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;horizontal-space-l&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--horizontal-space-xl card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;horizontal-space-xl&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--horizontal-space-2xl card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;horizontal-space-2xl&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--horizontal-space-3xl card--filled-secondary">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;horizontal-space-3xl&quot;, &quot;filled-secondary&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--space {
+  &amp;-xs {
+    --horizontal-space: #{$horizontal-space-xs};
+  }
+
+  &amp;-s {
+    --horizontal-space: #{$horizontal-space-s};
+  }
+
+  &amp;-m {
+    --horizontal-space: #{$horizontal-space-m};
+  }
+
+  &amp;-l {
+    --horizontal-space: #{$horizontal-space-l};
+  }
+
+  &amp;-xl {
+    --horizontal-space: #{$horizontal-space-xl};
+  }
+
+  &amp;-2xl {
+    --horizontal-space: #{$horizontal-space-2xl};
+  }
+
+  &amp;-3xl {
+    --horizontal-space: #{$horizontal-space-3xl};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Форма (радиус закругления углов)</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="card card--form-round card--filled-secondary card--space-l">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;form-round&quot;, &quot;filled-secondary&quot;, &quot;space-l&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--form-round-xs card--filled-secondary card--space-l">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;form-round-s&quot;, &quot;filled-secondary&quot;, &quot;space-l&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--form-round-m card--filled-secondary card--space-l">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;form-round-m&quot;, &quot;filled-secondary&quot;, &quot;space-l&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--form-round-l card--filled-secondary card--space-l">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;form-round-l&quot;, &quot;filled-secondary&quot;, &quot;space-l&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--form-round-xl card--filled-secondary card--space-l">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;form-round-xl&quot;, &quot;filled-secondary&quot;, &quot;space-l&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--form-round-2xl card--filled-secondary card--space-l">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;form-round-2xl&quot;, &quot;filled-secondary&quot;, &quot;space-l&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--form-round-3xl card--filled-secondary card--space-l">
+                                <div class="text">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;form-round-3xl&quot;, &quot;filled-secondary&quot;, &quot;space-l&quot;]})
+  +text({
+    content: [
+      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+    ]
+  })
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--form {
+  &amp;-round {
+    border-radius: 99rem;
+
+    &amp;-xs {
+      border-radius: $space-xs;
+    }
+
+    &amp;-s {
+      border-radius: $space-s;
+    }
+
+    &amp;-m {
+      border-radius: $space-m;
+    }
+
+    &amp;-l {
+      border-radius: $space-l;
+    }
+
+    &amp;-xl {
+      border-radius: $space-xl;
+    }
+
+    &amp;-2xl {
+      border-radius: $space-2xl;
+    }
+
+    &amp;-3xl {
+      border-radius: $space-3xl;
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Elevation (тени, фон, непрозрачность и другие свойства визуализации виртуальной Z-координаты карточки относительно “базового” слоя экрана)</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="card card--elevated-shadow-1 card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;elevated-shadow-1&quot;, &quot;space-2xl&quot;]}
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--elevated-shadow-2 card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;elevated-shadow-2&quot;, &quot;space-2xl&quot;]})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--elevated-shadow-3 card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;elevated-shadow-3&quot;, &quot;space-2xl&quot;]})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--elevated-shadow-4 card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;elevated-shadow-4&quot;, &quot;space-2xl&quot;]})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--elevated-shadow-5 card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;elevated-shadow-5&quot;, &quot;space-2xl&quot;]})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--elevated {
+  &amp;-shadow {
+    &amp;-1 {
+      box-shadow: $shadow-layer-1;
+    }
+
+    &amp;-2 {
+      box-shadow: $shadow-layer-2;
+    }
+
+    &amp;-3 {
+      box-shadow: $shadow-layer-3;
+    }
+
+    &amp;-4 {
+      box-shadow: $shadow-layer-4;
+    }
+
+    &amp;-5 {
+      box-shadow: $shadow-layer-5;
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Фоновый цвет</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="text">
+                            <p>Если в проекте не предусмотрена семантическая цветовая палитра, для нейминга цветов используйте https://www.htmlcsscolor.com/hex/334482</p>
+                            <p>Если не предусмотрена смена цветового режима, используйте sass-переменные</p>
+                          </div>
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="card card--filled card--space-2xl card--bordered">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;filled&quot;, &quot;space-2xl&quot;, &quot;bordered&quot;]}
+(белый цвет)
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--filled-secondary card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;filled-secondary&quot;, &quot;space-2xl&quot;]})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--filled-brand card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;filled-brand&quot;, &quot;space-2xl&quot;]})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--filled-stripe card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;filled-stripe&quot;, &quot;space-2xl&quot;]})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--filled-tone card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;filled-tone&quot;, &quot;space-2xl&quot;]})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--filled {
+  background-color: var(--color-bg-default);
+
+  &amp;-secondary {
+    background-color: var(--color-bg-secondary);
+  }
+
+  &amp;-brand {
+    background-color: var(--color-bg-brand);
+  }
+
+  &amp;-stripe {
+    background-color: var(--color-bg-stripe);
+  }
+
+  &amp;-tone {
+    background-color: var(--color-bg-tone);
+  }
+
+  &amp;-soft {
+    background-color: var(--color-bg-soft);
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Граница</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="card card--border-default card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;border-default&quot;, &quot;space-2xl&quot;]
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--border-style-solid card--border-width-s card--border-color-secondary card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;border-style-solid&quot;, &quot;border-width-s&quot;, &quot;border-color-secondary&quot;, &quot;space-2xl&quot;]})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="card card--border-style-dotted card--border-width-m card--border-color-brand card--space-2xl">
+                              </div>
+                              <pre><code>+card({modifiers: [&quot;border-style-dotted&quot;, &quot;border-width-m&quot;, &quot;border-color-brand&quot;, &quot;space-2xl&quot;]})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--border {
+  &amp;-default {
+    --card-border-width: 1px;
+    --card-border-style: solid;
+    --card-border-color: var(--color-bg-border);
+  }
+
+  &amp;-style {
+    &amp;-solid {
+      --card-border-style: solid;
+    }
+
+    &amp;-dotted {
+      --card-border-style: dotted;
+    }
+  }
+
+  &amp;-width {
+    &amp;-s {
+      --card-border-width: 2px;
+    }
+
+    &amp;-m {
+      --card-border-width: 3px;
+    }
+  }
+
+  &amp;-color {
+    &amp;-brand {
+      --card-border-color: var(--color-bg-brand);
+    }
+
+    &amp;-secondary {
+      --card-border-color: var(--color-bg-secondary);
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                    </div>
+                    <pre><code>}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
