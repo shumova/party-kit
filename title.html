@@ -27,7 +27,11 @@
                     </span>
                   </li>
                   <li class="page-nav__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="#"><span class="btn__text">Text</span>
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="text.html"><span class="btn__text">Text</span>
+                    </a>
+                  </li>
+                  <li class="page-nav__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="cards.html"><span class="btn__text">Cards</span>
                     </a>
                   </li>
                 </ul>
@@ -40,7 +44,7 @@
                     <h1 class="title title--size-3xl">Title</h1>
                     <span class="title title--size-2xl component__localName">Заголовок</span>
                   </div>
-                  <a class="icon-btn icon-btn--form-round" href="#" aria-label="Open Title component in git">
+                  <a class="icon-btn icon-btn--form-round" href="https://github.com/shumova/party-kit/tree/master/source/components/title" aria-label="Open Title component in git">
                     <svg width="32" height="32" aria-hidden="true">
                       <use xlink:href="img/sprite.svg#git"></use>
                     </svg>
@@ -86,6 +90,9 @@
                 <div class="component__modifiers">
                   <h2 class="title title--size-2xl">Модификаторы</h2>
                   <div class="card card--filled card--border-radius-xl card--size-xl">
+                    <div class="text text--size-l">
+                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используйте жёстко закодированные значения</p>
+                    </div>
                     <pre><code>.title {
   ...
 </code></pre>
@@ -94,7 +101,7 @@
                         <summary data-details="summary">Комбинирование модификаторов</summary>
                         <div class="details__content" data-details="content">
                           <div class="text">
-                            <span>Если так удобней для стилизации адаптива и/или при небольшой вариативности заголовков модификаторы геометрии текста (размер, насыщенность, межстрочный и межбуквенный интервалы) комбинируются. Декоративные модификаторы (цвет, подчёркивание) лучше оставлять отдельно и не комбинировать с другими модификаторами кроме случаев, когда в макете явно задана семантика заголовков</span>
+                            <p>Если так удобней для стилизации адаптива и/или при небольшой вариативности заголовков модификаторы геометрии текста (размер, насыщенность, межстрочный и&nbsp;межбуквенный интервалы) комбинируются. Декоративные модификаторы (цвет, подчёркивание) лучше оставлять отдельно и&nbsp;не&nbsp;комбинировать с&nbsp;другими модификаторами кроме случаев, когда в&nbsp;макете явно задана семантика заголовков</p>
                           </div>
                           <div class="component__examples">
                             <div class="component__example">
@@ -106,7 +113,8 @@
 </code></pre>
                             </div>
                           </div>
-                          <pre><code>&amp;--small {
+                          <div class="component__code">
+                            <pre><code>&amp;--small {
   --font-weight: #{$font-weight-text-extrabold};
   --font-size: #{$size-text-l};
   --line-height: #{$line-height-text-m};
@@ -122,6 +130,7 @@
     }
 }
 </code></pre>
+                          </div>
                         </div>
                       </details>
                       <details class="details" data-details="details">
@@ -193,7 +202,8 @@
 </code></pre>
                             </div>
                           </div>
-                          <pre><code>&amp;--size {
+                          <div class="component__code">
+                            <pre><code>&amp;--size {
   &amp;-s {
     --font-size: #{$size-text-s};
   }
@@ -275,6 +285,7 @@
   }
 }
 </code></pre>
+                          </div>
                         </div>
                       </details>
                       <details class="details" data-details="details">
@@ -346,7 +357,8 @@
 </code></pre>
                             </div>
                           </div>
-                          <pre><code>&amp;--weight {
+                          <div class="component__code">
+                            <pre><code>&amp;--weight {
   &amp;-thin {
     --font-weight: #{$font-weight-text-thin};
   }
@@ -380,14 +392,12 @@
   }
 }
 </code></pre>
+                          </div>
                         </div>
                       </details>
                       <details class="details" data-details="details">
                         <summary data-details="summary">Межстрочный интервал</summary>
                         <div class="details__content" data-details="content">
-                          <div class="text">
-                            <span>Лучше не задавать в %, т.к. бывают баги</span>
-                          </div>
                           <div class="component__examples">
                             <div class="component__example">
                               <span class="title title--line-heigth-2xs">Title</span>
@@ -430,7 +440,8 @@
 </code></pre>
                             </div>
                           </div>
-                          <pre><code>&amp;--line-heigth {
+                          <div class="component__code">
+                            <pre><code>&amp;--line-heigth {
   &amp;-2xs {
     --line-height: #{$line-height-text-2xs};
   }
@@ -452,6 +463,7 @@
   }
 }
 </code></pre>
+                          </div>
                         </div>
                       </details>
                       <details class="details" data-details="details">
@@ -491,7 +503,8 @@
 </code></pre>
                             </div>
                           </div>
-                          <pre><code>&amp;--spacing {
+                          <div class="component__code">
+                            <pre><code>&amp;--spacing {
   &amp;-xs {
     --letter-spacing: 0.06em;
   }
@@ -509,11 +522,16 @@
   }
 }
 </code></pre>
+                          </div>
                         </div>
                       </details>
                       <details class="details" data-details="details">
                         <summary data-details="summary">Цвет</summary>
                         <div class="details__content" data-details="content">
+                          <div class="text">
+                            <p>Если в проекте не предусмотрена семантическая цветовая палитра, для нейминга цветов используйте https://www.htmlcsscolor.com/hex/334482</p>
+                            <p>Если не предусмотрена смена цветового режима, используйте sass переменные (стандарт для задания цветов в Лиге)</p>
+                          </div>
                           <div class="component__examples">
                             <div class="component__example">
                               <span class="title title--color-primary">Title</span>
@@ -604,52 +622,54 @@
 </code></pre>
                             </div>
                           </div>
-                          <pre><code>&amp;--color {
+                          <div class="component__code">
+                            <pre><code>&amp;--color {
   &amp;-primary {
-    color: $color-typo-primary;
+    color: var(--color-typo-primary);
   }
 
   &amp;-secondary {
-    color: $color-typo-secondary;
+    color: var(--color-typo-secondary);
   }
 
   &amp;-ghost {
-    color: $color-typo-ghost;
+    color: var(--color-typo-ghost);
   }
 
   &amp;-brand {
-    color: $color-typo-brand;
+    color: var(--color-typo-brand);
   }
 
   &amp;-system {
-    color: $color-typo-system;
+    color: var(--color-typo-system);
   }
 
   &amp;-normal {
-    color: $color-typo-normal;
+    color: var(--color-typo-normal);
   }
 
   &amp;-success {
-    color: $color-typo-success;
+    color: var(--color-typo-success);
   }
 
   &amp;-caution {
-    color: $color-typo-caution;
+    color: var(--color-typo-caution);
   }
 
   &amp;-warning {
-    color: $color-typo-warning;
+    color: var(--color-typo-warning);
   }
 
   &amp;-alert {
-    color: $color-typo-alert;
+    color: var(--color-typo-alert);
   }
 
   &amp;-critical {
-    color: $color-typo-critical;
+    color: var(--color-typo-critical);
   }
 }
 </code></pre>
+                          </div>
                         </div>
                       </details>
                       <details class="details" data-details="details">
@@ -681,7 +701,8 @@
 </code></pre>
                             </div>
                           </div>
-                          <pre><code>&amp;--transform {
+                          <div class="component__code">
+                            <pre><code>&amp;--transform {
   &amp;-uppercase {
     text-transform: uppercase;
   }
@@ -695,6 +716,7 @@
   }
 }
 </code></pre>
+                          </div>
                         </div>
                       </details>
                       <details class="details" data-details="details">
@@ -766,7 +788,8 @@
 </code></pre>
                             </div>
                           </div>
-                          <pre><code>&amp;--underlined {
+                          <div class="component__code">
+                            <pre><code>&amp;--underlined {
 
   // Сплошное
 
@@ -812,6 +835,7 @@
   }
 }
 </code></pre>
+                          </div>
                         </div>
                       </details>
                       <details class="details" data-details="details">
@@ -835,7 +859,8 @@
 </code></pre>
                             </div>
                           </div>
-                          <pre><code>&amp;--truncate {
+                          <div class="component__code">
+                            <pre><code>&amp;--truncate {
   --line-clamp: 1;
 
   display: -webkit-box;
@@ -848,6 +873,7 @@
   }
 }
 </code></pre>
+                          </div>
                         </div>
                       </details>
                     </div>
