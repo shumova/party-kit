@@ -19,6 +19,7 @@
   transition:
     color $trans-default,
     background-color $trans-default,
+    box-shadow $trans-default,
     opacity $trans-default;
 
   &.is-disabled,
@@ -61,7 +62,7 @@
     text-align: center;
   }
 
-  @include hover-focus {
+  @include interactive-style {
     color: var(--button-color-hover);
     background: var(--button-bg-color-hover);
     opacity: var(--button-opacity-hover);
@@ -181,6 +182,50 @@
   &--width {
     &-full {
       width: 100%;
+    }
+  }
+
+  &--elevated {
+    &-shadow {
+      &-1 {
+        box-shadow: $shadow-layer-1;
+
+        @include active {
+          box-shadow: $shadow-layer-0;
+        }
+      }
+
+      &-2 {
+        box-shadow: $shadow-layer-2;
+
+        @include active {
+          box-shadow: $shadow-layer-1;
+        }
+      }
+
+      &-3 {
+        box-shadow: $shadow-layer-3;
+
+        @include active {
+          box-shadow: $shadow-layer-2;
+        }
+      }
+
+      &-4 {
+        box-shadow: $shadow-layer-4;
+
+        @include active {
+          box-shadow: $shadow-layer-3;
+        }
+      }
+
+      &-5 {
+        box-shadow: $shadow-layer-5;
+
+        @include active {
+          box-shadow: $shadow-layer-4;
+        }
+      }
     }
   }
 
