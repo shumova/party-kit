@@ -1,0 +1,134 @@
+mixin component(props = {})
+  - const {component, description, base, modifiers, examples} = props;
+  -
+    const _params = {
+      card: {
+        code: {
+          modifiers: ["filled", "border-radius-xl", "size-xl"]
+        }
+      },
+      header: {
+        title: {
+          tag: "h1",
+          text: component.name,
+          modifiers: ["size-3xl"]
+        },
+        subtitle: {
+          text: component.localName,
+          modifiers: ["size-2xl"]
+        },
+        iconBtn: {
+          href: component.git,
+          ariaLabel: `Open ${component.name} component in git`,
+          icon: {
+            name: "git",
+            width: 32,
+            height: 32,
+          },
+          modifiers: ["form-round"]
+        }
+      },
+      description: {
+        title: {
+          tag: "h2",
+          text: "Использование",
+          modifiers: ["size-2xl"]
+        },
+        text: {
+          tag: "p",
+          content: description
+        }
+      },
+      base: {
+        title: {
+          tag: "h2",
+          text: "Базовый компонент",
+          modifiers: ["size-2xl"]
+        }
+      },
+      modifiers: {
+        title: {
+          tag: "h2",
+          text: "Модификаторы",
+          modifiers: ["size-2xl"]
+        },
+        note: {
+          content: ["Если для&nbsp;проекта не&nbsp;предусмотрены токены, используйте жёстко закодированные значения"],
+          modifiers: ["size-l"]
+        }
+      },
+      examples: {
+        title: {
+          tag: "h2",
+          text: "Примеры вызова",
+          modifiers: ["size-2xl"]
+        }
+      }
+    }
+
+
+  .component&attributes(attributes)
+
+    .component__header
+      .component__titles
+        +title(_params.header.title)
+        +title(_params.header.subtitle).component__localName
+      +icon-btn(_params.header.iconBtn)
+
+    .component__description
+      +title(_params.description.title)
+      +text(_params.description.text)
+
+    .component__base
+      +title(_params.base.title)
+
+      each snippet in base
+        +card(_params.card.code)
+          pre
+            code.
+              #{snippet}
+
+    .component__modifiers
+      +title(_params.modifiers.title)
+      +card(_params.card.code)
+        +text(_params.modifiers.note)
+        pre
+          code.
+            .#{component.mixin} {
+              ...
+
+        .component__inner-code
+          each snippet in modifiers
+            +details({summary: snippet.summary})
+              if snippet.note
+                +text({
+                  tag: snippet.note.tag || "span",
+                  content: snippet.note.content
+                })
+
+              if snippet.examples
+                .component__examples
+                  each example in snippet.examples
+                    .component__example
+                      +#{component.mixin}(example.props)
+                      pre
+                        code.
+                          #{example.code}
+
+              .component__code
+                pre
+                  code.
+                    #{snippet.code}
+
+        pre
+          code }
+
+    //- .component__examples
+    //-   +title(_params.examples.title)
+    //-   +card(_params.card.code)
+    //-     each example in examples
+    //-       .component__example
+    //-         +#{component.mixin}(example.params)
+    //-         pre
+    //-           code.
+    //-             #{example.stringParams}

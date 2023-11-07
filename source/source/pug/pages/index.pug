@@ -1,0 +1,164 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "components",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "index.html"
+
+  -
+    const params = {
+      content: [
+        {
+          img: {
+            path: "content",
+            name: "title",
+            format: "jpg",
+            altText: "Title component"
+          },
+          title: {
+            text: "Title"
+          },
+          subtitle: {
+            text: "Заголовок"
+          },
+          text: {
+            content: ["Подходит для любого текста, который визуально выглядит как заголовок, тег не обязательно должен быть h-"]
+          },
+          iconBtn: {
+            href: "https://github.com/shumova/party-kit/tree/master/source/components/title"
+          },
+          btn: {
+            href: "title.html"
+          }
+        },
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "Text components"
+          },
+          title: {
+            text: "Text"
+          },
+          subtitle: {
+            text: "Текст"
+          },
+          text: {
+            content: ["Текстовый блок, состоящий из одного и более параграфов"]
+          },
+          iconBtn: {
+            href: "https://github.com/shumova/party-kit/tree/master/source/components/text"
+          },
+          btn: {
+            href: "text.html"
+          }
+        },
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "Card components"
+          },
+          title: {
+            text: "Cards"
+          },
+          subtitle: {
+            text: "Карточки"
+          },
+          text: {
+            content: ["Different cases"]
+          },
+          iconBtn: {
+            href: "https://github.com/shumova/party-kit/tree/master/source/components/cards"
+          },
+          btn: {
+            href: "cards.html"
+          }
+        },
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Title"
+          },
+          subtitle: {
+            text: "Subtitle"
+          },
+          text: {
+            content: ["Text"]
+          },
+          iconBtn: {
+            href: "#"
+          },
+          btn: {
+            href: "#"
+          }
+        },
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Title"
+          },
+          subtitle: {
+            text: "Subtitle"
+          },
+          text: {
+            content: ["Text"]
+          },
+          iconBtn: {
+            href: "#"
+          },
+          btn: {
+            href: "#"
+          }
+        },
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Title"
+          },
+          subtitle: {
+            text: "Subtitle"
+          },
+          text: {
+            content: ["Text"]
+          },
+          iconBtn: {
+            href: "#"
+          },
+          btn: {
+            href: "#"
+          }
+        }
+      ]
+    }
+
+
+block page
+  +components(params)
+
+block modals

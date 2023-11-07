@@ -1,0 +1,9 @@
+mixin text(props = {})
+  -
+    const
+          content = props.content || [],
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "text--" + mod) : [];
+
+  div(class=["text", ...modifiers])&attributes(attributes)
+    each paragraph in content
+      p!= paragraph

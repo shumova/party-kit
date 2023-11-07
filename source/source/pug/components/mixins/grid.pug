@@ -1,0 +1,27 @@
+mixin grid (props = {})
+  -
+    const
+          tag = props.tag || "div",
+          content = props.content || [],
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "grid--" + mod) : [];
+
+  case tag
+    when "ul"
+    when "ol"
+      #{tag}(class=["grid", ...modifiers])&attributes(attributes)
+        each item in content
+          - const itemModifiers = item.modifiers ? item.modifiers.map((mod) => "grid__item--" + mod) : [];
+
+          li(class=["grid__item", ...itemModifiers])
+            +#{item.component}(item.params)
+
+    default
+      #{tag}(class=["grid", ...modifiers])&attributes(attributes)
+        if content.length
+          each item in content
+            - const itemModifiers = item.modifiers ? item.modifiers.map((mod) => "grid__item--" + mod) : [];
+            - const itemParentClass = item.parentClass || [];
+
+            +#{item.component}(item.params)(class=["grid__item", ...itemModifiers, ...itemParentClass])
+        else
+          block

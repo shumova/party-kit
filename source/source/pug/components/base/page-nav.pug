@@ -1,0 +1,37 @@
+mixin page-nav(pageNavMods, currentUrl)
+  -
+    const links = [
+      {
+        text: "Components overview",
+        href: "index.html",
+        isTitle: true
+      },
+      {
+        text: "Title",
+        href: "title.html"
+      },
+      {
+        text: "Text",
+        href: "text.html"
+      },
+      {
+        text: "Cards",
+        href: "cards.html"
+      },
+    ]
+
+  nav.page-nav(data-page-nav="container")&attributes(attributes)
+    .page-nav__content(data-page-nav="content")
+      +burger().page-nav__toggle(data-page-nav="toggle")
+      ul.page-nav__list.no-scrollbar(data-page-nav="list")
+        each link in links
+          - const activeState = currentUrl === link.href
+          - const titleLink = link.isTitle
+          - const tag = activeState ? "span" : "a"
+          li.page-nav__item
+            +btn({
+              tag: tag,
+              href: link.href,
+              text: link.text,
+              modifiers: ["text-align-left", "view-clear", "form-round", "size-m", "width-full"]
+            }).page-nav__link(class=[activeState && "is-active", titleLink && "page-nav__link--title"])

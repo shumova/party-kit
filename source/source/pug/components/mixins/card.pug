@@ -1,0 +1,8 @@
+mixin card(props = {})
+  -
+    const
+          tag = props.tag || "div",
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "card--" + mod) : [];
+
+  #{tag}(class=["card", ...modifiers])&attributes(attributes)
+    block

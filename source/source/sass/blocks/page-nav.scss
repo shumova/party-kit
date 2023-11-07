@@ -1,0 +1,171 @@
+@use "sass:math";
+
+.page-nav {
+  $toggle-border-width: 2px;
+  --page-nav-content-height: 100%;
+
+  border-radius: $space-xl;
+  box-shadow: $shadow-layer;
+
+  &__content {
+    height: var(--page-nav-content-height);
+    padding-right: $offset-nav-desktop;
+    padding-left: $offset-nav-desktop;
+    background-color: var(--color-bg-secondary);
+    transition: transform $trans-default;
+  }
+
+  &__toggle {
+    grid-area: toggle;
+    display: none;
+  }
+
+  &__list {
+    grid-area: list;
+    height: 100%;
+    margin: 0;
+    padding: $offset-block-desktop 0;
+    list-style: none;
+    overflow: auto;
+  }
+
+  @include vp-1023 {
+    position: fixed;
+    z-index: $z-index-high;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: initial;
+    box-shadow: none;
+    pointer-events: none;
+    transition: background-color $trans-default;
+
+    &__content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) $offset-nav-tablet;
+      grid-template-areas: "list toggle";
+      width: 350px;
+      padding-right: 0;
+      padding-left: $offset-nav-tablet;
+      border-radius: 0 $space-xl $space-xl 0;
+      pointer-events: all;
+      transform: translateX(calc(100% * -1 + $offset-nav-tablet));
+    }
+
+    &__toggle {
+      justify-self: center;
+      display: initial;
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: calc($offset-nav-tablet * 1.5);
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: $space-l;
+        left: calc(100% - $toggle-border-width - $offset-nav-tablet);
+        bottom: $space-l;
+        width: $toggle-border-width;
+        background-color: var(--color-control-bg-border-default);
+      }
+    }
+
+    &__list {
+      padding: $offset-block-tablet;
+      padding-left: 0;
+      visibility: hidden;
+    }
+
+    &__link {
+      --button-font-size: #{$control-text-size-l};
+      --button-space: #{$control-space-s};
+    }
+
+    &.is-ajar {
+      .page-nav__content {
+        transform: translateX(calc(100% * -1 + $offset-nav-tablet + math.abs($offset-nav-tablet - $offset-container-tablet)));
+      }
+    }
+
+    &.is-open {
+      background-color: var(--color-bg-tone);
+      pointer-events: all;
+
+      .page-nav__content {
+        transform: translateX(0);
+      }
+
+      .page-nav__toggle {
+        &::before {
+          width: calc($offset-nav-tablet);
+        }
+      }
+
+      .page-nav__list {
+        visibility: visible;
+      }
+    }
+  }
+
+  @include vp-767 {
+    --page-nav-content-height: 60%;
+
+    &__content {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: calc($offset-nav-mobile) minmax(0, 1fr);
+      grid-template-areas: "toggle" "list";
+      width: auto;
+      padding-right: $offset-nav-mobile;
+      padding-left: $offset-nav-mobile;
+      border-radius: $space-xl $space-xl 0 0;
+      transform: translateY(calc((100% + var(--page-nav-content-height))));
+    }
+
+    &__toggle {
+      &::before {
+        left: 0;
+        width: auto;
+      }
+
+      &::after {
+        top: $offset-nav-mobile;
+        right: $space-l;
+        bottom: auto;
+        left: $space-l;
+        width: auto;
+        height: $toggle-border-width;
+      }
+    }
+
+    &__list {
+      padding: $offset-block-mobile 0;
+      padding-top: $offset-block-mobile;
+    }
+
+    &.is-ajar {
+      .page-nav__content {
+        transform: translateY(calc((100% + var(--page-nav-content-height) - $offset-nav-mobile + math.abs($offset-nav-mobile - $offset-container-mobile))));
+      }
+    }
+
+    &.is-open {
+      .page-nav__content {
+        transform: translateY(calc(var(--page-nav-content-height) + $offset-nav-mobile));
+      }
+
+      .page-nav__toggle {
+        &::before {
+          width: 100%;
+          height: $offset-nav-mobile;
+        }
+      }
+    }
+  }
+}

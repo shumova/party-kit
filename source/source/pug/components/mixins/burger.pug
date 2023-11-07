@@ -1,0 +1,10 @@
+mixin burger(props = {})
+  -
+    const
+          target = props.target || "menu",
+          ariaLabel = `Open ${target}`,
+          isPressed = `${props.isPressed || false}`;
+
+  button.burger(type="button", aria-pressed=isPressed, aria-label=ariaLabel, data-toggle-target=target, data-toggle)&attributes(attributes)
+    span.burger__wrapper
+      span

@@ -1,0 +1,22 @@
+mixin btn(props = {})
+  -
+    const
+          tag = props.tag ? props.tag : props.href ? "a" : "button",
+          href = props.href,
+          text = props.text || "",
+          type = props.type || tag === "button" && "button",
+          target = props.isExternal && "_blank",
+          rel = props.isExternal && "nofollow noopener noreferrer",
+          icon = props.icon,
+          {name, width, height, isLeft} = icon || {},
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "btn--" + mod) : [];
+
+  #{tag}(class=["btn", ...modifiers], href=href, target=target, rel=rel, type=type)&attributes(attributes)
+
+    if (icon && isLeft)
+      +icon(name, width, height)
+
+    span.btn__text !{text}
+
+    if (icon && !isLeft)
+      +icon(name, width, height)

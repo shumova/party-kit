@@ -1,0 +1,74 @@
+mixin base-card(props = {})
+  -
+    const
+          {card, img, title, subtitle, text, iconBtn, btn} = props,
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "component-card--" + mod) : [];
+
+  -
+    const
+          _params = {
+            card: {
+              modifiers: ["elevated", "filled", "border-radius-xl", ...(card?.modifiers ?? [])]
+            },
+            imgPlaceholder: {
+              path: "content",
+              name: "placeholder",
+              format: "png",
+              width: img.width || "480",
+              height: img.height || "480"
+            },
+            img: img && {
+              path: img.path || "",
+              name: img.name || "",
+              format: img.format || "jpg",
+              width: img.width || "700",
+              height: img.height || "400",
+              altText: img.altText || ""
+            },
+            title: title && {
+              text: title.text,
+              modifiers: ["size-2xl", ...(title.modifiers ?? [])]
+            },
+            subtitle: subtitle && {
+              text: subtitle.text,
+              modifiers: ["size-l", ...(subtitle.modifiers ?? [])]
+            },
+            text: text && {
+              tag: text.tag || "p",
+              content: text.content,
+              modifiers: [...(text.modifiers ?? [])]
+            },
+            iconBtn: iconBtn && {
+              href: iconBtn.href,
+              ariaLabel: `Open ${title.text} component in git`,
+              icon: {
+                name: "git",
+                width: 32,
+                height: 32,
+              },
+              modifiers: ["form-round"]
+            },
+            btn: btn && {
+              href: btn.href,
+              text: btn.text || "Open",
+              modifiers: ["view-primary", "form-round-s", "size-m"]
+            }
+          };
+
+
+  +card(_params.card)(class=["base-card", ...modifiers])&attributes(attributes)
+    if img
+      .base-card__img
+        +picture(_params.img || _params.imgPlaceholder)
+    if (title || subtitle || text || btn)
+      .base-card__content
+        if title
+          +title(_params.title)
+        if subtitle
+          +title(_params.subtitle)
+        if text
+          +text(_params.text)
+        if iconBtn
+          +icon-btn(_params.iconBtn)
+        if btn
+          +btn(_params.btn)

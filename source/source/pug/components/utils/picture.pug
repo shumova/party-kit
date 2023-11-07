@@ -1,0 +1,20 @@
+mixin picture(props = {})
+  - const {path, name, format, width, height, altText, lazyLoading, mediaData = [], hasWebp} = props;
+
+  picture(class!=attributes.class)
+    if mediaData
+      each item in mediaData
+        -
+          // rule : String, например "max-width"
+          // orientation : String, например "portrait"
+          // viewport : Number, например 767
+          // suffix : String, например "-size-s"
+          const {rule, orientation, viewport, suffix} = item || {};
+
+        if hasWebp
+          source(type="image/webp", media=`(${rule}: ${viewport}px)${orientation ? ` and (orientation: ${orientation})` : ""}`, srcset=`img/${path}/${name}${suffix}.webp, img/${path}/${name}${suffix}@2x.webp 2x`)
+        source(media=`(${rule}: ${viewport}px)${orientation ? ` and (orientation: ${orientation})` : ""}`, srcset=`img/${path}/${name}${suffix}.${format}, img/${path}/${name}${suffix}@2x.${format} 2x`)
+
+    if hasWebp
+      source(type="image/webp", srcset=`img/${path}/${name}.webp, img/${path}/${name}@2x.webp 2x`)
+    img(src=`img/${path}/${name}.${format}`, srcset=`img/${path}/${name}@2x.${format} 2x`, width=width, height=height, alt=altText || '', loading=lazyLoading && 'lazy')

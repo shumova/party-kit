@@ -1,0 +1,33 @@
+.card {
+  &--size {
+    &-xl {
+      padding: $space-xl;
+    }
+  }
+
+  &--border-radius {
+    &-xl {
+      border-radius: $space-xl;
+    }
+  }
+
+  &--elevated {
+    box-shadow: $shadow-layer;
+  }
+
+  &--filled {
+    background-color: var(--color-bg-default);
+
+    &-secondary {
+      background-color: var(--color-bg-secondary);
+    }
+
+    &-brand {
+      background-color: var(--color-bg-brand);
+    }
+  }
+
+  &--outlined {
+    border: 1px solid var(--color-bg-border);
+  }
+}
