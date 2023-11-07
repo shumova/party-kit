@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html class="theme-default" lang="ru">
+  <head>
+    <title>title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ProjectName — описание">
+    <link rel="preload" href="fonts/ysabeau-infant-VF.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <main>
+        <div class="page">
+          <div class="container page__container">
+            <nav class="page-nav page__nav" data-page-nav="container">
+              <div class="page-nav__content" data-page-nav="content">
+                <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
+                <ul class="page-nav__list no-scrollbar" data-page-nav="list">
+                  <li class="page-nav__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
+                    </a>
+                  </li>
+                  <li class="page-nav__item">
+                    <span class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link is-active" href="title.html"><span class="btn__text">Title</span>
+                    </span>
+                  </li>
+                  <li class="page-nav__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="text.html"><span class="btn__text">Text</span>
+                    </a>
+                  </li>
+                  <li class="page-nav__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="cards.html"><span class="btn__text">Cards</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div class="card card--filled-secondary card--border-radius-xl card--elevated page__content no-scrollbar">
+              <div class="component">
+                <div class="component__header">
+                  <div class="component__titles">
+                    <h1 class="title title--size-3xl">Title</h1>
+                    <span class="title title--size-2xl component__localName">Заголовок</span>
+                  </div>
+                  <a class="icon-btn icon-btn--form-round" href="https://github.com/shumova/party-kit/tree/master/source/components/title" aria-label="Open Title component in git">
+                    <svg width="32" height="32" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#git"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="component__description">
+                  <h2 class="title title--size-2xl">Использование</h2>
+                  <div class="text">
+                    <p>Везде, где подходит по стилям (тег не обязательно должен быть h-, дефолтный тег span)</p>
+                    <p>Все параметры типографики по умолчанию наследуются и задаются модификаторами</p>
+                  </div>
+                </div>
+                <div class="component__base">
+                  <h2 class="title title--size-2xl">Базовый компонент</h2>
+                  <div class="card card--filled card--border-radius-xl card--size-xl">
+                    <pre><code>mixin title(props = {})
+-
+  const
+        tag = props.tag || &quot;span&quot;,
+        text = props.text || &quot;&quot;,
+        modifiers = props.modifiers ? props.modifiers.map((mod) =&gt; &quot;title--&quot; + mod) : [];
+
+#{tag}(class=[&quot;title&quot;, ...modifiers])&amp;attributes(attributes)!= text
+</code></pre>
+                  </div>
+                  <div class="card card--filled card--border-radius-xl card--size-xl">
+                    <pre><code>.title {
+  --font-weight: inherit;
+  --font-size: inherit;
+  --line-height: inherit;
+  --letter-spacing: inherit;
+
+  margin: 0;
+  padding: 0;
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  letter-spacing: var(--letter-spacing);
+}
+</code></pre>
+                  </div>
+                </div>
+                <div class="component__modifiers">
+                  <h2 class="title title--size-2xl">Модификаторы</h2>
+                  <div class="card card--filled card--border-radius-xl card--size-xl">
+                    <div class="text text--size-l">
+                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используйте жёстко закодированные значения</p>
+                    </div>
+                    <pre><code>.title {
+  ...
+</code></pre>
+                    <div class="component__inner-code">
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Комбинирование модификаторов</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="text">
+                            <p>Если так удобней для стилизации адаптива и/или при небольшой вариативности заголовков модификаторы геометрии текста (размер, насыщенность, межстрочный и&nbsp;межбуквенный интервалы) комбинируются. Декоративные модификаторы (цвет, подчёркивание) лучше оставлять отдельно и&nbsp;не&nbsp;комбинировать с&nbsp;другими модификаторами кроме случаев, когда в&nbsp;макете явно задана семантика заголовков</p>
+                          </div>
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <span class="title title--small">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;small&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--small {
+  --font-weight: #{$font-weight-text-extrabold};
+  --font-size: #{$size-text-l};
+  --line-height: #{$line-height-text-m};
+
+    @include vp-1023 {
+      --font-weight: #{$font-weight-text-bold};
+      --font-size: #{$size-text-m};
+    }
+
+    @include vp-767 {
+      --font-size: #{$size-text-s};
+      --line-height: #{$line-height-text-s};
+    }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Размер</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <span class="title title--size-s">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;size-s&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--size-m">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;size-m&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--size-l">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;size-l&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--size-xl">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;size-xl&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--size-2xl">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;size-2xl&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--size-3xl">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;size-3xl&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--size-4xl">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;size-4xl&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--size-5xl">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;size-5xl&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--size {
+  &amp;-s {
+    --font-size: #{$size-text-s};
+  }
+
+  &amp;-m {
+    --font-size: #{$size-text-m};
+  }
+
+  &amp;-l {
+    --font-size: #{$size-text-l};
+
+    @include vp-1023 {
+      --font-size: #{$size-text-m};
+    }
+
+    @include vp-767 {
+      --font-size: #{$size-text-s};
+    }
+  }
+
+  &amp;-xl {
+    --font-size: #{$size-text-xl};
+
+    @include vp-1023 {
+      --font-size: #{$size-text-l};
+    }
+
+    @include vp-767 {
+      --font-size: #{$size-text-m};
+    }
+  }
+
+  &amp;-2xl {
+    --font-size: #{$size-text-2xl};
+
+    @include vp-1023 {
+      --font-size: #{$size-text-xl};
+    }
+
+    @include vp-767 {
+      --font-size: #{$size-text-l};
+    }
+  }
+
+  &amp;-3xl {
+    --font-size: #{$size-text-3xl};
+
+    @include vp-1023 {
+      --font-size: #{$size-text-2xl};
+    }
+
+    @include vp-767 {
+      --font-size: #{$size-text-xl};
+    }
+  }
+
+  &amp;-4xl {
+    --font-size: #{$size-text-4xl};
+
+    @include vp-1023 {
+      --font-size: #{$size-text-3xl};
+    }
+
+    @include vp-767 {
+      --font-size: #{$size-text-2xl};
+    }
+  }
+
+  &amp;-5xl {
+    --font-size: #{$size-text-5xl};
+
+    @include vp-1023 {
+      --font-size: #{$size-text-4xl};
+    }
+
+    @include vp-767 {
+      --font-size: #{$size-text-3xl};
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Насыщенность</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <span class="title title--weight-thin">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;weight-thin&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--weight-light">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;weight-light&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--weight-regular">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;weight-regular&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--weight-medium">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;weight-medium&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--weight-semibold">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;weight-semibold&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--weight-bold">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;weight-bold&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--weight-extrabold">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;weight-extrabold&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--weight-black">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;weight-black&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--weight {
+  &amp;-thin {
+    --font-weight: #{$font-weight-text-thin};
+  }
+
+  &amp;-light {
+    --font-weight: #{$font-weight-text-light};
+  }
+
+  &amp;-regular {
+    --font-weight: #{$font-weight-text-regular};
+  }
+
+  &amp;-medium {
+    --font-weight: #{$font-weight-text-medium};
+  }
+
+  &amp;-semibold {
+    --font-weight: #{$font-weight-text-semibold};
+  }
+
+  &amp;-bold {
+    --font-weight: #{$font-weight-text-bold};
+  }
+
+  &amp;-extrabold {
+    --font-weight: #{$font-weight-text-extrabold};
+  }
+
+  &amp;-black {
+    --font-weight: #{$font-weight-text-black};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Межстрочный интервал</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <span class="title title--line-heigth-2xs">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;line-heigth-2xs&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--line-heigth-xs">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;line-heigth-xs&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--line-heigth-s">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;line-heigth-s&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--line-heigth-m">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;line-heigth-m&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--line-heigth-l">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;line-heigth-l&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--line-heigth {
+  &amp;-2xs {
+    --line-height: #{$line-height-text-2xs};
+  }
+
+  &amp;-xs {
+    --line-height: #{$line-height-text-xs};
+  }
+
+  &amp;-s {
+    --line-height: #{$line-height-text-s};
+  }
+
+  &amp;-m {
+    --line-height: #{$line-height-text-m};
+  }
+
+  &amp;-l {
+    --line-height: #{$line-height-text-l};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Межбуквенный интервал</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <span class="title title--spacing-xs">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;spacing-xs&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--spacing-s">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;spacing-s&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--spacing-m">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;spacing-m&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--spacing-l">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;spacing-l&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--spacing {
+  &amp;-xs {
+    --letter-spacing: 0.06em;
+  }
+
+  &amp;-s {
+    --letter-spacing: 0.1em;
+  }
+
+  &amp;-m {
+    --letter-spacing: 0.14em;
+  }
+
+  &amp;-l {
+    --letter-spacing: 0.2em;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Цвет</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="text">
+                            <p>Если в проекте не предусмотрена семантическая цветовая палитра, для нейминга цветов используйте https://www.htmlcsscolor.com/hex/334482</p>
+                            <p>Если не предусмотрена смена цветового режима, используйте sass переменные (стандарт для задания цветов в Лиге)</p>
+                          </div>
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <span class="title title--color-primary">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;color-primary&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--color-secondary">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;color-secondary&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--color-ghost">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;color-ghost&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--color-brand">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;color-brand&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--color-system">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;color-system&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--color-normal">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;color-normal&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--color-success">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;color-success&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--color-caution">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;color-caution&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--color-warning">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;color-warning&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--color-alert">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;color-alert&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--color-critical">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;color-critical&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--color {
+  &amp;-primary {
+    color: var(--color-typo-primary);
+  }
+
+  &amp;-secondary {
+    color: var(--color-typo-secondary);
+  }
+
+  &amp;-ghost {
+    color: var(--color-typo-ghost);
+  }
+
+  &amp;-brand {
+    color: var(--color-typo-brand);
+  }
+
+  &amp;-system {
+    color: var(--color-typo-system);
+  }
+
+  &amp;-normal {
+    color: var(--color-typo-normal);
+  }
+
+  &amp;-success {
+    color: var(--color-typo-success);
+  }
+
+  &amp;-caution {
+    color: var(--color-typo-caution);
+  }
+
+  &amp;-warning {
+    color: var(--color-typo-warning);
+  }
+
+  &amp;-alert {
+    color: var(--color-typo-alert);
+  }
+
+  &amp;-critical {
+    color: var(--color-typo-critical);
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Трансформация текста</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <span class="title title--transform-uppercase">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;transform-uppercase&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--transform-capitalize">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;transform-capitalize&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--transform-lowercase">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;transform-lowercase&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--transform {
+  &amp;-uppercase {
+    text-transform: uppercase;
+  }
+
+  &amp;-capitalize {
+    text-transform: capitalize;
+  }
+
+  &amp;-lowercase {
+    text-transform: lowercase;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Подчёркивание</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <span class="title title--underlined">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;underlined&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--underlined title--underlined-no-skip">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;underlined&quot;, &quot;underlined-no-skip&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--underlined title--underlined-offset-s">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;underlined&quot;, &quot;underlined-offset-s&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--underlined title--underlined-offset-m">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;underlined&quot;, &quot;underlined-offset-m&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--underlined title--underlined-offset-l">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;underlined&quot;, &quot;underlined-offset-l&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--underlined title--underlined-thickness-s">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;underlined&quot;, &quot;underlined-thickness-s&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--underlined title--underlined-thickness-m">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;underlined&quot;, &quot;underlined-thickness-m&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--underlined title--underlined-thickness-l">Title</span>
+                              <pre><code>+title({
+  text: &quot;Title&quot;,
+  modifiers: [&quot;underlined&quot;, &quot;underlined-thickness-l&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--underlined {
+
+  // Сплошное
+
+  text-decoration: underline;
+
+
+  // Непрерывное
+
+  &amp;-no-skip {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-decoration-skip: none;
+  }
+
+
+  // Отступ линии от текста
+
+  &amp;-offset {
+    &amp;-s {
+      text-underline-offset: 0.1em;
+    }
+
+    &amp;-m {
+      text-underline-offset: 0.2em;
+    }
+
+    &amp;-l {
+      text-underline-offset: 0.3em;
+    }
+  }
+
+
+  // Толщина линии
+
+  &amp;-thickness {
+    &amp;-s {
+      text-decoration-thickness: 0.01em;
+    }
+
+    &amp;-m {
+      text-decoration-thickness: 0.1em;
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Видимость текста в блоке</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <span class="title title--truncate">Extra long title that doesn't fit its container and has to be truncated</span>
+                              <pre><code>+title({
+  text: &quot;Extra long title that doesn't fit its container&quot;,
+  modifiers: [&quot;truncate&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <span class="title title--truncate title--truncate-2-lines">Extra long title that doesn't fit its container and has to be truncated</span>
+                              <pre><code>+title({
+  text: &quot;Extra long title that doesn't fit its container&quot;,
+  modifiers: [&quot;truncate&quot;, &quot;truncate-2-lines&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--truncate {
+  --line-clamp: 1;
+
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  &amp;-2-lines {
+    --line-clamp: 2;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                    </div>
+                    <pre><code>}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>

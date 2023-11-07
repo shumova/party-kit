@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html class="theme-default" lang="ru">
+  <head>
+    <title>text</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ProjectName — описание">
+    <link rel="preload" href="fonts/ysabeau-infant-VF.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <main>
+        <div class="page">
+          <div class="container page__container">
+            <nav class="page-nav page__nav" data-page-nav="container">
+              <div class="page-nav__content" data-page-nav="content">
+                <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
+                <ul class="page-nav__list no-scrollbar" data-page-nav="list">
+                  <li class="page-nav__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
+                    </a>
+                  </li>
+                  <li class="page-nav__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="title.html"><span class="btn__text">Title</span>
+                    </a>
+                  </li>
+                  <li class="page-nav__item">
+                    <span class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link is-active" href="text.html"><span class="btn__text">Text</span>
+                    </span>
+                  </li>
+                  <li class="page-nav__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="cards.html"><span class="btn__text">Cards</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div class="card card--filled-secondary card--border-radius-xl card--elevated page__content no-scrollbar">
+              <div class="component">
+                <div class="component__header">
+                  <div class="component__titles">
+                    <h1 class="title title--size-3xl">Text</h1>
+                    <span class="title title--size-2xl component__localName">Текст</span>
+                  </div>
+                  <a class="icon-btn icon-btn--form-round" href="https://github.com/shumova/party-kit/tree/master/source/components/text" aria-label="Open Text component in git">
+                    <svg width="32" height="32" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#git"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="component__description">
+                  <h2 class="title title--size-2xl">Использование</h2>
+                  <div class="text">
+                    <p>Любые текстовые блоки, состоящие из одного и более параграфов</p>
+                  </div>
+                </div>
+                <div class="component__base">
+                  <h2 class="title title--size-2xl">Базовый компонент</h2>
+                  <div class="card card--filled card--border-radius-xl card--size-xl">
+                    <pre><code>mixin text(props = {})
+-
+  const
+        content = props.content || [],
+        modifiers = props.modifiers ? props.modifiers.map((mod) =&gt; &quot;text--&quot; + mod) : [];
+
+div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
+  each paragraph in content
+    p!= paragraph
+</code></pre>
+                  </div>
+                  <div class="card card--filled card--border-radius-xl card--size-xl">
+                    <pre><code>.text {
+  --text-space: #{$space-s};
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  p + p {
+    margin-top: var(--text-space);
+  }
+}
+</code></pre>
+                  </div>
+                </div>
+                <div class="component__modifiers">
+                  <h2 class="title title--size-2xl">Модификаторы</h2>
+                  <div class="card card--filled card--border-radius-xl card--size-xl">
+                    <div class="text text--size-l">
+                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используйте жёстко закодированные значения</p>
+                    </div>
+                    <pre><code>.text {
+  ...
+</code></pre>
+                    <div class="component__inner-code">
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Комбинирование модификаторов</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="text">
+                            <p>Если так удобней для стилизации адаптива и/или при небольшой вариативности стилей модификаторы геометрии текста (размер, насыщенность, межстрочный и&nbsp;межбуквенный интервалы) комбинируются. Декоративные модификаторы (цвет, трансформация текста) лучше оставлять отдельно и&nbsp;не&nbsp;комбинировать с&nbsp;другими модификаторами кроме случаев, когда в&nbsp;макете явно задана семантика текста</p>
+                          </div>
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="text text--medium">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;medium&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--medium {
+  --text-space: #{$space-m};
+
+  font-size: $size-text-m;
+
+  @include vp-767 {
+    --text-space: #{$space-s};
+
+    font-size: $size-text-s;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Отступ между параграфами</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="text text--space-2xs">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;space-2xs&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--space-xs">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;space-xs&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--space-m">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;space-m&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--space-l">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;space-l&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--space-xl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;space-xl&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--space-2xl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;space-2xl&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--space-3xl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;space-3xl&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--space-4xl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;space-4xl&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--space-5xl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;space-5xl&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--space {
+  &amp;-2xs {
+    --text-space: #{$space-2xs};
+  }
+
+  &amp;-xs {
+    --text-space: #{$space-xs};
+  }
+
+  &amp;-m {
+    --text-space: #{$space-m};
+  }
+
+  &amp;-l {
+    --text-space: #{$space-l};
+  }
+
+  &amp;-xl {
+    --text-space: #{$space-xl};
+  }
+
+  &amp;-2xl {
+    --text-space: #{$space-2xl};
+  }
+
+  &amp;-3xl {
+    --text-space: #{$space-3xl};
+  }
+
+  &amp;-4xl {
+    --text-space: #{$space-4xl};
+  }
+
+  &amp;-5xl {
+    --text-space: #{$space-5xl};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Размер</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="text text--size-s">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;size-s&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--size-m">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;size-m&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--size-l">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;size-l&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--size-xl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;size-xl&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--size-2xl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+title({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;size-2xl&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--size-3xl">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+title({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;size-3xl&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--size {
+  &amp;-s {
+    font-size: $size-text-s;
+  }
+
+  &amp;-m {
+    font-size: $size-text-m;
+  }
+
+  &amp;-l {
+    font-size: $size-text-l;
+
+    @include vp-1023 {
+      font-size: $size-text-m;
+    }
+
+    @include vp-767 {
+      font-size: $size-text-s;
+    }
+  }
+
+  &amp;-xl {
+    font-size: $size-text-xl;
+
+    @include vp-1023 {
+      font-size: $size-text-l;
+    }
+
+    @include vp-767 {
+      font-size: $size-text-m;
+    }
+  }
+
+  &amp;-2xl {
+    font-size: $size-text-2xl;
+
+    @include vp-1023 {
+      font-size: $size-text-xl;
+    }
+
+    @include vp-767 {
+      font-size: $size-text-l;
+    }
+  }
+
+  &amp;-3xl {
+    font-size: $size-text-3xl;
+
+    @include vp-1023 {
+      font-size: $size-text-2xl;
+    }
+
+    @include vp-767 {
+      font-size: $size-text-xl;
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Насыщенность</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="text text--weight-thin">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;weight-thin&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--weight-light">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;weight-light&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--weight-regular">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;weight-regular&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--weight-medium">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;weight-medium&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--weight-semibold">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;weight-semibold&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--weight-bold">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;weight-bold&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--weight-extrabold">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;weight-extrabold&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--weight-black">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;weight-black&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--weight {
+  &amp;-thin {
+    --font-weight: #{$font-weight-text-thin};
+  }
+
+  &amp;-light {
+    --font-weight: #{$font-weight-text-light};
+  }
+
+  &amp;-regular {
+    --font-weight: #{$font-weight-text-regular};
+  }
+
+  &amp;-medium {
+    --font-weight: #{$font-weight-text-medium};
+  }
+
+  &amp;-semibold {
+    --font-weight: #{$font-weight-text-semibold};
+  }
+
+  &amp;-bold {
+    --font-weight: #{$font-weight-text-bold};
+  }
+
+  &amp;-extrabold {
+    --font-weight: #{$font-weight-text-extrabold};
+  }
+
+  &amp;-black {
+    --font-weight: #{$font-weight-text-black};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Межстрочный интервал</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="text text--line-heigth-2xs">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;line-heigth-2xs&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--line-heigth-xs">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;line-heigth-xs&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--line-heigth-s">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;line-heigth-s&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--line-heigth-m">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;line-heigth-m&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--line-heigth-l">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text{
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;line-heigth-l&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--line-heigth {
+  &amp;-2xs {
+    line-height: $line-height-text-2xs;
+  }
+
+  &amp;-xs {
+    line-height: $line-height-text-xs;
+  }
+
+  &amp;-s {
+    line-height: $line-height-text-s;
+  }
+
+  &amp;-m {
+    line-height: $line-height-text-m;
+  }
+
+  &amp;-l {
+    line-height: $line-height-text-l;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Межбуквенный интервал</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="text text--spacing-xs">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;spacing-xs&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--spacing-s">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;spacing-s&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--spacing-m">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;spacing-m&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--spacing-l">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;spacing-l&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--spacing {
+    &amp;-xs {
+    letter-spacing: 0.06em;
+  }
+
+  &amp;-s {
+    letter-spacing: 0.1em;
+  }
+
+  &amp;-m {
+    letter-spacing: 0.14em;
+  }
+
+  &amp;-l {
+    letter-spacing: 0.2em;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Цвет</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="text">
+                            <p>Если в проекте не предусмотрена семантическая цветовая палитра, для нейминга цветов используйте https://www.htmlcsscolor.com/hex/334482</p>
+                            <p>Если не предусмотрена смена цветового режима, используйте sass-переменные</p>
+                          </div>
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="text text--color-primary">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;color-primary&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--color-secondary">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;color-secondary&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--color-ghost">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;color-ghost&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--color-brand">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;color-brand&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--color-system">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;color-system&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--color-normal">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;color-normal&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--color-success">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;color-success&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--color-caution">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;color-caution&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--color-warning">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;color-warning&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--color-alert">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--color-critical">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;color-critical&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--color {
+  &amp;-primary {
+    color: var(--color-typo-primary);
+  }
+
+  &amp;-secondary {
+    color: var(--color-typo-secondary);
+  }
+
+  &amp;-ghost {
+    color: var(--color-typo-ghost);
+  }
+
+  &amp;-brand {
+    color: var(--color-typo-brand);
+  }
+
+  &amp;-system {
+    color: var(--color-typo-system);
+  }
+
+  &amp;-normal {
+    color: var(--color-typo-normal);
+  }
+
+  &amp;-success {
+    color: var(--color-typo-success);
+  }
+
+  &amp;-caution {
+    color: var(--color-typo-caution);
+  }
+
+  &amp;-warning {
+    color: var(--color-typo-warning);
+  }
+
+  &amp;-alert {
+    color: var(--color-typo-alert);
+  }
+
+  &amp;-critical {
+    color: var(--color-typo-critical);
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Трансформация текста</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="text text--transform-uppercase">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;transform-uppercase&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--transform-capitalize">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;transform-capitalize&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--transform-lowercase">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;transform-lowercase&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--transform {
+  &amp;-uppercase {
+    text-transform: uppercase;
+  }
+
+  &amp;-capitalize {
+    text-transform: capitalize;
+  }
+
+  &amp;-lowercase {
+    text-transform: lowercase;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Видимость текста в блоке</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="component__examples">
+                            <div class="component__example">
+                              <div class="text text--truncate">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;truncate&quot;]
+})
+</code></pre>
+                            </div>
+                            <div class="component__example">
+                              <div class="text text--truncate text--truncate-2-lines">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              </div>
+                              <pre><code>+text({
+  content: [
+    &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;,
+    &quot;Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.&quot;
+  ],
+  modifiers: [&quot;truncate&quot;, &quot;truncate-2-lines&quot;]
+})
+</code></pre>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--truncate {
+  --line-clamp: 1;
+
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  &amp;-2-lines {
+    --line-clamp: 2;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                    </div>
+                    <pre><code>}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
