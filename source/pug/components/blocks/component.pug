@@ -113,11 +113,12 @@ mixin component(props = {})
     .component__base
       +title(_params.base.title)
 
-      each snippet in base
-        +card(_params.card.code).component__card
-          pre
-            code.
-              #{snippet}
+      +card(_params.card.code).component__card
+        each snippet, index in base
+          +details({summary: index === 0 ? "Показать шаблон" : "Показать стили"})
+            pre
+              code.
+                #{snippet}
 
     if modifiers
       .component__modifiers
