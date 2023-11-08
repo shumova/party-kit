@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="theme-default" lang="ru">
+  <head>
+    <title>base-card</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ProjectName — описание">
+    <link rel="preload" href="fonts/ysabeau-infant-VF.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <main>
+        <div class="page">
+          <div class="container page__container">
+            <nav class="page-nav page__nav" data-page-nav="container">
+              <div class="page-nav__content" data-page-nav="content">
+                <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
+                <ul class="nav-list page-nav__list no-scrollbar" data-page-nav="list">
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
+                    </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="title.html"><span class="btn__text">Title</span>
+                    </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="text.html"><span class="btn__text">Text</span>
+                    </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link is-open" href="cards.html"><span class="btn__text">Cards</span>
+                    </a>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="card.html"><span class="btn__text">Card</span>
+                        </a>
+                      </li>
+                      <li class="nav-list__item">
+                        <span class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link is-active" href="base-card.html"><span class="btn__text">Base-card</span>
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div class="card card--filled-secondary card--form-round-m card--elevated-shadow-1 page__content no-scrollbar">
+              <div class="component">
+                <div class="component__header">
+                  <div class="component__titles">
+                    <h1 class="title title--size-3xl component__name">Base-card</h1>
+                    <span class="title title--size-2xl component__name--local">Базовая карточка</span>
+                  </div>
+                  <a class="icon-btn icon-btn--form-round icon-btn--elevated-shadow-1 component__icon-btn" href="https://github.com/shumova/party-kit/tree/master/source/components/cards/base-card" aria-label="Open Base-card component in git">
+                    <svg width="32" height="32" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#git"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="component__description">
+                  <h2 class="title title--size-2xl">Использование</h2>
+                  <div class="text component__text">
+                    <p>Состоит из компонента Card и опциональных изображения и компонентов Title, Text, Btn, Icon-btn</p>
+                    <p>Для названия компонента карточки используйте шаблон {name}-card, например: product-card, service-card</p>
+                    <p>Внешний вид контейнера карточки настраивается модификаторами компонента <a class="link" href="../card.html">Card</a>, которые можно как передавать в компонент, так и фиксировать локально. При использовании обоих вариантов передачи модификторов, они комбинируются. Если необходима перезапись локальных модификаторов передаваемыми, скорректируйте <span style="padding-top: 5px; display: block">modifiers: ["elevated-shadow-1", "filled", "form-round-xl", ...(card?.modifiers ?? [])]<span> <span style="padding-top: 5px; display: block">на <span><span style="padding-top: 5px; display: block">modifiers: [...(card?.modifiers ?? []) || ...["elevated-shadow-1", "filled", "form-round-xl"]]<span></p>
+                    <p>Радиус закругления углов изображения наследуется через css-переменную --card-border-raius контейнера карточки Card</p>
+                    <p>Размер карточки зависит от расстояния между элементами и внутренних отступов карточки. Если по макету карточке требуется задать внешнюю геометрию (высоту, ширину, внешние отступы), используйте для этого родительский класс .parent__base-card или .parent .base-card</p>
+                    <p>Пропорции изображения задаются через переменные --img-width и --img-height (соотношение сторон)</p>
+                    <p>Для изображения предусмотрена заглушка imgPlaceholder, убирайте когда не нужна</p>
+                  </div>
+                </div>
+                <div class="component__calls">
+                  <h2 class="title title--size-2xl">Примеры</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <div class="grid grid--cols-2 grid--gap-l component__examples">
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Базовый компонент со&nbsp;всеми предусмотренными элементами</h3>
+                        <div class="component__view">
+                          <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                            <div class="base-card__img">
+                              <picture><img src="img/content/placeholder.png" srcset="img/content/placeholder@2x.png 2x" width="700" height="400" alt="Alt">
+                              </picture>
+                            </div>
+                            <div class="base-card__content">
+                              <span class="title title--size-2xl base-card__title">Title</span>
+                              <span class="title title--size-l base-card__subtitle">Subtitle</span>
+                              <div class="text">
+                                <p>Text</p>
+                              </div>
+                              <a class="icon-btn icon-btn--form-round icon-btn--elevated-shadow-1" href="#" aria-label="Open Title component in git">
+                                <svg width="32" height="32" aria-hidden="true">
+                                  <use xlink:href="img/sprite.svg#git"></use>
+                                </svg>
+                              </a>
+                              <a class="btn btn--view-primary btn--form-round-s btn--size-m btn--elevated-shadow-1" href="#"><span class="btn__text">Button</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <details class="details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+base-card({
+  img: {
+    path: &quot;content&quot;,
+    name: &quot;placeholder&quot;,
+    format: &quot;png&quot;,
+    altText: &quot;Alt&quot;
+  },
+  title: {
+    text: &quot;Title&quot;
+  },
+  subtitle: {
+    text: &quot;Subtitle&quot;
+  },
+  text: {
+    content: [&quot;Text&quot;]
+  },
+  iconBtn: {
+    href: &quot;#&quot;
+  },
+  btn: {
+    href: &quot;#&quot;,
+    text: &quot;Button&quot;
+  }
+})
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Можно использовать только некоторые из дочерних элементов</h3>
+                        <div class="component__view">
+                          <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                            <div class="base-card__img">
+                              <picture><img src="img/content/placeholder.png" srcset="img/content/placeholder@2x.png 2x" width="700" height="400" alt="Alt">
+                              </picture>
+                            </div>
+                            <div class="base-card__content">
+                              <span class="title title--size-2xl base-card__title">Title</span>
+                              <div class="text">
+                                <p>Text</p>
+                              </div>
+                              <a class="btn btn--view-primary btn--form-round-s btn--size-m btn--elevated-shadow-1" href="#"><span class="btn__text">Button</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <details class="details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+base-card({
+  img: {
+    path: &quot;content&quot;,
+    name: &quot;placeholder&quot;,
+    format: &quot;png&quot;,
+    altText: &quot;Alt&quot;
+  },
+  title: {
+    text: &quot;Title&quot;
+  },
+  text: {
+    content: [&quot;Text&quot;]
+  },
+  btn: {
+    href: &quot;#&quot;,
+    text: &quot;Button&quot;
+  }
+})
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="component__base">
+                  <h2 class="title title--size-2xl">Базовый компонент</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <details class="details" data-details="details">
+                      <summary data-details="summary">Показать шаблон</summary>
+                      <div class="details__content" data-details="content">
+                        <pre><code>mixin base-card(props = {})
+  -
+    const
+          {card, img, title, subtitle, text, iconBtn, btn} = props,
+          modifiers = props.modifiers ? props.modifiers.map((mod) =&gt; &quot;base-card--&quot; + mod) : [];
+
+  -
+    const
+          _params = {
+            card: {
+              modifiers: [&quot;elevated-shadow-1&quot;, &quot;filled&quot;, &quot;form-round-xl&quot;, ...(card?.modifiers ?? [])]
+            },
+            imgPlaceholder: {
+              path: &quot;content&quot;,
+              name: &quot;placeholder&quot;,
+              format: &quot;png&quot;,
+              width: img.width || &quot;480&quot;,
+              height: img.height || &quot;480&quot;
+            },
+            img: img &amp;&amp; {
+              path: img.path || &quot;&quot;,
+              name: img.name || &quot;&quot;,
+              format: img.format || &quot;jpg&quot;,
+              width: img.width || &quot;700&quot;,
+              height: img.height || &quot;400&quot;,
+              altText: img.altText || &quot;&quot;
+            },
+            title: title &amp;&amp; {
+              text: title.text,
+              modifiers: [&quot;size-2xl&quot;, ...(title.modifiers ?? [])]
+            },
+            subtitle: subtitle &amp;&amp; {
+              text: subtitle.text,
+              modifiers: [&quot;size-l&quot;, ...(subtitle.modifiers ?? [])]
+            },
+            text: text &amp;&amp; {
+              tag: text.tag || &quot;p&quot;,
+              content: text.content,
+              modifiers: [...(text.modifiers ?? [])]
+            },
+            iconBtn: iconBtn &amp;&amp; {
+              href: iconBtn.href,
+              ariaLabel: `Open ${title.text} component in git`,
+              icon: {
+                name: &quot;git&quot;,
+                width: 32,
+                height: 32,
+              },
+              modifiers: [&quot;form-round&quot;, &quot;elevated-shadow-1&quot;]
+            },
+            btn: btn &amp;&amp; {
+              href: btn.href,
+              text: btn.text || &quot;Open&quot;,
+              modifiers: [&quot;view-primary&quot;, &quot;form-round-s&quot;, &quot;size-m&quot;, &quot;elevated-shadow-1&quot;]
+            }
+          };
+
+
+  +card(_params.card)(class=[&quot;base-card&quot;, ...modifiers])&amp;attributes(attributes)
+    if img
+      .base-card__img
+        +picture(_params.img || _params.imgPlaceholder)
+    if (title || subtitle || text || btn)
+      .base-card__content
+        if title
+          +title(_params.title).base-card__title
+        if subtitle
+          +title(_params.subtitle).base-card__subtitle
+        if text
+          +text(_params.text)
+        if iconBtn
+          +icon-btn(_params.iconBtn)
+        if btn
+          +btn(_params.btn)
+</code></pre>
+                      </div>
+                    </details>
+                    <details class="details" data-details="details">
+                      <summary data-details="summary">Показать стили</summary>
+                      <div class="details__content" data-details="content">
+                        <pre><code>.base-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  &amp;__img {
+    --img-width: 2;
+    --img-height: 1;
+
+    @include aspect-ratio;
+
+    border-radius: var(--card-border-radius, 0);
+    overflow: hidden;
+  }
+
+  &amp;__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-areas:
+      &quot;title icon-btn&quot;
+      &quot;subtitle icon-btn&quot;
+      &quot;text icon-btn&quot;
+      &quot;btn btn&quot;;
+    padding: $space-l;
+  }
+
+  .title {
+    margin-bottom: $space-xs;
+
+    &amp;:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &amp;__title {
+    grid-area: title;
+  }
+
+  &amp;__subtitle {
+    grid-area: subtitle;
+  }
+
+  .text {
+    grid-area: text;
+    margin-bottom: $space-m;
+
+    &amp;:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .icon-btn {
+    grid-area: icon-btn;
+    align-self: start;
+    margin-bottom: $space-m;
+    margin-left: $space-s;
+
+    &amp;:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .btn {
+    grid-area: btn;
+    align-self: end;
+  }
+}
+</code></pre>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>

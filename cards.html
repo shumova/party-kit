@@ -17,22 +17,32 @@
             <nav class="page-nav page__nav" data-page-nav="container">
               <div class="page-nav__content" data-page-nav="content">
                 <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
-                <ul class="page-nav__list no-scrollbar" data-page-nav="list">
-                  <li class="page-nav__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
+                <ul class="nav-list page-nav__list no-scrollbar" data-page-nav="list">
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
                     </a>
                   </li>
-                  <li class="page-nav__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="title.html"><span class="btn__text">Title</span>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="title.html"><span class="btn__text">Title</span>
                     </a>
                   </li>
-                  <li class="page-nav__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link" href="text.html"><span class="btn__text">Text</span>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="text.html"><span class="btn__text">Text</span>
                     </a>
                   </li>
-                  <li class="page-nav__item">
-                    <span class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full page-nav__link is-active" href="cards.html"><span class="btn__text">Cards</span>
+                  <li class="nav-list__item">
+                    <span class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link is-active" href="cards.html"><span class="btn__text">Cards</span>
                     </span>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="card.html"><span class="btn__text">Card</span>
+                        </a>
+                      </li>
+                      <li class="nav-list__item">
+                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="base-card.html"><span class="btn__text">Base-card</span>
+                        </a>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </div>
@@ -40,14 +50,14 @@
             <div class="card card--filled-secondary card--form-round-m card--elevated-shadow-1 page__content no-scrollbar">
               <div class="components">
                 <div class="grid grid--cols-2 grid--gap-3xl">
-                  <div class="card card--elevated-shadow-1 card--filled card--form-round-xl component-card">
-                    <div class="component-card__img">
+                  <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                    <div class="base-card__img">
                       <picture><img src="img/content/placeholder.png" srcset="img/content/placeholder@2x.png 2x" width="700" height="400" alt="test">
                       </picture>
                     </div>
-                    <div class="component-card__content">
-                      <span class="title title--size-2xl">Card</span>
-                      <span class="title title--size-l">Карточка. Контейнер для&nbsp;любого контента</span>
+                    <div class="base-card__content">
+                      <span class="title title--size-2xl base-card__title">Card</span>
+                      <span class="title title--size-l base-card__subtitle">Карточка. Контейнер для&nbsp;любого контента</span>
                       <div class="text">
                         <p>Можно использовать для любых целей: как фоновую подложку, основу для карточки товара/услуг, для размещения таблиц/изображений и&nbsp;т.д.</p>
                       </div>
@@ -60,23 +70,23 @@
                       </a>
                     </div>
                   </div>
-                  <div class="card card--elevated-shadow-1 card--filled card--form-round-xl component-card">
-                    <div class="component-card__img">
+                  <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                    <div class="base-card__img">
                       <picture><img src="img/content/placeholder.png" srcset="img/content/placeholder@2x.png 2x" width="700" height="400" alt="test">
                       </picture>
                     </div>
-                    <div class="component-card__content">
-                      <span class="title title--size-2xl">Ex1-card</span>
-                      <span class="title title--size-l">Карточка</span>
+                    <div class="base-card__content">
+                      <span class="title title--size-2xl base-card__title">Base-card</span>
+                      <span class="title title--size-l base-card__subtitle">Базовая карточка</span>
                       <div class="text">
-                        <p>Description</p>
+                        <p>Наиболее восстребованные форма и дочерные компоненты (изображение, заголовки, текст, cta-элементы)</p>
                       </div>
-                      <a class="icon-btn icon-btn--form-round icon-btn--elevated-shadow-1" href="https://github.com/shumova/party-kit/tree/master/source/components/cards/card-var1" aria-label="Open Ex1-card component in git">
+                      <a class="icon-btn icon-btn--form-round icon-btn--elevated-shadow-1" href="https://github.com/shumova/party-kit/tree/master/source/components/cards/base-card" aria-label="Open Base-card component in git">
                         <svg width="32" height="32" aria-hidden="true">
                           <use xlink:href="img/sprite.svg#git"></use>
                         </svg>
                       </a>
-                      <a class="btn btn--view-primary btn--form-round-s btn--size-m btn--elevated-shadow-1" href="ex1-card.html"><span class="btn__text">Open</span>
+                      <a class="btn btn--view-primary btn--form-round-s btn--size-m btn--elevated-shadow-1" href="base-card.html"><span class="btn__text">Open</span>
                       </a>
                     </div>
                   </div>
