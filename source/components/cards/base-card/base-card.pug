@@ -1,14 +1,14 @@
-mixin component-card(props = {})
+mixin base-card(props = {})
   -
     const
-          {card, img, title, subtitle, text, iconBtn, btn} = props,
-          modifiers = props.modifiers ? props.modifiers.map((mod) => "component-card--" + mod) : [];
+          {card, img, title, subtitle, text, iconBtn, btn, link} = props,
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "base-card--" + mod) : [];
 
   -
     const
           _params = {
             card: {
-              modifiers: ["elevated-shadow-1", "filled", "form-round-xl", ...(card?.modifiers ?? [])]
+              modifiers: ["elevated-shadow-1", "filled", "form-round-m", ...(card?.modifiers ?? [])]
             },
             imgPlaceholder: {
               path: "content",
@@ -56,16 +56,16 @@ mixin component-card(props = {})
           };
 
 
-  +card(_params.card)(class=["component-card", ...modifiers])&attributes(attributes)
+  +card(_params.card)(class=["base-card", ...modifiers])&attributes(attributes)
     if img
-      .component-card__img
+      .base-card__img
         +picture(_params.img || _params.imgPlaceholder)
     if (title || subtitle || text || btn)
-      .component-card__content
+      .base-card__content
         if title
-          +title(_params.title)
+          +title(_params.title).base-card__title
         if subtitle
-          +title(_params.subtitle)
+          +title(_params.subtitle).base-card__subtitle
         if text
           +text(_params.text)
         if iconBtn

@@ -60,10 +60,22 @@ mixin component(props = {})
       examples: {
         title: {
           tag: "h2",
-          text: "Примеры вызова",
+          text: "Примеры",
           modifiers: ["size-2xl"]
+        },
+        note: {
+          tag: "p",
+          content: examples?.note,
+          modifiers: ["size-l"]
+        },
+        snippet: {
+          title: {
+            tag: "h3",
+            text: "Пример",
+            modifiers: ["size-xl"]
+          }
         }
-      }
+      },
     }
 
 
@@ -73,11 +85,30 @@ mixin component(props = {})
       .component__titles
         +title(_params.header.title).component__name
         +title(_params.header.subtitle).component__name--local
-      +icon-btn(_params.header.iconBtn)
+      +icon-btn(_params.header.iconBtn).component__icon-btn
 
     .component__description
       +title(_params.description.title)
-      +text(_params.description.text)
+      +text(_params.description.text).component__text
+
+    if examples
+      .component__calls
+        +title(_params.examples.title)
+        +card(_params.card.code).component__card
+          +grid({modifiers: ["cols-2", "gap-l"]}).component__examples
+            if examples.note
+              +text(_params.examples.note)
+            each snippet in examples.snippets
+              +card({modifiers: ["filled-stripe", "form-round-m", "space-l"]}).component__call
+                +title(Object.assign(_params.examples.snippet.title, snippet.title))
+                .component__view
+                  +#{component.mixin}(snippet.props)
+                    if snippet.block
+                      +#{snippet.block.mixin}(snippet.block.props)
+                +details({summary: "Показать код"})
+                  pre
+                    code.
+                      #{snippet.code}
 
     .component__base
       +title(_params.base.title)
@@ -88,42 +119,43 @@ mixin component(props = {})
             code.
               #{snippet}
 
-    .component__modifiers
-      +title(_params.modifiers.title)
-      +card(_params.card.code).component__card
-        +text(_params.modifiers.note)
-        pre
-          code.
-            .#{component.mixin} {
-              ...
+    if modifiers
+      .component__modifiers
+        +title(_params.modifiers.title)
+        +card(_params.card.code).component__card
+          +text(_params.modifiers.note).component__text
+          pre
+            code.
+              .#{component.mixin} {
+                ...
 
-        .component__inner-code
-          each snippet in modifiers
-            +details({
-              summary: snippet.summary,
-              modifiers: snippet.modifiers
-            })
-              if snippet.note
-                +text({
-                  tag: snippet.note.tag || "span",
-                  content: snippet.note.content
-                })
+          .component__inner-code
+            each snippet in modifiers
+              +details({
+                summary: snippet.summary,
+                modifiers: snippet.modifiers
+              })
+                if snippet.note
+                  +text({
+                    tag: snippet.note.tag || "span",
+                    content: snippet.note.content
+                  }).component__text
 
-              if snippet.examples
-                .component__examples
-                  each example in snippet.examples
-                    .component__example
-                      +#{component.mixin}(example.props)
-                        if example.block
-                          +#{example.block.mixin}(example.block.props)
-                      pre
-                        code.
-                          #{example.code}
+                if snippet.examples
+                  +grid({modifiers: ["cols-2", "gap-l"]}).component__examples
+                    each example in snippet.examples
+                      .component__example
+                        +#{component.mixin}(example.props)
+                          if example.block
+                            +#{example.block.mixin}(example.block.props)
+                        pre
+                          code.
+                            #{example.code}
 
-              .component__code
-                pre
-                  code.
-                    #{snippet.code}
+                .component__code
+                  pre
+                    code.
+                      #{snippet.code}
 
-        pre
-          code }
+          pre
+            code }

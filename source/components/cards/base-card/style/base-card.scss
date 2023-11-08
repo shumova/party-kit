@@ -1,4 +1,4 @@
-.component-card {
+.base-card {
   display: grid;
   grid-template-rows: auto 1fr;
 
@@ -8,7 +8,7 @@
 
     @include aspect-ratio;
 
-    border-radius: $space-xl;
+    border-radius: var(--card-border-radius, 0);
     overflow: hidden;
   }
 
@@ -16,7 +16,11 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-rows: auto auto auto 1fr;
-    column-gap: $space-s;
+    grid-template-areas:
+      "title icon-btn"
+      "subtitle icon-btn"
+      "text icon-btn"
+      "btn btn";
     padding: $space-l;
   }
 
@@ -28,7 +32,16 @@
     }
   }
 
+  &__title {
+    grid-area: title;
+  }
+
+  &__subtitle {
+    grid-area: subtitle;
+  }
+
   .text {
+    grid-area: text;
     margin-bottom: $space-m;
 
     &:last-child {
@@ -37,10 +50,10 @@
   }
 
   .icon-btn {
+    grid-area: icon-btn;
     align-self: start;
-    grid-column: 2;
-    grid-row: 1 / 4;
     margin-bottom: $space-m;
+    margin-left: $space-s;
 
     &:last-child {
       margin-bottom: 0;
@@ -48,7 +61,15 @@
   }
 
   .btn {
-    grid-column: span 2;
+    grid-area: btn;
     align-self: end;
+  }
+
+  &--content-space {
+    &-no-btm {
+      .base-card__content {
+        padding-bottom: 0;
+      }
+    }
   }
 }
