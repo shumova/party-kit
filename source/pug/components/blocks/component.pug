@@ -113,11 +113,12 @@ mixin component(props = {})
     .component__base
       +title(_params.base.title)
 
-      each snippet in base
-        +card(_params.card.code).component__card
-          pre
-            code.
-              #{snippet}
+      +card(_params.card.code).component__card
+        each snippet, index in base
+          +details({summary: index === 0 ? "Показать шаблон" : "Показать стили"})
+            pre
+              code.
+                #{snippet}
 
     if modifiers
       .component__modifiers
@@ -144,13 +145,16 @@ mixin component(props = {})
                 if snippet.examples
                   +grid({modifiers: ["cols-2", "gap-l"]}).component__examples
                     each example in snippet.examples
-                      .component__example
+                      +card({modifiers: ["filled-stripe", "form-round-m", "space-m"]}).component__example
                         +#{component.mixin}(example.props)
                           if example.block
                             +#{example.block.mixin}(example.block.props)
-                        pre
-                          code.
-                            #{example.code}
+                        +details({
+                          summary: "Показать код"
+                        })
+                          pre
+                            code.
+                              #{example.code}
 
                 .component__code
                   pre

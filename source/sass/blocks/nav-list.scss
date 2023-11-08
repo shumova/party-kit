@@ -1,0 +1,22 @@
+.nav-list {
+  margin: 0;
+  list-style: none;
+  overflow: auto;
+
+  &__link {
+    --button-font-size: #{$control-text-size-l};
+    --button-space: #{$control-space-s};
+
+    &.is-active + .nav-list--sublist,
+    &.is-open + .nav-list--sublist {
+      max-height: none;
+      visibility: visible;
+    }
+  }
+
+  &--sublist {
+    max-height: 0;
+    padding: 0 0 0 $space-s;
+    visibility: hidden;
+  }
+}

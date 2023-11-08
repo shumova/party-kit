@@ -205,33 +205,33 @@ block variables
             },
             code:
       `+base-card({
-        img: {
-          path: "content",
-          name: "placeholder",
-          format: "png",
-          altText: "Alt"
-        },
-        title: {
-          text: "Title"
-        },
-        subtitle: {
-          text: "Subtitle"
-        },
-        text: {
-          content: ["Text"]
-        },
-        iconBtn: {
-          href: "#"
-        },
-        btn: {
-          href: "#",
-          text: "Button"
-        }
-      })`
+      img: {
+        path: "content",
+        name: "placeholder",
+        format: "png",
+        altText: "Alt"
+      },
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle"
+      },
+      text: {
+        content: ["Text"]
+      },
+      iconBtn: {
+        href: "#"
+      },
+      btn: {
+        href: "#",
+        text: "Button"
+      }
+    })`
           },
           {
             title: {
-              text: "Базовый компонент только с&nbsp;изображением, заголовком и текстом"
+              text: "Можно использовать только некоторые из дочерних элементов"
             },
             props: {
               img: {
@@ -246,30 +246,30 @@ block variables
               text: {
                 content: ["Text"]
               },
-              link: {
+              btn: {
                 href: "#",
                 text: "Button"
               }
             },
             code:
       `+base-card({
-          img: {
-            path: "content",
-            name: "placeholder",
-            format: "png",
-            altText: "Alt"
-          },
-          title: {
-            text: "Title"
-          },
-          text: {
-            content: ["Text"]
-          },
-          btn: {
-            href: "#",
-            text: "Button"
-          }
-        })`
+      img: {
+        path: "content",
+        name: "placeholder",
+        format: "png",
+        altText: "Alt"
+      },
+      title: {
+        text: "Title"
+      },
+      text: {
+        content: ["Text"]
+      },
+      btn: {
+        href: "#",
+        text: "Button"
+      }
+    })`
           }
         ]
       }
