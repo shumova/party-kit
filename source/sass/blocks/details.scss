@@ -1,5 +1,8 @@
 .details {
   --details-border-width: 0.4em;
+  --details-content-bg-color: inherit;
+  --details-content-border-radius: inherit;
+  --details-content-padding: #{$space-2xl};
 
   summary {
     position: relative;
@@ -31,14 +34,70 @@
   }
 
   &__content {
-    --content-padding: #{$space-2xl};
+
 
     display: grid; // От выпадения внешних отступов дочерних элементов и корректного вычисления высоты элемента
-    padding: var(--content-padding);
+    padding: var(--details-content-padding);
     padding-top: $space-s;
+    background-color: var(--details-content-bg-color);
+    border-radius: var(--details-content-border-radius);
 
     @include vp-767 {
-      --content-padding: 0;
+      --details-content-padding: 0;
+    }
+  }
+
+  &--border-radius {
+    &-xs {
+      --details-content-border-radius: #{$space-xs};
+    }
+
+    &-s {
+      --details-content-border-radius: #{$space-s};
+    }
+
+    &-m {
+      --details-content-border-radius: #{$space-m};
+    }
+
+    &-l {
+      --details-content-border-radius: #{$space-l};
+    }
+
+    &-xl {
+      --details-content-border-radius: #{$space-xl};
+    }
+
+    &-2xl {
+      --details-content-border-radius: #{$space-2xl};
+    }
+
+    &-3xl {
+      --details-content-border-radius: #{$space-3xl};
+    }
+  }
+
+  &--filled {
+    --details-content-bg-color: var(--color-bg-default);
+
+    &-secondary {
+      --details-content-bg-color: var(--color-bg-secondary);
+    }
+
+    &-brand {
+      --details-content-bg-color: var(--color-bg-brand);
+    }
+
+    &-stripe {
+      --details-content-bg-color: var(--color-bg-stripe);
+    }
+
+    &-tone {
+      --details-content-bg-color: var(--color-bg-tone);
+    }
+
+    &-soft {
+      --details-content-bg-color: var(--color-bg-soft);
     }
   }
 }
