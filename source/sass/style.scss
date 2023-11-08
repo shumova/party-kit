@@ -31,9 +31,6 @@
 @import "blocks/modal";
 @import "blocks/page";
 @import "blocks/page-nav";
-@import "blocks/components";
-@import "blocks/component";
-@import "blocks/component-card";
 @import "blocks/custom-input";
 @import "blocks/custom-toggle";
 @import "blocks/custom-select";
@@ -46,6 +43,12 @@
 @import "../components/title/style/title";
 @import "../components/text/style/text";
 @import "../components/cards/card/style/card";
+@import "../components/cards/base-card/style/base-card";
+
+// ---------------------------------
+
+@import "blocks/components";
+@import "blocks/component";
 
 // ---------------------------------
 

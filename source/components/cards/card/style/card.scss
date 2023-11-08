@@ -4,9 +4,11 @@
   --card-border-width: initial;
   --card-border-style: initial;
   --card-border-color: initial;
+  --card-border-radius: 0;
 
   padding: var(--vertical-space) var(--horizontal-space);
   border: var(--card-border-width) var(--card-border-style) var(--card-border-color);
+  border-radius: var(--card-border-radius);
 
 
   &--space {
@@ -108,34 +110,34 @@
 
   &--form {
     &-round {
-      border-radius: 50%;
+      --card-border-radius: 50%;
 
       &-xs {
-        border-radius: $space-xs;
+        --card-border-radius: #{$space-xs};
       }
 
       &-s {
-        border-radius: $space-s;
+        --card-border-radius: #{$space-s};
       }
 
       &-m {
-        border-radius: $space-m;
+        --card-border-radius: #{$space-m};
       }
 
       &-l {
-        border-radius: $space-l;
+        --card-border-radius: #{$space-l};
       }
 
       &-xl {
-        border-radius: $space-xl;
+        --card-border-radius: #{$space-xl};
       }
 
       &-2xl {
-        border-radius: $space-2xl;
+        --card-border-radius: #{$space-2xl};
       }
 
       &-3xl {
-        border-radius: $space-3xl;
+        --card-border-radius: #{$space-3xl};
       }
     }
   }

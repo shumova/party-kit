@@ -25,7 +25,7 @@
     }
   }
 
-  .icon-btn {
+  &__icon-btn {
     align-self: start;
     margin-left: auto;
   }
@@ -34,7 +34,7 @@
     padding-left: $space-m;
   }
 
-  .text {
+  &__text {
     margin-top: $space-xl;
 
     &:first-child {
@@ -43,9 +43,6 @@
   }
 
   &__examples {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $space-2xl;
     margin: $space-xl 0 0;
 
     &:first-child {
@@ -55,6 +52,14 @@
 
   &__example {
     width: min(200px, 100%);
+  }
+
+  &__view {
+    margin-top: $space-xs;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   &__code {
