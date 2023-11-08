@@ -23,10 +23,7 @@
   &__list {
     grid-area: list;
     height: 100%;
-    margin: 0;
     padding: $offset-block-desktop 0;
-    list-style: none;
-    overflow: auto;
   }
 
   @include vp-1023 {
@@ -82,11 +79,6 @@
       padding: $offset-block-tablet;
       padding-left: 0;
       visibility: hidden;
-    }
-
-    &__link {
-      --button-font-size: #{$control-text-size-l};
-      --button-space: #{$control-space-s};
     }
 
     &.is-ajar {
