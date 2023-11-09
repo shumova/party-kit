@@ -64,12 +64,4 @@
     grid-area: btn;
     align-self: end;
   }
-
-  &--content-space {
-    &-no-btm {
-      .base-card__content {
-        padding-bottom: 0;
-      }
-    }
-  }
 }
