@@ -1,0 +1,2206 @@
+<!DOCTYPE html>
+<html class="theme-default" lang="ru">
+  <head>
+    <title>grid</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ProjectName — описание">
+    <link rel="preload" href="fonts/ysabeau-infant-VF.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <main>
+        <div class="page">
+          <div class="container page__container">
+            <nav class="page-nav page__nav" data-page-nav="container">
+              <div class="page-nav__content" data-page-nav="content">
+                <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
+                <ul class="nav-list page-nav__list no-scrollbar" data-page-nav="list">
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
+                    </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="title.html"><span class="btn__text">Title</span>
+                    </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="text.html"><span class="btn__text">Text</span>
+                    </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="cards.html"><span class="btn__text">Cards</span>
+                    </a>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="card.html"><span class="btn__text">Card</span>
+                        </a>
+                      </li>
+                      <li class="nav-list__item">
+                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="base-card.html"><span class="btn__text">Base-card</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-list__item">
+                    <span class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link is-active" href="grid.html"><span class="btn__text">Grid</span>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div class="card card--filled-secondary card--form-round-m card--elevated-shadow-1 page__content no-scrollbar">
+              <div class="component">
+                <div class="component__header">
+                  <div class="component__titles">
+                    <h1 class="title title--size-3xl component__name">Grid</h1>
+                    <span class="title title--size-2xl component__name--local">Модульная сетка</span>
+                  </div>
+                  <a class="icon-btn icon-btn--form-round icon-btn--elevated-shadow-1 component__icon-btn" href="https://github.com/shumova/party-kit/tree/master/source/components/grid" aria-label="Open Grid component in git">
+                    <svg width="32" height="32" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#git"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="component__description">
+                  <h2 class="title title--size-2xl">Использование</h2>
+                  <div class="text component__text">
+                    <p>В&nbsp;компоненте предусмотрены различные способы передачи дочерних элементов, но&nbsp;если нет и&nbsp;не&nbsp;удаётся найти подходящего решения для какого-то кейса, то можно обойтись без pug-шаблона и использовать только стилевой файл компонента</p>
+                  </div>
+                </div>
+                <div class="component__base">
+                  <h2 class="title title--size-2xl">Базовый компонент</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <details class="details" data-details="details">
+                      <summary data-details="summary">Показать шаблон</summary>
+                      <div class="details__content" data-details="content">
+                        <pre><code>mixin grid (props = {})
+-
+  const
+        tag = props.tag || &quot;div&quot;,
+        content = props.content || [],
+        modifiers = props.modifiers ? props.modifiers.map((mod) =&gt; &quot;grid--&quot; + mod) : [];
+
+case tag
+  when &quot;ul&quot;
+  when &quot;ol&quot;
+    #{tag}(class=[&quot;grid&quot;, ...modifiers])&amp;attributes(attributes)
+      each item in content
+        - const itemModifiers = item.modifiers ? item.modifiers.map((mod) =&gt; &quot;grid__item--&quot; + mod) : [];
+
+        li(class=[&quot;grid__item&quot;, ...itemModifiers])
+          +#{item.component}(item.params)
+
+  default
+    #{tag}(class=[&quot;grid&quot;, ...modifiers])&amp;attributes(attributes)
+      if content.length
+        each item in content
+          - const itemModifiers = item.modifiers ? item.modifiers.map((mod) =&gt; &quot;grid__item--&quot; + mod) : [];
+          - const itemParentClass = item.parentClass || [];
+
+          +#{item.component}(item.params)(class=[&quot;grid__item&quot;, ...itemModifiers, ...itemParentClass])
+      else
+        block
+</code></pre>
+                      </div>
+                    </details>
+                    <details class="details" data-details="details">
+                      <summary data-details="summary">Показать стили</summary>
+                      <div class="details__content" data-details="content">
+                        <pre><code>.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 1), minmax(0, 1fr));
+
+  &amp;ul,
+  &amp;ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &amp;__item {
+    grid-column: var(--col-start, span) var(--col-end, 1);
+    grid-row: var(--row-start, span) var(--row-end, 1);
+  }
+}
+</code></pre>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+                <div class="component__modifiers">
+                  <h2 class="title title--size-2xl">Модификаторы</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <div class="text text--size-l component__text">
+                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используйте жёстко закодированные значения</p>
+                      <p>Стили для адаптива задавайте как удобней:<br>- переопределением в самом модификаторе, например: <pre><code>&--cols {<br>  &-2 {<br>    --cols: 2; <br><br>    @include vp-767 {<br>      --cols: 1;<br>    }<br>}</code></pre><br>- переопределением от родительского класса .parent__grid или .parent .grid <br>- отдельными модификаторами с отражением в имени как меняется раскладка, а не в каком блоке/компоненте гриды используются</p>
+                    </div>
+                    <pre><code>.grid {
+  ...
+</code></pre>
+                    <div class="component__inner-code">
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Колонки</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-3">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-3"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-4">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-4"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&--cols {
+  &-2 {
+    --cols: 2;
+
+    @include vp-767 {
+      --cols: 1;
+    }
+  }
+
+  &-3 {
+    --cols: 3;
+  }
+
+  &-4 {
+    --cols: 4;
+
+    @include vp-1023 {
+      --cols: 2;
+    }
+
+    @include vp-767 {
+      --cols: 1;
+    }
+  }
+
+  &-5 {
+    --cols: 5;
+  }
+
+  &-6 {
+    --cols: 6;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Отступы по&nbsp;вертикали и горизонтали</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-s">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-s"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-m">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-m"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-l">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-l"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-xl">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-xl"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-2xl">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-2xl"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-3xl">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-3xl"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&--gap {
+  &-s {
+    grid-gap: $space-s;
+  }
+
+  &-m {
+    grid-gap: $space-m;
+  }
+
+  &-l {
+    grid-gap: $space-l;
+  }
+
+  &-xl {
+    grid-gap: $space-xl;
+  }
+
+  &-2xl {
+    grid-gap: $space-2xl;
+  }
+
+  &-3xl {
+    grid-gap: $space-3xl;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Отступы по&nbsp;вертикали</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--colGap-s">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "colGap-s"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--colGap-m">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "colGap-m"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--colGap-l">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "colGap-l"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--colGap-xl">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "colGap-xl"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--colGap-2xl">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "colGap-2xl"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--colGap-3xl">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "colGap-3xl"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&--colGap {
+  &-s {
+    grid-column-gap: $space-s;
+  }
+
+  &-m {
+    grid-column-gap: $space-m;
+  }
+
+  &-l {
+    grid-column-gap: $space-l;
+  }
+
+  &-xl {
+    grid-column-gap: $space-xl;
+  }
+
+  &-2xl {
+    grid-column-gap: $space-2xl;
+  }
+
+  &-3xl {
+    grid-column-gap: $space-3xl;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Отступы по&nbsp;горизонтали</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--rowGap-s">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "rowGap-s"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--rowGap-m">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "rowGap-m"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--rowGap-l">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "rowGap-l"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--rowGap-xl">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "rowGap-xl"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--rowGap-2xl">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "rowGap-2xl"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--rowGap-3xl">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "rowGap-3xl"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&--rowGap {
+  &-s {
+    grid-row-gap: $space-s;
+  }
+
+  &-m {
+    grid-row-gap: $space-m;
+  }
+
+  &-l {
+    grid-row-gap: $space-l;
+  }
+
+  &-xl {
+    grid-row-gap: $space-xl;
+  }
+
+  &-2xl {
+    grid-row-gap: $space-2xl;
+  }
+
+  &-3xl {
+    grid-row-gap: $space-3xl;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Выравнивание внутри ячеек по&nbsp;горизонтали</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-s grid--xAlign-left">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-s", "xAlign-left"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-m grid--xAlign-center">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-m", "xAlign-center"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-l grid--xAlign-right">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-l", "xAlign-right"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&--xAlign {
+  &-left {
+    justify-items: start;
+  }
+
+  &-center {
+    justify-items: center;
+  }
+
+  &-right {
+    justify-items: end;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Выравнивание внутри ячеек по&nbsp;вертикали</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-s grid--yAlign-top" style="height: 250px;">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-s", "yAlign-top"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-m grid--yAlign-center" style="height: 250px;">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-m", "yAlign-center"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-2 grid--gap-l grid--yAlign-bottom" style="height: 250px;">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({modifiers: ["cols-2", "gap-l", "yAlign-bottom"]})
+  each card in cards
+    +base-card(card)
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&--yAlign {
+  &-top {
+    align-items: start;
+  }
+
+  &-center {
+    align-items: center;
+  }
+
+  &-bottom {
+    align-items: end;
+  }
+}</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <pre><code>&__item {</code></pre>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Количество колонок, занимаемое элементом сетки</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-6 grid--gap-s">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--col-1">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--col-2">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--col-3">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--col-4">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({
+  modifiers: ["cols-6", "gap-s"],
+  content: {
+    component: "base-card",
+    items: [
+      {
+        modifiers: ["col-1"],
+        params: {
+          text: {
+            content: `1`
+          }
+        }
+      },
+      {
+        modifiers: ["col-2"],
+        params: {
+          text: {
+            content: `2`
+          }
+        }
+      },
+      {
+        modifiers: ["col-3"],
+        params: {
+          text: {
+            content: `3`
+          }
+        }
+      },
+      {
+        modifiers: ["col-4"],
+        params: {
+          text: {
+            content: `4`
+          }
+        }
+      }
+    ]
+  }
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&--col {
+  &-1 {
+    --col-end: 1;
+  }
+
+  &-2 {
+    --col-end: 2;
+  }
+
+  &-3 {
+    --col-end: 3;
+  }
+
+  &-4 {
+    --col-end: 4;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">С&nbsp;какой колонки начинается элемент</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-6 grid--gap-s">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--colStart-2">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--colStart-1">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--colStart-4">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--colStart-3">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({
+  modifiers: ["cols-6", "gap-s"],
+  content: {
+    component: "base-card",
+    items: [
+      {
+        modifiers: ["colStart-2"],
+        params: {
+          text: {
+            content: `1`
+          }
+        }
+      },
+      {
+        modifiers: ["colStart-1"],
+        params: {
+          text: {
+            content: `2`
+          }
+        }
+      },
+      {
+        modifiers: ["colStart-4"],
+        params: {
+          text: {
+            content: `3`
+          }
+        }
+      },
+      {
+        modifiers: ["colStart-3"],
+        params: {
+          text: {
+            content: `4`
+          }
+        }
+      }
+    ]
+  }
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&--colStart {
+  &-1 {
+    --col-start: 1 / span;
+  }
+
+  &-2 {
+    --col-start: 2 / span;
+  }
+
+  &-3 {
+    --col-start: 3 / span;
+  }
+
+  &-4 {
+    --col-start: 4 / span;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Количество строк</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-6 grid--gap-s">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--row-1">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--row-2">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--row-3">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--row-4">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({
+  modifiers: ["cols-6", "gap-s"],
+  content: {
+    component: "base-card",
+    items: [
+      {
+        modifiers: ["row-1"],
+        params: {
+          text: {
+            content: `1`
+          }
+        }
+      },
+      {
+        modifiers: ["row-2"],
+        params: {
+          text: {
+            content: `2`
+          }
+        }
+      },
+      {
+        modifiers: ["row-3"],
+        params: {
+          text: {
+            content: `3`
+          }
+        }
+      },
+      {
+        modifiers: ["row-4"],
+        params: {
+          text: {
+            content: `4`
+          }
+        }
+      }
+    ]
+  }
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&--row {
+  &-1 {
+    --row-end: 1;
+  }
+
+  &-2 {
+    --row-end: 2;
+  }
+
+  &-3 {
+    --row-end: 3;
+  }
+
+  &-4 {
+    --row-end: 4;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">С&nbsp;какой строки начинается элемент</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-6 grid--gap-s">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--rowStart-2">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--rowStart-1">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--rowStart-4">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--rowStart-3">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({
+  modifiers: ["cols-6", "gap-s"],
+  content: {
+    component: "base-card",
+    items: [
+      {
+        modifiers: ["rowStart-2"],
+        params: {
+          text: {
+            content: `1`
+          }
+        }
+      },
+      {
+        modifiers: ["rowStart-1"],
+        params: {
+          text: {
+            content: `2`
+          }
+        }
+      },
+      {
+        modifiers: ["rowStart-4"],
+        params: {
+          text: {
+            content: `3`
+          }
+        }
+      },
+      {
+        modifiers: ["rowStart-3"],
+        params: {
+          text: {
+            content: `4`
+          }
+        }
+      }
+    ]
+  }
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&--rowStart {
+  &-1 {
+    --row-start: 1 / span;
+  }
+
+  &-2 {
+    --row-start: 2 / span;
+  }
+
+  &-3 {
+    --row-start: 3 / span;
+  }
+
+  &-4 {
+    --row-start: 4 / span;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Порядок элементов</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="grid grid--cols-6 grid--gap-s">
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--order-2">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>1</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--order-0">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>2</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>3</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card grid__item grid__item--order--1">
+                                  <div class="base-card__content">
+                                    <div class="text">
+                                      <p>4</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <details class="details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+grid({
+  modifiers: ["cols-6", "gap-s"],
+  content: {
+    component: "base-card",
+    items: [
+      {
+        modifiers: ["order-2"],
+        params: {
+          text: {
+            content: `1`
+          }
+        }
+      },
+      {
+        modifiers: ["order-0"],
+        params: {
+          text: {
+            content: `2`
+          }
+        }
+      },
+      {
+        params: {
+          text: {
+            content: `3`
+          }
+        }
+      },
+      {
+        modifiers: ["order--1"],
+        params: {
+          text: {
+            content: `4`
+          }
+        }
+      }
+    ]
+  }
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&--order {
+  &--1 {
+    order: -1;
+  }
+
+  &-0 {
+    order: 0;
+  }
+
+  &-1 {
+    order: 1;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <pre><code>}</code></pre>
+                    </div>
+                    <pre><code>}</code></pre>
+                  </div>
+                </div>
+                <div class="component__calls">
+                  <h2 class="title title--size-2xl">Примеры передачи дочерних элементов</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <div class="grid grid--cols-2 grid--gap-l component__examples">
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Передача дочернего элемента как block. Компонент используется для задания грид-контекста</h3>
+                        <div class="component__view">
+                          <div class="grid">
+                            <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                              <div class="base-card__content">
+                                <div class="text">
+                                  <p>1</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <details class="details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+grid()
+  +base-card({
+    text: {
+      content: "1"
+    }
+  })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Передача дочерних элементов через цикл (while или each in) когда не нужны списочные теги (ul/ol и li)</h3>
+                        <div class="component__view">
+                          <div class="grid grid--cols-2 grid--gap-s">
+                            <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                              <div class="base-card__content">
+                                <div class="text">
+                                  <p>1</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                              <div class="base-card__content">
+                                <div class="text">
+                                  <p>2</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                              <div class="base-card__content">
+                                <div class="text">
+                                  <p>3</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                              <div class="base-card__content">
+                                <div class="text">
+                                  <p>4</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <details class="details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+grid({modifiers: ["cols-2", "gap-s"]})
+  - let n = 0;
+  while n < 4
+    +base-card({
+      text: {
+        content: `${n++}`
+      }
+    })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Передача дочерних элементов (общий миксин) через props с&nbsp;заданием списочных тегов (ul/ol и li)</h3>
+                        <div class="component__view">
+                          <ul class="grid grid--cols-2 grid--gap-l">
+                            <li class="grid__item">
+                              <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                <div class="base-card__content">
+                                  <div class="text">
+                                    <p>1</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="grid__item">
+                              <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                <div class="base-card__content">
+                                  <div class="text">
+                                    <p>2</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="grid__item">
+                              <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                <div class="base-card__content">
+                                  <div class="text">
+                                    <p>3</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="grid__item">
+                              <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                <div class="base-card__content">
+                                  <div class="text">
+                                    <p>4</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <details class="details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+grid({
+  modifiers: ["cols-2", "gap-l"], tag: "ul",
+  content: {
+    component: "base-card",
+    items: [
+      {
+        params: {
+          text: {
+            content: `1`
+          }
+        }
+      },
+      {
+        params: {
+          text: {
+            content: `2`
+          }
+        }
+      },
+      {
+        params: {
+          text: {
+            content: `3`
+          }
+        }
+      },
+      {
+        params: {
+          text: {
+            content: `4`
+          }
+        }
+      },
+    ]
+  }
+})
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Передача дочерних элементов (разные миксины) через props с&nbsp;заданием списочных тегов (ul/ol и li)</h3>
+                        <div class="component__view">
+                          <ol class="grid grid--cols-2 grid--gap-l">
+                            <li class="grid__item">
+                              <div class="card card--elevated-shadow-1 card--filled card--form-round-m base-card">
+                                <div class="base-card__content">
+                                  <div class="text">
+                                    <p>1</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="grid__item">
+                              <a class="btn btn--view-primary btn--form-round-s btn--size-m btn--elevated-shadow-1" href="#"><span class="btn__text">Button</span>
+                              </a>
+                            </li>
+                            <li class="grid__item">
+                              <span class="title title--size-2xl">It's a Title</span>
+                            </li>
+                          </ol>
+                        </div>
+                        <details class="details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+grid({
+  modifiers: ["cols-2", "gap-l"], tag: "ol",
+  content: {
+    items: [
+      {
+        component: "base-card",
+        params: {
+          text: {
+            content: `1`
+          }
+        }
+      },
+      {
+        component: "btn",
+        params: {
+          href: "#",
+          text: "Button",
+          modifiers: ["view-primary", "form-round-s", "size-m", "elevated-shadow-1"]
+        }
+      },
+      {
+        component: "title",
+        params: {
+          text: [
+            "It's a Title"
+          ],
+          modifiers: ["size-2xl"]
+        }
+      }
+    ]
+  }
+})</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
