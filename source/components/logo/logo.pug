@@ -1,0 +1,25 @@
+mixin logo(props = {})
+  -
+    const
+          isIndex = props.isIndex,
+          tag = isIndex ? "span" : "a",
+          href = !isIndex && "index.html",
+          ariaLabel = !isIndex && "Перейти на&nbsp;Главную",
+          {name, width, height} = props.icon || {},
+          img = props.img,
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "logo--" + mod) : [];
+
+  //- lighthouse снимает 10 баллов SEO за <a> без href
+  #{tag}(class=["logo", ...modifiers], href=href, aria-label=ariaLabel)&attributes(attributes)
+    if props.icon
+      +icon(name, width, height)
+    if img
+      +picture({
+        path: img.path || "",
+        name: img.name || "",
+        format: img.format || "jpg",
+        width: img.width || "",
+        height: img.height || "",
+        altText: img.altText || ""
+      })
+
