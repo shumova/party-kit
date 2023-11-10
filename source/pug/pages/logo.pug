@@ -1,0 +1,127 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "logo",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "logo.html"
+
+  -
+    const params = {
+      component: {
+        mixin: "logo",
+        name: "Logo",
+        localName: "Логотип",
+        git: "https://github.com/shumova/party-kit/tree/master/source/components/logo"
+      },
+      description: [
+        "Не забывайте задавать ширину и высоту логотипа через родительский класс .parent__logo или .parent .logo",
+        "На странице index вместо ссылки -- span, т.к. lighthouse снимает 10 баллов SEO за&nbsp;&lt;a&gt; без&nbsp;href"
+      ],
+      base: [
+    `mixin logo(props = {})
+      -
+        const
+              isIndex = props.isIndex,
+              tag = isIndex ? "span" : "a",
+              href = !isIndex && "index.html",
+              ariaLabel = !isIndex && "Перейти на&nbsp;Главную",
+              {name, width, height} = props.icon || {},
+              img = props.img,
+              modifiers = props.modifiers ? props.modifiers.map((mod) => "logo--" + mod) : [];
+
+      #{tag}(class=["logo", ...modifiers], href=href, aria-label=ariaLabel)&attributes(attributes)
+        if props.icon
+          +icon(name, width, height)
+        if img
+          +picture({
+            path: img.path || "",
+            name: img.name || "",
+            format: img.format || "jpg",
+            width: img.width || "",
+            height: img.height || "",
+            altText: img.altText || ""
+          })`,
+    `.logo {
+      display: inline-flex;
+      transition: opacity $trans-default;
+
+      svg,
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      svg {
+        transform: translateZ(0);
+      }
+    }
+
+    .logo[href] {
+      @include interactive-style {
+        opacity: 0.5;
+      }
+    }`
+      ],
+      examples: {
+        snippets: [
+          {
+            title: {
+              text: "svg"
+            },
+            props: {
+              isIndex: currentUrl === "index.html",
+              icon: {
+                name: "git",
+                width: 32,
+                height: 32
+              }
+            },
+            code:
+        `+logo({
+      isIndex: currentUrl === "index.html",
+      icon: {
+        name: "git",
+        width: 32,
+        height: 32
+      }
+    })`
+          },
+          {
+            title: {
+              text: "jpg/png"
+            },
+            props: {
+              isIndex: currentUrl === "index.html",
+              img: {
+                path: "content",
+                name: "placeholder",
+                format: "png"
+              }
+            },
+            code:
+        `+logo({
+      isIndex: currentUrl === "index.html",
+      img: {
+        path: "content",
+        name: "placeholder",
+        format: "png",
+        altText: "Alt"
+      }
+    })`
+          }
+        ]
+      }
+    }
+
+block page
+  +component(params)
+
+block modals

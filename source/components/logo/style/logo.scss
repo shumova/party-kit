@@ -1,0 +1,20 @@
+.logo {
+  display: inline-flex;
+  transition: opacity $trans-default;
+
+  svg,
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  svg {
+    transform: translateZ(0);
+  }
+}
+
+.logo[href] {
+  @include interactive-style {
+    opacity: 0.5;
+  }
+}
