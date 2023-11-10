@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="theme-default" lang="ru">
+  <head>
+    <title>logo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ProjectName — описание">
+    <link rel="preload" href="fonts/ysabeau-infant-VF.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <main>
+        <div class="page">
+          <div class="container page__container">
+            <nav class="page-nav page__nav" data-page-nav="container">
+              <div class="page-nav__content" data-page-nav="content">
+                <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
+                <ul class="nav-list page-nav__list no-scrollbar" data-page-nav="list">
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
+                    </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="title.html"><span class="btn__text">Title</span>
+                    </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="text.html"><span class="btn__text">Text</span>
+                    </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="cards.html"><span class="btn__text">Cards</span>
+                    </a>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="card.html"><span class="btn__text">Card</span>
+                        </a>
+                      </li>
+                      <li class="nav-list__item">
+                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="base-card.html"><span class="btn__text">Base-card</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-list__item">
+                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="grid.html"><span class="btn__text">Grid</span>
+                    </a>
+                  </li>
+                  <li class="nav-list__item">
+                    <span class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link is-active" href="logo.html"><span class="btn__text">Logo</span>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div class="card card--filled-secondary card--form-round-m card--elevated-shadow-1 page__content no-scrollbar">
+              <div class="component">
+                <div class="component__header">
+                  <div class="component__titles">
+                    <h1 class="title title--size-3xl component__name">Logo</h1>
+                    <span class="title title--size-2xl component__name--local">Логотип</span>
+                  </div>
+                  <a class="icon-btn icon-btn--form-round icon-btn--elevated-shadow-1 component__icon-btn" href="https://github.com/shumova/party-kit/tree/master/source/components/logo" aria-label="Open Logo component in git">
+                    <svg width="32" height="32" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#git"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="component__description">
+                  <h2 class="title title--size-2xl">Использование</h2>
+                  <div class="text component__text">
+                    <p>Не забывайте задавать ширину и высоту логотипа через родительский класс .parent__logo или .parent .logo</p>
+                    <p>На странице index вместо ссылки -- span, т.к. lighthouse снимает 10 баллов SEO за&nbsp;&lt;a&gt; без&nbsp;href</p>
+                  </div>
+                </div>
+                <div class="component__calls">
+                  <h2 class="title title--size-2xl">Примеры</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <div class="grid grid--cols-2 grid--gap-l component__examples">
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">svg</h3>
+                        <div class="component__view">
+                          <a class="logo" href="index.html" aria-label="Перейти на Главную">
+                            <svg width="32" height="32" aria-hidden="true">
+                              <use xlink:href="img/sprite.svg#git"></use>
+                            </svg>
+                          </a>
+                        </div>
+                        <details class="details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+logo({
+  isIndex: currentUrl === &quot;index.html&quot;,
+  icon: {
+    name: &quot;git&quot;,
+    width: 32,
+    height: 32
+  }
+})
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">jpg/png</h3>
+                        <div class="component__view">
+                          <a class="logo" href="index.html" aria-label="Перейти на Главную">
+                            <picture><img src="img/content/placeholder.png" srcset="img/content/placeholder@2x.png 2x" alt="" aria-hidden="true">
+                            </picture>
+                          </a>
+                        </div>
+                        <details class="details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+logo({
+  isIndex: currentUrl === &quot;index.html&quot;,
+  img: {
+    path: &quot;content&quot;,
+    name: &quot;placeholder&quot;,
+    format: &quot;png&quot;,
+    altText: &quot;Alt&quot;
+  }
+})
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="component__base">
+                  <h2 class="title title--size-2xl">Базовый компонент</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <details class="details" data-details="details">
+                      <summary data-details="summary">Показать шаблон</summary>
+                      <div class="details__content" data-details="content">
+                        <pre><code>mixin logo(props = {})
+  -
+    const
+          isIndex = props.isIndex,
+          tag = isIndex ? &quot;span&quot; : &quot;a&quot;,
+          href = !isIndex &amp;&amp; &quot;index.html&quot;,
+          ariaLabel = !isIndex &amp;&amp; &quot;Перейти на&amp;nbsp;Главную&quot;,
+          {name, width, height} = props.icon || {},
+          img = props.img,
+          modifiers = props.modifiers ? props.modifiers.map((mod) =&gt; &quot;logo--&quot; + mod) : [];
+
+  #{tag}(class=[&quot;logo&quot;, ...modifiers], href=href, aria-label=ariaLabel)&amp;attributes(attributes)
+    if props.icon
+      +icon(name, width, height)
+    if img
+      +picture({
+        path: img.path || &quot;&quot;,
+        name: img.name || &quot;&quot;,
+        format: img.format || &quot;jpg&quot;,
+        width: img.width || &quot;&quot;,
+        height: img.height || &quot;&quot;,
+        altText: img.altText || &quot;&quot;
+      })
+</code></pre>
+                      </div>
+                    </details>
+                    <details class="details" data-details="details">
+                      <summary data-details="summary">Показать стили</summary>
+                      <div class="details__content" data-details="content">
+                        <pre><code>.logo {
+  display: inline-flex;
+  transition: opacity $trans-default;
+
+  svg,
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  svg {
+    transform: translateZ(0);
+  }
+}
+
+.logo[href] {
+  @include interactive-style {
+    opacity: 0.5;
+  }
+}
+</code></pre>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
