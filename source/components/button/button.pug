@@ -1,4 +1,4 @@
-mixin btn(props = {})
+mixin button(props = {})
   -
     const
           tag = props.tag ? props.tag : props.href ? "a" : "button",
@@ -9,14 +9,14 @@ mixin btn(props = {})
           rel = props.isExternal && "nofollow noopener noreferrer",
           icon = props.icon,
           {name, width, height, isLeft} = icon || {},
-          modifiers = props.modifiers ? props.modifiers.map((mod) => "btn--" + mod) : [];
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "button--" + mod) : [];
 
-  #{tag}(class=["btn", ...modifiers], href=href, target=target, rel=rel, type=type)&attributes(attributes)
+  #{tag}(class=["button", ...modifiers], href=href, target=target, rel=rel, type=type)&attributes(attributes)
 
     if (icon && isLeft)
       +icon(name, width, height)
 
-    span.btn__text !{text}
+    span.button__text !{text}
 
     if (icon && !isLeft)
       +icon(name, width, height)

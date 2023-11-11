@@ -8,7 +8,7 @@ mixin nav-list(props = {})
       - const titleLink = link.isTitle
       - const tag = activeState ? "span" : "a"
       li.nav-list__item
-        +btn({
+        +button({
           tag: tag,
           href: link.href,
           text: link.text,

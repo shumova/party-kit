@@ -1,4 +1,4 @@
-.btn {
+.button {
   --button-icon-indent: 10px;
   --button-cursor: pointer;
 
@@ -72,13 +72,13 @@
     &-align-left {
       justify-content: start;
 
-      .btn__text {
+      .button__text {
         text-align: left;
       }
     }
 
     &-one-line {
-      .btn__text {
+      .button__text {
         overflow: hidden;
         text-overflow: ellipsis;
         flex-grow: 1;
