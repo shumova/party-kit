@@ -1,0 +1,34 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "icon-button",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "icon-button.html"
+
+  -
+    const params = {
+      component: {
+        mixin: "icon-button",
+        name: "Icon button",
+        localName: "Кнопка-иконка",
+        git: "https://github.com/shumova/party-kit/tree/master/source/components/buttons/icon-button"
+      },
+      description: [
+        "Заблокированные и&nbsp;находящиеся в активном состоянии интерактивные элементы не&nbsp;должны попадать в&nbsp;фокус при навигации с&nbsp;клавиатуры. Для этого кнопкам с&nbsp;тегом &lt;a&gt; добавляется атрибут tab-index=\&quot;-1\&quot;, с тегом &lt;button&gt; -- атрибут disable. Если не&nbsp;нужно поддерживать Safari&nbsp;15, вместо tab-index=\&quot;-1\&quot; можно использовать атрибут inert",
+        "Компоненту задаются стили по&nbsp;умолчанию, которые затем по необходимости переопределяются",
+        "Не стоит использовать свойство opacity без крайней необходимости, т.к. это может исказить визуал (при использовании кнопки поверх цветных элементов) и  ухудшить читаемость при смене цветовой темы. Вместо opacity по возможности лучше использовать альфа-канал",
+      ],
+    }
+
+block page
+  +component(params)
+
+block modals
