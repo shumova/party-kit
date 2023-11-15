@@ -131,14 +131,6 @@
       &-xl {
         --card-border-radius: #{$space-xl};
       }
-
-      &-2xl {
-        --card-border-radius: #{$space-2xl};
-      }
-
-      &-3xl {
-        --card-border-radius: #{$space-3xl};
-      }
     }
   }
 
@@ -158,10 +150,6 @@
 
       &-4 {
         box-shadow: $shadow-layer-4;
-      }
-
-      &-5 {
-        box-shadow: $shadow-layer-5;
       }
     }
   }
