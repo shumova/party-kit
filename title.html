@@ -19,38 +19,68 @@
                 <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
                 <ul class="nav-list page-nav__list no-scrollbar" data-page-nav="list">
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link page-nav__link--title">
+                      <a class="button__control" href="index.html"><span class="button__text">Components overview</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <span class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link is-active" href="title.html"><span class="btn__text">Title</span>
-                    </span>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-active">
+                      <span class="button__control" href="title.html"><span class="button__text">Title</span>
+                      </span>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="text.html"><span class="btn__text">Text</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="text.html"><span class="button__text">Text</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="cards.html"><span class="btn__text">Cards</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="cards.html"><span class="button__text">Cards</span>
+                      </a>
+                    </div>
                     <ul class="nav-list nav-list--sublist">
                       <li class="nav-list__item">
-                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="card.html"><span class="btn__text">Card</span>
-                        </a>
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="card.html"><span class="button__text">Card</span>
+                          </a>
+                        </div>
                       </li>
                       <li class="nav-list__item">
-                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="base-card.html"><span class="btn__text">Base-card</span>
-                        </a>
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="base-card.html"><span class="button__text">Base-card</span>
+                          </a>
+                        </div>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="grid.html"><span class="btn__text">Grid</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="grid.html"><span class="button__text">Grid</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="logo.html"><span class="btn__text">Logo</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="logo.html"><span class="button__text">Logo</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="buttons.html"><span class="button__text">Buttons</span>
+                      </a>
+                    </div>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="button.html"><span class="button__text">Button</span>
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </div>
@@ -117,7 +147,7 @@
                   <h2 class="title title--size-2xl">Модификаторы</h2>
                   <div class="card card--filled card--form-round-m card--space-xl component__card">
                     <div class="text text--size-l component__text">
-                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используйте жёстко закодированные значения</p>
+                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используй жёстко закодированные значения</p>
                     </div>
                     <pre><code>.title {
   ...
@@ -131,8 +161,10 @@
                           </div>
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--small">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--small">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -169,8 +201,10 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--size-s">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--size-s">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -182,8 +216,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--size-m">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--size-m">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -195,8 +231,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--size-l">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--size-l">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -208,8 +246,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--size-xl">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--size-xl">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -221,8 +261,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--size-2xl">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--size-2xl">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -234,8 +276,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--size-3xl">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--size-3xl">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -247,8 +291,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--size-4xl">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--size-4xl">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -260,8 +306,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--size-5xl">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--size-5xl">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -364,8 +412,10 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--weight-thin">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--weight-thin">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -377,8 +427,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--weight-light">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--weight-light">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -390,8 +442,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--weight-regular">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--weight-regular">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -403,8 +457,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--weight-medium">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--weight-medium">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -416,8 +472,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--weight-semibold">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--weight-semibold">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -429,8 +487,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--weight-bold">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--weight-bold">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -442,8 +502,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--weight-extrabold">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--weight-extrabold">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -455,8 +517,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--weight-black">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--weight-black">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -511,8 +575,10 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--line-heigth-2xs">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--line-heigth-2xs">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -524,8 +590,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--line-heigth-xs">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--line-heigth-xs">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -537,8 +605,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--line-heigth-s">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--line-heigth-s">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -550,8 +620,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--line-heigth-m">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--line-heigth-m">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -563,8 +635,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--line-heigth-l">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--line-heigth-l">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -607,8 +681,10 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--spacing-xs">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--spacing-xs">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -620,8 +696,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--spacing-s">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--spacing-s">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -633,8 +711,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--spacing-m">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--spacing-m">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -646,8 +726,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--spacing-l">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--spacing-l">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -690,8 +772,10 @@
                           </div>
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--color-primary">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--color-primary">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -703,8 +787,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--color-secondary">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--color-secondary">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -716,8 +802,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--color-ghost">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--color-ghost">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -729,8 +817,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--color-brand">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--color-brand">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -742,8 +832,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--color-system">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--color-system">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -755,8 +847,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--color-normal">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--color-normal">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -768,8 +862,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--color-success">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--color-success">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -781,8 +877,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--color-caution">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--color-caution">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -794,8 +892,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--color-warning">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--color-warning">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -807,8 +907,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--color-alert">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--color-alert">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -820,8 +922,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--color-critical">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--color-critical">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -888,8 +992,10 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--transform-uppercase">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--transform-uppercase">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -901,8 +1007,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--transform-capitalize">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--transform-capitalize">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -914,8 +1022,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--transform-lowercase">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--transform-lowercase">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -950,8 +1060,10 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--underlined">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--underlined">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -963,8 +1075,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--underlined title--underlined-no-skip">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--underlined title--underlined-no-skip">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -976,8 +1090,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--underlined title--underlined-offset-s">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--underlined title--underlined-offset-s">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -989,8 +1105,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--underlined title--underlined-offset-m">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--underlined title--underlined-offset-m">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -1002,8 +1120,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--underlined title--underlined-offset-l">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--underlined title--underlined-offset-l">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -1015,8 +1135,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--underlined title--underlined-thickness-s">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--underlined title--underlined-thickness-s">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -1028,8 +1150,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--underlined title--underlined-thickness-m">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--underlined title--underlined-thickness-m">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -1041,8 +1165,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--underlined title--underlined-thickness-l">Title</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--underlined title--underlined-thickness-l">Title</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -1109,8 +1235,10 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--truncate">Extra long title that doesn't fit its container and has to be truncated</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--truncate">Extra long title that doesn't fit its container and has to be truncated</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -1122,8 +1250,10 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <span class="title title--truncate title--truncate-2-lines">Extra long title that doesn't fit its container and has to be truncated</span>
-                              <details class="details" data-details="details">
+                              <div class="component__view">
+                                <span class="title title--truncate title--truncate-2-lines">Extra long title that doesn't fit its container and has to be truncated</span>
+                              </div>
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({

@@ -19,38 +19,68 @@
                 <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
                 <ul class="nav-list page-nav__list no-scrollbar" data-page-nav="list">
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link page-nav__link--title">
+                      <a class="button__control" href="index.html"><span class="button__text">Components overview</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="title.html"><span class="btn__text">Title</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="title.html"><span class="button__text">Title</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="text.html"><span class="btn__text">Text</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="text.html"><span class="button__text">Text</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link is-open" href="cards.html"><span class="btn__text">Cards</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-open">
+                      <a class="button__control" href="cards.html"><span class="button__text">Cards</span>
+                      </a>
+                    </div>
                     <ul class="nav-list nav-list--sublist">
                       <li class="nav-list__item">
-                        <span class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link is-active" href="card.html"><span class="btn__text">Card</span>
-                        </span>
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-active">
+                          <span class="button__control" href="card.html"><span class="button__text">Card</span>
+                          </span>
+                        </div>
                       </li>
                       <li class="nav-list__item">
-                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="base-card.html"><span class="btn__text">Base-card</span>
-                        </a>
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="base-card.html"><span class="button__text">Base-card</span>
+                          </a>
+                        </div>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="grid.html"><span class="btn__text">Grid</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="grid.html"><span class="button__text">Grid</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="logo.html"><span class="btn__text">Logo</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="logo.html"><span class="button__text">Logo</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="buttons.html"><span class="button__text">Buttons</span>
+                      </a>
+                    </div>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="button.html"><span class="button__text">Button</span>
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </div>
@@ -115,7 +145,7 @@
                   <h2 class="title title--size-2xl">Модификаторы</h2>
                   <div class="card card--filled card--form-round-m card--space-xl component__card">
                     <div class="text text--size-l component__text">
-                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используйте жёстко закодированные значения</p>
+                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используй жёстко закодированные значения</p>
                     </div>
                     <pre><code>.card {
   ...
@@ -126,12 +156,14 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--space-xs card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--space-xs card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;space-xs&quot;, &quot;filled&quot;]})
@@ -145,12 +177,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--space-s card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--space-s card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;space-s&quot;, &quot;filled&quot;]})
@@ -164,12 +198,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--space-m card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--space-m card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;space-m&quot;, &quot;filled&quot;]})
@@ -183,12 +219,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--space-l card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--space-l card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;space-l&quot;, &quot;filled&quot;]})
@@ -202,12 +240,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--space-xl card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--space-xl card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;space-xl&quot;, &quot;filled&quot;]})
@@ -221,12 +261,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--space-2xl card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--space-2xl card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;space-2xl&quot;, &quot;filled&quot;]})
@@ -240,12 +282,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--space-3xl card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--space-3xl card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;space-3xl&quot;, &quot;filled&quot;]})
@@ -305,12 +349,14 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--vertical-space-xs card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--vertical-space-xs card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;vertical-space-xs&quot;, &quot;filled&quot;]})
@@ -324,12 +370,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--vertical-space-s card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--vertical-space-s card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;vertical-space-s&quot;, &quot;filled&quot;]})
@@ -343,12 +391,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--vertical-space-m card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--vertical-space-m card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;vertical-space-m&quot;, &quot;filled&quot;]})
@@ -362,12 +412,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--vertical-space-l card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--vertical-space-l card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;vertical-space-l&quot;, &quot;filled&quot;]})
@@ -381,12 +433,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--vertical-space-xl card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--vertical-space-xl card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;vertical-space-xl&quot;, &quot;filled&quot;]})
@@ -400,12 +454,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--vertical-space-2xl card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--vertical-space-2xl card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;vertical-space-2xl&quot;, &quot;filled&quot;]})
@@ -419,12 +475,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--vertical-space-3xl card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--vertical-space-3xl card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;vertical-space-3xl&quot;, &quot;filled&quot;]})
@@ -477,12 +535,14 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--horizontal-space-xs card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--horizontal-space-xs card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;horizontal-space-xs&quot;, &quot;filled&quot;]})
@@ -496,12 +556,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--horizontal-space-s card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--horizontal-space-s card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;horizontal-space-s&quot;, &quot;filled&quot;]})
@@ -515,12 +577,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--horizontal-space-m card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--horizontal-space-m card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;horizontal-space-m&quot;, &quot;filled&quot;]})
@@ -534,12 +598,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--horizontal-space-l card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--horizontal-space-l card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;horizontal-space-l&quot;, &quot;filled&quot;]})
@@ -553,12 +619,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--horizontal-space-xl card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--horizontal-space-xl card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;horizontal-space-xl&quot;, &quot;filled&quot;]})
@@ -572,12 +640,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--horizontal-space-2xl card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--horizontal-space-2xl card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;horizontal-space-2xl&quot;, &quot;filled&quot;]})
@@ -591,12 +661,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--horizontal-space-3xl card--filled">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--horizontal-space-3xl card--filled">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;horizontal-space-3xl&quot;, &quot;filled&quot;]})
@@ -649,12 +721,14 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--form-round card--filled card--space-l">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--form-round card--filled card--space-l">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;form-round&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
@@ -668,12 +742,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--form-round-xs card--filled card--space-l">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--form-round-xs card--filled card--space-l">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;form-round-s&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
@@ -687,12 +763,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--form-round-m card--filled card--space-l">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--form-round-m card--filled card--space-l">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;form-round-m&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
@@ -706,12 +784,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--form-round-l card--filled card--space-l">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--form-round-l card--filled card--space-l">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;form-round-l&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
@@ -725,12 +805,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--form-round-xl card--filled card--space-l">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--form-round-xl card--filled card--space-l">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;form-round-xl&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
@@ -744,12 +826,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--form-round-2xl card--filled card--space-l">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--form-round-2xl card--filled card--space-l">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;form-round-2xl&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
@@ -763,12 +847,14 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--form-round-3xl card--filled card--space-l">
-                                <div class="text">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                              <div class="component__view">
+                                <div class="card card--form-round-3xl card--filled card--space-l">
+                                  <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
                                 </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;form-round-3xl&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
@@ -783,35 +869,37 @@
                             </div>
                           </div>
                           <div class="component__code">
-                            <pre><code>&amp;-round {
-  --card-border-radius: 50%;
+                            <pre><code>&amp;--form {
+  &amp;-round {
+    --card-border-radius: 50%;
 
-  &amp;-xs {
-    --card-border-radius: #{$space-xs};
-  }
+    &amp;-xs {
+      --card-border-radius: #{$space-xs};
+    }
 
-  &amp;-s {
-    --card-border-radius: #{$space-s};
-  }
+    &amp;-s {
+      --card-border-radius: #{$space-s};
+    }
 
-  &amp;-m {
-    --card-border-radius: #{$space-m};
-  }
+    &amp;-m {
+      --card-border-radius: #{$space-m};
+    }
 
-  &amp;-l {
-    --card-border-radius: #{$space-l};
-  }
+    &amp;-l {
+      --card-border-radius: #{$space-l};
+    }
 
-  &amp;-xl {
-    --card-border-radius: #{$space-xl};
-  }
+    &amp;-xl {
+      --card-border-radius: #{$space-xl};
+    }
 
-  &amp;-2xl {
-    --card-border-radius: #{$space-2xl};
-  }
+    &amp;-2xl {
+      --card-border-radius: #{$space-2xl};
+    }
 
-  &amp;-3xl {
-    --card-border-radius: #{$space-3xl};
+    &amp;-3xl {
+      --card-border-radius: #{$space-3xl};
+    }
   }
 }
 </code></pre>
@@ -823,9 +911,11 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--elevated-shadow-1 card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--elevated-shadow-1 card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;elevated-shadow-1&quot;, &quot;space-2xl&quot;]}
@@ -834,9 +924,11 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--elevated-shadow-2 card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--elevated-shadow-2 card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;elevated-shadow-2&quot;, &quot;space-2xl&quot;]})
@@ -845,9 +937,11 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--elevated-shadow-3 card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--elevated-shadow-3 card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;elevated-shadow-3&quot;, &quot;space-2xl&quot;]})
@@ -856,9 +950,11 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--elevated-shadow-4 card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--elevated-shadow-4 card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;elevated-shadow-4&quot;, &quot;space-2xl&quot;]})
@@ -867,9 +963,11 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--elevated-shadow-5 card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--elevated-shadow-5 card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;elevated-shadow-5&quot;, &quot;space-2xl&quot;]})
@@ -915,9 +1013,11 @@
                           </div>
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--filled card--space-2xl card--bordered">
+                              <div class="component__view">
+                                <div class="card card--filled card--space-2xl card--bordered">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;filled&quot;, &quot;space-2xl&quot;, &quot;bordered&quot;]}
@@ -926,9 +1026,11 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--filled-secondary card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--filled-secondary card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;filled-secondary&quot;, &quot;space-2xl&quot;]})
@@ -937,9 +1039,11 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--filled-brand card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--filled-brand card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;filled-brand&quot;, &quot;space-2xl&quot;]})
@@ -948,9 +1052,11 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--filled-stripe card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--filled-stripe card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;filled-stripe&quot;, &quot;space-2xl&quot;]})
@@ -959,9 +1065,11 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--filled-tone card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--filled-tone card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;filled-tone&quot;, &quot;space-2xl&quot;]})
@@ -1003,9 +1111,11 @@
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--border-default card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--border-default card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;border-default&quot;, &quot;space-2xl&quot;]
@@ -1014,9 +1124,11 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--border-style-solid card--border-width-s card--border-color-secondary card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--border-style-solid card--border-width-s card--border-color-secondary card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;border-style-solid&quot;, &quot;border-width-s&quot;, &quot;border-color-secondary&quot;, &quot;space-2xl&quot;]})
@@ -1025,9 +1137,11 @@
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="card card--border-style-dotted card--border-width-m card--border-color-brand card--space-2xl">
+                              <div class="component__view">
+                                <div class="card card--border-style-dotted card--border-width-m card--border-color-brand card--space-2xl">
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+card({modifiers: [&quot;border-style-dotted&quot;, &quot;border-width-m&quot;, &quot;border-color-brand&quot;, &quot;space-2xl&quot;]})

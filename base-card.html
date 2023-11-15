@@ -19,38 +19,68 @@
                 <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
                 <ul class="nav-list page-nav__list no-scrollbar" data-page-nav="list">
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link page-nav__link--title">
+                      <a class="button__control" href="index.html"><span class="button__text">Components overview</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="title.html"><span class="btn__text">Title</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="title.html"><span class="button__text">Title</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="text.html"><span class="btn__text">Text</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="text.html"><span class="button__text">Text</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link is-open" href="cards.html"><span class="btn__text">Cards</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-open">
+                      <a class="button__control" href="cards.html"><span class="button__text">Cards</span>
+                      </a>
+                    </div>
                     <ul class="nav-list nav-list--sublist">
                       <li class="nav-list__item">
-                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="card.html"><span class="btn__text">Card</span>
-                        </a>
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="card.html"><span class="button__text">Card</span>
+                          </a>
+                        </div>
                       </li>
                       <li class="nav-list__item">
-                        <span class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link is-active" href="base-card.html"><span class="btn__text">Base-card</span>
-                        </span>
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-active">
+                          <span class="button__control" href="base-card.html"><span class="button__text">Base-card</span>
+                          </span>
+                        </div>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="grid.html"><span class="btn__text">Grid</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="grid.html"><span class="button__text">Grid</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="logo.html"><span class="btn__text">Logo</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="logo.html"><span class="button__text">Logo</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="buttons.html"><span class="button__text">Buttons</span>
+                      </a>
+                    </div>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="button.html"><span class="button__text">Button</span>
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </div>
@@ -103,12 +133,14 @@
                                   <use xlink:href="img/sprite.svg#git"></use>
                                 </svg>
                               </a>
-                              <a class="btn btn--view-primary btn--form-round-s btn--size-m btn--elevated-shadow-1" href="#"><span class="btn__text">Button</span>
-                              </a>
+                              <div class="button button--view-primary button--form-round-s button--size-m button--elevated-shadow-1">
+                                <a class="button__control" href="#"><span class="button__text">Button</span>
+                                </a>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <details class="details" data-details="details">
+                        <details class="details component__details" data-details="details">
                           <summary data-details="summary">Показать код</summary>
                           <div class="details__content" data-details="content">
                             <pre><code>+base-card({
@@ -152,12 +184,14 @@
                               <div class="text">
                                 <p>Text</p>
                               </div>
-                              <a class="btn btn--view-primary btn--form-round-s btn--size-m btn--elevated-shadow-1" href="#"><span class="btn__text">Button</span>
-                              </a>
+                              <div class="button button--view-primary button--form-round-s button--size-m button--elevated-shadow-1">
+                                <a class="button__control" href="#"><span class="button__text">Button</span>
+                                </a>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <details class="details" data-details="details">
+                        <details class="details component__details" data-details="details">
                           <summary data-details="summary">Показать код</summary>
                           <div class="details__content" data-details="content">
                             <pre><code>+base-card({
@@ -264,7 +298,7 @@
         if iconBtn
           +icon-btn(_params.iconBtn)
         if btn
-          +btn(_params.btn)
+          +button(_params.btn)
 </code></pre>
                       </div>
                     </details>
@@ -333,7 +367,7 @@
     }
   }
 
-  .btn {
+  .button {
     grid-area: btn;
     align-self: end;
   }

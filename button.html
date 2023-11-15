@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html class="theme-default" lang="ru">
+  <head>
+    <title>button</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ProjectName — описание">
+    <link rel="preload" href="fonts/ysabeau-infant-VF.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <main>
+        <div class="page">
+          <div class="container page__container">
+            <nav class="page-nav page__nav" data-page-nav="container">
+              <div class="page-nav__content" data-page-nav="content">
+                <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
+                <ul class="nav-list page-nav__list no-scrollbar" data-page-nav="list">
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link page-nav__link--title">
+                      <a class="button__control" href="index.html"><span class="button__text">Components overview</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="title.html"><span class="button__text">Title</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="text.html"><span class="button__text">Text</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="cards.html"><span class="button__text">Cards</span>
+                      </a>
+                    </div>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="card.html"><span class="button__text">Card</span>
+                          </a>
+                        </div>
+                      </li>
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="base-card.html"><span class="button__text">Base-card</span>
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="grid.html"><span class="button__text">Grid</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="logo.html"><span class="button__text">Logo</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-open">
+                      <a class="button__control" href="buttons.html"><span class="button__text">Buttons</span>
+                      </a>
+                    </div>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-active">
+                          <span class="button__control" href="button.html"><span class="button__text">Button</span>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div class="card card--filled-secondary card--form-round-m card--elevated-shadow-1 page__content no-scrollbar">
+              <div class="component">
+                <div class="component__header">
+                  <div class="component__titles">
+                    <h1 class="title title--size-3xl component__name">Button</h1>
+                    <span class="title title--size-2xl component__name--local">Кнопка</span>
+                  </div>
+                  <a class="icon-btn icon-btn--form-round icon-btn--elevated-shadow-1 component__icon-btn" href="https://github.com/shumova/party-kit/tree/master/source/components/buttons/button" aria-label="Open Button component in git">
+                    <svg width="32" height="32" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#git"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="component__description">
+                  <h2 class="title title--size-2xl">Использование</h2>
+                  <div class="text component__text">
+                    <p>Если в&nbsp;макете явно выделены типы кнопок (семантически или визуально), то&nbsp;лучше использовать модификатор Внешнего вида (view-тип-кнопки), группирующий свойства фона, текста, границы и&nbsp;проч. Если&nbsp;же чёткой логики в&nbsp;оформлении кнопок нет, то&nbsp;лучше использовать модификаторы по&nbsp;названию свойств, которые они изменяют: отдельно для цвета фона, отдельно для цвета текста и&nbsp;тд</p>
+                    <p>Заблокированные и&nbsp;находящиеся в активном состоянии интерактивные элементы не&nbsp;должны попадать в&nbsp;фокус при навигации с&nbsp;клавиатуры. Для этого кнопкам с&nbsp;тегом &lt;a&gt; добавляется атрибут tab-index=&quot;-1&quot;, с тегом &lt;button&gt; -- атрибут disable. Если не&nbsp;нужно поддерживать Safari&nbsp;15, вместо tab-index=&quot;-1&quot; можно использовать атрибут inert</p>
+                    <p>Компоненту задаются стили по&nbsp;умолчанию, которые затем по необходимости переопределяются</p>
+                    <p>Не стоит использовать свойство opacity без крайней необходимости, т.к. это может исказить визуал (при использовании кнопки поверх цветных элементов) и  ухудшить читаемость при смене цветовой темы. Вместо opacity по возможности лучше использовать альфа-канал</p>
+                    <p>В компоненте предусмотрена div-обёртка для возможности задания position: relative без влияния на&nbsp;позиционирование кнопки относительно других элементов на&nbsp;странице</p>
+                  </div>
+                </div>
+                <div class="component__calls">
+                  <h2 class="title title--size-2xl">Примеры</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <div class="grid grid--cols-2 grid--gap-l component__examples">
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Блокировка кнопки</h3>
+                        <div class="text component__text">
+                          <p>Добавляет класс .is-disabled и атрибут tabindex="-1" или disabled</p>
+                        </div>
+                        <div class="component__view">
+                          <div class="button is-disabled">
+                            <button class="button__control" type="button" disabled="true"><span class="button__text">Button</span>
+                            </button>
+                          </div>
+                        </div>
+                        <details class="details component__details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+button({
+    isDisabled: true,
+    text: &quot;Button&quot;
+  })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Кнопка в&nbsp;активном состоянии</h3>
+                        <div class="text component__text">
+                          <p>Добавляет класс .is-active и атрибут tabindex="-1" или disabled</p>
+                        </div>
+                        <div class="component__view">
+                          <div class="button is-active">
+                            <button class="button__control" type="button" disabled="true"><span class="button__text">Button</span>
+                            </button>
+                          </div>
+                        </div>
+                        <details class="details component__details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+button({
+    isActive: true,
+    text: &quot;Button&quot;
+  })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Кнопка с&nbsp;иконкой справа</h3>
+                        <div class="component__view">
+                          <div class="button">
+                            <button class="button__control" type="button"><span class="button__text">Button</span>
+                              <svg width="10" height="16" aria-hidden="true">
+                                <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <details class="details component__details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+button({
+    text: &quot;Button&quot;,
+    icon: {
+      name: 'icon-arrow',
+      width: 10,
+      height: 16,
+    },
+  })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Кнопка с&nbsp;иконкой слева</h3>
+                        <div class="component__view">
+                          <div class="button">
+                            <button class="button__control" type="button">
+                              <svg width="10" height="16" aria-hidden="true">
+                                <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                              </svg><span class="button__text">Button</span>
+                            </button>
+                          </div>
+                        </div>
+                        <details class="details component__details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+button({
+    text: &quot;Button&quot;,
+    icon: {
+      name: 'icon-arrow',
+      width: 10,
+      height: 16,
+      isLeft: true,
+    },
+  })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="component__base">
+                  <h2 class="title title--size-2xl">Базовый компонент</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <details class="details" data-details="details">
+                      <summary data-details="summary">Показать шаблон</summary>
+                      <div class="details__content" data-details="content">
+                        <pre><code>mixin button(props = {})
+  -
+    const
+          tag = props.tag ? props.tag : props.href ? &quot;a&quot; : &quot;button&quot;,
+          href = props.href,
+          text = props.text || &quot;&quot;,
+          type = props.type || tag === &quot;button&quot; &amp;&amp; &quot;button&quot;,
+          target = props.isExternal &amp;&amp; &quot;_blank&quot;,
+          rel = props.isExternal &amp;&amp; &quot;nofollow noopener noreferrer&quot;,
+          icon = props.icon,
+          {name, width, height, isLeft} = icon || {},
+          isActive = props.isActive,
+          activeClass = isActive &amp;&amp; &quot;is-active&quot;,
+          isDisabled = props.isDisabled,
+          disabledClass = isDisabled &amp;&amp; &quot;is-disabled&quot;,
+          disabledAttr = (isDisabled || isActive) &amp;&amp; tag === &quot;button&quot; &amp;&amp; &quot;true&quot;,
+          tabindexAttr = props.tabindex || ((isDisabled || isActive) &amp;&amp; tag === &quot;a&quot; &amp;&amp; &quot;-1&quot;),
+          modifiers = props.modifiers ? props.modifiers.map((mod) =&gt; &quot;button--&quot; + mod) : [];
+
+  div(class=[&quot;button&quot;, disabledClass, activeClass, ...modifiers])&amp;attributes(attributes)
+    #{tag}.button__control(href=href, target=target, rel=rel, type=type, disabled=disabledAttr, tabindex=tabindexAttr)
+
+      if (icon &amp;&amp; isLeft)
+        +icon(name, width, height)
+
+      span.button__text !{text}
+
+      if (icon &amp;&amp; !isLeft)
+        +icon(name, width, height)
+</code></pre>
+                      </div>
+                    </details>
+                    <details class="details" data-details="details">
+                      <summary data-details="summary">Показать стили</summary>
+                      <div class="details__content" data-details="content">
+                        <pre><code>.button {
+  // Базовые значения
+  --padding: #{$control-space-m};
+  --font-weight: inherit;
+  --font-size: #{$control-text-size-m};
+  --line-height: inherit;
+  --letter-spacing: inherit;
+  --text-transform: none;
+  --color: var(--color-control-typo-default);
+  --background-color: var(--color-control-bg-default);
+  --border-width: #{$control-border-width}; // Относительные единицы (например, em) работают лучше абсолютных с малыми значениями (1-3px вычисляются в браузере в дробные значения, что может давать погрешность при использовании переменной ширины кнопки, например, для позиционирования её псевдоэелементов)
+  --border-style: solid;
+  --border-color: var(--color-control-border-default);
+  --border-radius: 0;
+  --box-shadow: none;
+  --cursor: pointer;
+  --icon-indent: 10px;
+
+  // Состояние hover
+  --color-hover: var(--color);
+  --background-color-hover: var(--background-color);
+  --border-color-hover: var(--border-color);
+  --box-shadow-hover: var(--box-shadow);
+
+  // Состояние active
+  --color-active: var(--color);
+  --background-color-active: var(--background-color);
+  --border-color-active: var(--border-color);
+  --box-shadow-active: var(--box-shadow);
+
+  // Состояние disabled
+  --color-disabled: var(--color);
+  --background-color-disabled: var(--background-color);
+  --border-color-disabled: var(--border-color);
+  --box-shadow-disabled: var(--box-shadow);
+
+  display: inline-flex;
+
+  &amp;__control {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+    text-transform: var(--text-transform);
+    color: var(--color);
+    background-color: var(--background-color);
+    border: var(--border-width) var(--border-style) var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    cursor: var(--cursor);
+    user-select: none;
+
+    transition:
+      color $trans-default,
+      background-color $trans-default,
+      border-color $trans-default,
+      box-shadow $trans-default;
+
+    @include hover-focus {
+      color: var(--color-hover);
+      background-color: var(--background-color-hover);
+      border-color: var(--border-color-hover);
+      box-shadow: var(--box-shadow-hover);
+    }
+
+    @include active {
+      color: var(--color-active);
+      background-color: var(--background-color-active);
+      border-color: var(--border-color-active);
+      box-shadow: var(--box-shadow-active);
+    }
+  }
+
+  &amp;.is-disabled {
+    .button__control {
+      color: var(--color-disabled);
+      background-color: var(--background-color-disabled);
+      border-color: var(--border-color-disabled);
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  &amp;.is-active {
+    .button__control {
+      color: var(--color-active);
+      background-color: var(--background-color-active);
+      border-color: var(--border-color-active);
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  svg {
+    flex-shrink: 0;
+    height: 16px;
+    width: auto;
+    transform: translateZ(0);
+  }
+
+  svg:first-child {
+    transform: rotate(180deg);
+  }
+
+  svg + &amp;__text,
+  &amp;__text + svg {
+    margin-left: var(--icon-indent);
+  }
+
+  &amp;__text {
+    text-align: center;
+  }
+}
+</code></pre>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+                <div class="component__modifiers">
+                  <h2 class="title title--size-2xl">Модификаторы</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <div class="text text--size-l component__text">
+                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используй жёстко закодированные значения</p>
+                    </div>
+                    <pre><code>.button {
+  ...
+</code></pre>
+                    <div class="component__inner-code">
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Внешний вид (комбинирование декоративных модификаторов)</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="text component__text">
+                            <p>Типизация может быть только визуальной, необязательно семантической</p>
+                          </div>
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Базовый</span>
+                              <div class="component__view">
+                                <div class="button">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="text component__text">
+                                <p>Без&nbsp;модификатора</p>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Clear</span>
+                              <div class="component__view">
+                                <div class="button button--view-clear">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="text component__text">
+                                <p>Просто кнопка с&nbsp;прозрачным фоном</p>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;view-clear&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Primary</span>
+                              <div class="component__view">
+                                <div class="button button--view-primary">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="text component__text">
+                                <p>Основная кнопка для&nbsp;важных действий, к&nbsp;которым нужно привлечь внимание. Также подходит для случаев, когда в&nbsp;проекте используется один вариант кнопки</p>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;view-primary&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Secondary</span>
+                              <div class="component__view">
+                                <div class="button button--view-secondary">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="text component__text">
+                                <p>Подходит для&nbsp;важных действий, к&nbsp;которым не нужно привлекать особое внимание</p>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;view-secondary&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Ghost</span>
+                              <div class="component__view">
+                                <div class="button button--view-ghost">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="text component__text">
+                                <p>Кнопка-компаньон основной кнопки (например, кнопка "Отменить" рядом с&nbsp;основной кнопкой "Подтвердить") и кнопка для&nbsp;действий, к&nbsp;которым не хочется привлекать внимание</p>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;view-ghost&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--view {
+  &amp;-clear {
+    --color: var(--color-control-typo-clear);
+    --color-hover: var(--color-control-typo-clear-hover);
+    --color-active: var(--color-control-typo-clear-hover);
+
+    --background-color: var(--color-control-bg-clear);
+    --background-color-hover: var(--color-control-bg-clear-hover);
+    --background-color-active: var(--color-control-bg-clear-hover);
+  }
+
+  &amp;-ghost {
+    --color: var(--color-control-typo-ghost);
+    --color-hover: var(--color-control-typo-ghost-hover);
+    --color-active: var(--color-control-typo-ghost-hover);
+
+    --background-color: var(--color-control-bg-ghost);
+    --background-color-hover: var(--color-control-bg-ghost-hover);
+    --background-color-active: var(--color-control-bg-ghost-hover);
+
+    --box-shadow: #{$shadow-layer-1};
+    --box-shadow-active: #{$shadow-layer-0};
+  }
+
+  &amp;-primary {
+    --color: var(--color-control-typo-primary);
+    --color-hover: var(--color-control-typo-primary-hover);
+    --color-active: var(--color-control-typo-primary-hover);
+
+    --background-color: var(--color-control-bg-primary);
+    --background-color-hover: var(--color-control-bg-primary-hover);
+    --background-color-active: var(--color-control-bg-primary-hover);
+
+    --box-shadow: #{$shadow-layer-1};
+    --box-shadow-active: #{$shadow-layer-0};
+  }
+
+  &amp;-secondary {
+    --color: var(--color-control-typo-secondary);
+    --color-hover: var(--color-control-typo-secondary-hover);
+    --color-active: var(--color-control-typo-secondary-hover);
+
+    --background-color: var(--color-control-bg-secondary);
+    --background-color-hover: var(--color-control-bg-secondary-hover);
+    --background-color-active: var(--color-control-bg-secondary-hover);
+
+    --border-color: var(--color-control-border-secondary);
+    --border-color-hover: var(--color-control-border-secondary-hover);
+    --border-color-active: var(--color-control-border-secondary-active);
+
+    --box-shadow: #{$shadow-layer-1};
+    --box-shadow-active: #{$shadow-layer-0};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Размер (комбинирование модификаторов геометрии кнопки и шрифта)</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--size-s">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;size-s&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--size-m">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;size-m&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--size {
+  &amp;-s {
+    --font-size: #{$control-text-size-s};
+    --padding: #{$control-space-s};
+  }
+
+  &amp;-m {
+    --font-size: #{$control-text-size-m};
+    --padding: #{$control-space-m};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Ширина кнопки</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--width-full">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;width-full&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--width {
+  &amp;-full {
+    width: 100%;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Внутренние отступы</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--space-xs">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;space-xs&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--space-s">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;space-s&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--space-m">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;space-m&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--space-l">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;space-l&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--space {
+  &amp;-xs {
+    --padding: #{$control-space-xs};
+  }
+
+  &amp;-s {
+    --padding: #{$control-space-s};
+  }
+
+  &amp;-m {
+    --padding: #{$control-space-m};
+  }
+
+  &amp;-l {
+    --padding: #{$control-space-l};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Форма (радиус закругления углов)</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--form-brick">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;form-brick&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--form-round">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;form-round&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--form-round-xs">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;form-round-xs&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--form-round-s">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;form-round-s&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--form-round-m">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;form-round-m&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--form-round-l">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;form-round-l&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--form-round-xl">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;form-round-xl&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--form {
+  &amp;-brick {
+    --button-border-radius: 0;
+  }
+
+  &amp;-round {
+    --button-border-radius: 99rem;
+
+    &amp;-xs {
+      --button-border-radius: #{$space-xs};
+    }
+
+    &amp;-s {
+      --button-border-radius: #{$space-s};
+    }
+
+    &amp;-m {
+      --button-border-radius: #{$space-m};
+    }
+
+    &amp;-l {
+      --button-border-radius: #{$space-l};
+    }
+
+    &amp;-xl {
+      --button-border-radius: #{$space-xl};
+    }
+
+    &amp;-2xl {
+      --button-border-radius: #{$space-2xl};
+    }
+
+    &amp;-3xl {
+      --button-border-radius: #{$space-3xl};
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Elevation (тени, фон, непрозрачность и другие свойства визуализации виртуальной Z-координаты кнопки относительно слоя экрана)</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--elevated-shadow-1">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;elevated-shadow-1&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--elevated-shadow-2">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;elevated-shadow-2&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--elevated-shadow-3">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;elevated-shadow-3&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--elevated {
+  &amp;-shadow {
+    &amp;-1 {
+      --box-shadow: #{$shadow-layer-1};
+
+      @include active {
+        --box-shadow: #{$shadow-layer-0};
+      }
+    }
+
+    &amp;-2 {
+      --box-shadow: #{$shadow-layer-2};
+
+      @include active {
+        --box-shadow: #{$shadow-layer-1};
+      }
+    }
+
+    &amp;-3 {
+      --box-shadow: #{$shadow-layer-3};
+
+      @include active {
+        --box-shadow: #{$shadow-layer-2};
+      }
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Фоновый цвет</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--filled-secondary">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;filled-secondary&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--filled-brand button--color-base-essential">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;filled-brand&quot;, &quot;color-base-essential&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--filled-stripe">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;filled-stripe&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--filled-tone button--color-base-essential">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;filled-tone&quot;, &quot;color-base-essential&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--filled-soft">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;filled-soft&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--filled {
+  --background-color: var(--color-bg-default);
+
+  &amp;-secondary {
+    --background-color: var(--color-bg-secondary);
+  }
+
+  &amp;-brand {
+    --background-color: var(--color-bg-brand);
+  }
+
+  &amp;-stripe {
+    --background-color: var(--color-bg-stripe);
+  }
+
+  &amp;-tone {
+    --background-color: var(--color-bg-tone);
+  }
+
+  &amp;-soft {
+    --background-color: var(--color-bg-soft);
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Градиент при&nbsp;наведении</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="text component__text">
+                            <p>Для создания эффекта плавной анимации фона с&nbsp;градиентом кнопке добавляется псевдоэдемент с нужным градиентом и скрывается через opacity: 0. При наведении на кнопку opacity псевдоэлемента возвращается в 1</p>
+                            <p>Не стоит в состоянии hover задавать прозрачность основному фону кнопки, т.к. кнопка начнёт "мигать"</p>
+                            <p>p.s. когда поддержка правила @property станет получше, анимировать градиент будет, если не проще, но точно интересней :)</p>
+                          </div>
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--active-gradient button--filled-brand button--color-base-essential">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;active-gradient&quot;, &quot;filled-brand&quot;, &quot;color-base-essential&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--active-gradient {
+  .button__control {
+    position: relative;
+
+    &amp;::before {
+      position: absolute;
+      top: calc(var(--border-width) * -1);
+      right: calc(var(--border-width) * -1);
+      bottom: calc(var(--border-width) * -1);
+      left: calc(var(--border-width) * -1);
+      content: &quot;&quot;;
+
+      background-image: $gradient-linear-45-project-to-essential;
+      border-radius: var(--border-radius);
+
+      opacity: 0;
+      transition: opacity $trans-default;
+    }
+  }
+
+  .button__text,
+  svg {
+    z-index: 1;
+  }
+
+  @include interactive-style {
+    .button__control::before {
+      opacity: 1;
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Насыщенность текста</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--weight-thin">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;weight-thin&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--weight-light">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;weight-light&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--weight-regular">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;weight-regular&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--weight-medium">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;weight-medium&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--weight-semibold">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;weight-semibold&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--weight-bold">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;weight-bold&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--weight-extrabold">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;weight-extrabold&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--weight-black">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;weight-black&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--weight {
+  &amp;-thin {
+    --font-weight: #{$font-weight-text-thin};
+  }
+
+  &amp;-light {
+    --font-weight: #{$font-weight-text-light};
+  }
+
+  &amp;-regular {
+    --font-weight: #{$font-weight-text-regular};
+  }
+
+  &amp;-medium {
+    --font-weight: #{$font-weight-text-medium};
+  }
+
+  &amp;-semibold {
+    --font-weight: #{$font-weight-text-semibold};
+  }
+
+  &amp;-bold {
+    --font-weight: #{$font-weight-text-bold};
+  }
+
+  &amp;-extrabold {
+    --font-weight: #{$font-weight-text-extrabold};
+  }
+
+  &amp;-black {
+    --font-weight: #{$font-weight-text-black};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Размер текста</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--font-size-s">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;font-size-s&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--font-size-m">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;font-size-m&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--font-size-l">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;font-size-l&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--font-size {
+  &amp;-s {
+    --font-size: #{$control-text-size-s};
+
+    @include vp-767 {
+      --font-size: #{$control-text-size-xs};
+    }
+  }
+
+  &amp;-m {
+    --font-size: #{$control-text-size-m};
+
+    @include vp-767 {
+      --font-size: #{$control-text-size-s};
+    }
+  }
+
+  &amp;-l {
+    --font-size: #{$control-text-size-l};
+
+    @include vp-767 {
+      --font-size: #{$control-text-size-m};
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Межстрочный интервал</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--line-heigth-2xs button--text-outline">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;line-heigth-2xs&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--line-heigth-xs button--text-outline">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;line-heigth-xs&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--line-heigth-s button--text-outline">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;line-heigth-s&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--line-heigth-m button--text-outline">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;line-heigth-m&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--line-heigth-l button--text-outline">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;line-heigth-l&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--line-heigth {
+  &amp;-2xs {
+    --line-height: #{$line-height-text-2xs};
+  }
+
+  &amp;-xs {
+    --line-height: #{$line-height-text-xs};
+  }
+
+  &amp;-s {
+    --line-height: #{$line-height-text-s};
+  }
+
+  &amp;-m {
+    --line-height: #{$line-height-text-m};
+  }
+
+  &amp;-l {
+    --line-height: #{$line-height-text-l};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Межбуквенный интервал</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--spacing-xs">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;spacing-xs&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--spacing-s">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;spacing-s&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--spacing-m">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;spacing-m&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--spacing-l">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;spacing-l&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--spacing {
+  &amp;-xs {
+    --letter-spacing: 0.06em;
+  }
+
+  &amp;-s {
+    --letter-spacing: 0.1em;
+  }
+
+  &amp;-m {
+    --letter-spacing: 0.14em;
+  }
+
+  &amp;-l {
+    --letter-spacing: 0.2em;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Трансформация текста</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--transform-uppercase">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;transform-uppercase&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--transform-capitalize">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;transform-capitalize&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--color {
+  &amp;-base-essential {
+    --button-color: #{$color-base-essential};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Выравнивание текста по горизотали</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--width-full button--align-left">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;width-full&quot;, &quot;align-left&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--align {
+  &amp;-left {
+    .button__control {
+      justify-content: start;
+    }
+
+    .button__text {
+      text-align: left;
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Цвет текста</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--color-alert">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="text component__text">
+                                <p>Если не используется иди недостаточно модификатора Внешнего вида</p>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;color-alert&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--color {
+  &amp;-alert {
+    --color: #{$color-base-alert};
+  }
+
+  &amp;-base-essential {
+    --color: #{$color-base-essential};
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Видимость текста</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--truncate">
+                                  <button class="button__control" type="button"><span class="button__text">Button with a very long text on it that should be truncated</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;truncate&quot;],
+  text: &quot;Button with a very long text on it that should be truncated&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--truncate button--truncate-2-lines">
+                                  <button class="button__control" type="button"><span class="button__text">Button with a very-very long text on it that has to be truncated to avoid getting more rows than it should</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;truncate&quot;, &quot;truncate-2-lines&quot;],
+  text: &quot;Button with a very-very long text on it that has to be truncated to avoid getting more rows than it should&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--truncate {
+  --line-clamp: 1;
+
+  .button__text {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &amp;-2-lines {
+    --line-clamp: 2;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                    </div>
+                    <pre><code>}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>

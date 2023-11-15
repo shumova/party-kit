@@ -19,38 +19,68 @@
                 <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
                 <ul class="nav-list page-nav__list no-scrollbar" data-page-nav="list">
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link page-nav__link--title" href="index.html"><span class="btn__text">Components overview</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link page-nav__link--title">
+                      <a class="button__control" href="index.html"><span class="button__text">Components overview</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="title.html"><span class="btn__text">Title</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="title.html"><span class="button__text">Title</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <span class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link is-active" href="text.html"><span class="btn__text">Text</span>
-                    </span>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-active">
+                      <span class="button__control" href="text.html"><span class="button__text">Text</span>
+                      </span>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="cards.html"><span class="btn__text">Cards</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="cards.html"><span class="button__text">Cards</span>
+                      </a>
+                    </div>
                     <ul class="nav-list nav-list--sublist">
                       <li class="nav-list__item">
-                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="card.html"><span class="btn__text">Card</span>
-                        </a>
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="card.html"><span class="button__text">Card</span>
+                          </a>
+                        </div>
                       </li>
                       <li class="nav-list__item">
-                        <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="base-card.html"><span class="btn__text">Base-card</span>
-                        </a>
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="base-card.html"><span class="button__text">Base-card</span>
+                          </a>
+                        </div>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="grid.html"><span class="btn__text">Grid</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="grid.html"><span class="button__text">Grid</span>
+                      </a>
+                    </div>
                   </li>
                   <li class="nav-list__item">
-                    <a class="btn btn--text-align-left btn--view-clear btn--form-round btn--size-m btn--width-full nav-list__link" href="logo.html"><span class="btn__text">Logo</span>
-                    </a>
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="logo.html"><span class="button__text">Logo</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="buttons.html"><span class="button__text">Buttons</span>
+                      </a>
+                    </div>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="button.html"><span class="button__text">Button</span>
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </div>
@@ -116,7 +146,7 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                   <h2 class="title title--size-2xl">Модификаторы</h2>
                   <div class="card card--filled card--form-round-m card--space-xl component__card">
                     <div class="text text--size-l component__text">
-                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используйте жёстко закодированные значения</p>
+                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используй жёстко закодированные значения</p>
                     </div>
                     <pre><code>.text {
   ...
@@ -130,11 +160,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                           </div>
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--medium">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--medium">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -170,11 +202,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--space-2xs">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--space-2xs">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -189,11 +223,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--space-xs">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--space-xs">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -208,11 +244,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--space-m">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--space-m">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -227,11 +265,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--space-l">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--space-l">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -246,11 +286,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--space-xl">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--space-xl">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -265,11 +307,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--space-2xl">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--space-2xl">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -284,11 +328,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--space-3xl">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--space-3xl">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -303,11 +349,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--space-4xl">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--space-4xl">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -322,11 +370,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--space-5xl">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--space-5xl">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -388,11 +438,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--size-s">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--size-s">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -407,11 +459,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--size-m">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--size-m">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -426,11 +480,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--size-l">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--size-l">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -445,11 +501,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--size-xl">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--size-xl">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -464,11 +522,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--size-2xl">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--size-2xl">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -483,11 +543,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--size-3xl">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--size-3xl">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+title({
@@ -569,11 +631,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--weight-thin">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--weight-thin">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -588,11 +652,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--weight-light">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--weight-light">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -607,11 +673,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--weight-regular">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--weight-regular">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -626,11 +694,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--weight-medium">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--weight-medium">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -645,11 +715,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--weight-semibold">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--weight-semibold">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -664,11 +736,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--weight-bold">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--weight-bold">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -683,11 +757,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--weight-extrabold">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--weight-extrabold">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -702,11 +778,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--weight-black">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--weight-black">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -764,11 +842,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--line-heigth-2xs">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--line-heigth-2xs">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -783,11 +863,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--line-heigth-xs">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--line-heigth-xs">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -802,11 +884,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--line-heigth-s">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--line-heigth-s">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -821,11 +905,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--line-heigth-m">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--line-heigth-m">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -840,11 +926,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--line-heigth-l">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--line-heigth-l">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text{
@@ -890,11 +978,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--spacing-xs">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--spacing-xs">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -909,11 +999,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--spacing-s">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--spacing-s">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -928,11 +1020,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--spacing-m">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--spacing-m">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -947,11 +1041,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--spacing-l">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--spacing-l">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -997,11 +1093,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                           </div>
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--color-primary">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--color-primary">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1016,11 +1114,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--color-secondary">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--color-secondary">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1035,11 +1135,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--color-ghost">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--color-ghost">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1054,11 +1156,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--color-brand">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--color-brand">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1073,11 +1177,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--color-system">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--color-system">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1092,11 +1198,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--color-normal">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--color-normal">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1111,11 +1219,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--color-success">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--color-success">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1130,11 +1240,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--color-caution">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--color-caution">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1149,11 +1261,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--color-warning">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--color-warning">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1168,11 +1282,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--color-alert">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--color-alert">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1186,11 +1302,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--color-critical">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--color-critical">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1260,11 +1378,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--transform-uppercase">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--transform-uppercase">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1279,11 +1399,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--transform-capitalize">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--transform-capitalize">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1298,11 +1420,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--transform-lowercase">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--transform-lowercase">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1340,11 +1464,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--truncate">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--truncate">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
@@ -1359,11 +1485,13 @@ div(class=[&quot;text&quot;, ...modifiers])&amp;attributes(attributes)
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="text text--truncate text--truncate-2-lines">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                              <div class="component__view">
+                                <div class="text text--truncate text--truncate-2-lines">
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  <p>Nullam ultricies blandit ultrices. Nam commodo nunc nec risus pharetra faucibus.</p>
+                                </div>
                               </div>
-                              <details class="details" data-details="details">
+                              <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
                                   <pre><code>+text({
