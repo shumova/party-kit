@@ -1,0 +1,14 @@
+mixin icon-button(props = {})
+  -
+    const
+          tag = props.href ? "a" : "button",
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "icon-button--" + mod) : [],
+          href = props.href || false,
+          type = props.type || tag === "button" ? "button" : false,
+          target = props.isExternal ? "_blank" : false,
+          ariaLabel = props.ariaLabel || false,
+          rel = props.isExternal ? "nofollow noopener noreferrer" : false,
+          {name, width, height} = props.icon || false;
+
+  #{tag}(class=['icon-button', ...modifiers], href=href, target=target, rel=rel, type=type, aria-label=ariaLabel)&attributes(attributes)
+    +icon(name, width, height)
