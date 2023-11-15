@@ -1,5 +1,4 @@
-$control-radius: 4px; /* Основной радиус скругления контроллов */
-$control-border-width: 2px; /* Основная толщина контроллов */
+$control-border-width: 0.1em; /* Основная толщина контроллов */
 $control-height-l: $space-4xl;
 $control-height-m: $space-3xl;
 $control-height-s: $space-2xl;
@@ -7,10 +6,10 @@ $control-height-xs: $space-xl;
 $control-box-size-s: $space-s;
 $control-box-size-m: $space-m;
 $control-box-size-l: $space-l;
-$control-space-l: $space-xl;
-$control-space-m: $space-l;
-$control-space-s: $space-m;
-$control-space-xs: $space-s;
+$control-space-l: $space-m;
+$control-space-m: $space-s;
+$control-space-s: $space-xs;
+$control-space-xs: $space-2xs;
 $control-text-size-l: $size-text-l;
 $control-text-size-m: $size-text-m;
 $control-text-size-s: $size-text-s;

@@ -61,44 +61,46 @@ $color-transparent: transparent;
   // /* Цвета контролов */
 
   // Default
-  --color-control-bg-default: #{$color-base-essential}; /* Цвет фона контрола */
-  --color-control-typo-default: #{$color-base-base}; /* Цвет основного текста контрола */
-  --color-control-typo-placeholder: #{color.change($color-base-base, $alpha: 0.35)}; /* Цвет плейсхолдера контрола */
-  --color-control-bg-border-default: #{color.change($color-base-phantom, $alpha: 0.28)}; /* Цвет фона бордеров котрола */
-  --color-control-bg-border-default-hover: #{color.change($color-base-phantom, $alpha: 0.52)}; /* Цвет фона бордеров контрола по ховеру */
-  --color-control-bg-border-focus: #{color.adjust($color-base-path, $lightness: +9%)}; /* Цвет аутлайна контролов при фокусе */
-  --color-control-bg-focus: #{color.change($color-base-path, $alpha: 0.3)}; /* Цвет тени в состонии фокуса */
-  --color-control-bg-active: #{color.change($color-base-path, $alpha: 0.5)}; /* Цвет тени в состонии нажатия  */
+  --color-control-bg-default: #{$color-base-essential};
+  --color-control-typo-default: #{color.change($color-base-base, $alpha: 0.9)};
+  --color-control-typo-placeholder: #{color.change($color-base-base, $alpha: 0.35)};
+  --color-control-border-default: #{$color-transparent};
+  --color-control-border-default-hover: #{$color-transparent};
+  --color-control-border-active: #{color.adjust($color-base-path, $lightness: +15%)};
+  --color-control-bg-focus: #{color.change($color-base-path, $alpha: 0.3)};
+  --color-control-bg-active: #{color.change($color-base-path, $alpha: 0.5)};
 
   // Primary
-  --color-control-bg-primary: #{$color-base-path}; /* Цвет фона активного контрола */
-  --color-control-bg-primary-hover: #{color.adjust($color-base-path, $lightness: +9%)}; /* Цвет фона активного контрола по ховеру */
-  --color-control-typo-primary: #{color.adjust($color-base-base, $lightness: +100%)}; /* Цвет акцентного текста */
-  --color-control-typo-primary-hover: #{color.adjust($color-base-base, $lightness: +100%)}; /* Цвет акцентного текста */
+  --color-control-bg-primary: #{$color-base-path};
+  --color-control-bg-primary-hover: #{color.adjust($color-base-path, $lightness: +9%)};
+  --color-control-typo-primary: #{color.adjust($color-base-base, $lightness: +100%)};
+  --color-control-typo-primary-hover: #{color.adjust($color-base-base, $lightness: +100%)};
 
   // Secondary
-  --color-control-bg-secondary: #{color.change($color-base-essential, $alpha: 0)}; /* Цвет фона бордеров котрола */
-  --color-control-bg-border-secondary: #{$color-base-path}; /* Цвет фона бордеров котрола */
-  --color-control-bg-border-secondary-hover: #{color.adjust($color-base-path, $lightness: +9%)}; /* Цвет фона бордеров контрола по ховеру */
-  --color-control-typo-secondary: #{$color-base-path}; /* Цвет второстепеного текста контрола */
-  --color-control-typo-secondary-hover: #{color.adjust($color-base-path, $lightness: +9%)}; /* Цвет акцентного текста */
+  --color-control-bg-secondary: #{$color-base-essential};
+  --color-control-bg-secondary-hover: #{$color-base-essential};
+  --color-control-border-secondary: #{color.change($color-base-phantom, $alpha: 0.28)};
+  --color-control-border-secondary-hover: #{color.change($color-base-phantom, $alpha: 0.52)};
+  --color-control-border-secondary-active: #{color.adjust($color-base-path, $lightness: +15%)};
+  --color-control-typo-secondary: #{$color-base-path};
+  --color-control-typo-secondary-hover: #{color.adjust($color-base-path, $lightness: +9%)};
 
   // Ghost
-  --color-control-bg-ghost: #{color.change($color-base-phantom, $alpha: 0.07)}; /* Цвет фона дополнительного контрола */
-  --color-control-bg-ghost-hover: #{color.change($color-base-phantom, $alpha: 0.05)}; /* Цвет фона дополнительного контрола по ховеру */
-  --color-control-typo-ghost: #{color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.2)}; /* Цвет дополнительного текста контрола */
-  --color-control-typo-ghost-hover: #{color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.25)}; /* Цвет акцентного текста */
+  --color-control-bg-ghost: #{color.change($color-base-phantom, $alpha: 0.07)};
+  --color-control-bg-ghost-hover: #{color.change($color-base-phantom, $alpha: 0.05)};
+  --color-control-typo-ghost: #{color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.2)};
+  --color-control-typo-ghost-hover: #{color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.25)};
 
   // Clear
   --color-control-bg-clear: #{$color-transparent};
-  --color-control-bg-clear-hover: #{color.change($color-base-phantom, $alpha: 0.05)}; /* Цвет фона чистого контрола по ховеру */
+  --color-control-bg-clear-hover: #{color.change($color-base-phantom, $alpha: 0.05)};
   --color-control-typo-clear: #{$color-base-base};
-  --color-control-typo-clear-hover: #{color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.25)}; /* Цвет акцентного текста */
+  --color-control-typo-clear-hover: #{color.adjust($color-base-base, $hue: +1deg, $lightness: +8%, $alpha: -0.25)};
 
-  // Disable
-  --color-control-bg-disable: #{color.change($color-base-phantom, $alpha: 0.07)}; /* Цвет фона неактивного контрола */
-  --color-control-bg-border-disable: #{color.change($color-base-phantom, $alpha: 0)}; /* Цвет фона бордеров неактивного контрола */
-  --color-control-typo-disable: #{color.change($color-base-base, $alpha: 0.26)}; /* Цвет основного текста неактивного контрола */
+  // disabled
+  --color-control-bg-disabled: #{color.change($color-base-phantom, $alpha: 0.07)};
+  --color-control-border-disabled: #{color.change($color-base-phantom, $alpha: 0)};
+  --color-control-typo-disabled: #{color.change($color-base-base, $alpha: 0.26)};
 
   /* Цвета тени */
   --color-shadow-group-1: #{color.change($color-base-shadow, $alpha: 0.02)};

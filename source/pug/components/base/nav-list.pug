@@ -8,11 +8,11 @@ mixin nav-list(props = {})
       - const titleLink = link.isTitle
       - const tag = activeState ? "span" : "a"
       li.nav-list__item
-        +btn({
+        +button({
           tag: tag,
           href: link.href,
           text: link.text,
-          modifiers: ["text-align-left", "view-clear", "form-round", "size-m", "width-full"]
+          modifiers: ["align-left", "view-clear", "form-round", "size-m", "width-full"]
         }).nav-list__link(class=[activeState && "is-active", isOpen && "is-open", titleLink && "page-nav__link--title"])
         if link.sublinks
           +nav-list({links: link.sublinks, currentUrl}).nav-list--sublist

@@ -1,0 +1,48 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "buttons",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "buttons.html"
+
+  -
+    const params = {
+      content: [
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Button"
+          },
+          subtitle: {
+            text: "Кнопка"
+          },
+          text: {
+            content: ["Разные формы, размеры, цвета"]
+          },
+          iconBtn: {
+            href: "https://github.com/shumova/party-kit/tree/master/source/components/buttons/button"
+          },
+          btn: {
+            href: "button.html"
+          }
+        }
+      ]
+    }
+
+block page
+  +components(params)
+
+block modals

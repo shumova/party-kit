@@ -19,7 +19,7 @@
 }
 
 @mixin active {
-  &:active {
+  &:active:not(.focus-visible) {
     @content;
   }
 }
