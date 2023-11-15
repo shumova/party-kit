@@ -1,0 +1,29 @@
+mixin button(props = {})
+  -
+    const
+          tag = props.tag ? props.tag : props.href ? "a" : "button",
+          href = props.href,
+          text = props.text || "",
+          type = props.type || tag === "button" && "button",
+          target = props.isExternal && "_blank",
+          rel = props.isExternal && "nofollow noopener noreferrer",
+          icon = props.icon,
+          {name, width, height, isLeft} = icon || {},
+          isActive = props.isActive,
+          activeClass = isActive && "is-active",
+          isDisabled = props.isDisabled,
+          disabledClass = isDisabled && "is-disabled",
+          disabledAttr = (isDisabled || isActive) && tag === "button" && "true",
+          tabindexAttr = props.tabindex || ((isDisabled || isActive) && tag === "a" && "-1"),
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "button--" + mod) : [];
+
+  div(class=["button", disabledClass, activeClass, ...modifiers])&attributes(attributes)
+    #{tag}.button__control(href=href, target=target, rel=rel, type=type, disabled=disabledAttr, tabindex=tabindexAttr)
+
+      if (icon && isLeft)
+        +icon(name, width, height)
+
+      span.button__text !{text}
+
+      if (icon && !isLeft)
+        +icon(name, width, height)

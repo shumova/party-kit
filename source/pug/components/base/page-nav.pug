@@ -36,6 +36,16 @@ mixin page-nav(pageNavMods, currentUrl)
         text: "Logo",
         href: "logo.html"
       },
+      {
+        text: "Buttons",
+        href: "buttons.html",
+        sublinks: [
+          {
+            text: "Button",
+            href: "button.html"
+          }
+        ]
+      },
     ]
 
   nav.page-nav(data-page-nav="container")&attributes(attributes)

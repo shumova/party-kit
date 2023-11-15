@@ -1,0 +1,1362 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "button",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "button.html"
+
+  -
+    const params = {
+      component: {
+        mixin: "button",
+        name: "Button",
+        localName: "Кнопка",
+        git: "https://github.com/shumova/party-kit/tree/master/source/components/buttons/button"
+      },
+      description: [
+        "Если в&nbsp;макете явно выделены типы кнопок (семантически или визуально), то&nbsp;лучше использовать модификатор Внешнего вида (view-тип-кнопки), группирующий свойства фона, текста, границы и&nbsp;проч. Если&nbsp;же чёткой логики в&nbsp;оформлении кнопок нет, то&nbsp;лучше использовать модификаторы по&nbsp;названию свойств, которые они изменяют: отдельно для цвета фона, отдельно для цвета текста и&nbsp;тд",
+        "Заблокированные и&nbsp;находящиеся в активном состоянии интерактивные элементы не&nbsp;должны попадать в&nbsp;фокус при навигации с&nbsp;клавиатуры. Для этого кнопкам с&nbsp;тегом &lt;a&gt; добавляется атрибут tab-index=\&quot;-1\&quot;, с тегом &lt;button&gt; -- атрибут disable. Если не&nbsp;нужно поддерживать Safari&nbsp;15, вместо tab-index=\&quot;-1\&quot; можно использовать атрибут inert",
+        "Компоненту задаются стили по&nbsp;умолчанию, которые затем по необходимости переопределяются",
+        "Не стоит использовать свойство opacity без крайней необходимости, т.к. это может исказить визуал (при использовании кнопки поверх цветных элементов) и  ухудшить читаемость при смене цветовой темы. Вместо opacity по возможности лучше использовать альфа-канал",
+        "В компоненте предусмотрена div-обёртка для возможности задания position: relative без влияния на&nbsp;позиционирование кнопки относительно других элементов на&nbsp;странице"
+      ],
+      base: [
+    `mixin button(props = {})
+      -
+        const
+              tag = props.tag ? props.tag : props.href ? "a" : "button",
+              href = props.href,
+              text = props.text || "",
+              type = props.type || tag === "button" && "button",
+              target = props.isExternal && "_blank",
+              rel = props.isExternal && "nofollow noopener noreferrer",
+              icon = props.icon,
+              {name, width, height, isLeft} = icon || {},
+              isActive = props.isActive,
+              activeClass = isActive && "is-active",
+              isDisabled = props.isDisabled,
+              disabledClass = isDisabled && "is-disabled",
+              disabledAttr = (isDisabled || isActive) && tag === "button" && "true",
+              tabindexAttr = props.tabindex || ((isDisabled || isActive) && tag === "a" && "-1"),
+              modifiers = props.modifiers ? props.modifiers.map((mod) => "button--" + mod) : [];
+
+      div(class=["button", disabledClass, activeClass, ...modifiers])&attributes(attributes)
+        #{tag}.button__control(href=href, target=target, rel=rel, type=type, disabled=disabledAttr, tabindex=tabindexAttr)
+
+          if (icon && isLeft)
+            +icon(name, width, height)
+
+          span.button__text !{text}
+
+          if (icon && !isLeft)
+            +icon(name, width, height)`,
+    `.button {
+      // Базовые значения
+      --padding: #{$control-space-m};
+      --font-weight: inherit;
+      --font-size: #{$control-text-size-m};
+      --line-height: inherit;
+      --letter-spacing: inherit;
+      --text-transform: none;
+      --color: var(--color-control-typo-default);
+      --background-color: var(--color-control-bg-default);
+      --border-width: #{$control-border-width}; // Относительные единицы (например, em) работают лучше абсолютных с малыми значениями (1-3px вычисляются в браузере в дробные значения, что может давать погрешность при использовании переменной ширины кнопки, например, для позиционирования её псевдоэелементов)
+      --border-style: solid;
+      --border-color: var(--color-control-border-default);
+      --border-radius: 0;
+      --box-shadow: none;
+      --cursor: pointer;
+      --icon-indent: 10px;
+
+      // Состояние hover
+      --color-hover: var(--color);
+      --background-color-hover: var(--background-color);
+      --border-color-hover: var(--border-color);
+      --box-shadow-hover: var(--box-shadow);
+
+      // Состояние active
+      --color-active: var(--color);
+      --background-color-active: var(--background-color);
+      --border-color-active: var(--border-color);
+      --box-shadow-active: var(--box-shadow);
+
+      // Состояние disabled
+      --color-disabled: var(--color);
+      --background-color-disabled: var(--background-color);
+      --border-color-disabled: var(--border-color);
+      --box-shadow-disabled: var(--box-shadow);
+
+      display: inline-flex;
+
+      &__control {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: var(--padding);
+        font-weight: var(--font-weight);
+        font-size: var(--font-size);
+        line-height: var(--line-height);
+        letter-spacing: var(--letter-spacing);
+        text-transform: var(--text-transform);
+        color: var(--color);
+        background-color: var(--background-color);
+        border: var(--border-width) var(--border-style) var(--border-color);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        cursor: var(--cursor);
+        user-select: none;
+
+        transition:
+          color $trans-default,
+          background-color $trans-default,
+          border-color $trans-default,
+          box-shadow $trans-default;
+
+        @include hover-focus {
+          color: var(--color-hover);
+          background-color: var(--background-color-hover);
+          border-color: var(--border-color-hover);
+          box-shadow: var(--box-shadow-hover);
+        }
+
+        @include active {
+          color: var(--color-active);
+          background-color: var(--background-color-active);
+          border-color: var(--border-color-active);
+          box-shadow: var(--box-shadow-active);
+        }
+      }
+
+      &.is-disabled {
+        .button__control {
+          color: var(--color-disabled);
+          background-color: var(--background-color-disabled);
+          border-color: var(--border-color-disabled);
+          pointer-events: none;
+          cursor: default;
+        }
+      }
+
+      &.is-active {
+        .button__control {
+          color: var(--color-active);
+          background-color: var(--background-color-active);
+          border-color: var(--border-color-active);
+          pointer-events: none;
+          cursor: default;
+        }
+      }
+
+      svg {
+        flex-shrink: 0;
+        height: 16px;
+        width: auto;
+        transform: translateZ(0);
+      }
+
+      svg:first-child {
+        transform: rotate(180deg);
+      }
+
+      svg + &__text,
+      &__text + svg {
+        margin-left: var(--icon-indent);
+      }
+
+      &__text {
+        text-align: center;
+      }
+    }`
+      ],
+      examples: {
+        snippets: [
+          {
+            title: {
+              text: "Блокировка кнопки"
+            },
+            note: {
+              content: [
+                "Добавляет класс .is-disabled и атрибут tabindex=\"-1\" или disabled",
+              ]
+            },
+            props: {
+              isDisabled: true,
+              text: "Button"
+            },
+            code:
+      `+button({
+        isDisabled: true,
+        text: "Button"
+      })`
+          },
+          {
+            title: {
+              text: "Кнопка в&nbsp;активном состоянии"
+            },
+            note: {
+              content: [
+                "Добавляет класс .is-active и атрибут tabindex=\"-1\" или disabled"
+              ]
+            },
+            props: {
+              isActive: true,
+              text: "Button"
+            },
+            code:
+      `+button({
+        isActive: true,
+        text: "Button"
+      })`
+          },
+          {
+            title: {
+              text: "Кнопка с&nbsp;иконкой справа"
+            },
+            props: {
+              text: "Button",
+              icon: {
+                name: 'icon-arrow',
+                width: 10,
+                height: 16,
+              },
+            },
+            code:
+      `+button({
+        text: "Button",
+        icon: {
+          name: 'icon-arrow',
+          width: 10,
+          height: 16,
+        },
+      })`
+          },
+          {
+            title: {
+              text: "Кнопка с&nbsp;иконкой слева"
+            },
+            props: {
+              text: "Button",
+              icon: {
+                name: 'icon-arrow',
+                width: 10,
+                height: 16,
+                isLeft: true,
+              },
+            },
+            code:
+      `+button({
+        text: "Button",
+        icon: {
+          name: 'icon-arrow',
+          width: 10,
+          height: 16,
+          isLeft: true,
+        },
+      })`
+          }
+        ]
+      },
+      modifiers: [
+        {
+          summary: "Внешний вид (комбинирование декоративных модификаторов)",
+          note: {
+            content: [
+              "Типизация может быть только визуальной, необязательно семантической"
+            ]
+          },
+          examples: [
+            {
+              props: {
+                text: "Button"
+              },
+              title: {
+                text: "Базовый"
+              },
+              note: {
+                content: [
+                  "Без&nbsp;модификатора"
+                ]
+              },
+              code:
+    `+button({
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["view-clear"],
+                text: "Button"
+              },
+              title: {
+                text: "Clear"
+              },
+              note: {
+                content: [
+                  "Просто кнопка с&nbsp;прозрачным фоном"
+                ]
+              },
+              code:
+    `+button({
+      modifiers: ["view-clear"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["view-primary"],
+                text: "Button"
+              },
+              title: {
+                text: "Primary"
+              },
+              note: {
+                content: [
+                  "Основная кнопка для&nbsp;важных действий, к&nbsp;которым нужно привлечь внимание. Также подходит для случаев, когда в&nbsp;проекте используется один вариант кнопки"
+                ]
+              },
+              code:
+    `+button({
+      modifiers: ["view-primary"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["view-secondary"],
+                text: "Button"
+              },
+              title: {
+                text: "Secondary"
+              },
+              note: {
+                content: [
+                  "Подходит для&nbsp;важных действий, к&nbsp;которым не нужно привлекать особое внимание"
+                ]
+              },
+              code:
+    `+button({
+      modifiers: ["view-secondary"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["view-ghost"],
+                text: "Button"
+              },
+              title: {
+                text: "Ghost"
+              },
+              note: {
+                content: [
+                  "Кнопка-компаньон основной кнопки (например, кнопка \"Отменить\" рядом с&nbsp;основной кнопкой \"Подтвердить\") и кнопка для&nbsp;действий, к&nbsp;которым не хочется привлекать внимание"
+                ]
+              },
+              code:
+    `+button({
+      modifiers: ["view-ghost"],
+      text: "Button"
+    })`
+            },
+          ],
+          code:
+    `&--view {
+      &-clear {
+        --color: var(--color-control-typo-clear);
+        --color-hover: var(--color-control-typo-clear-hover);
+        --color-active: var(--color-control-typo-clear-hover);
+
+        --background-color: var(--color-control-bg-clear);
+        --background-color-hover: var(--color-control-bg-clear-hover);
+        --background-color-active: var(--color-control-bg-clear-hover);
+      }
+
+      &-ghost {
+        --color: var(--color-control-typo-ghost);
+        --color-hover: var(--color-control-typo-ghost-hover);
+        --color-active: var(--color-control-typo-ghost-hover);
+
+        --background-color: var(--color-control-bg-ghost);
+        --background-color-hover: var(--color-control-bg-ghost-hover);
+        --background-color-active: var(--color-control-bg-ghost-hover);
+
+        --box-shadow: #{$shadow-layer-1};
+        --box-shadow-active: #{$shadow-layer-0};
+      }
+
+      &-primary {
+        --color: var(--color-control-typo-primary);
+        --color-hover: var(--color-control-typo-primary-hover);
+        --color-active: var(--color-control-typo-primary-hover);
+
+        --background-color: var(--color-control-bg-primary);
+        --background-color-hover: var(--color-control-bg-primary-hover);
+        --background-color-active: var(--color-control-bg-primary-hover);
+
+        --box-shadow: #{$shadow-layer-1};
+        --box-shadow-active: #{$shadow-layer-0};
+      }
+
+      &-secondary {
+        --color: var(--color-control-typo-secondary);
+        --color-hover: var(--color-control-typo-secondary-hover);
+        --color-active: var(--color-control-typo-secondary-hover);
+
+        --background-color: var(--color-control-bg-secondary);
+        --background-color-hover: var(--color-control-bg-secondary-hover);
+        --background-color-active: var(--color-control-bg-secondary-hover);
+
+        --border-color: var(--color-control-border-secondary);
+        --border-color-hover: var(--color-control-border-secondary-hover);
+        --border-color-active: var(--color-control-border-secondary-active);
+
+        --box-shadow: #{$shadow-layer-1};
+        --box-shadow-active: #{$shadow-layer-0};
+      }
+    }`
+        },
+        {
+          summary: "Размер (комбинирование модификаторов геометрии кнопки и шрифта)",
+          examples: [
+            {
+              props: {
+                modifiers: ["size-s"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["size-s"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["size-m"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["size-m"],
+      text: "Button"
+    })`
+            }
+          ],
+          code:
+    `&--size {
+      &-s {
+        --font-size: #{$control-text-size-s};
+        --padding: #{$control-space-s};
+      }
+
+      &-m {
+        --font-size: #{$control-text-size-m};
+        --padding: #{$control-space-m};
+      }
+    }`
+        },
+        {
+          summary: "Ширина кнопки",
+          examples: [
+            {
+              props: {
+                modifiers: ["width-full"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["width-full"],
+      text: "Button"
+    })`
+            }
+          ],
+          code:
+    `&--width {
+      &-full {
+        width: 100%;
+      }
+    }`
+        },
+        {
+          summary: "Внутренние отступы",
+          examples: [
+            {
+              props: {
+                modifiers: ["space-xs"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["space-xs"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["space-s"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["space-s"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["space-m"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["space-m"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["space-l"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["space-l"],
+      text: "Button"
+    })`
+            }
+          ],
+          code:
+    `&--space {
+      &-xs {
+        --padding: #{$control-space-xs};
+      }
+
+      &-s {
+        --padding: #{$control-space-s};
+      }
+
+      &-m {
+        --padding: #{$control-space-m};
+      }
+
+      &-l {
+        --padding: #{$control-space-l};
+      }
+    }`
+        },
+        {
+          summary: "Форма (радиус закругления углов)",
+          examples: [
+            {
+              props: {
+                modifiers: ["form-brick"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["form-brick"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["form-round"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["form-round"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["form-round-xs"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["form-round-xs"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["form-round-s"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["form-round-s"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["form-round-m"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["form-round-m"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["form-round-l"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["form-round-l"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["form-round-xl"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["form-round-xl"],
+      text: "Button"
+    })`
+            }
+          ],
+          code:
+    `&--form {
+      &-brick {
+        --button-border-radius: 0;
+      }
+
+      &-round {
+        --button-border-radius: 99rem;
+
+        &-xs {
+          --button-border-radius: #{$space-xs};
+        }
+
+        &-s {
+          --button-border-radius: #{$space-s};
+        }
+
+        &-m {
+          --button-border-radius: #{$space-m};
+        }
+
+        &-l {
+          --button-border-radius: #{$space-l};
+        }
+
+        &-xl {
+          --button-border-radius: #{$space-xl};
+        }
+
+        &-2xl {
+          --button-border-radius: #{$space-2xl};
+        }
+
+        &-3xl {
+          --button-border-radius: #{$space-3xl};
+        }
+      }
+    }`
+        },
+        {
+          summary: "Elevation (тени, фон, непрозрачность и другие свойства визуализации виртуальной Z-координаты кнопки относительно слоя экрана)",
+          examples: [
+            {
+              props: {
+                modifiers: ["elevated-shadow-1"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["elevated-shadow-1"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["elevated-shadow-2"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["elevated-shadow-2"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["elevated-shadow-3"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["elevated-shadow-3"],
+      text: "Button"
+    })`
+            }
+          ],
+          code:
+    `&--elevated {
+      &-shadow {
+        &-1 {
+          --box-shadow: #{$shadow-layer-1};
+
+          @include active {
+            --box-shadow: #{$shadow-layer-0};
+          }
+        }
+
+        &-2 {
+          --box-shadow: #{$shadow-layer-2};
+
+          @include active {
+            --box-shadow: #{$shadow-layer-1};
+          }
+        }
+
+        &-3 {
+          --box-shadow: #{$shadow-layer-3};
+
+          @include active {
+            --box-shadow: #{$shadow-layer-2};
+          }
+        }
+      }
+    }`
+        },
+        {
+          summary: "Фоновый цвет",
+          examples: [
+            {
+              props: {
+                modifiers: ["filled-secondary"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["filled-secondary"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["filled-brand", "color-base-essential"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["filled-brand", "color-base-essential"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["filled-stripe"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["filled-stripe"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["filled-tone", "color-base-essential"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["filled-tone", "color-base-essential"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["filled-soft"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["filled-soft"],
+      text: "Button"
+    })`
+            },
+          ],
+          code:
+    `&--filled {
+      --background-color: var(--color-bg-default);
+
+      &-secondary {
+        --background-color: var(--color-bg-secondary);
+      }
+
+      &-brand {
+        --background-color: var(--color-bg-brand);
+      }
+
+      &-stripe {
+        --background-color: var(--color-bg-stripe);
+      }
+
+      &-tone {
+        --background-color: var(--color-bg-tone);
+      }
+
+      &-soft {
+        --background-color: var(--color-bg-soft);
+      }
+    }`
+        },
+        {
+          summary: "Градиент при&nbsp;наведении",
+          note: {
+            content: [
+              "Для создания эффекта плавной анимации фона с&nbsp;градиентом кнопке добавляется псевдоэдемент с нужным градиентом и скрывается через opacity: 0. При наведении на кнопку opacity псевдоэлемента возвращается в 1",
+              "Не стоит в состоянии hover задавать прозрачность основному фону кнопки, т.к. кнопка начнёт \"мигать\"",
+              "p.s. когда поддержка правила @property станет получше, анимировать градиент будет, если не проще, но точно интересней :)"
+            ]
+          },
+          examples: [
+            {
+              props: {
+                modifiers: ["active-gradient", "filled-brand", "color-base-essential"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["active-gradient", "filled-brand", "color-base-essential"],
+      text: "Button"
+    })`
+            },
+          ],
+          code:
+    `&--active-gradient {
+      .button__control {
+        position: relative;
+
+        &::before {
+          position: absolute;
+          top: calc(var(--border-width) * -1);
+          right: calc(var(--border-width) * -1);
+          bottom: calc(var(--border-width) * -1);
+          left: calc(var(--border-width) * -1);
+          content: "";
+
+          background-image: $gradient-linear-45-project-to-essential;
+          border-radius: var(--border-radius);
+
+          opacity: 0;
+          transition: opacity $trans-default;
+        }
+      }
+
+      .button__text,
+      svg {
+        z-index: 1;
+      }
+
+      @include interactive-style {
+        .button__control::before {
+          opacity: 1;
+        }
+      }
+    }`
+        },
+        {
+          summary: "Насыщенность текста",
+          examples: [
+            {
+              props: {
+                modifiers: ["weight-thin"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["weight-thin"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-light"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["weight-light"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-regular"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["weight-regular"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-medium"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["weight-medium"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-semibold"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["weight-semibold"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-bold"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["weight-bold"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-extrabold"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["weight-extrabold"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-black"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["weight-black"],
+      text: "Button"
+    })`
+            }
+          ],
+          code:
+    `&--weight {
+      &-thin {
+        --font-weight: #{$font-weight-text-thin};
+      }
+
+      &-light {
+        --font-weight: #{$font-weight-text-light};
+      }
+
+      &-regular {
+        --font-weight: #{$font-weight-text-regular};
+      }
+
+      &-medium {
+        --font-weight: #{$font-weight-text-medium};
+      }
+
+      &-semibold {
+        --font-weight: #{$font-weight-text-semibold};
+      }
+
+      &-bold {
+        --font-weight: #{$font-weight-text-bold};
+      }
+
+      &-extrabold {
+        --font-weight: #{$font-weight-text-extrabold};
+      }
+
+      &-black {
+        --font-weight: #{$font-weight-text-black};
+      }
+    }`
+        },
+        {
+          summary: "Размер текста",
+          examples: [
+            {
+              props: {
+                modifiers: ["font-size-s"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["font-size-s"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["font-size-m"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["font-size-m"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["font-size-l"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["font-size-l"],
+      text: "Button"
+    })`
+            }
+          ],
+          code:
+    `&--font-size {
+      &-s {
+        --font-size: #{$control-text-size-s};
+
+        @include vp-767 {
+          --font-size: #{$control-text-size-xs};
+        }
+      }
+
+      &-m {
+        --font-size: #{$control-text-size-m};
+
+        @include vp-767 {
+          --font-size: #{$control-text-size-s};
+        }
+      }
+
+      &-l {
+        --font-size: #{$control-text-size-l};
+
+        @include vp-767 {
+          --font-size: #{$control-text-size-m};
+        }
+      }
+    }`
+        },
+        {
+          summary: "Межстрочный интервал",
+          examples: [
+            {
+              props: {
+                modifiers: ["line-heigth-2xs", "text-outline"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["line-heigth-2xs"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["line-heigth-xs", "text-outline"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["line-heigth-xs"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["line-heigth-s", "text-outline"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["line-heigth-s"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["line-heigth-m", "text-outline"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["line-heigth-m"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["line-heigth-l", "text-outline"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["line-heigth-l"],
+      text: "Button"
+    })`
+            }
+          ],
+          code:
+    `&--line-heigth {
+      &-2xs {
+        --line-height: #{$line-height-text-2xs};
+      }
+
+      &-xs {
+        --line-height: #{$line-height-text-xs};
+      }
+
+      &-s {
+        --line-height: #{$line-height-text-s};
+      }
+
+      &-m {
+        --line-height: #{$line-height-text-m};
+      }
+
+      &-l {
+        --line-height: #{$line-height-text-l};
+      }
+    }`
+        },
+        {
+          summary: "Межбуквенный интервал",
+          examples: [
+            {
+              props: {
+                modifiers: ["spacing-xs"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["spacing-xs"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["spacing-s"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["spacing-s"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["spacing-m"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["spacing-m"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["spacing-l"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["spacing-l"],
+      text: "Button"
+    })`
+            }
+          ],
+          code:
+    `&--spacing {
+      &-xs {
+        --letter-spacing: 0.06em;
+      }
+
+      &-s {
+        --letter-spacing: 0.1em;
+      }
+
+      &-m {
+        --letter-spacing: 0.14em;
+      }
+
+      &-l {
+        --letter-spacing: 0.2em;
+      }
+    }`
+        },
+        {
+          summary: "Трансформация текста",
+          examples: [
+            {
+              props: {
+                modifiers: ["transform-uppercase"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["transform-uppercase"],
+      text: "Button"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["transform-capitalize"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["transform-capitalize"],
+      text: "Button"
+    })`
+            }
+          ],
+          code:
+    `&--color {
+      &-base-essential {
+        --button-color: #{$color-base-essential};
+      }
+    }`
+        },
+        {
+          summary: "Выравнивание текста по горизотали",
+          examples: [
+            {
+              props: {
+                modifiers: ["width-full", "align-left"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["width-full", "align-left"],
+      text: "Button"
+    })`
+            },
+          ],
+          code:
+    `&--align {
+      &-left {
+        .button__control {
+          justify-content: start;
+        }
+
+        .button__text {
+          text-align: left;
+        }
+      }
+    }`
+        },
+        {
+          summary: "Цвет текста",
+          examples: [
+            {
+              props: {
+                modifiers: ["color-alert"],
+                text: "Button"
+              },
+              note: {
+                content: [
+                  "Если не используется иди недостаточно модификатора Внешнего вида"
+                ]
+              },
+              code:
+    `+button({
+      modifiers: ["color-alert"],
+      text: "Button"
+    })`
+            },
+          ],
+          code:
+    `&--color {
+      &-alert {
+        --color: #{$color-base-alert};
+      }
+
+      &-base-essential {
+        --color: #{$color-base-essential};
+      }
+    }`
+        },
+        {
+          summary: "Видимость текста",
+          examples: [
+            {
+              props: {
+                modifiers: ["truncate"],
+                text: "Button with a very long text on it that should be truncated"
+              },
+              code:
+    `+button({
+      modifiers: ["truncate"],
+      text: "Button with a very long text on it that should be truncated"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["truncate", "truncate-2-lines"],
+                text: "Button with a very-very long text on it that has to be truncated to avoid getting more rows than it should"
+              },
+              code:
+    `+button({
+      modifiers: ["truncate", "truncate-2-lines"],
+      text: "Button with a very-very long text on it that has to be truncated to avoid getting more rows than it should"
+    })`
+            },
+          ],
+          code:
+    `&--truncate {
+      --line-clamp: 1;
+
+      .button__text {
+        display: -webkit-box;
+        -webkit-line-clamp: var(--line-clamp);
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      &-2-lines {
+        --line-clamp: 2;
+      }
+    }`
+        },
+
+      ]
+    }
+
+block page
+  +component(params)
+
+block modals

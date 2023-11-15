@@ -53,8 +53,13 @@ mixin component(props = {})
           modifiers: ["size-2xl"]
         },
         note: {
-          content: ["Если для&nbsp;проекта не&nbsp;предусмотрены токены, используйте жёстко закодированные значения"],
+          content: ["Если для&nbsp;проекта не&nbsp;предусмотрены токены, используй жёстко закодированные значения"],
           modifiers: ["size-l"]
+        },
+        example: {
+          note: {
+            tag: "p"
+          }
         }
       },
       examples: {
@@ -98,14 +103,20 @@ mixin component(props = {})
           +grid({modifiers: ["cols-2", "gap-l"]}).component__examples
             if examples.note
               +text(_params.examples.note)
+
             each snippet in examples.snippets
               +card({modifiers: ["filled-stripe", "form-round-m", "space-l"]}).component__call
                 +title(Object.assign(_params.examples.snippet.title, snippet.title))
+                if snippet.note
+                  +text({
+                    tag: snippet.note.tag || "span",
+                    content: snippet.note.content
+                  }).component__text
                 .component__view
                   +#{component.mixin}(snippet.props)
                     if snippet.block
                       +#{snippet.block.mixin}(snippet.block.props)
-                +details({summary: "Показать код"})
+                +details({summary: "Показать код"}).component__details
                   pre
                     code.
                       #{snippet.code}
@@ -146,12 +157,17 @@ mixin component(props = {})
                   +grid({modifiers: ["cols-2", "gap-l"]}).component__examples
                     each example in snippet.examples
                       +card({modifiers: ["filled-stripe", "form-round-m", "space-m"]}).component__example
-                        +#{component.mixin}(example.props)
-                          if example.block
-                            +#{example.block.mixin}(example.block.props)
+                        if example.title
+                          +title(example.title)
+                        .component__view
+                          +#{component.mixin}(example.props)
+                            if example.block
+                              +#{example.block.mixin}(example.block.props)
+                        if example.note
+                          +text(Object.assign(_params.modifiers.example.note, example.note)).component__text
                         +details({
                           summary: "Показать код"
-                        })
+                        }).component__details
                           pre
                             code.
                               #{example.code}

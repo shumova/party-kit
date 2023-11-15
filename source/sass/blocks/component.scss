@@ -61,15 +61,20 @@
   }
 
   &__view {
-    margin-top: $space-xs;
+    margin-top: $space-s;
 
     &:first-child {
       margin-top: 0;
     }
   }
 
+  &__details {
+    margin-top: $space-s;
+  }
+
+
   &__code {
-    margin-top: $space-2xl;
+    margin-top: $space-xl;
   }
 
   h2 {
