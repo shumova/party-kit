@@ -1242,12 +1242,31 @@ block variables
       modifiers: ["transform-capitalize"],
       text: "Button"
     })`
+            },
+            {
+              props: {
+                modifiers: ["transform-lowercase"],
+                text: "Button"
+              },
+              code:
+    `+button({
+      modifiers: ["transform-lowercase"],
+      text: "Button"
+    })`
             }
           ],
           code:
-    `&--color {
-      &-base-essential {
-        --button-color: #{$color-base-essential};
+    `&--transform {
+      &-uppercase {
+        --text-transform: uppercase;
+      }
+
+      &-capitalize {
+        --text-transform: capitalize;
+      }
+
+      &-lowercase {
+        --text-transform: lowercase;
       }
     }`
         },
