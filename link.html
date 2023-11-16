@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="theme-default" lang="ru">
   <head>
-    <title>card</title>
+    <title>link</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -37,15 +37,15 @@
                     </div>
                   </li>
                   <li class="nav-list__item">
-                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-open">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
                       <a class="button__control" href="cards.html"><span class="button__text">Cards</span>
                       </a>
                     </div>
                     <ul class="nav-list nav-list--sublist">
                       <li class="nav-list__item">
-                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-active">
-                          <span class="button__control" href="card.html"><span class="button__text">Card</span>
-                          </span>
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="card.html"><span class="button__text">Card</span>
+                          </a>
                         </div>
                       </li>
                       <li class="nav-list__item">
@@ -89,15 +89,15 @@
                     </ul>
                   </li>
                   <li class="nav-list__item">
-                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-open">
                       <a class="button__control" href="links.html"><span class="button__text">Links</span>
                       </a>
                     </div>
                     <ul class="nav-list nav-list--sublist">
                       <li class="nav-list__item">
-                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
-                          <a class="button__control" href="link.html"><span class="button__text">Link</span>
-                          </a>
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-active">
+                          <span class="button__control" href="link.html"><span class="button__text">Link</span>
+                          </span>
                         </div>
                       </li>
                     </ul>
@@ -109,10 +109,10 @@
               <div class="component">
                 <div class="component__header">
                   <div class="component__titles">
-                    <h1 class="title title--size-3xl component__name">Card</h1>
-                    <span class="title title--size-2xl component__name--local">Карточка</span>
+                    <h1 class="title title--size-3xl component__name">Link</h1>
+                    <span class="title title--size-2xl component__name--local">Ссылка</span>
                   </div>
-                  <a class="icon-button icon-button--form-round icon-button--elevated-shadow-1 component__icon-btn" href="https://github.com/shumova/party-kit/tree/master/source/components/cards/card" aria-label="Open Card component in git">
+                  <a class="icon-button icon-button--form-round icon-button--elevated-shadow-1 component__icon-btn" href="https://github.com/shumova/party-kit/tree/master/source/components/links/link" aria-label="Open Link component in git">
                     <svg width="32" height="32" aria-hidden="true">
                       <use xlink:href="img/sprite.svg#git"></use>
                     </svg>
@@ -121,7 +121,105 @@
                 <div class="component__description">
                   <h2 class="title title--size-2xl">Использование</h2>
                   <div class="text component__text">
-                    <p>Можно использовать для любых целей: как фоновую подложку, основу для карточки товара/услуг, для размещения таблиц/изображений и&nbsp;т.д.</p>
+                    <p>Заблокированные и&nbsp;находящиеся в активном состоянии интерактивные элементы не&nbsp;должны попадать в&nbsp;фокус при навигации с&nbsp;клавиатуры. Для этого ссылкам с&nbsp;тегом &lt;a&gt; добавляется атрибут tab-index=&quot;-1&quot;, с тегом &lt;button&gt; -- атрибут disable. Если не&nbsp;нужно поддерживать Safari&nbsp;15, вместо tab-index=&quot;-1&quot; можно использовать атрибут inert</p>
+                    <p>Компоненту задаются стили по&nbsp;умолчанию и затем по необходимости переопределяются</p>
+                    <p>Не стоит использовать свойство opacity без крайней необходимости, т.к. это может исказить визуал (при использовании кнопки поверх цветных элементов) и  ухудшить читаемость при смене цветовой темы. Вместо opacity по возможности лучше использовать альфа-канал</p>
+                  </div>
+                </div>
+                <div class="component__calls">
+                  <h2 class="title title--size-2xl">Примеры</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <div class="grid grid--cols-2 grid--gap-l component__examples">
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Заблокированная ссылка</h3>
+                        <div class="text component__text">
+                          <p>Добавляет класс .is-disabled и атрибут tabindex="-1" или disabled</p>
+                        </div>
+                        <div class="component__view">
+                          <button class="link is-disabled" type="button" disabled="true"><span class="link__text">Link</span>
+                          </button>
+                        </div>
+                        <details class="details component__details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+link({
+    isDisabled: true,
+    text: &quot;Link&quot;
+  })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Ссылка в&nbsp;активном состоянии</h3>
+                        <div class="text component__text">
+                          <p>Добавляет класс .is-active и атрибут tabindex="-1" или disabled</p>
+                        </div>
+                        <div class="component__view">
+                          <button class="link is-active" type="button" disabled="true"><span class="link__text">Link</span>
+                          </button>
+                        </div>
+                        <details class="details component__details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+link({
+    isActive: true,
+    text: &quot;Link&quot;
+  })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Ссылка с&nbsp;иконкой справа</h3>
+                        <div class="component__view">
+                          <button class="link" type="button"><span class="link__text">Link</span>
+                            <svg width="10" height="16" aria-hidden="true">
+                              <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                            </svg>
+                          </button>
+                        </div>
+                        <details class="details component__details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+link({
+    text: &quot;Link&quot;,
+    icon: {
+      name: 'icon-arrow',
+      width: 10,
+      height: 16,
+    },
+  })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Ссылка с&nbsp;иконкой слева</h3>
+                        <div class="component__view">
+                          <button class="link" type="button">
+                            <svg width="10" height="16" aria-hidden="true">
+                              <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                            </svg><span class="link__text">Link</span>
+                          </button>
+                        </div>
+                        <details class="details component__details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+link({
+    text: &quot;Link&quot;,
+    icon: {
+      name: 'icon-arrow',
+      width: 10,
+      height: 16,
+      isLeft: true,
+    },
+  })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="component__base">
@@ -130,31 +228,42 @@
                     <details class="details" data-details="details">
                       <summary data-details="summary">Показать шаблон</summary>
                       <div class="details__content" data-details="content">
-                        <pre><code>mixin card(props = {})
--
-  const
-        tag = props.tag || &quot;div&quot;,
-        modifiers = props.modifiers ? props.modifiers.map((mod) =&gt; &quot;card--&quot; + mod) : [];
+                        <pre><code>mixin link(props = {})
+  -
+    const
+          tag = props.tag ? props.tag : props.href ? &quot;a&quot; : &quot;button&quot;,
+          href = props.href,
+          text = props.text || &quot;&quot;,
+          type = props.type || tag === &quot;button&quot; &amp;&amp; &quot;button&quot;,
+          target = props.isExternal &amp;&amp; &quot;_blank&quot;,
+          rel = props.isExternal &amp;&amp; &quot;nofollow noopener noreferrer&quot;,
+          icon = props.icon,
+          {name, width, height, isLeft} = icon || {},
+          isActive = props.isActive,
+          activeClass = isActive &amp;&amp; &quot;is-active&quot;,
+          isDisabled = props.isDisabled,
+          disabledClass = isDisabled &amp;&amp; &quot;is-disabled&quot;,
+          disabledAttr = (isDisabled || isActive) &amp;&amp; tag === &quot;button&quot; &amp;&amp; &quot;true&quot;,
+          tabindexAttr = props.tabindex || ((isDisabled || isActive) &amp;&amp; tag === &quot;a&quot; &amp;&amp; &quot;-1&quot;),
+          modifiers = props.modifiers ? props.modifiers.map((mod) =&gt; &quot;link--&quot; + mod) : [];
 
-#{tag}(class=[&quot;card&quot;, ...modifiers])&amp;attributes(attributes)
-  block
+  #{tag}(class=[&quot;link&quot;, disabledClass, activeClass, ...modifiers], href=href, target=target, rel=rel, type=type, disabled=disabledAttr, tabindex=tabindexAttr)&amp;attributes(attributes)
+
+    if (icon &amp;&amp; isLeft)
+      +icon(name, width, height)
+
+    span.link__text !{text}
+
+    if (icon &amp;&amp; !isLeft)
+      +icon(name, width, height)
 </code></pre>
                       </div>
                     </details>
                     <details class="details" data-details="details">
                       <summary data-details="summary">Показать стили</summary>
                       <div class="details__content" data-details="content">
-                        <pre><code>.card {
-  --vertical-space: 0;
-  --horizontal-space: 0;
-  --card-border-width: initial;
-  --card-border-style: initial;
-  --card-border-color: initial;
-  --card-border-radius: 0;
+                        <pre><code>.link {
 
-  padding: var(--vertical-space) var(--horizontal-space);
-  border: var(--card-border-width) var(--card-border-style) var(--card-border-color);
-  border-radius: var(--card-border-radius);
 }
 </code></pre>
                       </div>
@@ -167,932 +276,718 @@
                     <div class="text text--size-l component__text">
                       <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используй жёстко закодированные значения</p>
                     </div>
-                    <pre><code>.card {
+                    <pre><code>.link {
   ...
 </code></pre>
                     <div class="component__inner-code">
                       <details class="details" data-details="details">
-                        <summary data-details="summary">Внутренние отступы (общее значение для горизонтальных и вертикальных)</summary>
-                        <div class="details__content" data-details="content">
-                          <div class="grid grid--cols-2 grid--gap-l component__examples">
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--space-xs card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;space-xs&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--space-s card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;space-s&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--space-m card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;space-m&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--space-l card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;space-l&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--space-xl card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;space-xl&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--space-2xl card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;space-2xl&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--space-3xl card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;space-3xl&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                          </div>
-                          <div class="component__code">
-                            <pre><code>&amp;--space {
-  &amp;-xs {
-    --vertical-space: #{$space-xs};
-    --horizontal-space: #{$space-xs};
-  }
-
-  &amp;-s {
-    --vertical-space: #{$space-s};
-    --horizontal-space: #{$space-s};
-  }
-
-  &amp;-m {
-    --vertical-space: #{$space-m};
-    --horizontal-space: #{$space-m};
-  }
-
-  &amp;-l {
-    --vertical-space: #{$space-l};
-    --horizontal-space: #{$space-l};
-  }
-
-  &amp;-xl {
-    --vertical-space: #{$space-xl};
-    --horizontal-space: #{$space-xl};
-  }
-
-  &amp;-2xl {
-    --vertical-space: #{$space-2xl};
-    --horizontal-space: #{$space-2xl};
-  }
-
-  &amp;-3xl {
-    --vertical-space: #{$space-3xl};
-    --horizontal-space: #{$space-3xl};
-  }
-}
-</code></pre>
-                          </div>
-                        </div>
-                      </details>
-                      <details class="details" data-details="details">
-                        <summary data-details="summary">Внутренние вертикальные отступы</summary>
-                        <div class="details__content" data-details="content">
-                          <div class="grid grid--cols-2 grid--gap-l component__examples">
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--vertical-space-xs card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;vertical-space-xs&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--vertical-space-s card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;vertical-space-s&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--vertical-space-m card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;vertical-space-m&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--vertical-space-l card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;vertical-space-l&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--vertical-space-xl card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;vertical-space-xl&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--vertical-space-2xl card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;vertical-space-2xl&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--vertical-space-3xl card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;vertical-space-3xl&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                          </div>
-                          <div class="component__code">
-                            <pre><code>&amp;--vertical-space {
-  &amp;-2xs {
-    --vertical-space: #{$space-xs};
-  }
-
-  &amp;-xs {
-    --vertical-space: #{$space-s};
-  }
-
-  &amp;-m {
-    --vertical-space: #{$space-m};
-  }
-
-  &amp;-l {
-    --vertical-space: #{$space-l};
-  }
-
-  &amp;-xl {
-    --vertical-space: #{$space-xl};
-  }
-
-  &amp;-2xl {
-    --vertical-space: #{$space-2xl};
-  }
-
-  &amp;-3xl {
-    --vertical-space: #{$space-3xl};
-  }
-}
-</code></pre>
-                          </div>
-                        </div>
-                      </details>
-                      <details class="details" data-details="details">
-                        <summary data-details="summary">Внутренние горизонтальные отступы</summary>
-                        <div class="details__content" data-details="content">
-                          <div class="grid grid--cols-2 grid--gap-l component__examples">
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--horizontal-space-xs card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;horizontal-space-xs&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--horizontal-space-s card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;horizontal-space-s&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--horizontal-space-m card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;horizontal-space-m&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--horizontal-space-l card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;horizontal-space-l&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--horizontal-space-xl card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;horizontal-space-xl&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--horizontal-space-2xl card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;horizontal-space-2xl&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--horizontal-space-3xl card--filled">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;horizontal-space-3xl&quot;, &quot;filled&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                          </div>
-                          <div class="component__code">
-                            <pre><code>&amp;--space {
-  &amp;-xs {
-    --horizontal-space: #{$horizontal-space-xs};
-  }
-
-  &amp;-s {
-    --horizontal-space: #{$horizontal-space-s};
-  }
-
-  &amp;-m {
-    --horizontal-space: #{$horizontal-space-m};
-  }
-
-  &amp;-l {
-    --horizontal-space: #{$horizontal-space-l};
-  }
-
-  &amp;-xl {
-    --horizontal-space: #{$horizontal-space-xl};
-  }
-
-  &amp;-2xl {
-    --horizontal-space: #{$horizontal-space-2xl};
-  }
-
-  &amp;-3xl {
-    --horizontal-space: #{$horizontal-space-3xl};
-  }
-}
-</code></pre>
-                          </div>
-                        </div>
-                      </details>
-                      <details class="details" data-details="details">
-                        <summary data-details="summary">Форма (радиус закругления углов)</summary>
-                        <div class="details__content" data-details="content">
-                          <div class="grid grid--cols-2 grid--gap-l component__examples">
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--form-round card--filled card--space-l">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;form-round&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--form-round-xs card--filled card--space-l">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;form-round-s&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--form-round-m card--filled card--space-l">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;form-round-m&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--form-round-l card--filled card--space-l">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;form-round-l&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--form-round-xl card--filled card--space-l">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;form-round-xl&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--form-round-2xl card--filled card--space-l">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;form-round-2xl&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--form-round-3xl card--filled card--space-l">
-                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;form-round-3xl&quot;, &quot;filled&quot;, &quot;space-l&quot;]})
-  +text({
-    content: [
-      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
-    ]
-  })
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                          </div>
-                          <div class="component__code">
-                            <pre><code>&amp;--form {
-  &amp;-round {
-    --card-border-radius: 50%;
-
-    &amp;-xs {
-      --card-border-radius: #{$space-xs};
-    }
-
-    &amp;-s {
-      --card-border-radius: #{$space-s};
-    }
-
-    &amp;-m {
-      --card-border-radius: #{$space-m};
-    }
-
-    &amp;-l {
-      --card-border-radius: #{$space-l};
-    }
-
-    &amp;-xl {
-      --card-border-radius: #{$space-xl};
-    }
-
-    &amp;-2xl {
-      --card-border-radius: #{$space-2xl};
-    }
-
-    &amp;-3xl {
-      --card-border-radius: #{$space-3xl};
-    }
-  }
-}
-</code></pre>
-                          </div>
-                        </div>
-                      </details>
-                      <details class="details" data-details="details">
-                        <summary data-details="summary">Elevation (тени, фон, непрозрачность и другие свойства визуализации виртуальной Z-координаты карточки относительно “базового” слоя экрана)</summary>
-                        <div class="details__content" data-details="content">
-                          <div class="grid grid--cols-2 grid--gap-l component__examples">
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--elevated-shadow-1 card--space-2xl">
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;elevated-shadow-1&quot;, &quot;space-2xl&quot;]}
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--elevated-shadow-2 card--space-2xl">
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;elevated-shadow-2&quot;, &quot;space-2xl&quot;]})
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--elevated-shadow-3 card--space-2xl">
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;elevated-shadow-3&quot;, &quot;space-2xl&quot;]})
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--elevated-shadow-4 card--space-2xl">
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;elevated-shadow-4&quot;, &quot;space-2xl&quot;]})
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
-                              <div class="component__view">
-                                <div class="card card--elevated-shadow-5 card--space-2xl">
-                                </div>
-                              </div>
-                              <details class="details component__details" data-details="details">
-                                <summary data-details="summary">Показать код</summary>
-                                <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;elevated-shadow-5&quot;, &quot;space-2xl&quot;]})
-</code></pre>
-                                </div>
-                              </details>
-                            </div>
-                          </div>
-                          <div class="component__code">
-                            <pre><code>&amp;--elevated {
-  &amp;-shadow {
-    &amp;-1 {
-      box-shadow: $shadow-layer-1;
-    }
-
-    &amp;-2 {
-      box-shadow: $shadow-layer-2;
-    }
-
-    &amp;-3 {
-      box-shadow: $shadow-layer-3;
-    }
-
-    &amp;-4 {
-      box-shadow: $shadow-layer-4;
-    }
-
-    &amp;-5 {
-      box-shadow: $shadow-layer-5;
-    }
-  }
-}
-</code></pre>
-                          </div>
-                        </div>
-                      </details>
-                      <details class="details" data-details="details">
-                        <summary data-details="summary">Фоновый цвет</summary>
+                        <summary data-details="summary">Комбинирование модификаторов</summary>
                         <div class="details__content" data-details="content">
                           <div class="text component__text">
-                            <p>Если в проекте не предусмотрена семантическая цветовая палитра, для нейминга цветов используйте https://www.htmlcsscolor.com/hex/334482</p>
-                            <p>Если не предусмотрена смена цветового режима, используйте sass-переменные</p>
+                            <p>Если так удобней для стилизации адаптива и/или при небольшой вариативности ссылки модификаторы геометрии текста (размер, насыщенность, межстрочный и&nbsp;межбуквенный интервалы) комбинируются. Декоративные модификаторы (цвет, подчёркивание) лучше оставлять отдельно и&nbsp;не&nbsp;комбинировать с&nbsp;другими модификаторами кроме случаев, когда в&nbsp;макете явно выделены типы ссылок</p>
                           </div>
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
                               <div class="component__view">
-                                <div class="card card--filled card--space-2xl card--bordered">
-                                </div>
+                                <button class="link link--size-s" type="button"><span class="link__text">Link</span>
+                                </button>
                               </div>
                               <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;filled&quot;, &quot;space-2xl&quot;, &quot;bordered&quot;]}
+                                  <pre><code>+link({
+  modifiers: [&quot;size-s&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--size {
+  &amp;-small {
+    font-weight: $font-weight-text-bold;
+    font-size: $size-text-l;
+    line-height: $line-height-text-m;
+
+    @include vp-767 {
+      font-size: $size-text-m;
+      line-height: $line-height-text-s;
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Стиль шрифта</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--style-italic" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;style-italic&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--style {
+  &amp;-italic {
+    font-style: italic;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Размер шрифта</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--font-size-s" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;font-size-s&quot;],
+  text: &quot;Link&quot;
+})
 </code></pre>
                                 </div>
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
                               <div class="component__view">
-                                <div class="card card--filled-secondary card--space-2xl">
-                                </div>
+                                <button class="link link--font-size-m" type="button"><span class="link__text">Link</span>
+                                </button>
                               </div>
                               <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;filled-secondary&quot;, &quot;space-2xl&quot;]})
+                                  <pre><code>+link({
+  modifiers: [&quot;font-size-m&quot;],
+  text: &quot;Link&quot;
+})
 </code></pre>
                                 </div>
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
                               <div class="component__view">
-                                <div class="card card--filled-brand card--space-2xl">
-                                </div>
+                                <button class="link link--font-size-l" type="button"><span class="link__text">Link</span>
+                                </button>
                               </div>
                               <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;filled-brand&quot;, &quot;space-2xl&quot;]})
+                                  <pre><code>+link({
+  modifiers: [&quot;font-size-l&quot;],
+  text: &quot;Link&quot;
+})
 </code></pre>
                                 </div>
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
                               <div class="component__view">
-                                <div class="card card--filled-stripe card--space-2xl">
-                                </div>
+                                <button class="link link--font-size-xl" type="button"><span class="link__text">Link</span>
+                                </button>
                               </div>
                               <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;filled-stripe&quot;, &quot;space-2xl&quot;]})
+                                  <pre><code>+link({
+  modifiers: [&quot;font-size-xl&quot;],
+  text: &quot;Link&quot;
+})
 </code></pre>
                                 </div>
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
                               <div class="component__view">
-                                <div class="card card--filled-tone card--space-2xl">
-                                </div>
+                                <button class="link link--font-size-2xl" type="button"><span class="link__text">Link</span>
+                                </button>
                               </div>
                               <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;filled-tone&quot;, &quot;space-2xl&quot;]})
+                                  <pre><code>+link({
+  modifiers: [&quot;font-size-2xl&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--font-size {
+  &amp;-s {
+    font-size: $size-text-s;
+  }
+
+  &amp;-m {
+    font-size: $size-text-m;
+
+    @include vp-767 {
+      font-size: $size-text-s;
+    }
+  }
+
+  &amp;-l {
+    font-size: $size-text-l;
+
+    @include vp-767 {
+      font-size: $size-text-m;
+    }
+  }
+
+  &amp;-xl {
+    font-size: $size-text-xl;
+
+    @include vp-767 {
+      font-size: $size-text-l;
+    }
+  }
+
+  &amp;-2xl {
+    font-size: $size-text-2xl;
+
+    @include vp-767 {
+      font-size: $size-text-xl;
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Насыщенность шрифта</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--weight-thin" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;weight-thin&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--weight-light" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;weight-light&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--weight-regular" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;weight-regular&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--weight-medium" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;weight-medium&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--weight-semibold" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;weight-semibold&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--weight-bold" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;weight-bold&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--weight-extrabold" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;weight-extrabold&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--weight-black" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;weight-black&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--weight {
+  &amp;-thin {
+    font-weight: $font-weight-text-thin;
+  }
+
+  &amp;-light {
+    font-weight: $font-weight-text-light;
+  }
+
+  &amp;-regular {
+    font-weight: $font-weight-text-regular;
+  }
+
+  &amp;-medium {
+    font-weight: $font-weight-text-medium;
+  }
+
+  &amp;-semibold {
+    font-weight: $font-weight-text-semibold;
+  }
+
+  &amp;-bold {
+    font-weight: $font-weight-text-bold;
+  }
+
+  &amp;-extrabold {
+    font-weight: $font-weight-text-extrabold;
+  }
+
+  &amp;-black {
+    font-weight: $font-weight-text-black;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Межстрочный интервал</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--line-heigth-s link--text-outline" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;line-heigth-s&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--line-heigth-m link--text-outline" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;line-heigth-m&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--line-heigth-l link--text-outline" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;line-heigth-l&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--line-heigth {
+  &amp;-s {
+    line-height: $line-height-text-s;
+  }
+
+  &amp;-m {
+    line-height: $line-height-text-m;
+  }
+
+  &amp;-l {
+    line-height: $line-height-text-l;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Межбуквенный интервал</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--spacing-xs" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;spacing-xs&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--spacing-s" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;spacing-s&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--spacing-m" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;spacing-m&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--spacing-l" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;spacing-l&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--spacing {
+  &amp;-xs {
+    letter-spacing: 0.06em;
+  }
+
+  &amp;-s {
+    letter-spacing: 0.1em;
+  }
+
+  &amp;-m {
+    letter-spacing: 0.14em;
+  }
+
+  &amp;-l {
+    letter-spacing: 0.2em;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Цвет текста</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--color-primary" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;color-primary&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--color-secondary" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;color-secondary&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--color-ghost" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;color-ghost&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--color-brand" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;color-brand&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--color-system" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;color-system&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--color-normal" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;color-normal&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--color-success" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;color-success&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--color-caution" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;color-caution&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--color-warning" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;color-warning&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--color-alert" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;color-alert&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--color-critical" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;color-alert&quot;],
+  text: &quot;Link&quot;
+})
 </code></pre>
                                 </div>
                               </details>
@@ -1100,26 +995,26 @@
                           </div>
                           <div class="component__code">
                             <pre><code>&amp;--filled {
-  background-color: var(--color-bg-default);
+  --background-color: var(--color-bg-default);
 
   &amp;-secondary {
-    background-color: var(--color-bg-secondary);
+    --background-color: var(--color-bg-secondary);
   }
 
   &amp;-brand {
-    background-color: var(--color-bg-brand);
+    --background-color: var(--color-bg-brand);
   }
 
   &amp;-stripe {
-    background-color: var(--color-bg-stripe);
+    --background-color: var(--color-bg-stripe);
   }
 
   &amp;-tone {
-    background-color: var(--color-bg-tone);
+    --background-color: var(--color-bg-tone);
   }
 
   &amp;-soft {
-    background-color: var(--color-bg-soft);
+    --background-color: var(--color-bg-soft);
   }
 }
 </code></pre>
@@ -1127,85 +1022,296 @@
                         </div>
                       </details>
                       <details class="details" data-details="details">
-                        <summary data-details="summary">Граница</summary>
+                        <summary data-details="summary">Трансформация текста</summary>
                         <div class="details__content" data-details="content">
                           <div class="grid grid--cols-2 grid--gap-l component__examples">
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
                               <div class="component__view">
-                                <div class="card card--border-default card--space-2xl">
-                                </div>
+                                <button class="link link--transform-uppercase" type="button"><span class="link__text">Link</span>
+                                </button>
                               </div>
                               <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;border-default&quot;, &quot;space-2xl&quot;]
+                                  <pre><code>+link({
+  modifiers: [&quot;transform-uppercase&quot;],
+  text: &quot;Link&quot;
+})
 </code></pre>
                                 </div>
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
                               <div class="component__view">
-                                <div class="card card--border-style-solid card--border-width-s card--border-color-secondary card--space-2xl">
-                                </div>
+                                <button class="link link--transform-capitalize" type="button"><span class="link__text">Link</span>
+                                </button>
                               </div>
                               <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;border-style-solid&quot;, &quot;border-width-s&quot;, &quot;border-color-secondary&quot;, &quot;space-2xl&quot;]})
+                                  <pre><code>+link({
+  modifiers: [&quot;transform-capitalize&quot;],
+  text: &quot;Link&quot;
+})
 </code></pre>
                                 </div>
                               </details>
                             </div>
                             <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
                               <div class="component__view">
-                                <div class="card card--border-style-dotted card--border-width-m card--border-color-brand card--space-2xl">
-                                </div>
+                                <button class="link link--transform-lowercase" type="button"><span class="link__text">Link</span>
+                                </button>
                               </div>
                               <details class="details component__details" data-details="details">
                                 <summary data-details="summary">Показать код</summary>
                                 <div class="details__content" data-details="content">
-                                  <pre><code>+card({modifiers: [&quot;border-style-dotted&quot;, &quot;border-width-m&quot;, &quot;border-color-brand&quot;, &quot;space-2xl&quot;]})
+                                  <pre><code>+link({
+  modifiers: [&quot;transform-lowercase&quot;],
+  text: &quot;Link&quot;
+})
 </code></pre>
                                 </div>
                               </details>
                             </div>
                           </div>
                           <div class="component__code">
-                            <pre><code>&amp;--border {
-  &amp;-default {
-    --card-border-width: 1px;
-    --card-border-style: solid;
-    --card-border-color: var(--color-bg-border);
+                            <pre><code>&amp;--transform {
+  &amp;-uppercase {
+    text-transform: uppercase;
   }
 
-  &amp;-style {
-    &amp;-solid {
-      --card-border-style: solid;
-    }
-
-    &amp;-dotted {
-      --card-border-style: dotted;
-    }
+  &amp;-capitalize {
+    text-transform: capitalize;
   }
 
-  &amp;-width {
+  &amp;-lowercase {
+    text-transform: lowercase;
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Подчёркивание</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Обычное</span>
+                              <div class="component__view">
+                                <button class="link link--underlined" type="button"><span class="link__text">Link, skipped</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;underlined&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Непрерывное</span>
+                              <div class="component__view">
+                                <button class="link link--underlined link--underlined-no-skip" type="button"><span class="link__text">Link, no skip</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;underlined&quot;, &quot;underlined-no-skip&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Отступ линии от&nbsp;текста s</span>
+                              <div class="component__view">
+                                <button class="link link--underlined link--underlined-offset-s" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;underlined&quot;, &quot;underlined-offset-s&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Отступ линии от&nbsp;текста m</span>
+                              <div class="component__view">
+                                <button class="link link--underlined link--underlined-offset-m" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;underlined&quot;, &quot;underlined-offset-m&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Отступ линии от&nbsp;текста l</span>
+                              <div class="component__view">
+                                <button class="link link--underlined link--underlined-offset-l" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;underlined&quot;, &quot;underlined-offset-l&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Толщина линии s</span>
+                              <div class="component__view">
+                                <button class="link link--underlined link--thickness-s" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;underlined&quot;, &quot;thickness-s&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Толщина линии m</span>
+                              <div class="component__view">
+                                <button class="link link--underlined link--thickness-m" type="button"><span class="link__text">Link</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;underlined&quot;, &quot;thickness-m&quot;],
+  text: &quot;Link&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--underlined {
+  text-decoration: underline;
+
+
+  // Непрерывное
+
+  &amp;-no-skip {
+    text-decoration-skip-ink: none;
+    text-decoration-skip: none;
+  }
+
+
+  // Отступ линии от текста
+
+  &amp;-offset {
     &amp;-s {
-      --card-border-width: 2px;
+      text-underline-offset: 0.1em;
     }
 
     &amp;-m {
-      --card-border-width: 3px;
+      text-underline-offset: 0.2em;
+    }
+
+    &amp;-l {
+      text-underline-offset: 0.3em;
     }
   }
 
-  &amp;-color {
-    &amp;-brand {
-      --card-border-color: var(--color-bg-brand);
+
+  // Толщина линии
+
+  &amp;-thickness {
+    &amp;-s {
+      text-decoration-thickness: 0.01em;
     }
 
-    &amp;-secondary {
-      --card-border-color: var(--color-bg-secondary);
+    &amp;-m {
+      text-decoration-thickness: 0.1em;
     }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Видимость текста</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--truncate" type="button"><span class="link__text">Link with a very-very long text on it that has to be truncated to avoid getting more rows than it should</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;truncate&quot;],
+  text: &quot;Link with a very-very long text on it that has to be truncated to avoid getting more rows than it should&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <button class="link link--truncate link--truncate-2-lines" type="button"><span class="link__text">Link with a very-very long text on it that has to be truncated to avoid getting more rows than it should</span>
+                                </button>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+link({
+  modifiers: [&quot;truncate&quot;, &quot;truncate-2-lines&quot;],
+  text: &quot;Link with a very-very long text on it that has to be truncated to avoid getting more rows than it should&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--truncate {
+  .link__text {
+    --line-clamp: 1;
+
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &amp;-2-lines {
+    --line-clamp: 2;
   }
 }
 </code></pre>
