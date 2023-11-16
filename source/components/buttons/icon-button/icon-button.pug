@@ -2,13 +2,19 @@ mixin icon-button(props = {})
   -
     const
           tag = props.href ? "a" : "button",
-          modifiers = props.modifiers ? props.modifiers.map((mod) => "icon-button--" + mod) : [],
           href = props.href || false,
           type = props.type || tag === "button" ? "button" : false,
           target = props.isExternal ? "_blank" : false,
           ariaLabel = props.ariaLabel || false,
           rel = props.isExternal ? "nofollow noopener noreferrer" : false,
-          {name, width, height} = props.icon || false;
+          {name, width, height} = props.icon || false,
+          isActive = props.isActive,
+          activeClass = isActive && "is-active",
+          isDisabled = props.isDisabled,
+          disabledClass = isDisabled && "is-disabled",
+          disabledAttr = (isDisabled || isActive) && tag === "button" && "true",
+          tabindexAttr = props.tabindex || ((isDisabled || isActive) && tag === "a" && "-1"),
+          modifiers = props.modifiers ? props.modifiers.map((mod) => "icon-button--" + mod) : [];
 
-  #{tag}(class=['icon-button', ...modifiers], href=href, target=target, rel=rel, type=type, aria-label=ariaLabel)&attributes(attributes)
+  #{tag}(class=['icon-button', disabledClass, activeClass, ...modifiers], href=href, target=target, rel=rel, type=type, aria-label=ariaLabel, disabled=disabledAttr, tabindex=tabindexAttr)&attributes(attributes)
     +icon(name, width, height)

@@ -19,6 +19,7 @@ $color-transparent: transparent;
 
 .theme-default {
   /* Цвета текста */
+  --color-typo-essential: #{$color-base-essential};
   --color-typo-primary: #{$color-base-base}; /* Цвет основного текста */
   --color-typo-secondary: #{color.change($color-base-base, $alpha: 0.6)}; /* Цвет второстепенного текста */
   --color-typo-ghost: #{color.change($color-base-base, $alpha: 0.3)}; /* Цвет дополнительного текста */
@@ -61,14 +62,21 @@ $color-transparent: transparent;
   // /* Цвета контролов */
 
   // Default
-  --color-control-bg-default: #{$color-base-essential};
+
   --color-control-typo-default: #{color.change($color-base-base, $alpha: 0.9)};
-  --color-control-typo-placeholder: #{color.change($color-base-base, $alpha: 0.35)};
+  --color-control-typo-default-hover: #{color.change($color-base-base, $alpha: 0.75)};
+  --color-control-typo-default-active: #{color.change($color-base-base, $alpha: 0.75)};
+
+  --color-control-bg-default: #{$color-base-essential};
+  --color-control-bg-default-hover: #{color.change($color-base-base, $alpha: 0.3)};
+  --color-control-bg-default-active: #{color.change($color-base-base, $alpha: 0.5)};
+
   --color-control-border-default: #{$color-transparent};
   --color-control-border-default-hover: #{$color-transparent};
   --color-control-border-active: #{color.adjust($color-base-path, $lightness: +15%)};
-  --color-control-bg-focus: #{color.change($color-base-path, $alpha: 0.3)};
-  --color-control-bg-active: #{color.change($color-base-path, $alpha: 0.5)};
+
+  --color-control-typo-placeholder: #{color.change($color-base-base, $alpha: 0.35)};
+
 
   // Primary
   --color-control-bg-primary: #{$color-base-path};
