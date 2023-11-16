@@ -1,0 +1,48 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "links",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "links.html"
+
+  -
+    const params = {
+      content: [
+        {
+          img: {
+            path: "content",
+            name: "placeholder",
+            format: "png",
+            altText: "test"
+          },
+          title: {
+            text: "Link"
+          },
+          subtitle: {
+            text: "Ссылка"
+          },
+          text: {
+            content: ["Разные формы, размеры, цвета"]
+          },
+          iconBtn: {
+            href: "https://github.com/shumova/party-kit/tree/master/source/components/link"
+          },
+          btn: {
+            href: "link.html"
+          }
+        }
+      ]
+    }
+
+block page
+  +components(params)
+
+block modals
