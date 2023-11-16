@@ -1,0 +1,489 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "icon-button",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "icon-button.html"
+
+  -
+    const params = {
+      component: {
+        mixin: "icon-button",
+        name: "Icon button",
+        localName: "Кнопка-иконка",
+        git: "https://github.com/shumova/party-kit/tree/master/source/components/buttons/icon-button"
+      },
+      description: [
+        "Не забывай добавлять кнопке-иконке aria-label",
+        "Заблокированные и&nbsp;находящиеся в активном состоянии интерактивные элементы не&nbsp;должны попадать в&nbsp;фокус при навигации с&nbsp;клавиатуры. Для этого кнопкам с&nbsp;тегом &lt;a&gt; добавляется атрибут tab-index=\&quot;-1\&quot;, с тегом &lt;button&gt; -- атрибут disable. Если не&nbsp;нужно поддерживать Safari&nbsp;15, вместо tab-index=\&quot;-1\&quot; можно использовать атрибут inert",
+        "Компоненту задаются стили по&nbsp;умолчанию и затем по необходимости переопределяются",
+        "Не стоит использовать свойство opacity без крайней необходимости, т.к. это может исказить визуал (при использовании кнопки поверх цветных элементов) и  ухудшить читаемость при смене цветовой темы. Вместо opacity по возможности лучше использовать альфа-канал",
+      ],
+      base: [
+    `mixin icon-button(props = {})
+      -
+        const
+              tag = props.href ? "a" : "button",
+              href = props.href || false,
+              type = props.type || tag === "button" ? "button" : false,
+              target = props.isExternal ? "_blank" : false,
+              ariaLabel = props.ariaLabel || false,
+              rel = props.isExternal ? "nofollow noopener noreferrer" : false,
+              {name, width, height} = props.icon || false,
+              isActive = props.isActive,
+              activeClass = isActive && "is-active",
+              isDisabled = props.isDisabled,
+              disabledClass = isDisabled && "is-disabled",
+              disabledAttr = (isDisabled || isActive) && tag === "button" && "true",
+              tabindexAttr = props.tabindex || ((isDisabled || isActive) && tag === "a" && "-1"),
+              modifiers = props.modifiers ? props.modifiers.map((mod) => "icon-button--" + mod) : [];
+
+      #{tag}(class=['icon-button', disabledClass, activeClass, ...modifiers], href=href, target=target, rel=rel, type=type, aria-label=ariaLabel, disabled=disabledAttr, tabindex=tabindexAttr)&attributes(attributes)
+        +icon(name, width, height)`,
+    `.icon-button {
+      // Базовые значения
+      --color: var(--color-control-typo-default);
+      --background-color: var(--color-control-bg-default);
+      --border-color: var(--color-control-border-default);
+      --box-shadow: none;
+
+      // Hover
+      --color-hover: var(--color-control-typo-default-hover);
+      --background-color-hover: var(--background-color);
+      --border-color-hover: var(--border-color);
+      --box-shadow-hover: var(--box-shadow);
+
+      // Active
+      --color-active: var(--color-control-typo-default-active);
+      --background-color-active: var(--background-color);
+      --border-color-active: var(--border-color);
+      --box-shadow-active: var(--box-shadow);
+
+      // Disabled
+      --color-disabled: var(--color);
+      --background-color-disabled: var(--background-color);
+      --border-color-disabled: var(--border-color);
+      --box-shadow-disabled: var(--box-shadow);
+
+      display: inline-flex;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      color: var(--color);
+      background-color: var(--background-color);
+      border: #{$control-border-width} solid var(--border-color);
+      border-radius: 50%;
+      box-shadow: var(--box-shadow);
+      cursor: pointer;
+      user-select: none;
+
+      transition:
+        color $trans-default,
+        background-color $trans-default,
+        border-color $trans-default,
+        box-shadow $trans-default,
+        transform $trans-default;
+
+      &.is-disabled {
+        color: var(--color-disabled);
+        background-color: var(--background-color-disabled);
+        border-color: var(--border-color-disabled);
+        pointer-events: none;
+        cursor: default;
+      }
+
+      &.is-active {
+        color: var(--color-active);
+        background-color: var(--background-color-active);
+        border-color: var(--border-color-active);
+        pointer-events: none;
+        cursor: default;
+      }
+
+      @include hover-focus {
+        color: var(--color-hover);
+        background-color: var(--background-color-hover);
+        border-color: var(--border-color-hover);
+        box-shadow: var(--box-shadow-hover);
+      }
+
+      @include active {
+        color: var(--color-active);
+        background-color: var(--background-color-active);
+        border-color: var(--border-color-active);
+        box-shadow: var(--box-shadow-active);
+      }
+
+      @include vp-767 {
+        width: 30px;
+        height: 30px;
+      }
+
+      svg {
+        flex-shrink: 0;
+        height: 100%;
+        width: auto;
+
+        transform: translateZ(0);
+      }
+    }`
+      ],
+      examples: {
+        snippets: [
+          {
+            title: {
+              text: "Блокировка кнопки"
+            },
+            note: {
+              content: [
+                "Добавляет класс .is-disabled и атрибут tabindex=\"-1\" или disabled",
+              ]
+            },
+            props: {
+              isDisabled: true,
+              href: "#",
+              ariaLabel: "Open component in git",
+              icon: {
+                name: "git",
+                width: 32,
+                height: 32,
+              }
+            },
+            code:
+      `+button({
+        isDisabled: true,
+        text: "Button"
+      })`
+          },
+          {
+            title: {
+              text: "Кнопка в&nbsp;активном состоянии"
+            },
+            note: {
+              content: [
+                "Добавляет класс .is-active и атрибут tabindex=\"-1\" или disabled"
+              ]
+            },
+            props: {
+              isActive: true,
+              href: "#",
+              ariaLabel: "Open component in git",
+              icon: {
+                name: "git",
+                width: 32,
+                height: 32,
+              }
+            },
+            code:
+      `+button({
+        isActive: true,
+        text: "Button"
+      })`
+          }
+        ]
+      },
+      modifiers: [
+        {
+          summary: "Размер",
+          examples: [
+            {
+              props: {
+                href: "#",
+                ariaLabel: "Open component in git",
+                icon: {
+                  name: "git",
+                  width: 32,
+                  height: 32,
+                }
+              },
+              title: {
+                text: "Базовый"
+              },
+              code:
+    `+icon-button({
+      href: "#",
+      ariaLabel: "Open component in git",
+      icon: {
+        name: "git",
+        width: 32,
+        height: 32,
+      }
+    })`
+            },
+            {
+              props: {
+                href: "#",
+                ariaLabel: "Open component in git",
+                icon: {
+                  name: "git",
+                  width: 32,
+                  height: 32,
+                },
+                modifiers: ["size-s"]
+              },
+              title: {
+                text: "S"
+              },
+              code:
+    `+icon-button({
+      href: "#",
+      ariaLabel: "Open component in git",
+      icon: {
+        name: "git",
+        width: 32,
+        height: 32,
+      },
+      modifiers: ["size-s"]
+    })`
+            },
+            {
+              props: {
+                href: "#",
+                ariaLabel: "Open component in git",
+                icon: {
+                  name: "git",
+                  width: 32,
+                  height: 32,
+                },
+                modifiers: ["size-m"]
+              },
+              title: {
+                text: "M"
+              },
+              code:
+    `+button({
+      href: "#",
+      ariaLabel: "Open component in git",
+      icon: {
+        name: "git",
+        width: 32,
+        height: 32,
+      },
+      modifiers: ["size-m"]
+    })`
+            }
+          ],
+          code:
+    `&--size {
+      &-s {
+        width: 30px;
+        height: 30px;
+
+        @include vp-767 {
+          width: 25px;
+          height: 25px;
+        }
+      }
+
+      &-m {
+        width: 50px;
+        height: 50px;
+
+        @include vp-767 {
+          width: 45px;
+          height: 45px;
+        }
+      }
+    }`
+        },
+        {
+          summary: "Форма (радиус закругления углов)",
+          examples: [
+            {
+              props: {
+                href: "#",
+                ariaLabel: "Open component in git",
+                icon: {
+                  name: "git",
+                  width: 32,
+                  height: 32,
+                },
+                modifiers: ["form-brick"]
+              },
+              code:
+    `+icon-button({
+      href: "#",
+      ariaLabel: "Open component in git",
+      icon: {
+        name: "git",
+        width: 32,
+        height: 32,
+      },
+      modifiers: ["form-brick"]
+    })`
+            },
+            {
+              props: {
+                href: "#",
+                ariaLabel: "Open component in git",
+                icon: {
+                  name: "git",
+                  width: 32,
+                  height: 32,
+                },
+                modifiers: ["form-round"]
+              },
+              code:
+    `+icon-button({
+      href: "#",
+      ariaLabel: "Open component in git",
+      icon: {
+        name: "git",
+        width: 32,
+        height: 32,
+      },
+      modifiers: ["form-round"]
+    })`
+            },
+            {
+              props: {
+                href: "#",
+                ariaLabel: "Open component in git",
+                icon: {
+                  name: "git",
+                  width: 32,
+                  height: 32,
+                },
+                modifiers: ["form-round-xs"]
+              },
+              code:
+    `+icon-button({
+      href: "#",
+      ariaLabel: "Open component in git",
+      icon: {
+        name: "git",
+        width: 32,
+        height: 32,
+      },
+      modifiers: ["form-round-xs"]
+    })`
+            },
+            {
+              props: {
+                href: "#",
+                ariaLabel: "Open component in git",
+                icon: {
+                  name: "git",
+                  width: 32,
+                  height: 32,
+                },
+                modifiers: ["form-round-s"]
+              },
+              code:
+    `+icon-button({
+      href: "#",
+      ariaLabel: "Open component in git",
+      icon: {
+        name: "git",
+        width: 32,
+        height: 32,
+      },
+      modifiers: ["form-round-s"]
+    })`
+            }
+          ],
+          code:
+    `&--form {
+      &-brick {
+        border-radius: 0;
+      }
+
+      &-round {
+        border-radius: 99rem;
+
+        &-xs {
+          border-radius: #{$space-xs};
+        }
+
+        &-s {
+          border-radius: #{$space-s};
+        }
+      }
+    }`
+        },
+        {
+          summary: "Elevation (тени, фон, непрозрачность и другие свойства визуализации виртуальной Z-координаты кнопки относительно слоя экрана)",
+          examples: [
+            {
+              props: {
+                href: "#",
+                ariaLabel: "Open component in git",
+                icon: {
+                  name: "git",
+                  width: 32,
+                  height: 32,
+                },
+                modifiers: ["elevated-shadow-1"]
+              },
+              code:
+    `+icon-button({
+        href: "#",
+        ariaLabel: "Open component in git",
+        icon: {
+          name: "git",
+          width: 32,
+          height: 32,
+        },
+        modifiers: ["elevated-shadow-1"]
+      })`
+            },
+            {
+              props: {
+                href: "#",
+                ariaLabel: "Open component in git",
+                icon: {
+                  name: "git",
+                  width: 32,
+                  height: 32,
+                },
+                modifiers: ["elevated-shadow-2"]
+              },
+              code:
+    `+icon-button({
+      href: "#",
+      ariaLabel: "Open component in git",
+      icon: {
+        name: "git",
+        width: 32,
+        height: 32,
+      },
+      modifiers: ["elevated-shadow-2"]
+    })`
+            }
+          ],
+          code:
+    `&--elevated {
+      &-shadow {
+        &-1 {
+          --box-shadow: #{$shadow-layer-1};
+
+          @include active {
+            --box-shadow: #{$shadow-layer-0};
+          }
+        }
+
+        &-2 {
+          --box-shadow: #{$shadow-layer-2};
+
+          @include active {
+            --box-shadow: #{$shadow-layer-1};
+          }
+        }
+      }
+    }`
+        },
+      ]
+    }
+
+block page
+  +component(params)
+
+block modals

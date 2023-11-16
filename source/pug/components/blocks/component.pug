@@ -90,7 +90,7 @@ mixin component(props = {})
       .component__titles
         +title(_params.header.title).component__name
         +title(_params.header.subtitle).component__name--local
-      +icon-btn(_params.header.iconBtn).component__icon-btn
+      +icon-button(_params.header.iconBtn).component__icon-btn
 
     .component__description
       +title(_params.description.title)
@@ -121,15 +121,16 @@ mixin component(props = {})
                     code.
                       #{snippet.code}
 
-    .component__base
-      +title(_params.base.title)
+    if base
+      .component__base
+        +title(_params.base.title)
 
-      +card(_params.card.code).component__card
-        each snippet, index in base
-          +details({summary: index === 0 ? "Показать шаблон" : "Показать стили"})
-            pre
-              code.
-                #{snippet}
+        +card(_params.card.code).component__card
+          each snippet, index in base
+            +details({summary: index === 0 ? "Показать шаблон" : "Показать стили"})
+              pre
+                code.
+                  #{snippet}
 
     if modifiers
       .component__modifiers
