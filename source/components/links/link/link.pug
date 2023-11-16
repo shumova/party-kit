@@ -9,9 +9,15 @@ mixin link(props = {})
           rel = props.isExternal && "nofollow noopener noreferrer",
           icon = props.icon,
           {name, width, height, isLeft} = icon || {},
+          isActive = props.isActive,
+          activeClass = isActive && "is-active",
+          isDisabled = props.isDisabled,
+          disabledClass = isDisabled && "is-disabled",
+          disabledAttr = (isDisabled || isActive) && tag === "button" && "true",
+          tabindexAttr = props.tabindex || ((isDisabled || isActive) && tag === "a" && "-1"),
           modifiers = props.modifiers ? props.modifiers.map((mod) => "link--" + mod) : [];
 
-  #{tag}(class=["link", ...modifiers], href=href, target=target, rel=rel, type=type)&attributes(attributes)
+  #{tag}(class=["link", disabledClass, activeClass, ...modifiers], href=href, target=target, rel=rel, type=type, disabled=disabledAttr, tabindex=tabindexAttr)&attributes(attributes)
 
     if (icon && isLeft)
       +icon(name, width, height)
