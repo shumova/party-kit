@@ -1,0 +1,947 @@
+extends ../components/base/layout
+
+block variables
+  -
+    const
+          title = "link",
+          wrapperMods = "",
+          hasHeader = false,
+          headerMods = "",
+          hasPageNav = true,
+          pageNavMods = "",
+          hasFooter = false,
+          footerMods = "",
+          currentUrl = "link.html"
+
+  -
+    const params = {
+      component: {
+        mixin: "link",
+        name: "Link",
+        localName: "Ссылка",
+        git: "https://github.com/shumova/party-kit/tree/master/source/components/links/link"
+      },
+      description: [
+        "Заблокированные и&nbsp;находящиеся в активном состоянии интерактивные элементы не&nbsp;должны попадать в&nbsp;фокус при навигации с&nbsp;клавиатуры. Для этого ссылкам с&nbsp;тегом &lt;a&gt; добавляется атрибут tab-index=\&quot;-1\&quot;, с тегом &lt;button&gt; -- атрибут disable. Если не&nbsp;нужно поддерживать Safari&nbsp;15, вместо tab-index=\&quot;-1\&quot; можно использовать атрибут inert",
+        "Компоненту задаются стили по&nbsp;умолчанию и затем по необходимости переопределяются",
+        "Не стоит использовать свойство opacity без крайней необходимости, т.к. это может исказить визуал (при использовании кнопки поверх цветных элементов) и  ухудшить читаемость при смене цветовой темы. Вместо opacity по возможности лучше использовать альфа-канал"
+      ],
+      base: [
+    `mixin link(props = {})
+      -
+        const
+              tag = props.tag ? props.tag : props.href ? "a" : "button",
+              href = props.href,
+              text = props.text || "",
+              type = props.type || tag === "button" && "button",
+              target = props.isExternal && "_blank",
+              rel = props.isExternal && "nofollow noopener noreferrer",
+              icon = props.icon,
+              {name, width, height, isLeft} = icon || {},
+              isActive = props.isActive,
+              activeClass = isActive && "is-active",
+              isDisabled = props.isDisabled,
+              disabledClass = isDisabled && "is-disabled",
+              disabledAttr = (isDisabled || isActive) && tag === "button" && "true",
+              tabindexAttr = props.tabindex || ((isDisabled || isActive) && tag === "a" && "-1"),
+              modifiers = props.modifiers ? props.modifiers.map((mod) => "link--" + mod) : [];
+
+      #{tag}(class=["link", disabledClass, activeClass, ...modifiers], href=href, target=target, rel=rel, type=type, disabled=disabledAttr, tabindex=tabindexAttr)&attributes(attributes)
+
+        if (icon && isLeft)
+          +icon(name, width, height)
+
+        span.link__text !{text}
+
+        if (icon && !isLeft)
+          +icon(name, width, height)`,
+    `.link {
+
+    }`
+      ],
+      examples: {
+        snippets: [
+          {
+            title: {
+              text: "Заблокированная ссылка"
+            },
+            note: {
+              content: [
+                "Добавляет класс .is-disabled и атрибут tabindex=\"-1\" или disabled",
+              ]
+            },
+            props: {
+              isDisabled: true,
+              text: "Link"
+            },
+            code:
+      `+link({
+        isDisabled: true,
+        text: "Link"
+      })`
+          },
+          {
+            title: {
+              text: "Ссылка в&nbsp;активном состоянии"
+            },
+            note: {
+              content: [
+                "Добавляет класс .is-active и атрибут tabindex=\"-1\" или disabled"
+              ]
+            },
+            props: {
+              isActive: true,
+              text: "Link"
+            },
+            code:
+      `+link({
+        isActive: true,
+        text: "Link"
+      })`
+          },
+          {
+            title: {
+              text: "Ссылка с&nbsp;иконкой справа"
+            },
+            props: {
+              text: "Link",
+              icon: {
+                name: 'icon-arrow',
+                width: 10,
+                height: 16,
+              },
+            },
+            code:
+      `+link({
+        text: "Link",
+        icon: {
+          name: 'icon-arrow',
+          width: 10,
+          height: 16,
+        },
+      })`
+          },
+          {
+            title: {
+              text: "Ссылка с&nbsp;иконкой слева"
+            },
+            props: {
+              text: "Link",
+              icon: {
+                name: 'icon-arrow',
+                width: 10,
+                height: 16,
+                isLeft: true,
+              },
+            },
+            code:
+      `+link({
+        text: "Link",
+        icon: {
+          name: 'icon-arrow',
+          width: 10,
+          height: 16,
+          isLeft: true,
+        },
+      })`
+          }
+        ]
+      },
+      modifiers: [
+        {
+          summary: "Комбинирование модификаторов",
+          note: {
+            content: [
+              "Если так удобней для стилизации адаптива и/или при небольшой вариативности ссылки модификаторы геометрии текста (размер, насыщенность, межстрочный и&nbsp;межбуквенный интервалы) комбинируются. Декоративные модификаторы (цвет, подчёркивание) лучше оставлять отдельно и&nbsp;не&nbsp;комбинировать с&nbsp;другими модификаторами кроме случаев, когда в&nbsp;макете явно выделены типы ссылок"
+            ]
+          },
+          examples: [
+            {
+              props: {
+                modifiers: ["size-s"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["size-s"],
+      text: "Link"
+    })`
+            }
+          ],
+          code:
+    `&--size {
+      &-small {
+        font-weight: $font-weight-text-bold;
+        font-size: $size-text-l;
+        line-height: $line-height-text-m;
+
+        @include vp-767 {
+          font-size: $size-text-m;
+          line-height: $line-height-text-s;
+        }
+      }
+    }`
+        },
+        {
+          summary: "Стиль шрифта",
+          examples: [
+            {
+              props: {
+                modifiers: ["style-italic"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["style-italic"],
+      text: "Link"
+    })`
+            }
+          ],
+          code:
+    `&--style {
+      &-italic {
+        font-style: italic;
+      }
+    }`
+        },
+        {
+          summary: "Размер шрифта",
+          examples: [
+            {
+              props: {
+                modifiers: ["font-size-s"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["font-size-s"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["font-size-m"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["font-size-m"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["font-size-l"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["font-size-l"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["font-size-xl"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["font-size-xl"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["font-size-2xl"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["font-size-2xl"],
+      text: "Link"
+    })`
+            }
+          ],
+          code:
+    `&--font-size {
+      &-s {
+        font-size: $size-text-s;
+      }
+
+      &-m {
+        font-size: $size-text-m;
+
+        @include vp-767 {
+          font-size: $size-text-s;
+        }
+      }
+
+      &-l {
+        font-size: $size-text-l;
+
+        @include vp-767 {
+          font-size: $size-text-m;
+        }
+      }
+
+      &-xl {
+        font-size: $size-text-xl;
+
+        @include vp-767 {
+          font-size: $size-text-l;
+        }
+      }
+
+      &-2xl {
+        font-size: $size-text-2xl;
+
+        @include vp-767 {
+          font-size: $size-text-xl;
+        }
+      }
+    }`
+        },
+        {
+          summary: "Насыщенность шрифта",
+          examples: [
+            {
+              props: {
+                modifiers: ["weight-thin"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["weight-thin"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-light"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["weight-light"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-regular"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["weight-regular"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-medium"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["weight-medium"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-semibold"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["weight-semibold"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-bold"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["weight-bold"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-extrabold"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["weight-extrabold"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["weight-black"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["weight-black"],
+      text: "Link"
+    })`
+            }
+          ],
+          code:
+    `&--weight {
+      &-thin {
+        font-weight: $font-weight-text-thin;
+      }
+
+      &-light {
+        font-weight: $font-weight-text-light;
+      }
+
+      &-regular {
+        font-weight: $font-weight-text-regular;
+      }
+
+      &-medium {
+        font-weight: $font-weight-text-medium;
+      }
+
+      &-semibold {
+        font-weight: $font-weight-text-semibold;
+      }
+
+      &-bold {
+        font-weight: $font-weight-text-bold;
+      }
+
+      &-extrabold {
+        font-weight: $font-weight-text-extrabold;
+      }
+
+      &-black {
+        font-weight: $font-weight-text-black;
+      }
+    }`
+        },
+        {
+          summary: "Межстрочный интервал",
+          examples: [
+            {
+              props: {
+                modifiers: ["line-heigth-s", "text-outline"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["line-heigth-s"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["line-heigth-m", "text-outline"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["line-heigth-m"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["line-heigth-l", "text-outline"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["line-heigth-l"],
+      text: "Link"
+    })`
+            }
+          ],
+          code:
+    `&--line-heigth {
+      &-s {
+        line-height: $line-height-text-s;
+      }
+
+      &-m {
+        line-height: $line-height-text-m;
+      }
+
+      &-l {
+        line-height: $line-height-text-l;
+      }
+    }`
+        },
+        {
+          summary: "Межбуквенный интервал",
+          examples: [
+            {
+              props: {
+                modifiers: ["spacing-xs"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["spacing-xs"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["spacing-s"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["spacing-s"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["spacing-m"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["spacing-m"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["spacing-l"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["spacing-l"],
+      text: "Link"
+    })`
+            }
+          ],
+          code:
+    `&--spacing {
+      &-xs {
+        letter-spacing: 0.06em;
+      }
+
+      &-s {
+        letter-spacing: 0.1em;
+      }
+
+      &-m {
+        letter-spacing: 0.14em;
+      }
+
+      &-l {
+        letter-spacing: 0.2em;
+      }
+    }`
+        },
+
+        {
+          summary: "Цвет текста",
+          examples: [
+            {
+              props: {
+                modifiers: ["color-primary"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["color-primary"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["color-secondary"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["color-secondary"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["color-ghost"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["color-ghost"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["color-brand"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["color-brand"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["color-system"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["color-system"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["color-normal"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["color-normal"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["color-success"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["color-success"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["color-caution"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["color-caution"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["color-warning"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["color-warning"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["color-alert"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["color-alert"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["color-critical"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["color-alert"],
+      text: "Link"
+    })`
+            },
+          ],
+          code:
+    `&--filled {
+      --background-color: var(--color-bg-default);
+
+      &-secondary {
+        --background-color: var(--color-bg-secondary);
+      }
+
+      &-brand {
+        --background-color: var(--color-bg-brand);
+      }
+
+      &-stripe {
+        --background-color: var(--color-bg-stripe);
+      }
+
+      &-tone {
+        --background-color: var(--color-bg-tone);
+      }
+
+      &-soft {
+        --background-color: var(--color-bg-soft);
+      }
+    }`
+        },
+        {
+          summary: "Трансформация текста",
+          examples: [
+            {
+              props: {
+                modifiers: ["transform-uppercase"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["transform-uppercase"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["transform-capitalize"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["transform-capitalize"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["transform-lowercase"],
+                text: "Link"
+              },
+              code:
+    `+link({
+      modifiers: ["transform-lowercase"],
+      text: "Link"
+    })`
+            }
+          ],
+          code:
+    `&--transform {
+      &-uppercase {
+        text-transform: uppercase;
+      }
+
+      &-capitalize {
+        text-transform: capitalize;
+      }
+
+      &-lowercase {
+        text-transform: lowercase;
+      }
+    }`
+        },
+        {
+          summary: "Подчёркивание",
+          examples: [
+            {
+              props: {
+                modifiers: ["underlined"],
+                text: "Link, skipped"
+              },
+              title: {
+                text: "Обычное"
+              },
+              code:
+    `+link({
+      modifiers: ["underlined"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["underlined", "underlined-no-skip"],
+                text: "Link, no skip"
+              },
+              title: {
+                text: "Непрерывное"
+              },
+              code:
+    `+link({
+      modifiers: ["underlined", "underlined-no-skip"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["underlined", "underlined-offset-s"],
+                text: "Link"
+              },
+              title: {
+                text: "Отступ линии от&nbsp;текста s"
+              },
+              code:
+    `+link({
+      modifiers: ["underlined", "underlined-offset-s"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["underlined", "underlined-offset-m"],
+                text: "Link"
+              },
+              title: {
+                text: "Отступ линии от&nbsp;текста m"
+              },
+              code:
+    `+link({
+      modifiers: ["underlined", "underlined-offset-m"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["underlined", "underlined-offset-l"],
+                text: "Link"
+              },
+              title: {
+                text: "Отступ линии от&nbsp;текста l"
+              },
+              code:
+    `+link({
+      modifiers: ["underlined", "underlined-offset-l"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["underlined", "thickness-s"],
+                text: "Link"
+              },
+              title: {
+                text: "Толщина линии s"
+              },
+              code:
+    `+link({
+      modifiers: ["underlined", "thickness-s"],
+      text: "Link"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["underlined", "thickness-m"],
+                text: "Link"
+              },
+              title: {
+                text: "Толщина линии m"
+              },
+              code:
+    `+link({
+      modifiers: ["underlined", "thickness-m"],
+      text: "Link"
+    })`
+            }
+          ],
+          code:
+    `&--underlined {
+      text-decoration: underline;
+
+
+      // Непрерывное
+
+      &-no-skip {
+        text-decoration-skip-ink: none;
+        text-decoration-skip: none;
+      }
+
+
+      // Отступ линии от текста
+
+      &-offset {
+        &-s {
+          text-underline-offset: 0.1em;
+        }
+
+        &-m {
+          text-underline-offset: 0.2em;
+        }
+
+        &-l {
+          text-underline-offset: 0.3em;
+        }
+      }
+
+
+      // Толщина линии
+
+      &-thickness {
+        &-s {
+          text-decoration-thickness: 0.01em;
+        }
+
+        &-m {
+          text-decoration-thickness: 0.1em;
+        }
+      }
+    }`
+        },
+        {
+          summary: "Видимость текста",
+          examples: [
+            {
+              props: {
+                modifiers: ["truncate"],
+                text: "Link with a very-very long text on it that has to be truncated to avoid getting more rows than it should"
+              },
+              code:
+    `+link({
+      modifiers: ["truncate"],
+      text: "Link with a very-very long text on it that has to be truncated to avoid getting more rows than it should"
+    })`
+            },
+            {
+              props: {
+                modifiers: ["truncate", "truncate-2-lines"],
+                text: "Link with a very-very long text on it that has to be truncated to avoid getting more rows than it should"
+              },
+              code:
+    `+link({
+      modifiers: ["truncate", "truncate-2-lines"],
+      text: "Link with a very-very long text on it that has to be truncated to avoid getting more rows than it should"
+    })`
+            }
+          ],
+          code:
+    `&--truncate {
+      .link__text {
+        --line-clamp: 1;
+
+        display: -webkit-box;
+        -webkit-line-clamp: var(--line-clamp);
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      &-2-lines {
+        --line-clamp: 2;
+      }
+    }`
+        }
+      ]
+    }
+
+block page
+  +component(params)
+
+block modals

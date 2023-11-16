@@ -1,29 +1,55 @@
 .link {
+  --color: inherit;
   --link-icon-indent: 10px;
+
+  // Hover
+  --color-hover: var(--color);
+
+  // Active
+  --color-active: var(--color);
+
+  // Disabled
+  --color-disabled: var(--color);
+
 
   display: inline-flex;
   justify-content: center;
   align-items: center;
   padding: 0;
-
   font: inherit;
-  color: inherit;
-
+  color: var(--color);
   background-color: $color-transparent;
   border: none;
   cursor: pointer;
   user-select: none;
+  transition: color $trans-default;
 
-  transition: opacity $trans-default;
+  @include hover {
+    svg:last-child {
+      transform: translateX(5px) translateZ(0);
+    }
 
-  &:disabled,
+    svg:first-child {
+      transform: rotate(180deg) translateX(5px) translateZ(0);
+    }
+  }
+
+  @include hover-focus {
+    color: var(--color-hover);
+  }
+
+  @include active {
+    color: var(--color-active);
+  }
+
   &.is-disabled {
-    opacity: 0.5;
-
+    color: var(--color-disabled);
     pointer-events: none;
+    cursor: default;
   }
 
   &.is-active {
+    color: var(--color-active);
     cursor: default;
     pointer-events: none;
   }
@@ -32,9 +58,7 @@
     flex-shrink: 0;
     height: 14px;
     width: auto;
-
     fill: currentColor;
-
     transition: transform $trans-default;
     transform: translateZ(0);
   }
@@ -52,13 +76,16 @@
     text-align: center;
   }
 
-  @include hover-focus {
-    opacity: 0.5;
-  }
+  &--size {
+    &-s {
+      font-weight: $font-weight-text-bold;
+      font-size: $size-text-l;
+      line-height: $line-height-text-m;
 
-  @include hover {
-    svg:last-child {
-      transform: translateX(5px) translateZ(0);
+      @include vp-767 {
+        font-size: $size-text-m;
+        line-height: $line-height-text-s;
+      }
     }
   }
 
@@ -68,175 +95,107 @@
     }
   }
 
-  &--small {
-    --font-weight: #{$font-weight-text-extrabold};
-    --font-size: #{$size-text-l};
-    --line-height: #{$line-height-text-m};
-
-    @include vp-1023 {
-      --font-weight: #{$font-weight-text-bold};
-      --font-size: #{$size-text-m};
-    }
-
-    @include vp-767 {
-      --font-size: #{$size-text-s};
-      --line-height: #{$line-height-text-s};
-    }
-  }
-
-  &--size {
+  &--font-size {
     &-s {
-      --font-size: #{$size-text-s};
+      font-size: $size-text-s;
     }
 
     &-m {
-      --font-size: #{$size-text-m};
+      font-size: $size-text-m;
+
+      @include vp-767 {
+        font-size: $size-text-s;
+      }
     }
 
     &-l {
-      --font-size: #{$size-text-l};
-
-      @include vp-1023 {
-        --font-size: #{$size-text-m};
-      }
+      font-size: $size-text-l;
 
       @include vp-767 {
-        --font-size: #{$size-text-s};
+        font-size: $size-text-m;
       }
     }
 
     &-xl {
-      --font-size: #{$size-text-xl};
-
-      @include vp-1023 {
-        --font-size: #{$size-text-l};
-      }
+      font-size: $size-text-xl;
 
       @include vp-767 {
-        --font-size: #{$size-text-m};
+        font-size: $size-text-l;
       }
     }
 
     &-2xl {
-      --font-size: #{$size-text-2xl};
-
-      @include vp-1023 {
-        --font-size: #{$size-text-xl};
-      }
+      font-size: $size-text-2xl;
 
       @include vp-767 {
-        --font-size: #{$size-text-l};
-      }
-    }
-
-    &-3xl {
-      --font-size: #{$size-text-3xl};
-
-      @include vp-1023 {
-        --font-size: #{$size-text-2xl};
-      }
-
-      @include vp-767 {
-        --font-size: #{$size-text-xl};
-      }
-    }
-
-    &-4xl {
-      --font-size: #{$size-text-4xl};
-
-      @include vp-1023 {
-        --font-size: #{$size-text-3xl};
-      }
-
-      @include vp-767 {
-        --font-size: #{$size-text-2xl};
-      }
-    }
-
-    &-5xl {
-      --font-size: #{$size-text-5xl};
-
-      @include vp-1023 {
-        --font-size: #{$size-text-4xl};
-      }
-
-      @include vp-767 {
-        --font-size: #{$size-text-3xl};
+        font-size: $size-text-xl;
       }
     }
   }
 
   &--weight {
     &-thin {
-      --font-weight: #{$font-weight-text-thin};
+      font-weight: $font-weight-text-thin;
     }
 
     &-light {
-      --font-weight: #{$font-weight-text-light};
+      font-weight: $font-weight-text-light;
     }
 
     &-regular {
-      --font-weight: #{$font-weight-text-regular};
+      font-weight: $font-weight-text-regular;
     }
 
     &-medium {
-      --font-weight: #{$font-weight-text-medium};
+      font-weight: $font-weight-text-medium;
     }
 
     &-semibold {
-      --font-weight: #{$font-weight-text-semibold};
+      font-weight: $font-weight-text-semibold;
     }
 
     &-bold {
-      --font-weight: #{$font-weight-text-bold};
+      font-weight: $font-weight-text-bold;
     }
 
     &-extrabold {
-      --font-weight: #{$font-weight-text-extrabold};
+      font-weight: $font-weight-text-extrabold;
     }
 
     &-black {
-      --font-weight: #{$font-weight-text-black};
+      font-weight: $font-weight-text-black;
     }
   }
 
   &--line-heigth {
-    &-2xs {
-      --line-height: #{$line-height-text-2xs};
-    }
-
-    &-xs {
-      --line-height: #{$line-height-text-xs};
-    }
-
     &-s {
-      --line-height: #{$line-height-text-s};
+      line-height: $line-height-text-s;
     }
 
     &-m {
-      --line-height: #{$line-height-text-m};
+      line-height: $line-height-text-m;
     }
 
     &-l {
-      --line-height: #{$line-height-text-l};
+      line-height: $line-height-text-l;
     }
   }
 
   &--spacing {
     &-xs {
-      --letter-spacing: 0.06em;
+      letter-spacing: 0.06em;
     }
 
     &-s {
-      --letter-spacing: 0.1em;
+      letter-spacing: 0.1em;
     }
 
     &-m {
-      --letter-spacing: 0.14em;
+      letter-spacing: 0.14em;
     }
 
     &-l {
-      --letter-spacing: 0.2em;
+      letter-spacing: 0.2em;
     }
   }
 
@@ -302,8 +261,6 @@
 
   &--underlined {
 
-    // Сплошное
-
     text-decoration: underline;
 
 
@@ -346,15 +303,24 @@
   }
 
   &--truncate {
-    --line-clamp: 1;
+    .link__text {
+      --line-clamp: 1;
 
-    display: -webkit-box;
-    -webkit-line-clamp: var(--line-clamp);
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: var(--line-clamp);
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
 
     &-2-lines {
       --line-clamp: 2;
+    }
+  }
+
+  // for ui-examples
+  &--text-outline {
+    .link__text {
+      border: 0.01em dotted currentColor;
     }
   }
 }
