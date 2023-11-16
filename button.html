@@ -80,6 +80,12 @@
                           </span>
                         </div>
                       </li>
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="icon-button.html"><span class="button__text">Icon button</span>
+                          </a>
+                        </div>
+                      </li>
                     </ul>
                   </li>
                 </ul>
@@ -92,7 +98,7 @@
                     <h1 class="title title--size-3xl component__name">Button</h1>
                     <span class="title title--size-2xl component__name--local">Кнопка</span>
                   </div>
-                  <a class="icon-btn icon-btn--form-round icon-btn--elevated-shadow-1 component__icon-btn" href="https://github.com/shumova/party-kit/tree/master/source/components/buttons/button" aria-label="Open Button component in git">
+                  <a class="icon-button icon-button--form-round icon-button--elevated-shadow-1 component__icon-btn" href="https://github.com/shumova/party-kit/tree/master/source/components/buttons/button" aria-label="Open Button component in git">
                     <svg width="32" height="32" aria-hidden="true">
                       <use xlink:href="img/sprite.svg#git"></use>
                     </svg>
@@ -103,7 +109,7 @@
                   <div class="text component__text">
                     <p>Если в&nbsp;макете явно выделены типы кнопок (семантически или визуально), то&nbsp;лучше использовать модификатор Внешнего вида (view-тип-кнопки), группирующий свойства фона, текста, границы и&nbsp;проч. Если&nbsp;же чёткой логики в&nbsp;оформлении кнопок нет, то&nbsp;лучше использовать модификаторы по&nbsp;названию свойств, которые они изменяют: отдельно для цвета фона, отдельно для цвета текста и&nbsp;тд</p>
                     <p>Заблокированные и&nbsp;находящиеся в активном состоянии интерактивные элементы не&nbsp;должны попадать в&nbsp;фокус при навигации с&nbsp;клавиатуры. Для этого кнопкам с&nbsp;тегом &lt;a&gt; добавляется атрибут tab-index=&quot;-1&quot;, с тегом &lt;button&gt; -- атрибут disable. Если не&nbsp;нужно поддерживать Safari&nbsp;15, вместо tab-index=&quot;-1&quot; можно использовать атрибут inert</p>
-                    <p>Компоненту задаются стили по&nbsp;умолчанию, которые затем по необходимости переопределяются</p>
+                    <p>Компоненту задаются стили по&nbsp;умолчанию и затем по необходимости переопределяются</p>
                     <p>Не стоит использовать свойство opacity без крайней необходимости, т.к. это может исказить визуал (при использовании кнопки поверх цветных элементов) и  ухудшить читаемость при смене цветовой темы. Вместо opacity по возможности лучше использовать альфа-канал</p>
                     <p>В компоненте предусмотрена div-обёртка для возможности задания position: relative без влияния на&nbsp;позиционирование кнопки относительно других элементов на&nbsp;странице</p>
                   </div>
@@ -1739,11 +1745,37 @@
                                 </div>
                               </details>
                             </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <div class="button button--transform-lowercase">
+                                  <button class="button__control" type="button"><span class="button__text">Button</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  modifiers: [&quot;transform-lowercase&quot;],
+  text: &quot;Button&quot;
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
                           </div>
                           <div class="component__code">
-                            <pre><code>&amp;--color {
-  &amp;-base-essential {
-    --button-color: #{$color-base-essential};
+                            <pre><code>&amp;--transform {
+  &amp;-uppercase {
+    --text-transform: uppercase;
+  }
+
+  &amp;-capitalize {
+    --text-transform: capitalize;
+  }
+
+  &amp;-lowercase {
+    --text-transform: lowercase;
   }
 }
 </code></pre>

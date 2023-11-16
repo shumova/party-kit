@@ -80,6 +80,12 @@
                           </a>
                         </div>
                       </li>
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="icon-button.html"><span class="button__text">Icon button</span>
+                          </a>
+                        </div>
+                      </li>
                     </ul>
                   </li>
                 </ul>
@@ -92,7 +98,7 @@
                     <h1 class="title title--size-3xl component__name">Base-card</h1>
                     <span class="title title--size-2xl component__name--local">Базовая карточка</span>
                   </div>
-                  <a class="icon-btn icon-btn--form-round icon-btn--elevated-shadow-1 component__icon-btn" href="https://github.com/shumova/party-kit/tree/master/source/components/cards/base-card" aria-label="Open Base-card component in git">
+                  <a class="icon-button icon-button--form-round icon-button--elevated-shadow-1 component__icon-btn" href="https://github.com/shumova/party-kit/tree/master/source/components/cards/base-card" aria-label="Open Base-card component in git">
                     <svg width="32" height="32" aria-hidden="true">
                       <use xlink:href="img/sprite.svg#git"></use>
                     </svg>
@@ -128,7 +134,7 @@
                               <div class="text">
                                 <p>Text</p>
                               </div>
-                              <a class="icon-btn icon-btn--form-round icon-btn--elevated-shadow-1" href="#" aria-label="Open Title component in git">
+                              <a class="icon-button icon-button--form-round icon-button--elevated-shadow-1" href="#" aria-label="Open Title component in git">
                                 <svg width="32" height="32" aria-hidden="true">
                                   <use xlink:href="img/sprite.svg#git"></use>
                                 </svg>
@@ -296,7 +302,7 @@
         if text
           +text(_params.text)
         if iconBtn
-          +icon-btn(_params.iconBtn)
+          +icon-button(_params.iconBtn)
         if btn
           +button(_params.btn)
 </code></pre>

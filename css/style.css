@@ -414,6 +414,7 @@ template {
 
 .theme-default {
   /* Цвета текста */
+  --color-typo-essential: #ffffff;
   --color-typo-primary: #383838;
   /* Цвет основного текста */
   --color-typo-secondary: rgba(56, 56, 56, 0.6);
@@ -478,14 +479,16 @@ template {
   --color-scroll-bg: rgba(2, 31, 139, 0.6);
   --color-scroll-thumb: rgba(2, 31, 139, 0.24);
   --color-scroll-thumb-hover: rgba(2, 31, 139, 0.32);
-  --color-control-bg-default: #ffffff;
   --color-control-typo-default: rgba(56, 56, 56, 0.9);
-  --color-control-typo-placeholder: rgba(56, 56, 56, 0.35);
+  --color-control-typo-default-hover: rgba(56, 56, 56, 0.75);
+  --color-control-typo-default-active: rgba(56, 56, 56, 0.75);
+  --color-control-bg-default: #ffffff;
+  --color-control-bg-default-hover: rgba(56, 56, 56, 0.3);
+  --color-control-bg-default-active: rgba(56, 56, 56, 0.5);
   --color-control-border-default: transparent;
   --color-control-border-default-hover: transparent;
   --color-control-border-active: #8b97c2;
-  --color-control-bg-focus: rgba(89, 106, 167, 0.3);
-  --color-control-bg-active: rgba(89, 106, 167, 0.5);
+  --color-control-typo-placeholder: rgba(56, 56, 56, 0.35);
   --color-control-bg-primary: #596aa7;
   --color-control-bg-primary-hover: #7785b7;
   --color-control-typo-primary: white;
@@ -791,138 +794,6 @@ button,
   max-width: 1920px;
   margin: 0 auto;
   padding: 0 32px;
-}
-
-.icon-btn {
-  --button-radius: 0;
-  --button-cursor: pointer;
-  --button-color: var(--color-control-typo-default);
-  --button-bg-color: var(--color-control-bg-default);
-  --button-bg-border-color: none;
-  --button-bg-border-color-hover: var(--color-control-bg-border-default-hover);
-  --button-color-hover: var(--color-control-bg-border-default-hover);
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  padding: 0;
-  color: var(--button-color);
-  background-color: var(--button-bg-color);
-  border: 0.1em solid var(--button-bg-border-color);
-  border-radius: var(--button-radius);
-  cursor: var(--button-cursor);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-transition: color 400ms ease, background-color 400ms ease, border 400ms ease, -webkit-box-shadow 400ms ease, -webkit-transform 400ms ease;
-  transition: color 400ms ease, background-color 400ms ease, border 400ms ease, -webkit-box-shadow 400ms ease, -webkit-transform 400ms ease;
-  transition: color 400ms ease, background-color 400ms ease, border 400ms ease, box-shadow 400ms ease, transform 400ms ease;
-  transition: color 400ms ease, background-color 400ms ease, border 400ms ease, box-shadow 400ms ease, transform 400ms ease, -webkit-box-shadow 400ms ease, -webkit-transform 400ms ease;
-}
-
-.icon-btn.is-disabled,
-.icon-btn:disabled {
-  --button-cursor: not-allowed;
-  --button-color-hover: var(--button-color-disable);
-  --button-border-hover: var(--button-color-disable);
-  --button-bg-color-hover: var(--button-bg-color-disable);
-  color: var(--button-color-disable);
-  background-color: var(--button-bg-color-disable);
-  border-color: var(--button-border-disable);
-  opacity: var(--button-opacity-disable);
-  pointer-events: none;
-}
-
-.icon-btn.is-active {
-  --button-cursor: not-allowed;
-  pointer-events: none;
-}
-
-.icon-btn.focus-visible:focus {
-  color: var(--button-color-hover);
-  background: var(--button-bg-color-hover);
-  opacity: var(--button-opacity-hover);
-}
-
-.icon-btn:active {
-  color: var(--button-color-hover);
-  background: var(--button-bg-color-hover);
-  opacity: var(--button-opacity-hover);
-}
-
-.icon-btn svg {
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  height: 40px;
-  width: auto;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-.icon-btn--form-brick {
-  --button-radius: 0;
-}
-
-.icon-btn--form-round {
-  --button-radius: 99rem;
-}
-
-.icon-btn--form-round-s {
-  --button-radius: 12px;
-}
-
-.icon-btn--form-round-l {
-  --button-radius: 20px;
-}
-
-.icon-btn--elevated-shadow-1 {
-  -webkit-box-shadow: 0 2px 1px var(--color-shadow-layer-1), 0 3px 1px 1px var(--color-shadow-layer-2);
-  box-shadow: 0 2px 1px var(--color-shadow-layer-1), 0 3px 1px 1px var(--color-shadow-layer-2);
-}
-
-.icon-btn--elevated-shadow-1:active:not(.focus-visible) {
-  -webkit-box-shadow: 0 1px 1px var(--color-shadow-layer-1), 0 1px 1px 1px var(--color-shadow-layer-2);
-  box-shadow: 0 1px 1px var(--color-shadow-layer-1), 0 1px 1px 1px var(--color-shadow-layer-2);
-}
-
-.icon-btn--elevated-shadow-2 {
-  -webkit-box-shadow: 0 2px 1px var(--color-shadow-layer-1), 0 5px 2px 2px var(--color-shadow-layer-2);
-  box-shadow: 0 2px 1px var(--color-shadow-layer-1), 0 5px 2px 2px var(--color-shadow-layer-2);
-}
-
-.icon-btn--elevated-shadow-2:active:not(.focus-visible) {
-  -webkit-box-shadow: 0 2px 1px var(--color-shadow-layer-1), 0 3px 1px 1px var(--color-shadow-layer-2);
-  box-shadow: 0 2px 1px var(--color-shadow-layer-1), 0 3px 1px 1px var(--color-shadow-layer-2);
-}
-
-.icon-btn--elevated-shadow-3 {
-  -webkit-box-shadow: 0 3px 1px var(--color-shadow-layer-1), 0 7px 4px 3px var(--color-shadow-layer-2);
-  box-shadow: 0 3px 1px var(--color-shadow-layer-1), 0 7px 4px 3px var(--color-shadow-layer-2);
-}
-
-.icon-btn--elevated-shadow-3:active:not(.focus-visible) {
-  -webkit-box-shadow: 0 2px 1px var(--color-shadow-layer-1), 0 5px 2px 2px var(--color-shadow-layer-2);
-  box-shadow: 0 2px 1px var(--color-shadow-layer-1), 0 5px 2px 2px var(--color-shadow-layer-2);
-}
-
-.icon-btn--elevated-shadow-4 {
-  -webkit-box-shadow: 0 3px 2px var(--color-shadow-layer-1), 0 9px 6px 4px var(--color-shadow-layer-2);
-  box-shadow: 0 3px 2px var(--color-shadow-layer-1), 0 9px 6px 4px var(--color-shadow-layer-2);
-}
-
-.icon-btn--elevated-shadow-4:active:not(.focus-visible) {
-  -webkit-box-shadow: 0 3px 1px var(--color-shadow-layer-1), 0 7px 4px 3px var(--color-shadow-layer-2);
-  box-shadow: 0 3px 1px var(--color-shadow-layer-1), 0 7px 4px 3px var(--color-shadow-layer-2);
-}
-
-.icon-btn--elevated-shadow-5 {
-  -webkit-box-shadow: 0 4px 4px var(--color-shadow-layer-1), 0 11px 8px 6px var(--color-shadow-layer-2);
-  box-shadow: 0 4px 4px var(--color-shadow-layer-1), 0 11px 8px 6px var(--color-shadow-layer-2);
-}
-
-.icon-btn--elevated-shadow-5:active:not(.focus-visible) {
-  -webkit-box-shadow: 0 3px 2px var(--color-shadow-layer-1), 0 9px 6px 4px var(--color-shadow-layer-2);
-  box-shadow: 0 3px 2px var(--color-shadow-layer-1), 0 9px 6px 4px var(--color-shadow-layer-2);
 }
 
 .burger {
@@ -3000,6 +2871,10 @@ svg + .button__text,
   --text-transform: capitalize;
 }
 
+.button--transform-lowercase {
+  --text-transform: lowercase;
+}
+
 .button--align-left .button__control {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
@@ -3035,6 +2910,129 @@ svg + .button__text,
 
 .button--text-outline .button__text {
   border: 0.01em dotted currentColor;
+}
+
+.icon-button {
+  --color: var(--color-control-typo-default);
+  --background-color: var(--color-control-bg-default);
+  --border-color: var(--color-control-border-default);
+  --box-shadow: none;
+  --color-hover: var(--color-control-typo-default-hover);
+  --background-color-hover: var(--background-color);
+  --border-color-hover: var(--border-color);
+  --box-shadow-hover: var(--box-shadow);
+  --color-active: var(--color-control-typo-default-active);
+  --background-color-active: var(--background-color);
+  --border-color-active: var(--border-color);
+  --box-shadow-active: var(--box-shadow);
+  --color-disabled: var(--color);
+  --background-color-disabled: var(--background-color);
+  --border-color-disabled: var(--border-color);
+  --box-shadow-disabled: var(--box-shadow);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--color);
+  background-color: var(--background-color);
+  border: 0.1em solid var(--border-color);
+  border-radius: 50%;
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: color 400ms ease, background-color 400ms ease, border-color 400ms ease, -webkit-box-shadow 400ms ease, -webkit-transform 400ms ease;
+  transition: color 400ms ease, background-color 400ms ease, border-color 400ms ease, -webkit-box-shadow 400ms ease, -webkit-transform 400ms ease;
+  transition: color 400ms ease, background-color 400ms ease, border-color 400ms ease, box-shadow 400ms ease, transform 400ms ease;
+  transition: color 400ms ease, background-color 400ms ease, border-color 400ms ease, box-shadow 400ms ease, transform 400ms ease, -webkit-box-shadow 400ms ease, -webkit-transform 400ms ease;
+}
+
+.icon-button.is-disabled {
+  color: var(--color-disabled);
+  background-color: var(--background-color-disabled);
+  border-color: var(--border-color-disabled);
+  pointer-events: none;
+  cursor: default;
+}
+
+.icon-button.is-active {
+  color: var(--color-active);
+  background-color: var(--background-color-active);
+  border-color: var(--border-color-active);
+  pointer-events: none;
+  cursor: default;
+}
+
+.icon-button.focus-visible:focus {
+  color: var(--color-hover);
+  background-color: var(--background-color-hover);
+  border-color: var(--border-color-hover);
+  -webkit-box-shadow: var(--box-shadow-hover);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.icon-button:active:not(.focus-visible) {
+  color: var(--color-active);
+  background-color: var(--background-color-active);
+  border-color: var(--border-color-active);
+  -webkit-box-shadow: var(--box-shadow-active);
+  box-shadow: var(--box-shadow-active);
+}
+
+.icon-button svg {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.icon-button--size-s {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-button--size-m {
+  width: 50px;
+  height: 50px;
+}
+
+.icon-button--form-brick {
+  border-radius: 0;
+}
+
+.icon-button--form-round {
+  border-radius: 99rem;
+}
+
+.icon-button--form-round-xs {
+  border-radius: 8px;
+}
+
+.icon-button--form-round-s {
+  border-radius: 12px;
+}
+
+.icon-button--elevated-shadow-1 {
+  --box-shadow: 0 2px 1px var(--color-shadow-layer-1), 0 3px 1px 1px var(--color-shadow-layer-2);
+}
+
+.icon-button--elevated-shadow-1:active:not(.focus-visible) {
+  --box-shadow: 0 1px 1px var(--color-shadow-layer-1), 0 1px 1px 1px var(--color-shadow-layer-2);
+}
+
+.icon-button--elevated-shadow-2 {
+  --box-shadow: 0 2px 1px var(--color-shadow-layer-1), 0 5px 2px 2px var(--color-shadow-layer-2);
+}
+
+.icon-button--elevated-shadow-2:active:not(.focus-visible) {
+  --box-shadow: 0 2px 1px var(--color-shadow-layer-1), 0 3px 1px 1px var(--color-shadow-layer-2);
 }
 
 .link {
@@ -4364,6 +4362,21 @@ svg + .link__text,
     --font-size: 16px;
   }
 
+  .icon-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-button--size-s {
+    width: 25px;
+    height: 25px;
+  }
+
+  .icon-button--size-m {
+    width: 45px;
+    height: 45px;
+  }
+
   .link--small {
     --font-size: 14px;
     --line-height: 1.4;
@@ -4475,22 +4488,6 @@ svg + .link__text,
   }
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .icon-btn:hover:not(.focus-visible) {
-    color: var(--button-color-hover);
-    background: var(--button-bg-color-hover);
-    opacity: var(--button-opacity-hover);
-  }
-
-  .logo[href]:hover:not(.focus-visible) {
-    opacity: 0.5;
-  }
-
-  .button--active-gradient:hover:not(.focus-visible) .button__control::before {
-    opacity: 1;
-  }
-}
-
 @media (hover: hover) {
   .burger:hover:not(.focus-visible) .burger__wrapper {
     -webkit-transform: scale(1.1);
@@ -4517,6 +4514,14 @@ svg + .link__text,
     box-shadow: var(--box-shadow-hover);
   }
 
+  .icon-button:hover:not(.focus-visible) {
+    color: var(--color-hover);
+    background-color: var(--background-color-hover);
+    border-color: var(--border-color-hover);
+    -webkit-box-shadow: var(--box-shadow-hover);
+    box-shadow: var(--box-shadow-hover);
+  }
+
   .link:hover:not(.focus-visible) {
     opacity: 0.5;
   }
@@ -4524,5 +4529,15 @@ svg + .link__text,
   .link:hover:not(.focus-visible) svg:last-child {
     -webkit-transform: translateX(5px) translateZ(0);
     transform: translateX(5px) translateZ(0);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo[href]:hover:not(.focus-visible) {
+    opacity: 0.5;
+  }
+
+  .button--active-gradient:hover:not(.focus-visible) .button__control::before {
+    opacity: 1;
   }
 }

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html class="theme-default" lang="ru">
+  <head>
+    <title>icon-button</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ProjectName — описание">
+    <link rel="preload" href="fonts/ysabeau-infant-VF.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <main>
+        <div class="page">
+          <div class="container page__container">
+            <nav class="page-nav page__nav" data-page-nav="container">
+              <div class="page-nav__content" data-page-nav="content">
+                <button class="burger page-nav__toggle" type="button" aria-pressed="false" aria-label="Open menu" data-toggle-target="menu" data-toggle data-page-nav="toggle"><span class="burger__wrapper"><span></span></span></button>
+                <ul class="nav-list page-nav__list no-scrollbar" data-page-nav="list">
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link page-nav__link--title">
+                      <a class="button__control" href="index.html"><span class="button__text">Components overview</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="title.html"><span class="button__text">Title</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="text.html"><span class="button__text">Text</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="cards.html"><span class="button__text">Cards</span>
+                      </a>
+                    </div>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="card.html"><span class="button__text">Card</span>
+                          </a>
+                        </div>
+                      </li>
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="base-card.html"><span class="button__text">Base-card</span>
+                          </a>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="grid.html"><span class="button__text">Grid</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                      <a class="button__control" href="logo.html"><span class="button__text">Logo</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="nav-list__item">
+                    <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-open">
+                      <a class="button__control" href="buttons.html"><span class="button__text">Buttons</span>
+                      </a>
+                    </div>
+                    <ul class="nav-list nav-list--sublist">
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link">
+                          <a class="button__control" href="button.html"><span class="button__text">Button</span>
+                          </a>
+                        </div>
+                      </li>
+                      <li class="nav-list__item">
+                        <div class="button button--align-left button--view-clear button--form-round button--size-m button--width-full nav-list__link is-active">
+                          <span class="button__control" href="icon-button.html"><span class="button__text">Icon button</span>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            <div class="card card--filled-secondary card--form-round-m card--elevated-shadow-1 page__content no-scrollbar">
+              <div class="component">
+                <div class="component__header">
+                  <div class="component__titles">
+                    <h1 class="title title--size-3xl component__name">Icon button</h1>
+                    <span class="title title--size-2xl component__name--local">Кнопка-иконка</span>
+                  </div>
+                  <a class="icon-button icon-button--form-round icon-button--elevated-shadow-1 component__icon-btn" href="https://github.com/shumova/party-kit/tree/master/source/components/buttons/icon-button" aria-label="Open Icon button component in git">
+                    <svg width="32" height="32" aria-hidden="true">
+                      <use xlink:href="img/sprite.svg#git"></use>
+                    </svg>
+                  </a>
+                </div>
+                <div class="component__description">
+                  <h2 class="title title--size-2xl">Использование</h2>
+                  <div class="text component__text">
+                    <p>Не забывай добавлять кнопке-иконке aria-label</p>
+                    <p>Заблокированные и&nbsp;находящиеся в активном состоянии интерактивные элементы не&nbsp;должны попадать в&nbsp;фокус при навигации с&nbsp;клавиатуры. Для этого кнопкам с&nbsp;тегом &lt;a&gt; добавляется атрибут tab-index=&quot;-1&quot;, с тегом &lt;button&gt; -- атрибут disable. Если не&nbsp;нужно поддерживать Safari&nbsp;15, вместо tab-index=&quot;-1&quot; можно использовать атрибут inert</p>
+                    <p>Компоненту задаются стили по&nbsp;умолчанию и затем по необходимости переопределяются</p>
+                    <p>Не стоит использовать свойство opacity без крайней необходимости, т.к. это может исказить визуал (при использовании кнопки поверх цветных элементов) и  ухудшить читаемость при смене цветовой темы. Вместо opacity по возможности лучше использовать альфа-канал</p>
+                  </div>
+                </div>
+                <div class="component__calls">
+                  <h2 class="title title--size-2xl">Примеры</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <div class="grid grid--cols-2 grid--gap-l component__examples">
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Блокировка кнопки</h3>
+                        <div class="text component__text">
+                          <p>Добавляет класс .is-disabled и атрибут tabindex="-1" или disabled</p>
+                        </div>
+                        <div class="component__view">
+                          <a class="icon-button is-disabled" href="#" aria-label="Open component in git" tabindex="-1">
+                            <svg width="32" height="32" aria-hidden="true">
+                              <use xlink:href="img/sprite.svg#git"></use>
+                            </svg>
+                          </a>
+                        </div>
+                        <details class="details component__details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+button({
+    isDisabled: true,
+    text: &quot;Button&quot;
+  })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                      <div class="card card--filled-stripe card--form-round-m card--space-l component__call">
+                        <h3 class="title title--size-xl">Кнопка в&nbsp;активном состоянии</h3>
+                        <div class="text component__text">
+                          <p>Добавляет класс .is-active и атрибут tabindex="-1" или disabled</p>
+                        </div>
+                        <div class="component__view">
+                          <a class="icon-button is-active" href="#" aria-label="Open component in git" tabindex="-1">
+                            <svg width="32" height="32" aria-hidden="true">
+                              <use xlink:href="img/sprite.svg#git"></use>
+                            </svg>
+                          </a>
+                        </div>
+                        <details class="details component__details" data-details="details">
+                          <summary data-details="summary">Показать код</summary>
+                          <div class="details__content" data-details="content">
+                            <pre><code>+button({
+    isActive: true,
+    text: &quot;Button&quot;
+  })
+</code></pre>
+                          </div>
+                        </details>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="component__base">
+                  <h2 class="title title--size-2xl">Базовый компонент</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <details class="details" data-details="details">
+                      <summary data-details="summary">Показать шаблон</summary>
+                      <div class="details__content" data-details="content">
+                        <pre><code>mixin icon-button(props = {})
+  -
+    const
+          tag = props.href ? &quot;a&quot; : &quot;button&quot;,
+          href = props.href || false,
+          type = props.type || tag === &quot;button&quot; ? &quot;button&quot; : false,
+          target = props.isExternal ? &quot;_blank&quot; : false,
+          ariaLabel = props.ariaLabel || false,
+          rel = props.isExternal ? &quot;nofollow noopener noreferrer&quot; : false,
+          {name, width, height} = props.icon || false,
+          isActive = props.isActive,
+          activeClass = isActive &amp;&amp; &quot;is-active&quot;,
+          isDisabled = props.isDisabled,
+          disabledClass = isDisabled &amp;&amp; &quot;is-disabled&quot;,
+          disabledAttr = (isDisabled || isActive) &amp;&amp; tag === &quot;button&quot; &amp;&amp; &quot;true&quot;,
+          tabindexAttr = props.tabindex || ((isDisabled || isActive) &amp;&amp; tag === &quot;a&quot; &amp;&amp; &quot;-1&quot;),
+          modifiers = props.modifiers ? props.modifiers.map((mod) =&gt; &quot;icon-button--&quot; + mod) : [];
+
+  #{tag}(class=['icon-button', disabledClass, activeClass, ...modifiers], href=href, target=target, rel=rel, type=type, aria-label=ariaLabel, disabled=disabledAttr, tabindex=tabindexAttr)&amp;attributes(attributes)
+    +icon(name, width, height)
+</code></pre>
+                      </div>
+                    </details>
+                    <details class="details" data-details="details">
+                      <summary data-details="summary">Показать стили</summary>
+                      <div class="details__content" data-details="content">
+                        <pre><code>.icon-button {
+  // Базовые значения
+  --color: var(--color-control-typo-default);
+  --background-color: var(--color-control-bg-default);
+  --border-color: var(--color-control-border-default);
+  --box-shadow: none;
+
+  // Hover
+  --color-hover: var(--color-control-typo-default-hover);
+  --background-color-hover: var(--background-color);
+  --border-color-hover: var(--border-color);
+  --box-shadow-hover: var(--box-shadow);
+
+  // Active
+  --color-active: var(--color-control-typo-default-active);
+  --background-color-active: var(--background-color);
+  --border-color-active: var(--border-color);
+  --box-shadow-active: var(--box-shadow);
+
+  // Disabled
+  --color-disabled: var(--color);
+  --background-color-disabled: var(--background-color);
+  --border-color-disabled: var(--border-color);
+  --box-shadow-disabled: var(--box-shadow);
+
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--color);
+  background-color: var(--background-color);
+  border: #{$control-border-width} solid var(--border-color);
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    color $trans-default,
+    background-color $trans-default,
+    border-color $trans-default,
+    box-shadow $trans-default,
+    transform $trans-default;
+
+  &amp;.is-disabled {
+    color: var(--color-disabled);
+    background-color: var(--background-color-disabled);
+    border-color: var(--border-color-disabled);
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &amp;.is-active {
+    color: var(--color-active);
+    background-color: var(--background-color-active);
+    border-color: var(--border-color-active);
+    pointer-events: none;
+    cursor: default;
+  }
+
+  @include hover-focus {
+    color: var(--color-hover);
+    background-color: var(--background-color-hover);
+    border-color: var(--border-color-hover);
+    box-shadow: var(--box-shadow-hover);
+  }
+
+  @include active {
+    color: var(--color-active);
+    background-color: var(--background-color-active);
+    border-color: var(--border-color-active);
+    box-shadow: var(--box-shadow-active);
+  }
+
+  @include vp-767 {
+    width: 30px;
+    height: 30px;
+  }
+
+  svg {
+    flex-shrink: 0;
+    height: 100%;
+    width: auto;
+
+    transform: translateZ(0);
+  }
+}
+</code></pre>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+                <div class="component__modifiers">
+                  <h2 class="title title--size-2xl">Модификаторы</h2>
+                  <div class="card card--filled card--form-round-m card--space-xl component__card">
+                    <div class="text text--size-l component__text">
+                      <p>Если для&nbsp;проекта не&nbsp;предусмотрены токены, используй жёстко закодированные значения</p>
+                    </div>
+                    <pre><code>.icon-button {
+  ...
+</code></pre>
+                    <div class="component__inner-code">
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Размер</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">Базовый</span>
+                              <div class="component__view">
+                                <a class="icon-button" href="#" aria-label="Open component in git">
+                                  <svg width="32" height="32" aria-hidden="true">
+                                    <use xlink:href="img/sprite.svg#git"></use>
+                                  </svg>
+                                </a>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+icon-button({
+  href: &quot;#&quot;,
+  ariaLabel: &quot;Open component in git&quot;,
+  icon: {
+    name: &quot;git&quot;,
+    width: 32,
+    height: 32,
+  }
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">S</span>
+                              <div class="component__view">
+                                <a class="icon-button icon-button--size-s" href="#" aria-label="Open component in git">
+                                  <svg width="32" height="32" aria-hidden="true">
+                                    <use xlink:href="img/sprite.svg#git"></use>
+                                  </svg>
+                                </a>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+icon-button({
+  href: &quot;#&quot;,
+  ariaLabel: &quot;Open component in git&quot;,
+  icon: {
+    name: &quot;git&quot;,
+    width: 32,
+    height: 32,
+  },
+  modifiers: [&quot;size-s&quot;]
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <span class="title">M</span>
+                              <div class="component__view">
+                                <a class="icon-button icon-button--size-m" href="#" aria-label="Open component in git">
+                                  <svg width="32" height="32" aria-hidden="true">
+                                    <use xlink:href="img/sprite.svg#git"></use>
+                                  </svg>
+                                </a>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+button({
+  href: &quot;#&quot;,
+  ariaLabel: &quot;Open component in git&quot;,
+  icon: {
+    name: &quot;git&quot;,
+    width: 32,
+    height: 32,
+  },
+  modifiers: [&quot;size-m&quot;]
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--size {
+  &amp;-s {
+    width: 30px;
+    height: 30px;
+
+    @include vp-767 {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  &amp;-m {
+    width: 50px;
+    height: 50px;
+
+    @include vp-767 {
+      width: 45px;
+      height: 45px;
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Форма (радиус закругления углов)</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <a class="icon-button icon-button--form-brick" href="#" aria-label="Open component in git">
+                                  <svg width="32" height="32" aria-hidden="true">
+                                    <use xlink:href="img/sprite.svg#git"></use>
+                                  </svg>
+                                </a>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+icon-button({
+  href: &quot;#&quot;,
+  ariaLabel: &quot;Open component in git&quot;,
+  icon: {
+    name: &quot;git&quot;,
+    width: 32,
+    height: 32,
+  },
+  modifiers: [&quot;form-brick&quot;]
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <a class="icon-button icon-button--form-round" href="#" aria-label="Open component in git">
+                                  <svg width="32" height="32" aria-hidden="true">
+                                    <use xlink:href="img/sprite.svg#git"></use>
+                                  </svg>
+                                </a>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+icon-button({
+  href: &quot;#&quot;,
+  ariaLabel: &quot;Open component in git&quot;,
+  icon: {
+    name: &quot;git&quot;,
+    width: 32,
+    height: 32,
+  },
+  modifiers: [&quot;form-round&quot;]
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <a class="icon-button icon-button--form-round-xs" href="#" aria-label="Open component in git">
+                                  <svg width="32" height="32" aria-hidden="true">
+                                    <use xlink:href="img/sprite.svg#git"></use>
+                                  </svg>
+                                </a>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+icon-button({
+  href: &quot;#&quot;,
+  ariaLabel: &quot;Open component in git&quot;,
+  icon: {
+    name: &quot;git&quot;,
+    width: 32,
+    height: 32,
+  },
+  modifiers: [&quot;form-round-xs&quot;]
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <a class="icon-button icon-button--form-round-s" href="#" aria-label="Open component in git">
+                                  <svg width="32" height="32" aria-hidden="true">
+                                    <use xlink:href="img/sprite.svg#git"></use>
+                                  </svg>
+                                </a>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+icon-button({
+  href: &quot;#&quot;,
+  ariaLabel: &quot;Open component in git&quot;,
+  icon: {
+    name: &quot;git&quot;,
+    width: 32,
+    height: 32,
+  },
+  modifiers: [&quot;form-round-s&quot;]
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--form {
+  &amp;-brick {
+    border-radius: 0;
+  }
+
+  &amp;-round {
+    border-radius: 99rem;
+
+    &amp;-xs {
+      border-radius: #{$space-xs};
+    }
+
+    &amp;-s {
+      border-radius: #{$space-s};
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="details" data-details="details">
+                        <summary data-details="summary">Elevation (тени, фон, непрозрачность и другие свойства визуализации виртуальной Z-координаты кнопки относительно слоя экрана)</summary>
+                        <div class="details__content" data-details="content">
+                          <div class="grid grid--cols-2 grid--gap-l component__examples">
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <a class="icon-button icon-button--elevated-shadow-1" href="#" aria-label="Open component in git">
+                                  <svg width="32" height="32" aria-hidden="true">
+                                    <use xlink:href="img/sprite.svg#git"></use>
+                                  </svg>
+                                </a>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+icon-button({
+    href: &quot;#&quot;,
+    ariaLabel: &quot;Open component in git&quot;,
+    icon: {
+      name: &quot;git&quot;,
+      width: 32,
+      height: 32,
+    },
+    modifiers: [&quot;elevated-shadow-1&quot;]
+  })
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                            <div class="card card--filled-stripe card--form-round-m card--space-m component__example">
+                              <div class="component__view">
+                                <a class="icon-button icon-button--elevated-shadow-2" href="#" aria-label="Open component in git">
+                                  <svg width="32" height="32" aria-hidden="true">
+                                    <use xlink:href="img/sprite.svg#git"></use>
+                                  </svg>
+                                </a>
+                              </div>
+                              <details class="details component__details" data-details="details">
+                                <summary data-details="summary">Показать код</summary>
+                                <div class="details__content" data-details="content">
+                                  <pre><code>+icon-button({
+  href: &quot;#&quot;,
+  ariaLabel: &quot;Open component in git&quot;,
+  icon: {
+    name: &quot;git&quot;,
+    width: 32,
+    height: 32,
+  },
+  modifiers: [&quot;elevated-shadow-2&quot;]
+})
+</code></pre>
+                                </div>
+                              </details>
+                            </div>
+                          </div>
+                          <div class="component__code">
+                            <pre><code>&amp;--elevated {
+  &amp;-shadow {
+    &amp;-1 {
+      --box-shadow: #{$shadow-layer-1};
+
+      @include active {
+        --box-shadow: #{$shadow-layer-0};
+      }
+    }
+
+    &amp;-2 {
+      --box-shadow: #{$shadow-layer-2};
+
+      @include active {
+        --box-shadow: #{$shadow-layer-1};
+      }
+    }
+  }
+}
+</code></pre>
+                          </div>
+                        </div>
+                      </details>
+                    </div>
+                    <pre><code>}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
